@@ -69,10 +69,11 @@ DROP TABLE IF EXISTS `R_PRS_THL_TMN`;
 CREATE TABLE `R_PRS_THL_TMN` (
   `PRS_THL_TMN_START_DATE` date DEFAULT NULL,
   `PRS_THL_TMN_END_DATE` date DEFAULT NULL,
+  `PRS_THL_TMN_COST` float DEFAULT NULL,
   `PRS_ID` int(11) NOT NULL,
   `TAS_ID` int(11) NOT NULL,
   `TMN_ID` int(11) NOT NULL,
-  PRIMARY KEY (`PRS_ID`,`TAS_ID`,`TMN_ID`),
+  PRIMARY KEY (`PRS_ID`,`TAS_ID`,`TMN_ID`,`PRS_THL_TMN_START_DATE`),
   KEY `FK_R_PRS_THL_TMN_TAS_ID` (`TAS_ID`),
   KEY `FK_R_PRS_THL_TMN_TMN_ID` (`TMN_ID`),
   CONSTRAINT `FK_R_PRS_THL_TMN_TMN_ID` FOREIGN KEY (`TMN_ID`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
@@ -156,23 +157,24 @@ CREATE TABLE `R_TMN_TET` (
 -- Table structure for table `R_TMN_TTP_TAS_TTN`
 --
 
-DROP TABLE IF EXISTS `R_TMN_TTP_TAS_TTN`;
+DROP TABLE IF EXISTS `R_TMN_TTP_TTN_TTL`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `R_TMN_TTP_TAS_TTN` (
-  `R_TMN_TTP_DATE` date NOT NULL,
+CREATE TABLE `R_TMN_TTP_TTN_TTL` (
+  `TMN_TTP_TTN_TTL_DATE` date NOT NULL,
+  `TMN_TTP_TTN_TTL_COST` float DEFAULT NULL,
   `TMN_ID` int(11) NOT NULL,
   `TTP_ID` int(11) NOT NULL,
   `TTN_ID` int(11) NOT NULL,
-  `TAS_ID` int(11) NOT NULL,
-  `TAS_ID_T_ADRESS_TAS` int(11) NOT NULL,
-  PRIMARY KEY (`TMN_ID`,`TTP_ID`,`TTN_ID`,`TAS_ID`,`TAS_ID_T_ADRESS_TAS`),
+  `TTL_ID_START_LOCATION` int(11) NOT NULL,
+  `TTL_ID_END_LOCATION TAS_ID_T_ADRESS_TAS` int(11) NOT NULL,
+  PRIMARY KEY (`TMN_ID`,`TTP_ID`,`TTN_ID`,`TTL_ID_START_LOCATION`,`TTL_ID_END_LOCATION`),
   KEY `FK_R_TMN_TTP_TAS_TTN_TTP_ID` (`TTP_ID`),
   KEY `FK_R_TMN_TTP_TAS_TTN_TTN_ID` (`TTN_ID`),
-  KEY `FK_R_TMN_TTP_TAS_TTN_TAS_ID` (`TAS_ID`),
-  KEY `FK_R_TMN_TTP_TAS_TTN_TAS_ID_T_ADRESS_TAS` (`TAS_ID_T_ADRESS_TAS`),
-  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TAS_ID_T_ADRESS_TAS` FOREIGN KEY (`TAS_ID_T_ADRESS_TAS`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
-  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
+  KEY `FK_R_TMN_TTP_TAS_TTN_TTL_ID_START_LOCATION` (`TTL_ID_START_LOCATION`),
+  KEY `FK_R_TMN_TTP_TAS_TTN_TTL_ID_END_LOCATION` (`TTL_ID_END_LOCATION`),
+  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_END_LOCATION` FOREIGN KEY (`TTL_ID_END_LOCATION`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
+  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_START_LOCATION` FOREIGN KEY (`TTL_ID_START_LOCATION`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TMN_ID` FOREIGN KEY (`TMN_ID`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTN_ID` FOREIGN KEY (`TTN_ID`) REFERENCES `T_TRANSPORT_NATURE_TTN` (`TTN_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTP_ID` FOREIGN KEY (`TTP_ID`) REFERENCES `T_TRIP_TTP` (`TTP_ID`)
@@ -290,20 +292,20 @@ CREATE TABLE `T_CONCRETE_EVENT_TCT` (
   `TCT_DURATION` smallint(6) NOT NULL,
   `TCT_COMMENT` text,
   `TCT_URL` varchar(1048) DEFAULT NULL,
-  `PRS_ID` int(11) NOT NULL,
+  `PRS_ID_AUTHOR` int(11) NOT NULL,
   `TRT_ID` int(11) DEFAULT NULL,
-  `PRS_ID_T_PERSON_PRS` int(11) DEFAULT NULL,
+  `PRS_ID_LEADER` int(11) DEFAULT NULL,
   `TAS_ID` int(11) DEFAULT NULL,
   `TET_ID` int(11) NOT NULL,
   PRIMARY KEY (`TCT_ID`),
-  KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID` (`PRS_ID`),
+  KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID_AUTHOR` (`PRS_ID_AUTHOR`),
   KEY `FK_T_CONCRETE_EVENT_TCT_TRT_ID` (`TRT_ID`),
-  KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID_T_PERSON_PRS` (`PRS_ID_T_PERSON_PRS`),
+  KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID_LEADER` (`PRS_ID_LEADER`),
   KEY `FK_T_CONCRETE_EVENT_TCT_TAS_ID` (`TAS_ID`),
   KEY `FK_T_CONCRETE_EVENT_TCT_TET_ID` (`TET_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TET_ID` FOREIGN KEY (`TET_ID`) REFERENCES `T_EVENT_TET` (`TET_ID`),
-  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
-  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_T_PERSON_PRS` FOREIGN KEY (`PRS_ID_T_PERSON_PRS`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
+  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_AUTHOR` FOREIGN KEY (`PRS_ID_AUTHOR`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
+  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_LEADER` FOREIGN KEY (`PRS_ID_LEADER`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT` (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -568,10 +570,11 @@ DROP TABLE IF EXISTS `T_STATUS_TST`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `T_STATUS_TST` (
   `TST_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TST_ABBREV` varchar(25) NOT NULL,
   `TST_NAME` varchar(255) NOT NULL,
-  `TST_OBJ_TYPE` varchar(255) NOT NULL,
   PRIMARY KEY (`TST_ID`),
   UNIQUE KEY `TST_NAME` (`TST_NAME`)
+  UNIQUE KEY `TST_ABBREV` (`TST_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -619,6 +622,79 @@ CREATE TABLE `T_TRIP_TTP` (
 --
 -- Dumping routines for database 'iam_bcom_mission'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `add_country` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_country`(in countryCode int(11),in alpha2Code varchar(2), in alpha3Code varchar(3), in nameEN_GB varchar(45), in nameFR_FR varchar(45), in continentName varchar(255))
+BEGIN
+DECLARE tctID int(11);
+SELECT TCT_ID INTO tctID FROM T_CONTINENT_TCT WHERE TCT_NAME=continentName;
+IF (tctID IS NOT NULL)
+THEN
+INSERT INTO T_COUNTRY_TCY (TCY_CODE, TCY_ALPHA2, TCY_ALPHA3, TCY_EN_GB_NAME, TCY_FR_FR_NAME, TCT_ID) VALUES (countryCode,alpha2Code,alpha3Code,nameEN_GB,nameFR_FR,tctID);
+END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `bind_event_type_2_scope` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `bind_event_type_2_scope`(in eventTypeAbbrev varchar(25),in scopeAbbrev varchar(25))
+BEGIN
+DECLARE ttyID int(11);
+DECLARE tesID int(11);
+
+SELECT TTY_ID INTO ttyID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV=eventTypeAbbrev;
+SELECT TES_ID INTO tesID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV=scopeAbbrev;
+IF (ttyID IS NOT NULL AND tesID IS NOT NULL)
+THEN
+INSERT INTO R_TTY_TES_CONSTRAINT (TTY_ID,TES_ID) VALUES (ttyID,tesID);
+END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_scopes_for_event_type` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_scopes_for_event_type`(in eventTypeAbbrev varchar(25))
+BEGIN
+SELECT TES_ABBREV,TES_NAME FROM T_EVENT_SCOPE_TES tes
+INNER JOIN R_TTY_TES_CONSTRAINT r_tty_tes on r_tty_tes.TES_ID = tes.TES_ID
+INNER JOIN T_EVENT_TYPE_TTY tty on tty.TTY_ID = r_tty_tes.TTY_ID
+WHERE tty.TTY_ABBREV = eventTypeAbbrev;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
