@@ -60,13 +60,14 @@ DROP TABLE IF EXISTS `R_INVOLVED_ROLES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `R_INVOLVED_ROLES`(
+        `RIR_ID`  int(11) NOT NULL AUTO_INCREMENT,
         `INVOLVED_ROLES_INFO`  Bool ,
         `INVOLVED_ROLES_VALID` Bool ,
-        `TTY_ID`               Int NOT NULL ,
-        `TES_ID`               Int NOT NULL ,
-        `TPE_ID`               Int NOT NULL ,
-        `TRG_ID`               Int NOT NULL ,
-        PRIMARY KEY (`TTY_ID` ,`TES_ID` ,`TPE_ID` ,`TRG_ID` ),
+        `TTY_ID`               int(11) DEFAULT NULL ,
+        `TES_ID`               int(11) DEFAULT NULL ,
+        `TPE_ID`               int(11) DEFAULT NULL ,
+        `TRG_ID`               int(11) NOT NULL ,
+        PRIMARY KEY (`RIR_ID` ),
 	KEY `FK_R_INVOLVED_ROLES_TTY_ID` (`TTY_ID`),
 	KEY `FK_R_INVOLVED_ROLES_TES_ID` (`TES_ID`),
 	KEY `FK_R_INVOLVED_ROLES_TPE_ID` (`TPE_ID`),
@@ -554,8 +555,10 @@ DROP TABLE IF EXISTS `T_PURPOSE_TPE`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `T_PURPOSE_TPE` (
   `TPE_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TPE_ABBREV` varchar(25) NOT NULL,
   `TPE_NAME` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`TPE_ID`)
+  PRIMARY KEY (`TPE_ID`),
+  UNIQUE KEY `TPE_ABBREV` (`TPE_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -585,7 +588,7 @@ CREATE TABLE `T_STATUS_TST` (
   `TST_ABBREV` varchar(25) NOT NULL,
   `TST_NAME` varchar(255) NOT NULL,
   PRIMARY KEY (`TST_ID`),
-  UNIQUE KEY `TST_NAME` (`TST_NAME`)
+  UNIQUE KEY `TST_NAME` (`TST_NAME`),
   UNIQUE KEY `TST_ABBREV` (`TST_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -702,6 +705,39 @@ SELECT TES_ABBREV,TES_NAME FROM T_EVENT_SCOPE_TES tes
 INNER JOIN R_TTY_TES_CONSTRAINT r_tty_tes on r_tty_tes.TES_ID = tes.TES_ID
 INNER JOIN T_EVENT_TYPE_TTY tty on tty.TTY_ID = r_tty_tes.TTY_ID
 WHERE tty.TTY_ABBREV = eventTypeAbbrev;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_travel_wf_role` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_travel_wf_role`(in scopeAbbrev varchar(25),in evtTypeAbbrev varchar(25),in purposeAbbrev varchar(25),in bInfo bool, in bValid bool, in trgIDAD varchar(255))
+BEGIN
+DECLARE scopeID int(11);
+DECLARE evtTypeID int(11);
+DECLARE purposeID int(11);
+DECLARE trgID int(11);
+
+SET trgID = roleGroupADToID(trgIDAD);
+
+SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
+SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
+SELECT TPE_ID  INTO purposeID FROM T_PURPOSE_TPE WHERE TPE_ABBREV = purposeAbbrev;
+
+IF ((trgID IS NOT NULL) AND ((scopeID IS NOT NULL) OR (evtTypeID IS NOT NULL) OR (purposeID IS NOT NULL)))
+THEN
+INSERT INTO R_INVOLVED_ROLES (TTY_ID,TES_ID,TPE_ID,TRG_ID,INVOLVED_ROLES_INFO,INVOLVED_ROLES_VALID) VALUES (evtTypeID,scopeID,purposeID,trgID,bInfo,bValid);
+END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
