@@ -66,15 +66,18 @@ CREATE TABLE `R_INVOLVED_ROLES`(
         `TTY_ID`               int(11) DEFAULT NULL ,
         `TES_ID`               int(11) DEFAULT NULL ,
         `TPE_ID`               int(11) DEFAULT NULL ,
+         TIN_ID                int(11) DEFAULT NULL ,
         `TRG_ID`               int(11) NOT NULL ,
         PRIMARY KEY (`RIR_ID` ),
 	KEY `FK_R_INVOLVED_ROLES_TTY_ID` (`TTY_ID`),
 	KEY `FK_R_INVOLVED_ROLES_TES_ID` (`TES_ID`),
 	KEY `FK_R_INVOLVED_ROLES_TPE_ID` (`TPE_ID`),
+	KEY `FK_R_INVOLVED_ROLES_TIN_ID` (`TIN_ID`),
 	KEY `FK_R_INVOLVED_ROLES_TRG_ID` (`TRG_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TTY_ID` FOREIGN KEY (`TTY_ID`) REFERENCES `T_EVENT_TYPE_TTY` (`TTY_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TES_ID` FOREIGN KEY (`TES_ID`) REFERENCES `T_EVENT_SCOPE_TES` (`TES_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TPE_ID` FOREIGN KEY (`TPE_ID`) REFERENCES `T_PURPOSE_TPE` (`TPE_ID`),
+	CONSTRAINT `FK_R_INVOLVED_ROLES_TIN_ID` FOREIGN KEY (`TIN_ID`) REFERENCES `T_INVOLVEMENT_NATURE_TIN` (`TIN_ID`)
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TRG_ID` FOREIGN KEY (`TRG_ID`) REFERENCES `TRG_FUNCTIONAL_TFL` (`TRG_ID`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -485,7 +488,9 @@ DROP TABLE IF EXISTS `T_INVOLVEMENT_NATURE_TIN`;
 CREATE TABLE `T_INVOLVEMENT_NATURE_TIN` (
   `TIN_ID` int(11) NOT NULL AUTO_INCREMENT,
   `TIN_NAME` varchar(255) NOT NULL,
-  PRIMARY KEY (`TIN_ID`)
+  `TIN_ABBREV` varchar(25) NOT NULL,
+  PRIMARY KEY (`TIN_ID`),
+  UNIQUE KEY `TIN_ABBREV` (`TIN_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -744,7 +749,83 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_travel_validation_roles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_validation_roles`()
+BEGIN
+SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
+inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
+inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
+WHERE roles.INVOLVED_ROLES_VALID = 1
+group BY tfl.DIR_ID;
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_travel_notified_roles` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_notified_roles`()
+BEGIN
+SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
+inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
+inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
+WHERE roles.INVOLVED_ROLES_VALID = 0 AND  roles.INVOLVED_ROLES_INFO = 1
+group BY tfl.DIR_ID;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `get_directors_except` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_directors_except`(in directorGGRF varchar(255))
+BEGIN
+DECLARE roleID int(11);
+SELECT ROL_ID INTO roleID FROM T_ROLE_ROL WHERE ROL_ABBREV = 'DIR' LIMIT 1;
+
+SELECT TRG_ID_AD FROM T_ROLE_GROUPS_TRG trg
+INNER JOIN TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
+WHERE tfl.ROL_ID = roleID AND tfl.DIR_ID NOT IN (
+SELECT dir.DIR_ID FROM T_DIRECTION_DIR dir
+INNER JOIN TRG_FUNCTIONAL_TFL tfl2 on tfl2.DIR_ID = dir.DIR_ID
+INNER JOIN T_ROLE_GROUPS_TRG trg2 on tfl2.TRG_ID = trg2.TRG_ID
+WHERE trg2.TRG_ID_AD = directorGGRF);
+
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
