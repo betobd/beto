@@ -101,7 +101,7 @@ CREATE TABLE `R_PRS_THL_TMN` (
   KEY `FK_R_PRS_THL_TMN_TMN_ID` (`TMN_ID`),
   CONSTRAINT `FK_R_PRS_THL_TMN_TMN_ID` FOREIGN KEY (`TMN_ID`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
   CONSTRAINT `FK_R_PRS_THL_TMN_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
-  CONSTRAINT `FK_R_PRS_THL_TMN_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`)
+  CONSTRAINT `FK_R_PRS_THL_TMN_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -138,7 +138,7 @@ CREATE TABLE `R_TET_TEA` (
   PRIMARY KEY (`TAS_ID`,`TET_ID`),
   KEY `FK_R_TET_TEA_TET_ID` (`TET_ID`),
   CONSTRAINT `FK_R_TET_TEA_TET_ID` FOREIGN KEY (`TET_ID`) REFERENCES `T_EVENT_TET` (`TET_ID`),
-  CONSTRAINT `FK_R_TET_TEA_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`)
+  CONSTRAINT `FK_R_TET_TEA_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -196,8 +196,8 @@ CREATE TABLE `R_TMN_TTP_TTN_TTL` (
   KEY `FK_R_TMN_TTP_TAS_TTN_TTN_ID` (`TTN_ID`),
   KEY `FK_R_TMN_TTP_TAS_TTN_TTL_ID_START_LOCATION` (`TTL_ID_START_LOCATION`),
   KEY `FK_R_TMN_TTP_TAS_TTN_TTL_ID_END_LOCATION` (`TTL_ID_END_LOCATION`),
-  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_END_LOCATION` FOREIGN KEY (`TTL_ID_END_LOCATION`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
-  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_START_LOCATION` FOREIGN KEY (`TTL_ID_START_LOCATION`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
+  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_END_LOCATION` FOREIGN KEY (`TTL_ID_END_LOCATION`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`),
+  CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTL_ID_START_LOCATION` FOREIGN KEY (`TTL_ID_START_LOCATION`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TMN_ID` FOREIGN KEY (`TMN_ID`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTN_ID` FOREIGN KEY (`TTN_ID`) REFERENCES `T_TRANSPORT_NATURE_TTN` (`TTN_ID`),
   CONSTRAINT `FK_R_TMN_TTP_TAS_TTN_TTP_ID` FOREIGN KEY (`TTP_ID`) REFERENCES `T_TRIP_TTP` (`TTP_ID`)
@@ -281,13 +281,13 @@ CREATE TABLE `R_TTY_TES_CONSTRAINT` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `T_ADRESS_TAS`
+-- Table structure for table `T_ADDRESS_TAS`
 --
 
-DROP TABLE IF EXISTS `T_ADRESS_TAS`;
+DROP TABLE IF EXISTS `T_ADDRESS_TAS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `T_ADRESS_TAS` (
+CREATE TABLE `T_ADDRESS_TAS` (
   `TAS_ID` int(11) NOT NULL AUTO_INCREMENT,
   `TAS_NAME` varchar(255) NOT NULL,
   `TAS_ADDR1` varchar(255) DEFAULT NULL,
@@ -299,8 +299,8 @@ CREATE TABLE `T_ADRESS_TAS` (
   `TAS_TOWN` varchar(255) DEFAULT NULL,
   `TCY_ID` int(11) NOT NULL,
   PRIMARY KEY (`TAS_ID`),
-  KEY `FK_T_ADRESS_TAS_TCY_ID` (`TCY_ID`),
-  CONSTRAINT `FK_T_ADRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`)
+  KEY `FK_T_ADDRESS_TAS_TCY_ID` (`TCY_ID`),
+  CONSTRAINT `FK_T_ADDRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -318,6 +318,7 @@ CREATE TABLE `T_CONCRETE_EVENT_TCT` (
   `TCT_DURATION` smallint(6) NOT NULL,
   `TCT_COMMENT` text,
   `TCT_URL` varchar(1048) DEFAULT NULL,
+  `TCT_COST` float DEFAULT NULL,
   `PRS_ID_AUTHOR` int(11) NOT NULL,
   `TRT_ID` int(11) DEFAULT NULL,
   `PRS_ID_LEADER` int(11) DEFAULT NULL,
@@ -332,7 +333,7 @@ CREATE TABLE `T_CONCRETE_EVENT_TCT` (
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TET_ID` FOREIGN KEY (`TET_ID`) REFERENCES `T_EVENT_TET` (`TET_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_AUTHOR` FOREIGN KEY (`PRS_ID_AUTHOR`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_LEADER` FOREIGN KEY (`PRS_ID_LEADER`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
-  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`),
+  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT` (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -374,16 +375,16 @@ CREATE TABLE `T_COUNTRY_TCY` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `T_EVENT_ADRESS_TEA`
+-- Table structure for table `T_EVENT_ADDRESS_TEA`
 --
 
-DROP TABLE IF EXISTS `T_EVENT_ADRESS_TEA`;
+DROP TABLE IF EXISTS `T_EVENT_ADDRESS_TEA`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `T_EVENT_ADRESS_TEA` (
+CREATE TABLE `T_EVENT_ADDRESS_TEA` (
   `TAS_ID` int(11) NOT NULL,
   PRIMARY KEY (`TAS_ID`),
-  CONSTRAINT `FK_T_EVENT_ADRESS_TEA_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`)
+  CONSTRAINT `FK_T_EVENT_ADDRESS_TEA_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -459,7 +460,7 @@ CREATE TABLE `T_HOSTING_LOCATION_THL` (
   PRIMARY KEY (`TAS_ID`),
   KEY `FK_T_HOSTING_LOCATION_THL_THG_ID` (`THG_ID`),
   CONSTRAINT `FK_T_HOSTING_LOCATION_THL_THG_ID` FOREIGN KEY (`THG_ID`) REFERENCES `T_HOSTING_THG` (`THG_ID`),
-  CONSTRAINT `FK_T_HOSTING_LOCATION_THL_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`)
+  CONSTRAINT `FK_T_HOSTING_LOCATION_THL_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -622,7 +623,7 @@ DROP TABLE IF EXISTS `T_TRAVEL_LOCATION_TTL`;
 CREATE TABLE `T_TRAVEL_LOCATION_TTL` (
   `TAS_ID` int(11) NOT NULL,
   PRIMARY KEY (`TAS_ID`),
-  CONSTRAINT `FK_T_TRAVEL_LOCATION_TTL_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADRESS_TAS` (`TAS_ID`)
+  CONSTRAINT `FK_T_TRAVEL_LOCATION_TTL_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -818,6 +819,160 @@ INNER JOIN TRG_FUNCTIONAL_TFL tfl2 on tfl2.DIR_ID = dir.DIR_ID
 INNER JOIN T_ROLE_GROUPS_TRG trg2 on tfl2.TRG_ID = trg2.TRG_ID
 WHERE trg2.TRG_ID_AD = directorGGRF);
 
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_event` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_event`(in eventName varchar(255), in url varchar(1048), in remark text, in isPrivate bool, in isTemplate bool, in duration smallint(6), in cost float, in scopeAbbrev varchar(25), in evtTypeAbbrev varchar(25), in startDate date, in prsLogin varchar(255), in addressID int(11))
+BEGIN
+DECLARE eventID int(11);
+DECLARE scopeID int(11); 
+DECLARE evtTypeID int(11);
+
+
+SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
+SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
+
+IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND prsLogin IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL AND isTemplate IS NOT NULL)
+THEN
+INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,isTemplate,duration,cost,evtTypeID,scopeID);
+SELECT LAST_INSERT_ID() INTO eventID;
+call add_concrete_event(eventID, startDate, duration, remark, url, cost, prsLogin, addressID);
+END IF; 
+
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_concrete_event` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_concrete_event`(in eventID int(11),in startDate date, in duration smallint(6),in remark text, in url varchar(1048),in cost float,in prsLogin varchar(255), in addressID int(11))
+BEGIN
+DECLARE eventName varchar(255);
+DECLARE creDate date;
+DECLARE prsID int(11);
+DECLARE adrID int(11);
+DECLARE concreteExistingEvtID int(11);
+
+SELECT TET_NAME INTO eventName FROM T_EVENT_TET WHERE TET_ID = eventID;
+SELECT PRS_ID INTO prsID FROM T_PERSON_PRS WHERE PRS_LOGIN = prsLogin;
+SELECT TCT_ID INTO concreteExistingEvtID FROM T_CONCRETE_EVENT_TCT WHERE TET_ID = eventID AND TCT_START_DATE = startDate;
+SET creDate = CURDATE();
+
+IF (concreteExistingEvtID IS NOT NULL)
+THEN 
+SELECT 0;
+END IF;
+
+IF (eventName IS NOT NULL AND duration IS NOT NULL AND prsID IS NOT NULL AND concreteExistingEvtID IS NULL)
+THEN
+INSERT INTO T_CONCRETE_EVENT_TCT (TET_ID,TCT_CREATE_DATE,TCT_START_DATE,TCT_DURATION,TCT_COMMENT,TCT_URL,TCT_COST,PRS_ID_AUTHOR,TAS_ID) VALUES(eventID,creDate,startDate,duration,remark,url,cost,prsID,addressID);
+SELECT LAST_INSERT_ID() INTO concreteExistingEvtID;
+
+IF (cost <> 0)
+THEN 
+UPDATE T_EVENT_TET SET TET_AVERAGE_COST = cost WHERE TET_ID = eventID; 
+END IF;
+
+IF (addressID IS NOT NULL)
+THEN 
+SELECT TAS_ID INTO adrID FROM R_TET_TEA WHERE TAS_ID = addressID AND TET_ID = eventID;
+
+IF (adrID IS NULL)
+THEN
+INSERT INTO R_TET_TEA (TAS_ID,TET_ID) VALUES (addressID,eventID);
+END IF;
+
+END IF;
+
+SELECT concreteExistingEvtID;
+END IF; 
+
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `addAddress` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `addAddress`(adrName varchar(255), state varchar(255), zipcode varchar(255), phoneNumber varchar(25), town varchar(255), addr1 varchar(255), addr2 varchar(255), addr3 varchar(255), countryID int(11)) RETURNS int(11)
+BEGIN
+INSERT INTO T_ADDRESS_TAS (TAS_NAME,TAS_STATE,TAS_ZIPCODE,TAS_PHONENUMBER,TAS_TOWN,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TCY_ID) VALUES (adrName,state,zipcode,phoneNumber,town,addr1,addr2,addr3,countryID);
+RETURN LAST_INSERT_ID();
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_address` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in adrName varchar(255), in state varchar(255), in zipcode varchar(255), in phoneNumber varchar(25), in town varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in countryID int(11))
+BEGIN
+DECLARE addrID int(11);
+IF (addrType = 'T_EVENT_ADDRESS_TEA' OR addrType = 'T_HOSTING_LOCATION_THL' OR addrType = 'T_TRAVEL_LOCATION_TTL')
+THEN           
+START TRANSACTION;                                                                               
+SET addrID = addAddress(adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
+
+IF (addrType = 'T_EVENT_ADDRESS_TEA')
+THEN
+INSERT INTO T_EVENT_ADDRESS_TEA VALUES(addrID);
+END IF;
+
+IF (addrType = 'T_HOSTING_LOCATION_THL')
+THEN
+INSERT INTO T_HOSTING_LOCATION_THL VALUES(addrID);
+END IF;
+
+IF (addrType = 'T_TRAVEL_LOCATION_TTL')
+THEN
+INSERT INTO T_TRAVEL_LOCATION_TTL VALUES(addrID);
+END IF;
+
+COMMIT;
+SELECT addrID;
+
+END IF;
 END;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
