@@ -12,6 +12,7 @@
 --
 -- Table structure for table `R_ATTENDEES_RAS`
 --
+USE `iam_bcom`;
 
 DROP TABLE IF EXISTS `R_ATTENDEES_RAS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -77,7 +78,7 @@ CREATE TABLE `R_INVOLVED_ROLES`(
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TTY_ID` FOREIGN KEY (`TTY_ID`) REFERENCES `T_EVENT_TYPE_TTY` (`TTY_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TES_ID` FOREIGN KEY (`TES_ID`) REFERENCES `T_EVENT_SCOPE_TES` (`TES_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TPE_ID` FOREIGN KEY (`TPE_ID`) REFERENCES `T_PURPOSE_TPE` (`TPE_ID`),
-	CONSTRAINT `FK_R_INVOLVED_ROLES_TIN_ID` FOREIGN KEY (`TIN_ID`) REFERENCES `T_INVOLVEMENT_NATURE_TIN` (`TIN_ID`)
+	CONSTRAINT `FK_R_INVOLVED_ROLES_TIN_ID` FOREIGN KEY (`TIN_ID`) REFERENCES `T_INVOLVEMENT_NATURE_TIN` (`TIN_ID`),
 	CONSTRAINT `FK_R_INVOLVED_ROLES_TRG_ID` FOREIGN KEY (`TRG_ID`) REFERENCES `TRG_FUNCTIONAL_TFL` (`TRG_ID`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -641,6 +642,57 @@ CREATE TABLE `T_TRIP_TTP` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Temporary view structure for view `travel_event`
+--
+
+DROP TABLE IF EXISTS `travel_event`;
+/*!50001 DROP VIEW IF EXISTS `travel_event`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `travel_event` AS SELECT 
+ 1 AS `TET_ID`,
+ 1 AS `TET_NAME`,
+ 1 AS `TET_URL`,
+ 1 AS `TET_COMMENT`,
+ 1 AS `TET_ISPRIVATE`,
+ 1 AS `TET_ISTEMPLATE`,
+ 1 AS `TET_DURATION`,
+ 1 AS `TET_AVERAGE_COST`,
+ 1 AS `fkTTY_ID`,
+ 1 AS `fkTES_ID`,
+ 1 AS `fkTCT_ID`,
+ 1 AS `TCT_CREATE_DATE`,
+ 1 AS `TCT_START_DATE`,
+ 1 AS `TCT_DURATION`,
+ 1 AS `TCT_COMMENT`,
+ 1 AS `TCT_URL`,
+ 1 AS `fkPRS_ID_AUTHOR`,
+ 1 AS `fkTRT_ID`,
+ 1 AS `fkPRS_ID_LEADER`,
+ 1 AS `fkTAS_ID`,
+ 1 AS `fkTET_ID`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `travel_event`
+--
+
+/*!50001 DROP VIEW IF EXISTS `travel_event`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `travel_event` AS select `tet`.`TET_ID` AS `TET_ID`,`tet`.`TET_NAME` AS `TET_NAME`,`tet`.`TET_URL` AS `TET_URL`,`tet`.`TET_COMMENT` AS `TET_COMMENT`,`tet`.`TET_ISPRIVATE` AS `TET_ISPRIVATE`,`tet`.`TET_ISTEMPLATE` AS `TET_ISTEMPLATE`,`tet`.`TET_DURATION` AS `TET_DURATION`,`tet`.`TET_AVERAGE_COST` AS `TET_AVERAGE_COST`,`tet`.`TTY_ID` AS `fkTTY_ID`,`tet`.`TES_ID` AS `fkTES_ID`,`tct`.`TCT_ID` AS `fkTCT_ID`,`tct`.`TCT_CREATE_DATE` AS `TCT_CREATE_DATE`,`tct`.`TCT_START_DATE` AS `TCT_START_DATE`,`tct`.`TCT_DURATION` AS `TCT_DURATION`,`tct`.`TCT_COMMENT` AS `TCT_COMMENT`,`tct`.`TCT_URL` AS `TCT_URL`,`tct`.`PRS_ID_AUTHOR` AS `fkPRS_ID_AUTHOR`,`tct`.`TRT_ID` AS `fkTRT_ID`,`tct`.`PRS_ID_LEADER` AS `fkPRS_ID_LEADER`,`tct`.`TAS_ID` AS `fkTAS_ID`,`tct`.`TET_ID` AS `fkTET_ID` from (`T_EVENT_TET` `tet` join `T_CONCRETE_EVENT_TCT` `tct` on((`tet`.`TET_ID` = `tct`.`TET_ID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
 --
 -- Dumping routines for database 'iam_bcom_mission'
 --
@@ -656,11 +708,11 @@ CREATE TABLE `T_TRIP_TTP` (
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_country`(in countryCode int(11),in alpha2Code varchar(2), in alpha3Code varchar(3), in nameEN_GB varchar(45), in nameFR_FR varchar(45), in continentName varchar(255))
 BEGIN
-DECLARE tctID int(11);
-SELECT TCT_ID INTO tctID FROM T_CONTINENT_TCT WHERE TCT_NAME=continentName;
-IF (tctID IS NOT NULL)
+DECLARE cttID int(11);
+SELECT CTT_ID INTO cttID FROM T_CONTINENT_CTT WHERE CTT_NAME=continentName;
+IF (cttID IS NOT NULL)
 THEN
-INSERT INTO T_COUNTRY_TCY (TCY_CODE, TCY_ALPHA2, TCY_ALPHA3, TCY_EN_GB_NAME, TCY_FR_FR_NAME, TCT_ID) VALUES (countryCode,alpha2Code,alpha3Code,nameEN_GB,nameFR_FR,tctID);
+INSERT INTO T_COUNTRY_TCY (TCY_CODE, TCY_ALPHA2, TCY_ALPHA3, TCY_EN_GB_NAME, TCY_FR_FR_NAME, CTT_ID) VALUES (countryCode,alpha2Code,alpha3Code,nameEN_GB,nameFR_FR,cttID);
 END IF;
 END ;;
 DELIMITER ;
@@ -825,7 +877,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `add_event` */;
+/*!50003 DROP PROCEDURE IF EXISTS `add_template_event` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -835,7 +887,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_event`(in eventName varchar(255), in url varchar(1048), in remark text, in isPrivate bool, in isTemplate bool, in duration smallint(6), in cost float, in scopeAbbrev varchar(25), in evtTypeAbbrev varchar(25), in startDate date, in prsLogin varchar(255), in addressID int(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_template_event`(in eventName varchar(255), in url varchar(1048), in remark text, in isPrivate bool, in duration smallint(6), in cost float, in scopeAbbrev varchar(25), in evtTypeAbbrev varchar(25))
 BEGIN
 DECLARE eventID int(11);
 DECLARE scopeID int(11); 
@@ -845,13 +897,12 @@ DECLARE evtTypeID int(11);
 SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
 SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
 
-IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND prsLogin IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL AND isTemplate IS NOT NULL)
+IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL)
 THEN
-INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,isTemplate,duration,cost,evtTypeID,scopeID);
-SELECT LAST_INSERT_ID() INTO eventID;
-call add_concrete_event(eventID, startDate, duration, remark, url, cost, prsLogin, addressID);
+INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,1,duration,cost,evtTypeID,scopeID);
+SELECT LAST_INSERT_ID() AS 'EventID';
 ELSE 
-SELECT 0  AS 'ConcreteEventID';
+SELECT 0  AS 'EventID';
 END IF; 
 
 END;;
@@ -918,6 +969,41 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_event` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_event`(in eventName varchar(255), in url varchar(1048), in remark text, in isPrivate bool, in isTemplate bool, in duration smallint(6), in cost float, in scopeAbbrev varchar(25), in evtTypeAbbrev varchar(25), in startDate date, in prsLogin varchar(255), in addressID int(11))
+BEGIN
+DECLARE eventID int(11);
+DECLARE scopeID int(11); 
+DECLARE evtTypeID int(11);
+
+
+SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
+SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
+
+IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND prsLogin IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL AND isTemplate IS NOT NULL)
+THEN
+INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,isTemplate,duration,cost,evtTypeID,scopeID);
+SELECT LAST_INSERT_ID() INTO eventID;
+call add_concrete_event(eventID, startDate, duration, remark, url, cost, prsLogin, addressID);
+ELSE 
+SELECT 0  AS 'ConcreteEventID';
+END IF; 
+
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `addAddress` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -948,10 +1034,15 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in adrName varchar(255), in state varchar(255), in zipcode varchar(255), in phoneNumber varchar(25), in town varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in countryID int(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
 BEGIN
 DECLARE addrID int(11);
-IF (addrType = 'T_EVENT_ADDRESS_TEA' OR addrType = 'T_HOSTING_LOCATION_THL' OR addrType = 'T_TRAVEL_LOCATION_TTL')
+DECLARE countryID int(11);
+
+SET addrID = 0;
+SELECT TCY_ID INTO countryID FROM T_COUNTRY_TCY WHERE TCY_ALPHA3=countryAlpha3;
+
+IF (countryID IS NOT NULL AND (addrType = 'T_EVENT_ADDRESS_TEA' OR addrType = 'T_HOSTING_LOCATION_THL' OR addrType = 'T_TRAVEL_LOCATION_TTL'))
 THEN           
 START TRANSACTION;                                                                               
 SET addrID = addAddress(adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
@@ -972,9 +1063,9 @@ INSERT INTO T_TRAVEL_LOCATION_TTL VALUES(addrID);
 END IF;
 
 COMMIT;
-SELECT addrID;
 
 END IF;
+SELECT addrID;
 END;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
