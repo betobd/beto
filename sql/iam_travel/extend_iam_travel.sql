@@ -339,16 +339,16 @@ CREATE TABLE `T_CONCRETE_EVENT_TCT` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `T_CONTINENT_TCT`
+-- Table structure for table `T_CONTINENT_CTT`
 --
 
-DROP TABLE IF EXISTS `T_CONTINENT_TCT`;
+DROP TABLE IF EXISTS `T_CONTINENT_CTT`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `T_CONTINENT_TCT` (
-  `TCT_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TCT_NAME` varchar(255) NOT NULL,
-  PRIMARY KEY (`TCT_ID`)
+CREATE TABLE `T_CONTINENT_CTT` (
+  `CTT_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CTT_NAME` varchar(255) NOT NULL,
+  PRIMARY KEY (`CTT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -366,11 +366,11 @@ CREATE TABLE `T_COUNTRY_TCY` (
   `TCY_ALPHA3` varchar(3) NOT NULL,
   `TCY_EN_GB_NAME` varchar(45) NOT NULL,
   `TCY_FR_FR_NAME` varchar(45) NOT NULL,
-  `TCT_ID` int(11) NOT NULL,
+  `CTT_ID` int(11) NOT NULL,
   PRIMARY KEY (`TCY_ID`),
   UNIQUE KEY `TCY_CODE` (`TCY_CODE`,`TCY_ALPHA2`,`TCY_ALPHA3`),
-  KEY `FK_T_COUNTRY_TCY_TCT_ID` (`TCT_ID`),
-  CONSTRAINT `FK_T_COUNTRY_TCY_TCT_ID` FOREIGN KEY (`TCT_ID`) REFERENCES `T_CONTINENT_TCT` (`TCT_ID`)
+  KEY `FK_T_COUNTRY_TCY_CTT_ID` (`CTT_ID`),
+  CONSTRAINT `FK_T_COUNTRY_TCY_CTT_ID` FOREIGN KEY (`CTT_ID`) REFERENCES `T_CONTINENT_CTT` (`CTT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -850,6 +850,8 @@ THEN
 INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,isTemplate,duration,cost,evtTypeID,scopeID);
 SELECT LAST_INSERT_ID() INTO eventID;
 call add_concrete_event(eventID, startDate, duration, remark, url, cost, prsLogin, addressID);
+ELSE 
+SELECT 0  AS 'ConcreteEventID';
 END IF; 
 
 END;;
@@ -883,7 +885,7 @@ SET creDate = CURDATE();
 
 IF (concreteExistingEvtID IS NOT NULL)
 THEN 
-SELECT 0;
+SELECT 0  AS 'ConcreteEventID';
 END IF;
 
 IF (eventName IS NOT NULL AND duration IS NOT NULL AND prsID IS NOT NULL AND concreteExistingEvtID IS NULL)
@@ -907,7 +909,7 @@ END IF;
 
 END IF;
 
-SELECT concreteExistingEvtID;
+SELECT concreteExistingEvtID  AS 'ConcreteEventID';
 END IF; 
 
 END;;
