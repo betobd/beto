@@ -206,6 +206,29 @@ CREATE TABLE `R_TMN_TTP_TTN_TTL` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `R_TRT_TFC_TCS`
+--
+
+DROP TABLE IF EXISTS `R_TRT_TFC_TCS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE R_TRT_TFC_TCS(
+        R_FIELD_TEXTVALUE Text ,
+        R_FIELD_INTVALUE  int ,
+        TRT_ID            int NOT NULL ,
+        TFC_ID            int NOT NULL ,
+        TCS_ID            int NOT NULL ,
+        PRIMARY KEY (TRT_ID ,TFC_ID ,TCS_ID ),
+	KEY `FK_R_TRT_TFC_TCS_TRT_ID` (`TRT_ID`),
+	KEY `FK_R_TRT_TFC_TCS_TFC_ID` (`TFC_ID`),
+	KEY `FK_R_TRT_TFC_TCS_TCS_ID` (`TCS_ID`),
+	CONSTRAINT `FK_R_TRT_TFC_TCS_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT`(`TRT_ID`),
+	CONSTRAINT `FK_R_TRT_TFC_TCS_TFC_ID` FOREIGN KEY (`TFC_ID`) REFERENCES `T_FILTERED_CHOICES_TFC`(`TFC_ID`),
+	CONSTRAINT `FK_R_TRT_TFC_TCS_TCS_ID` FOREIGN KEY (`TCS_ID`) REFERENCES `T_CHOICE_TYPES_TCS`(`TCS_ID`)
+)ENGINE=InnoDB;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `R_TST_TMN`
 --
 
@@ -529,6 +552,28 @@ CREATE TABLE `T_MISSION_TMN` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `T_NETWORKING_CONTACT_TNC`
+--
+
+DROP TABLE IF EXISTS `T_NETWORKING_CONTACT_TNC`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `T_NETWORKING_CONTACT_TNC`(
+        TNC_ID         int (11) Auto_increment  NOT NULL ,
+        TNC_NAME       Varchar (255) ,
+        TNC_TITLE      Varchar (255) ,
+        TNC_STRUCTURE  Varchar (255) ,
+        TNC_DISCUSSION Varchar (255) ,
+        TNC_FOLLOWUP   Varchar (255) ,
+        TRT_ID         Int NOT NULL ,
+        PRIMARY KEY (TNC_ID ),
+	KEY `FK_T_NETWORKING_CONTACT_TNC_TRT_ID` (`TRT_ID`),
+	CONSTRAINT `FK_T_NETWORKING_CONTACT_TNC_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT`(`TRT_ID`)
+)ENGINE=InnoDB;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `T_PRS_TRAVEL_INFO_TTO`
 --
@@ -569,6 +614,41 @@ CREATE TABLE `T_PURPOSE_TPE` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `T_FILTERED_CHOICES_TFC`
+--
+
+DROP TABLE IF EXISTS `T_FILTERED_CHOICES_TFC`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE T_FILTERED_CHOICES_TFC(
+        TFC_ID     int (11) Auto_increment  NOT NULL ,
+        TFC_ABBREV Varchar (25) NOT NULL ,
+        TFC_NAME   Varchar (255) NOT NULL ,
+        PRIMARY KEY (TFC_ID ) ,
+        UNIQUE (TFC_ABBREV )
+)ENGINE=InnoDB;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `T_CHOICE_TYPES_TCS`
+--
+
+DROP TABLE IF EXISTS `T_CHOICE_TYPES_TCS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE T_CHOICE_TYPES_TCS(
+        TCS_ID     int (11) Auto_increment  NOT NULL ,
+        TCS_NAME   varchar (255) ,
+        TCS_VALUE  int ,
+        TFC_ID     int NOT NULL ,
+        PRIMARY KEY (TCS_ID ),
+        KEY `FK_T_CHOICE_TYPES_TCS_TFC_ID` (`TFC_ID`),
+        CONSTRAINT `FK_T_CHOICE_TYPES_TCS_TFC_ID` FOREIGN KEY (`TFC_ID`) REFERENCES `T_FILTERED_CHOICES_TFC` (`TFC_ID`)
+)ENGINE=InnoDB;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `T_REPORT_TRT`
 --
@@ -578,7 +658,41 @@ DROP TABLE IF EXISTS `T_REPORT_TRT`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `T_REPORT_TRT` (
   `TRT_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `TRT_WORKFLOW_ID` varchar(255) DEFAULT NULL,
+  `TRT_WORKFLOW_ID`       varchar (255) ,
+  `TRT_OTHER_CONTENT_TYPE`      varchar (255) ,
+  `TRT_VISITORS_NB`       int ,
+  `TRT_OTHER_VIS_TYPE`    text ,
+  `TRT_COUNTRY_DETAIL`    text ,
+  `TRT_PARTNER_NB`        int ,
+  `TRT_PARTNER_LIST`      text ,
+  `TRT_NEWSPAPER_LIST`    text ,
+  `TRT_JOURNALIST_LIST`         text ,
+  `TRT_ARTICLE_PRESS_LINKS`     text ,
+  `TRT_TREND_1`           text ,
+  `TRT_TREND_2`           text ,
+  `TRT_TREND_3`           text ,
+  `TRT_KEYNOTES`          text ,
+  `TRT_STANDS_DEMOS`      text ,
+  `TRT_POSITIVE_POINTS`         text ,
+  `TRT_NEGATIVE_POINTS`         text ,
+  `TRT_BCOM_ACTIONS`      text ,
+  `TRT_CONTENTS`          text ,
+  `TRT_KEYWORDS`          text ,
+  `TRT_DIFFUSION_EMAIL_LIST`    text ,
+  `TRT_QUALITY_NOTE`      varchar (2) NOT NULL ,
+  `TRT_QUALITY_COMMENT`         text NOT NULL ,
+  `TRT_RENOWN_COMMENT`    text NOT NULL ,
+  `TRT_DYN_PREVIOUS_SESSION_COMMENT`  text NOT NULL ,
+  `TRT_DYN_PREVIOUS_SESSION_NOTE`     varchar (2) NOT NULL ,
+  `TRT_STRATEGIC_COVER_NOTE`    varchar (2) NOT NULL ,
+  `TRT_STRATEGIC_COVER_COMMENT`       varchar (2) NOT NULL ,
+  `TRT_LOBBY_CONTACT_QUAL_NOTE`       varchar (2) NOT NULL ,
+  `TRT_LOBBY_CONTACT_QUAL_COMMENT`    varchar (2) NOT NULL ,
+  `TRT_BUSINESS_CONTACT_QUAL_NOTE`    varchar (2) NOT NULL ,
+  `TRT_BUSINESS_CONTACT_QUAL_COMMENT` varchar (2) NOT NULL ,
+  `TRT_BCOM_SPREAD_VALUE_COMMENT`     text NOT NULL ,
+  `TRT_QUAL_PRICE_RATIO_NOTE`   Varchar (2) NOT NULL ,
+  `TRT_QUAL_PRICE_RATIO_COMMENT`      text NOT NULL ,
   PRIMARY KEY (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -998,6 +1112,30 @@ ELSE
 SELECT 0  AS 'ConcreteEventID';
 END IF; 
 
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_report_choices` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_report_choices`(in choiceName varchar(255), in choiceValue int, in filterAbbrev varchar(25))
+BEGIN
+DECLARE filterID int(11);
+SELECT TFC_ID INTO filterID FROM T_FILTERED_CHOICES_TFC WHERE TFC_ABBREV = filterAbbrev;
+IF (filterID IS NOT NULL)
+THEN
+INSERT INTO T_CHOICE_TYPES_TCS (TCS_NAME,TCS_VALUE,TFC_ID) VALUES (choiceName,choiceValue,filterID);
+END IF;
 END;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
