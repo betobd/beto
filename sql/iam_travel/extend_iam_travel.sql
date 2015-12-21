@@ -36,24 +36,6 @@ CREATE TABLE `R_ATTENDEES_RAS` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `R_INIT`
---
-
-DROP TABLE IF EXISTS `R_INIT`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `R_INIT` (
-  `TMN_ID` int(11) NOT NULL,
-  `TMN_ID_T_MISSION_TMN` int(11) NOT NULL,
-  PRIMARY KEY (`TMN_ID`,`TMN_ID_T_MISSION_TMN`),
-  KEY `FK_R_INIT_TMN_ID_T_MISSION_TMN` (`TMN_ID_T_MISSION_TMN`),
-  CONSTRAINT `FK_R_INIT_TMN_ID_T_MISSION_TMN` FOREIGN KEY (`TMN_ID_T_MISSION_TMN`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
-  CONSTRAINT `FK_R_INIT_TMN_ID` FOREIGN KEY (`TMN_ID`) REFERENCES `T_MISSION_TMN` (`TMN_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
---
 -- Table structure for table `R_INVOLVED_ROLES`
 --
 
@@ -543,11 +525,14 @@ DROP TABLE IF EXISTS `T_MISSION_TMN`;
 CREATE TABLE `T_MISSION_TMN` (
   `TMN_ID` int(11) NOT NULL AUTO_INCREMENT,
   `TMN_WORKFLOW_ID` varchar(255) DEFAULT NULL,
-  `TML_CREATE_DATE` date DEFAULT NULL,
+  `TMN_CREATE_DATE` date DEFAULT NULL,
   `TMN_ESTIMATED_COST` float DEFAULT NULL,
+  `TMN_ID_ROOT` int(11) DEFAULT NULL,
   `PRS_ID` int(11) NOT NULL,
   PRIMARY KEY (`TMN_ID`),
+  KEY `FK_T_MISSION_TMN_TMN_ID_ROOT` (`TMN_ID_ROOT`),
   KEY `FK_T_MISSION_TMN_PRS_ID` (`PRS_ID`),
+  CONSTRAINT `FK_T_MISSION_TMN_TMN_ID_ROOT` FOREIGN KEY (`TMN_ID_ROOT`) REFERENCES `T_MISSION_TMN` (`TMN_ID`),
   CONSTRAINT `FK_T_MISSION_TMN_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1111,6 +1096,30 @@ call add_concrete_event(eventID, startDate, duration, remark, url, cost, prsLogi
 ELSE 
 SELECT 0  AS 'ConcreteEventID';
 END IF; 
+
+END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_mission` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_mission`(in estimatedCost float, in ownerID int, in rootID int)
+BEGIN
+
+START TRANSACTION;
+INSERT INTO T_MISSION_TMN (TMN_CREATE_DATE,TMN_ESTIMATED_COST,PRS_ID,TMN_ID_ROOT) VALUES (CURDATE(),estimatedCost,ownerID,rootID);
+SELECT LAST_INSERT_ID();
+COMMIT;
 
 END;;
 DELIMITER ;
