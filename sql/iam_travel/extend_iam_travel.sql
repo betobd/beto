@@ -195,12 +195,10 @@ DROP TABLE IF EXISTS `R_TRT_TFC_TCS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE R_TRT_TFC_TCS(
-        R_FIELD_TEXTVALUE Text ,
-        R_FIELD_INTVALUE  int ,
-        TRT_ID            int NOT NULL ,
-        TFC_ID            int NOT NULL ,
-        TCS_ID            int NOT NULL ,
-        PRIMARY KEY (TRT_ID ,TFC_ID ,TCS_ID ),
+        `TRT_ID`            int NOT NULL ,
+        `TFC_ID`            int NOT NULL ,
+        `TCS_ID`            int NOT NULL ,
+        PRIMARY KEY (`TRT_ID` ,`TFC_ID` ,`TCS_ID` ),
 	KEY `FK_R_TRT_TFC_TCS_TRT_ID` (`TRT_ID`),
 	KEY `FK_R_TRT_TFC_TCS_TFC_ID` (`TFC_ID`),
 	KEY `FK_R_TRT_TFC_TCS_TCS_ID` (`TCS_ID`),
@@ -213,17 +211,19 @@ CREATE TABLE R_TRT_TFC_TCS(
 --
 -- Table structure for table `R_TST_TMN`
 --
-
+ 
 DROP TABLE IF EXISTS `R_TST_TMN`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `R_TST_TMN` (
-  `TST_TMN_DATE` date NOT NULL,
+  `TST_TMN_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TST_TMN_DATE` datetime NOT NULL,
   `TST_TMN_COMMENT` text,
   `TST_ID` int(11) NOT NULL,
   `TMN_ID` int(11) NOT NULL,
   `PRS_ID` int(11) NOT NULL,
-  PRIMARY KEY (`TST_ID`,`TMN_ID`,`PRS_ID`),
+  PRIMARY KEY (`TST_TMN_ID`,`TST_ID`,`TMN_ID`,`PRS_ID`),
+  KEY `FK_R_TST_TMN_TST_ID` (`TST_ID`),
   KEY `FK_R_TST_TMN_TMN_ID` (`TMN_ID`),
   KEY `FK_R_TST_TMN_PRS_ID` (`PRS_ID`),
   CONSTRAINT `FK_R_TST_TMN_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
@@ -546,14 +546,14 @@ DROP TABLE IF EXISTS `T_NETWORKING_CONTACT_TNC`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `T_NETWORKING_CONTACT_TNC`(
-        TNC_ID         int (11) Auto_increment  NOT NULL ,
-        TNC_NAME       Varchar (255) ,
-        TNC_TITLE      Varchar (255) ,
-        TNC_STRUCTURE  Varchar (255) ,
-        TNC_DISCUSSION Varchar (255) ,
-        TNC_FOLLOWUP   Varchar (255) ,
-        TRT_ID         Int NOT NULL ,
-        PRIMARY KEY (TNC_ID ),
+        `TNC_ID`         int (11) NOT NULL AUTO_INCREMENT,
+        `TNC_NAME`       varchar (255) ,
+        `TNC_TITLE`      varchar (255) ,
+        `TNC_STRUCTURE`  varchar (255) ,
+        `TNC_DISCUSSION` varchar (255) ,
+        `TNC_FOLLOWUP`   varchar (255) ,
+        `TRT_ID`         int NOT NULL ,
+        PRIMARY KEY (`TNC_ID` ),
 	KEY `FK_T_NETWORKING_CONTACT_TNC_TRT_ID` (`TRT_ID`),
 	CONSTRAINT `FK_T_NETWORKING_CONTACT_TNC_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT`(`TRT_ID`)
 )ENGINE=InnoDB;
@@ -608,11 +608,11 @@ DROP TABLE IF EXISTS `T_FILTERED_CHOICES_TFC`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE T_FILTERED_CHOICES_TFC(
-        TFC_ID     int (11) Auto_increment  NOT NULL ,
-        TFC_ABBREV Varchar (25) NOT NULL ,
-        TFC_NAME   Varchar (255) NOT NULL ,
-        PRIMARY KEY (TFC_ID ) ,
-        UNIQUE (TFC_ABBREV )
+        `TFC_ID`     int (11) Auto_increment  NOT NULL ,
+        `TFC_ABBREV` varchar (25) NOT NULL ,
+        `TFC_NAME`   varchar (255) NOT NULL ,
+        PRIMARY KEY (`TFC_ID` ) ,
+        UNIQUE (`TFC_ABBREV` )
 )ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -624,11 +624,11 @@ DROP TABLE IF EXISTS `T_CHOICE_TYPES_TCS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE T_CHOICE_TYPES_TCS(
-        TCS_ID     int (11) Auto_increment  NOT NULL ,
-        TCS_NAME   varchar (255) ,
-        TCS_VALUE  int ,
-        TFC_ID     int NOT NULL ,
-        PRIMARY KEY (TCS_ID ),
+        `TCS_ID`     int (11) Auto_increment  NOT NULL ,
+        `TCS_NAME`   varchar (255) ,
+        `TCS_VALUE`  int ,
+        `TFC_ID`     int NOT NULL ,
+        PRIMARY KEY (`TCS_ID`),
         KEY `FK_T_CHOICE_TYPES_TCS_TFC_ID` (`TFC_ID`),
         CONSTRAINT `FK_T_CHOICE_TYPES_TCS_TFC_ID` FOREIGN KEY (`TFC_ID`) REFERENCES `T_FILTERED_CHOICES_TFC` (`TFC_ID`)
 )ENGINE=InnoDB;
@@ -676,7 +676,7 @@ CREATE TABLE `T_REPORT_TRT` (
   `TRT_BUSINESS_CONTACT_QUAL_NOTE`    varchar (2) NOT NULL ,
   `TRT_BUSINESS_CONTACT_QUAL_COMMENT` varchar (2) NOT NULL ,
   `TRT_BCOM_SPREAD_VALUE_COMMENT`     text NOT NULL ,
-  `TRT_QUAL_PRICE_RATIO_NOTE`   Varchar (2) NOT NULL ,
+  `TRT_QUAL_PRICE_RATIO_NOTE`   varchar (2) NOT NULL ,
   `TRT_QUAL_PRICE_RATIO_COMMENT`      text NOT NULL ,
   PRIMARY KEY (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -878,11 +878,12 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_travel_wf_role`(in scopeAbbrev varchar(25),in evtTypeAbbrev varchar(25),in purposeAbbrev varchar(25),in bInfo bool, in bValid bool, in trgIDAD varchar(255))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_travel_wf_role`(in scopeAbbrev varchar(25),in evtTypeAbbrev varchar(25),in purposeAbbrev varchar(25),in involvAbbrev varchar(25),in bInfo bool, in bValid bool, in trgIDAD varchar(255))
 BEGIN
 DECLARE scopeID int(11);
 DECLARE evtTypeID int(11);
 DECLARE purposeID int(11);
+DECLARE involvID int(11);
 DECLARE trgID int(11);
 
 SET trgID = roleGroupADToID(trgIDAD);
@@ -890,10 +891,12 @@ SET trgID = roleGroupADToID(trgIDAD);
 SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
 SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
 SELECT TPE_ID  INTO purposeID FROM T_PURPOSE_TPE WHERE TPE_ABBREV = purposeAbbrev;
+SELECT TIN_ID  INTO involvID FROM T_INVOLVEMENT_NATURE_TIN WHERE TIN_ABBREV = involvAbbrev;
 
-IF ((trgID IS NOT NULL) AND ((scopeID IS NOT NULL) OR (evtTypeID IS NOT NULL) OR (purposeID IS NOT NULL)))
+
+IF ((trgID IS NOT NULL) AND ((scopeID IS NOT NULL) OR (evtTypeID IS NOT NULL) OR (purposeID IS NOT NULL) OR (involvID IS NOT NULL)))
 THEN
-INSERT INTO R_INVOLVED_ROLES (TTY_ID,TES_ID,TPE_ID,TRG_ID,INVOLVED_ROLES_INFO,INVOLVED_ROLES_VALID) VALUES (evtTypeID,scopeID,purposeID,trgID,bInfo,bValid);
+INSERT INTO R_INVOLVED_ROLES (TTY_ID,TES_ID,TPE_ID,TIN_ID,TRG_ID,INVOLVED_ROLES_INFO,INVOLVED_ROLES_VALID) VALUES (evtTypeID,scopeID,purposeID,involvID,trgID,bInfo,bValid);
 END IF;
 END ;;
 DELIMITER ;
@@ -1115,12 +1118,15 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_mission`(in estimatedCost float, in ownerID int, in rootID int)
 BEGIN
+DECLARE missionID int(11);
 
-START TRANSACTION;
-INSERT INTO T_MISSION_TMN (TMN_CREATE_DATE,TMN_ESTIMATED_COST,PRS_ID,TMN_ID_ROOT) VALUES (CURDATE(),estimatedCost,ownerID,rootID);
-SELECT LAST_INSERT_ID();
-COMMIT;
-
+INSERT INTO T_MISSION_TMN (TMN_CREATE_DATE,TMN_ESTIMATED_COST,PRS_ID) VALUES (CURDATE(),estimatedCost,ownerID);
+SELECT LAST_INSERT_ID() INTO missionID;
+IF (rootID IS NOT NULL)
+THEN
+INSERT INTO R_SIBLING_TMN(TMN_ID_ROOT,TMN_ID_SIBLING) VALUES (rootID,missionID);
+END IF;
+SELECT missionID;
 END;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
