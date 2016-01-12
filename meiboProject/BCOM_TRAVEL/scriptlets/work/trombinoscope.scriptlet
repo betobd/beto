@@ -1,0 +1,274 @@
+var out = new ilex.meibo.server.script.ScriptletStringBuffer(); out.append("\n")
+  .append("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n")
+  .append("<!DOCTYPE document !DOCTYPE document \n")
+  .append("  PUBLIC \"-//UJAC.org//Print Document //EN\"\n")
+  .append("  \"http://ujac.sourceforge.net/ujac-print-document.dtd\"> \n")
+  .append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"fr\" lang=\"fr\">\n")
+  .append("<head>\n")
+  .append("     \n")
+  .append("</head>\n")
+  .append("<document size=\"A4\" margin-left=\"25\" margin-right=\"25\" margin-top=\"25\" margin-bottom=\"25\" logical-pagestyle=\"0\" logical-pagetext=\"Page\">\n")
+  .append("<div class=tableauTrombinoscope>\n")
+  .append("  ");
+  var parameters = getProvisioningParameters_General();
+  var BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE = returnEmpty(parameters.get("BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE"));
+  var nbCol = parseInt(parameters.get("BCOM_TROMBINOSCOPE_NB_COLONNE"));
+  var lien = parameters.get("BCOM_REDIRECTION_MEIBO");
+  if ( BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE != "" ){
+    meibo.setFieldValue("pageSize",BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE);
+  }
+
+
+  var RECHERCHE_PROJECT_TROMBINOSCOPE = meibo.getGlobalVar("RECHERCHE_PROJECT_TROMBINOSCOPE");
+  var RECHERCHE_FILTER_TROMBINOSCOPE = meibo.getGlobalVar("RECHERCHE_FILTER_TROMBINOSCOPE");
+  meibo.setFieldValue("filter",RECHERCHE_FILTER_TROMBINOSCOPE);
+  if ( RECHERCHE_FILTER_TROMBINOSCOPE != "" ){
+    var resultset = meibo.executeResource("People",RECHERCHE_FILTER_TROMBINOSCOPE,0);
+    var nEntries = resultset.getEntryCount();
+    if ( resultset.getEntryCount() > 0 ){
+      // launch the search and display results on the same page
+      var /*int*/ pageSize = parseInt(meibo.getFieldValue("pageSize"));
+      meibo.setGlobalVar("RECHERCHE_PAGESIZE_TROMBINOSCOPE",pageSize);
+      var /*int*/ pages = ((nEntries - 1) / pageSize) + 1;
+      meibo.setGlobalVar("RECHERCHE_PAGES_TROMBINOSCOPE",pages);
+      var /*int*/ page = parseInt(meibo.getFieldValue("page"));
+      meibo.setGlobalVar("RECHERCHE_PAGE_TROMBINOSCOPE",page);
+      meibo.setFieldValue("pages", "" + pages);
+      var /*int*/ start = (page - 1) * pageSize;
+      var /*String*/ filter = meibo.getFieldValue("filter");
+      //var resultat = meibo.executeResource("People",filter,0);
+      resultset.sort("sn,givenName",true,false);
+      var nEntries = resultset.getEntryCount();
+
+      var resultatWithProject = new ResultSet();
+      if ( returnEmpty(RECHERCHE_PROJECT_TROMBINOSCOPE) != "" ){
+        var entryPRJ = meibo.getDnEntry("GroupProject",RECHERCHE_PROJECT_TROMBINOSCOPE,"member");
+        var member = returnEmpty(entryPRJ.getAttribute("member"));
+        if ( ( member != "" ) && ( member.getCount() > 0 ) ){
+          var nbMember = member.getCount();
+          var j = 0;
+           
+          while ( j < resultset.getEntryCount() ){
+            var dnPers = resultset.getEntry(j).getAttributeValue("dn");
+            var i = 0;
+            var testPRJ = false;
+            while ( i < nbMember ){
+              var mb = member[i];
+              var resPRJ = returnEmpty(meibo.executeResource("RoleOperation","(&(distinguishedName="+mb+")(member="+dnPers+"))",0,"dn"));
+              
+              if ( ( resPRJ != "" ) && ( resPRJ.getEntryCount() > 0 ) ){
+                testPRJ = true;
+              }
+
+              if ( ( i == ( nbMember - 1 ) ) && (testPRJ == true )) {
+                resultatWithProject.addEntry(resultset.getEntry(j)); 
+              }
+              
+              i++;
+            } 
+            j++;
+          }  
+        }
+        else{
+          resultatWithProject.appendToResultSet(resultset);
+        }
+      }
+      else{
+        resultatWithProject.appendToResultSet(resultset);
+      }
+       var newNEntries = resultatWithProject.getEntryCount();
+      // show-hide button
+      meibo.showField("searchContainer",true);
+      meibo.showField("next", page < pages);
+      meibo.showField("last", page < pages);
+      meibo.showField("previous", page > 1);
+      meibo.showField("first", page > 1);
+      meibo.setFieldValue("range", "Page " + page+ "/" + pages);
+      
+      var nbligne = ( (parseInt(parameters.get("BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE")) - 1 ) / nbCol ) + 1;   
+
+      var BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE = parseInt(parameters.get("BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE"))
+      var testNbResPage = page * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+      var nbResPage = 0;
+      if ( testNbResPage < newNEntries ){
+        nbResPage = BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+      }
+      else{
+        nbResPage = newNEntries - ( ( page - 1 ) * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE );
+      }
+
+      var j = 1; //-- incrément ligne
+      var incRes = BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE * ( page - 1 ) ; //-- incrément du résultset
+      var incPage = 1; //-- incrément sur le page
+      while ( j < nbligne + 1 ){ //-- boucle sur les lignes
+        var i = 1; //-- incrément colonne
+        out.append("\n")
+  .append("        <div class=lignesTrombinoscope>\n")
+  .append("        ");
+        while ( i < nbCol + 1 ){//-- boucle sur les colonnes
+          
+          var photo = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("thumbnailPhoto"));
+          var sn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("sn"));
+          var givenName = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("givenName"));
+          var dn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("dn"));
+          var cn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("cn"));
+          
+          var displayName = miseEnForme(givenName) + " " + sn.toUpperCase();  
+                  
+          if ( photo != "" ){
+             var parameters = getProvisioningParameters_General();
+             var folder = parameters.get("BCOM_FOLDER_PHOTO_LECTURE");
+             cn = cn.replace(" ","");
+             var file =  folder + cn + ".jpg";
+          out.append("\n")
+  .append("          <div class=fondTrombinoscope> <a class=fondTrombinoscope href=\"");out.append(scripter.HTMLEncode(scripter.toString(lien)));out  .append("dsddores?res=People&dn=");out.append(scripter.HTMLEncode(scripter.toString(dn)));out  .append("&cmd=0&frames=true&Project=BCOM_IAM&Connection=BCOM_IAM&external=true&anonymous=true\"><div style=background-image:url('");out.append(scripter.HTMLEncode(scripter.toString(file)));out  .append("') class=photoTrombinoscope></div><p class=nomTrombinoscope>");out.append(scripter.HTMLEncode(scripter.toString(displayName)));out.append("</p></a></div>   \n")
+  .append("          <div class=fondVideTrombinoscope>\n")
+  .append("          </div>\n")
+  .append("          ");
+          }
+          else{
+          out.append("\n")
+  .append("          <div class=fondTrombinoscope> <a class=fondTrombinoscope href=\"");out.append(scripter.HTMLEncode(scripter.toString(lien)));out  .append("dsddores?res=People&dn=");out.append(scripter.HTMLEncode(scripter.toString(dn)));out  .append("&cmd=0&frames=true&Project=BCOM_IAM&Connection=BCOM_IAM&external=true&anonymous=true\"><img class=photoTrombinoscope src=./web/nophoto.jpg></img><p class=nomTrombinoscope>");out.append(scripter.HTMLEncode(scripter.toString(displayName)));out.append("</p></a></div>   \n")
+  .append("          <div class=fondVideTrombinoscope>\n")
+  .append("          </div>\n")
+  .append("          ");
+          }
+          //meibo.getField("results").addCellObject(j-1,i-1,dn);
+          if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+            break; //-- STOPPE AFFICHAGE
+          }
+          else{
+           incPage++;//-- incrémentation des resultat sur une page
+          }
+          incRes++;//-- incrémentation du résultset
+          i++;//-- incrémentation colonne
+        }
+        out.append("\n")
+  .append("        </div>\n")
+  .append("        <div class=lignesVidesTrombinoscope>\n")
+  .append("        </div>\n")
+  .append("        ");
+        if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+            break; //-- STOPPE AFFICHAGE
+        } //-- FIN boucle sur les colonnes  
+        j++;//-- incrémentation ligne
+      }//-- FIN boucle sur les ligne 
+    }
+  }
+  // SINON VERFICATION SI PROJET RENSEIGNE
+  else{
+    var resultatWithProject = new ResultSet();
+    if ( returnEmpty(RECHERCHE_PROJECT_TROMBINOSCOPE) != "" ){
+      var entryPRJ = meibo.getDnEntry("GroupProject",RECHERCHE_PROJECT_TROMBINOSCOPE,"member");
+      var member = returnEmpty(entryPRJ.getAttribute("member"));
+      if ( ( member != "" ) && ( member.getCount() > 0 ) ){
+        var i = 0;
+        while ( i < member.getCount() ){
+           var mb = member[i];
+           var res = meibo.executeLink("GGROPRJToMembre",mb,"cn,sn,givenName,thumbnailPhoto");//relation GGROPRJToMembre 
+           
+           resultatWithProject.appendToResultSet(res);
+  
+           i++;
+        }
+        
+        
+        resultatWithProject.sort("sn,givenName",true,true);
+        var nEntries = resultatWithProject.getEntryCount();
+        // launch the search and display results on the same page
+        var /*int*/ pageSize = parseInt(meibo.getFieldValue("pageSize"));
+        meibo.setGlobalVar("RECHERCHE_PAGESIZE_TROMBINOSCOPE",pageSize);
+        var /*int*/ pages = ((nEntries - 1) / pageSize) + 1;
+        meibo.setGlobalVar("RECHERCHE_PAGES_TROMBINOSCOPE",pages);
+        var /*int*/ page = parseInt(meibo.getFieldValue("page"));
+        meibo.setFieldValue("pages", "" + pages);
+        meibo.setGlobalVar("RECHERCHE_PAGE_TROMBINOSCOPE",page);
+        var /*int*/ start = (page - 1) * pageSize;
+        
+        // show-hide button
+        meibo.showField("searchContainer",true);
+        meibo.showField("next", page < pages);
+        meibo.showField("last", page < pages);
+        meibo.showField("previous", page > 1);
+        meibo.showField("first", page > 1);
+        meibo.setFieldValue("range", "Page " + page+ "/" + pages);
+        
+        var nbligne = ( (parseInt(parameters.get("BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE")) - 1 ) / nbCol ) + 1;   
+
+        var BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE = parseInt(parameters.get("BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE"))
+        var testNbResPage = page * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+        var nbResPage = 0;
+        if ( testNbResPage < nEntries ){
+          nbResPage = BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+        }
+        else{
+          nbResPage = nEntries - ( ( page - 1 ) * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE );
+        }
+
+        var j = 1; //-- incrément ligne
+        var incRes = BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE * ( page - 1 ) ; //-- incrément du résultset
+        var incPage = 1; //-- incrément sur le page
+        while ( j < nbligne + 1 ){ //-- boucle sur les lignes
+          var i = 1; //-- incrément colonne
+          out.append("\n")
+  .append("          <div class=lignesTrombinoscope>\n")
+  .append("          ");
+          while ( i < nbCol + 1 ){//-- boucle sur les colonnes
+            
+            var photo = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("thumbnailPhoto"));
+            var sn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("sn"));
+            var givenName = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("givenName"));
+            var dn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("dn"));
+            var cn = returnEmpty(resultatWithProject.getEntry(incRes).getAttributeValue("cn"));
+            var displayName = miseEnForme(givenName) + " " + sn.toUpperCase(); 
+            if ( photo != "" ){
+             var parameters = getProvisioningParameters_General();
+             var folder = parameters.get("BCOM_FOLDER_PHOTO_LECTURE");
+             cn = cn.replace(" ","");
+             var file =  folder + cn + ".jpg"; 
+             
+             
+            out.append("\n")
+  .append("            <div class=fondTrombinoscope> <a class=fondTrombinoscope href=\"");out.append(scripter.HTMLEncode(scripter.toString(lien)));out  .append("dsddores?res=People&dn=");out.append(scripter.HTMLEncode(scripter.toString(dn)));out  .append("&cmd=0&frames=true&Project=BCOM_IAM&Connection=BCOM_IAM&external=true&anonymous=true\"><div style=background-image:url('");out.append(scripter.HTMLEncode(scripter.toString(file)));out  .append("') class=photoTrombinoscope></div><p class=nomTrombinoscope>");out.append(scripter.HTMLEncode(scripter.toString(displayName)));out.append("</p></a></div>   \n")
+  .append("            <div class=fondVideTrombinoscope>\n")
+  .append("            </div>\n")
+  .append("            ");
+            }
+            else{
+            out.append("\n")
+  .append("            <div class=fondTrombinoscope> <a class=fondTrombinoscope href=\"");out.append(scripter.HTMLEncode(scripter.toString(lien)));out  .append("dsddores?res=People&dn=");out.append(scripter.HTMLEncode(scripter.toString(dn)));out  .append("&cmd=0&frames=true&Project=BCOM_IAM&Connection=BCOM_IAM&external=true&anonymous=true\"><img class=photoTrombinoscope src=./web/nophoto.jpg></img><p class=nomTrombinoscope>");out.append(scripter.HTMLEncode(scripter.toString(displayName)));out.append("</p></a></div>   \n")
+  .append("            <div class=fondVideTrombinoscope>\n")
+  .append("            </div>\n")
+  .append("            ");
+            }
+            //meibo.getField("results").addCellObject(j-1,i-1,dn);
+            if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+              break; //-- STOPPE AFFICHAGE
+            }
+            else{
+             incPage++;//-- incrémentation des resultat sur une page
+            }
+            incRes++;//-- incrémentation du résultset
+            i++;//-- incrémentation colonne
+          }
+          out.append("\n")
+  .append("          </div>\n")
+  .append("          <div class=lignesVidesTrombinoscope>\n")
+  .append("          </div>\n")
+  .append("          ");
+          if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+              break; //-- STOPPE AFFICHAGE
+          } //-- FIN boucle sur les colonnes  
+          j++;//-- incrémentation ligne
+        }//-- FIN boucle sur les ligne 
+               
+      }
+    }
+    else{
+      meibo.showField("searchContainer",false);
+    }
+  }
+
+  out.append("\n")
+  .append("</div>  \n")
+  .append("</document>");meibo.setReturnObject(out.toString());

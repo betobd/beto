@@ -1,0 +1,382 @@
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+   <ProcessHeader DurationUnit="D">
+    <Description>Processus Meibo</Description>
+   </ProcessHeader>
+   <RedefinableHeader PublicationStatus="RELEASED">
+    <Author>Meibo</Author>
+    <Version>3</Version>
+   </RedefinableHeader>
+   <ExtendedAttributes>
+    <ExtendedAttribute Name="scale"  Value="100%"/>
+    <ExtendedAttribute Name="role"  Value="AdminMeibo"/>
+    <ExtendedAttribute Name="role"  Value="InitiateurDeplacement"/>
+    <ExtendedAttribute Name="role"  Value="Studio"/>
+    <ExtendedAttribute Name="role"  Value="Utilisateur"/>
+    <ExtendedAttribute Name="fr_name"  Value="Mission"/>
+    <ExtendedAttribute Name="fr_description"  Value=""/>
+    <ExtendedAttribute Name="actionsList" Value="">
+      <Action Name="Initialisation" Type="workflowScriptImplementation" ID="1448472454995">
+      </Action>
+      <Action Name="Notifier" Type="pluginMail-1" ID="1448472764360">
+      </Action>
+    </ExtendedAttribute>
+   </ExtendedAttributes>
+   <DataFields>
+    <DataField Id="ROLE-Manager" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-Initiateur" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-ParticipantEvt" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+   </DataFields>
+   <FormalParameters>
+    <FormalParameter Id="idEvt" Index="3" Mode="IN">
+     <DataType>
+      <BasicType Type="INTEGER"/>
+     </DataType>
+    </FormalParameter>
+   </FormalParameters>
+   <Participants>
+    <Participant Id="AdminMeibo" Name="AdminMeibo">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="AnalyseurDeplacement" Name="AnalyseurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="DDI" Name="DDI">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="InitiateurDeplacement" Name="InitiateurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="OrganisateurVoyage" Name="OrganisateurVoyage">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Studio" Name="Studio">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Utilisateur" Name="Utilisateur">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+   </Participants>
+   <Activities>
+    <Activity Id="A1448472295866" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448472522446"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="D&#233;but"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="308"/>
+      <ExtendedAttribute Name="YOffset" Value="12"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472343512" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Fin"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="308"/>
+      <ExtendedAttribute Name="YOffset" Value="324"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472369326" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter></ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Initialisation"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="500"/>
+      <ExtendedAttribute Name="YOffset" Value="16"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448528684451" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>PROCESS.ROLE-ParticipantEvt</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>rappel1</ExceptionName>
+      </Deadline>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>CALENDAR_DELAY 2 week</DeadlineCondition>
+       <ExceptionName>rappel2</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448529319111"/>
+         <TransitionRef Id="T1449070395553"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="ContributionCompteRendu"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="452"/>
+      <ExtendedAttribute Name="YOffset" Value="88"/>
+      <ExtendedAttribute Name="Width" Value="221"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448529288334" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>AnalyseurDeplacement</Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448554557405"/>
+         <TransitionRef Id="T1448529461380"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Verifie CR"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="4"/>
+      <ExtendedAttribute Name="YOffset" Value="128"/>
+      <ExtendedAttribute Name="Width" Value="188"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448529423187" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>PROCESS.ROLE-ParticipantEvt</Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="ModifieCR"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="468"/>
+      <ExtendedAttribute Name="YOffset" Value="216"/>
+      <ExtendedAttribute Name="Width" Value="209"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448529486134" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="352"/>
+      <ExtendedAttribute Name="YOffset" Value="156"/>
+      <ExtendedAttribute Name="Width" Value="84"/>
+      <ExtendedAttribute Name="Height" Value="32"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448529961347" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Rappel"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="748"/>
+      <ExtendedAttribute Name="YOffset" Value="88"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448554523343" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter></ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Envoi CR"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="308"/>
+      <ExtendedAttribute Name="YOffset" Value="248"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449070349726" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>2</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Demande contributions"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="668"/>
+      <ExtendedAttribute Name="YOffset" Value="172"/>
+      <ExtendedAttribute Name="Width" Value="192"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+   </Activities>
+   <Transitions>
+    <Transition Id="T1448472522446" Name="T1448472522446" From="A1448472295866" To="A1448472369326"/>
+    <Transition Id="T1448529319111" Name="T1448529319111" From="A1448528684451" To="A1448529288334">
+     <Condition Type="CONDITION">soumissionCR</Condition>
+    </Transition>
+    <Transition Id="T1448529461380" Name="T1448529461380" From="A1448529288334" To="A1448529423187">
+     <Condition Type="CONDITION">KO</Condition>
+    </Transition>
+    <Transition Id="T1448529513943" Name="T1448529513943" From="A1448529423187" To="A1448529486134"/>
+    <Transition Id="T1448529515759" Name="T1448529515759" From="A1448529486134" To="A1448529288334"/>
+    <Transition Id="T1448530018565" Name="T1448530018565" From="A1448528684451" To="A1448529961347">
+     <Condition Type="EXCEPTION">rappel1</Condition>
+    </Transition>
+    <Transition Id="T1448554549702" Name="T1448554549702" From="A1448554523343" To="A1448472343512"/>
+    <Transition Id="T1448554557405" Name="T1448554557405" From="A1448529288334" To="A1448554523343">
+     <Condition Type="CONDITION">OK</Condition>
+    </Transition>
+    <Transition Id="T1449068270576" Name="T1449068270576" From="A1448472369326" To="A1448528684451"/>
+    <Transition Id="T1449070395553" Name="T1449070395553" From="A1448528684451" To="A1449070349726">
+     <Condition Type="CONDITION">demandeContributions</Condition>
+    </Transition>
+    <Transition Id="T1449070652939" Name="T1449070652939" From="A1449070349726" To="A1448528684451"/>
+   </Transitions>
+  </WorkflowProcess>

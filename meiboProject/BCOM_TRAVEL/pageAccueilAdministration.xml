@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source></source>
+  <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="pageAccueilAdministration" zh="">
+      <frame>
+        <css class="css"> traitVerticalAdministration</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">25</posx>
+        <posy class="number">9</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">2</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">819</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">o2698902102630156</id>
+      </frame>
+    </page>
+  </destination>
+</screen>

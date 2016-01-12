@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"></globalScriptView>
+  <onload class="script"></onload>
+  <onquit class="script">var /*boolean*/ ok = true;
+meibo.showField(&quot;error&quot;, false);
+ok = ok &amp;&amp; checkMandatoryField(&quot;TCY_ID&quot;, 1);
+meibo.setCreationBase(&quot;&quot;);
+meibo.setReturnValue(ok);</onquit>
+  <onoperationok class="script">///$debug
+backToSourceView();</onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

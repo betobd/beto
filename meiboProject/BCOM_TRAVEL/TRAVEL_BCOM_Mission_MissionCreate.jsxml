@@ -1,0 +1,293 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script">// Note : des fonctions qui concernent cette vue ont &#233;t&#233; mises en script global de projet pour pouvoir &#234;tre utilis&#233;es dans le contexte du retour vers cette vue depuis une autre vue</globalScriptView>
+  <onload class="script">///$debug
+// d&#233;finit le propri&#233;taire (&quot;initiateur&quot;) de la misssion : utilisateur courant par defaut
+var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+meibo.setFieldValue(&quot;ATTENDEES_PRS_ID&quot;, userId);
+
+// Restaure les valeur pr&#233;c&#233;dentes dans le cas o&#249; l&apos;on revient sur ce formulaire
+restoreFields(&quot;Mission&quot;);
+
+// Met &#224; jour le contenu du tableau avec les &#233;venements s&#233;lectionn&#233;s
+updateEventsTableContent();</onload>
+  <onquit class="script">//$debug
+var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+// sauvegarder au pr&#233;alable les valeurs des champs dans le tableau
+pushEventFieldsDataInTable();
+
+var /*Edit*/ errorField =  meibo.getField(&quot;error&quot;);
+errorField.show(false);
+
+var /*boolean*/ checkOK = true;
+checkOK = checkOK &amp;&amp; checkMandatoryField(&quot;ATTENDEES_PRS_ID&quot;, 1);
+//checkOK = checkOK &amp;&amp; checkMandatoryField(&quot;ATTENDEES_TCT_ID&quot;, 1);
+
+// TODO : v&#233;rifier que l&apos;utilisateur connect&#233; n&apos;a pas &#233;t&#233; retir&#233; de la liste
+// (pour s&apos;appuyer sur ce principe pour avoir la trace de l&apos;initiateur de la mission)
+
+//TODO : v&#233;rifier si chaque participant d&#233;sign&#233; n&apos;est pas d&#233;j&#224; participant aux &#233;venements de cette mission (dans le cadre d&apos;une autre mission)
+// car l&apos;association entre evenement et participant n&apos;est pas li&#233;e &#224; une mission, cela poserait donc probl&#232;me en cas d&apos;abandon ou refus d&apos;une mission si 2 missions parall&#232;les r&#233;f&#233;rencent un m&#234;me &#233;venement
+// d&apos;autre part, en cas de 2 missions sur un m&#234;me participant/&#233;venement, il y aurait un risque de se retrouver avec l&apos;organisation d&#233;placement en double
+
+// v&#233;rifier si objectif et types de participation sont bien d&#233;finis pour cheque &#233;venement s&#233;lectionn&#233;
+var /*Table*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+var /*String*/ value = null;
+var /*String*/ msg = null;
+for(var line=0;line&lt;table.getLength();line++){
+  value = table.getCell(line,3);
+  if(value == &quot;A DEFINIR&quot;){
+    checkOK = false;
+    msg = meibo.getMessage(&quot;mandatoryField&quot;, &quot;Objectif&quot;);
+    break;
+  }
+  value = table.getCell(line,4);
+  if(value == &quot;A DEFINIR&quot;){
+    checkOK = false;
+    msg = meibo.getMessage(&quot;mandatoryField&quot;, &quot;Type de participation&quot;);
+    break;
+  }        
+}
+if(!checkOK){  
+  errorField.setContent(msg);
+  errorField.show(true);
+}    
+    
+
+if(checkOK){
+  // enregistrement &quot;manuel&quot; (via proc&#233;dure stock&#233;e) en lieu et place du m&#233;canisme meibo standard/automatique
+
+  var /*boolean*/ recordOK = true;
+  var /*String*/ errorMessage = null;
+  
+  var /*Number*/ cost = null;
+  if(meibo.getFieldValue(&quot;TMN_ESTIMATED_COST&quot;).trim().length&gt;0){
+    cost = NUMBERFORMAT_INSTANCE.parse(meibo.getFieldValue(&quot;TMN_ESTIMATED_COST&quot;));
+  }
+
+  var /*Array*/ events  = meibo.getField(&quot;ATTENDEES_TCT_ID&quot;).getContents();
+  var /*Array*/ owners = meibo.getField(&quot;ATTENDEES_PRS_ID&quot;).getContents();
+  var rootMissionId = null;
+  
+  var /*Array*/ values = new Array();
+  var /*Array*/ types = new Array();
+  var /*SqlProcResult*/ sqlProcResult = null;
+  var resultValue = null;
+  var /*String*/ procName = null;
+  var /*ResultSet*/ rs = null;
+  var /*Array*/ missionIds = new Array();
+  var /*Entry*/ resultEntry = null;
+  var involvementAbbrev = null;
+  var purposeAbbrev = null;
+  var involvementId = null;
+  var purposeId = null;  
+  var startDate = null;
+  var endDate = null;
+  var /*ResultSet*/ involvementNatureRS = null;
+  var /*Entry*/ involvementNatureEntry = null;
+  var /*ResultSet*/ purposeRS = null;
+  var /*Entry*/ purposeEntry = null;
+
+  meibo.beginTransaction(&quot;TRAVEL_BCOM&quot;);
+
+  try{
+  
+    // parcours des participants pour cr&#233;er &#224; chacun une mission
+    for each(var ownerId in owners){
+    
+      values[0] = cost;
+      types[0] = &quot;IN&quot;;  
+      values[1] = ownerId;
+      types[1] = &quot;IN&quot;;
+      values[2] = rootMissionId;
+      types[2] = &quot;IN&quot;;
+      procName = &quot;add_mission&quot;;
+      resultValue = null;
+      resultEntry = null;
+      
+      // appel proc&#233;dure stock&#233;e pour creation mission
+      sqlProcResult = meibo.executeSqlProc(&quot;TRAVEL_BCOM&quot;, procName, types, values);
+    
+      // v&#233;rification du r&#233;sultat
+      if(sqlProcResult==null){
+        meibo.logError(&quot;null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        throw &quot;null en retour de l&apos;appel &#224; &quot;+ procName;
+      }else{  
+      
+        try{
+          rs= sqlProcResult.getResultSet();
+        }catch(exception){
+          // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+          // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+          meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
+          sqlProcResult.close();
+          throw &quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName;
+        }
+        try{        
+          if(rs==null){
+            meibo.logError(&quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+            throw &quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName;
+          }else if(rs.getEntryCount()==0){
+            meibo.logError(&quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+            throw  &quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName;
+          }else{
+            resultEntry = rs.getEntry();
+            resultValue = resultEntry.getAttribute(0)[0];
+            if(resultValue == 0){
+              meibo.logError(&quot;valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values);
+              throw  &quot;La mission n&apos;a pas pu &#234;tre cr&#233;&#233;e&quot;;  // pas plus d&apos;explications disponibles ....
+            }
+          }
+          sqlProcResult.close();
+          
+          // ICI : le cas o&#249; c&apos;est cens&#233; fonctionner
+          if(rootMissionId == null){
+            rootMissionId = resultValue;
+          }
+          missionIds[missionIds.length] = resultValue;
+          meibo.logDebug(&quot;Mission cr&#233;&#233;e :&quot; + resultValue + &quot; avec les valeurs &quot; + values);
+          
+          // ajouter evenements &#224; mission ; et participant &#224; &#233;venments
+          var eventIndex = 0;
+          for each(var eventId in events){
+            // relie les &#233;venements &#224; la mission
+            var eventMissionEntry = new Entry();
+            eventMissionEntry.updateAttribute(new Attribute(&quot;TMN_ID&quot;,resultValue));
+            eventMissionEntry.updateAttribute(new Attribute(&quot;TCT_ID&quot;,eventId));
+            
+            var entryCreationOK = meibo.createEntry(&quot;R_EventMission&quot;,null,eventMissionEntry);
+            if(!entryCreationOK){
+              meibo.logError(&quot;Echec de cr&#233;ation de l&apos;entr&#233;e &quot; + eventMissionEntry);
+              throw &quot;Impossible d&apos;associer mission et &#233;venement&quot;;
+            }
+          
+            // ajouter participant &#224; evenement
+            startDate = SQL_DATE_FORMAT.format(DATE_FORMAT.parse(table.getCell(eventIndex,1)));
+            endDate = SQL_DATE_FORMAT.format(DATE_FORMAT.parse(table.getCell(eventIndex,2)));
+            purposeAbbrev = table.getCell(eventIndex,3);
+            involvementAbbrev = table.getCell(eventIndex,4);
+
+            involvementId = getIdFromAbbrev(&quot;InvolvementNature&quot;,&quot;TIN&quot;, involvementAbbrev);
+
+            purposeId = getIdFromAbbrev(&quot;Purpose&quot;,&quot;TPE&quot;, purposeAbbrev);         
+            
+            var eventAttendeesEntry = new Entry();
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;TCT_ID&quot;,eventId));
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;PRS_ID&quot;,ownerId));
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;RAS_START_DATE&quot;,startDate));
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;RAS_END_DATE&quot;,endDate));
+            
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;TPE_ID&quot;,purposeId));            
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;TIN_ID&quot;,involvementId));            
+                        
+            eventAttendeesEntry.updateAttribute(new Attribute(&quot;PRS_ID&quot;,ownerId));
+            
+            entryCreationOK = meibo.createEntry(&quot;R_Attendees&quot;,null,eventAttendeesEntry);
+            if(!entryCreationOK){
+              meibo.logError(&quot;Echec de cr&#233;ation de l&apos;entr&#233;e &quot; + eventAttendeesEntry);
+              throw &quot;Impossible d&apos;associer participant et &#233;venement&quot;;
+            }
+                 
+            eventIndex++;
+          }
+          
+          // definir status mission
+          updateMissionStatus(resultValue, userId, &quot;CRE&quot;, null);
+          
+        }catch(exception){
+          sqlProcResult.close();
+          throw exception;
+        }      
+          
+      } // if(sqlProcResult==null)
+    } // for each
+
+    var commitResultOK = meibo.commit(&quot;TRAVEL_BCOM&quot;);
+    recordOK = commitResultOK;
+    if(commitResultOK){
+      meibo.logDebug(&quot;Missions cr&#233;&#233;es :&quot; + missionIds);      
+    }else{
+      meibo.logError(&quot;retour KO sur le commit de la transaction pour la mission  :&quot; + resultValue + &quot; avec les valeurs &quot; + values);
+      errorMessage =  &quot;Echec de la transaction&quot;;
+    }
+        
+  }catch(exception){
+    // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+    // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+    meibo.logError(&quot;Erreur sur l&apos;enregistrement des donn&#233;es suite &#224; l&apos;appel &#224; &quot; + procName + &quot; pour les valeurs : &quot; + values + &quot; : &quot; exception);
+    recordOK = false;
+    errorMessage = exception;
+    try{
+      var rollBackResultOK = meibo.rollBack(&quot;TRAVEL_BCOM&quot;);
+      if(rollBackResultOK){
+        meibo.logInfo(&quot;Transaction annul&#233;e&quot;);
+      }else{
+        throw &quot;Le rollback de la transaction renvoi false&quot;;
+      }
+    }catch(exception2){
+      meibo.logError(&quot;Erreur sur le rollback de la transaction&quot;, exception);
+      errorMessage = errorMessage + &quot;; Echec d&apos;annulation de la transation&quot;;
+    }
+  }
+
+  if(recordOK){
+
+    // cr&#233;er et lancer workflows pour chaque mission
+    var /*wapiProcInst*/ wapiProcInst = null;
+    var /*int*/ missionIndex = 0;
+    var /*Entry*/ missionEntry = null;
+    var /*Entry*/ personEntry = null;
+    
+    for each(var missionId in missionIds){
+      meibo.logDebug(&quot;Preparation du workflow pour la mission &quot; + missionId);
+
+      personEntry = meibo.getDnEntry(&quot;TravelPeople&quot;,&quot;T_PERSON_PRS,PRS_ID,&quot; + owners[missionIndex], &quot;ldapDn,PRS_LOGIN,displayName&quot;);
+
+      try{
+        wapiProcInst = meibo.createWorkflowProcess(&quot;Mission&quot;);
+        wapiProcInst.addDescription(&quot;fr&quot;,&quot;Mission pour &quot; + personEntry.displayName[0]);
+        wapiProcInst.setVariable(&quot;missionID&quot;, missionId);        
+        wapiProcInst.setVariable(&quot;participantID&quot;, owners[missionIndex]);
+        wapiProcInst.setVariable(&quot;initiatorID&quot;, userId);
+        wapiProcInst.setVariable(&quot;baseURL&quot;, getBaseURLForWorkflow());
+        wapiProcInst.start();
+        meibo.logDebug(&quot;Id du workflow pour la mission &quot; + missionId + &quot; de l&apos;utilisateur &quot; + owners[missionIndex] + &quot; : &quot;  + wapiProcInst.getId());   
+           
+      }catch(exception){
+        meibo.logDebug(&quot;Echec du lancement de workflow pour la mission &quot; + missionId + &quot; : &quot; + exception);
+        errorField.setContent(&quot;Echec du lancement de workflow&quot;);
+        errorField.show(true);
+        break;
+      } 
+      
+      missionEntry = new Entry();
+      //missionEntry.updateAttribute(new Attribute(&quot;TMN_ID&quot;, missionId));
+      missionEntry.updateAttribute(new Attribute(&quot;TMN_WORKFLOW_ID&quot;, wapiProcInst.getId()));
+      var entryUpdateOK = meibo.updateEntry(&quot;Mission&quot;,&quot;T_MISSION_TMN,TMN_ID,&quot; + missionId, missionEntry);
+      if(!entryUpdateOK){
+        meibo.logError(&quot;Echec de mise &#224; jour de l&apos;identifiant de workflow de la mission &quot; + missionId);
+        errorField.setContent(&quot;Erreur sur l&apos;affectation de l&apos;identifiant de workflow&quot;);
+        errorField.show(true);
+        break;        
+      }
+                                  
+       missionIndex++;
+    }
+    
+    meibo.switchToApplicationView(&quot;Validation_OK&quot;);  
+    //TODO : ou vue de visualisation ou de modification ou liste des missions ?
+    
+  }else{    
+    errorField.setContent(errorMessage);
+    errorField.show(true);      
+  }
+  
+} //if(checkOK)
+
+// contournement du fonctionnement nominal meibo :
+// on retourne false pour ne pas que meibo tente ensuite lui m&#234;me la cr&#233;ation automatique de l&apos;entr&#233;e comme il le ferait normalement si on ne passait pas par une proc&#233;dure stock&#233;e
+meibo.setReturnValue(false);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

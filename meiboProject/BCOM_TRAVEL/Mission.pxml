@@ -1,0 +1,1540 @@
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
+   <ProcessHeader DurationUnit="D">
+    <Description>Processus Meibo</Description>
+   </ProcessHeader>
+   <RedefinableHeader PublicationStatus="RELEASED">
+    <Author>Meibo</Author>
+    <Version>3</Version>
+   </RedefinableHeader>
+   <ExtendedAttributes>
+    <ExtendedAttribute Name="scale"  Value="100%"/>
+    <ExtendedAttribute Name="role"  Value="AdminMeibo"/>
+    <ExtendedAttribute Name="role"  Value="InitiateurDeplacement"/>
+    <ExtendedAttribute Name="role"  Value="Studio"/>
+    <ExtendedAttribute Name="role"  Value="Utilisateur"/>
+    <ExtendedAttribute Name="fr_name"  Value="Mission"/>
+    <ExtendedAttribute Name="fr_description"  Value=""/>
+    <ExtendedAttribute Name="actionsList" Value="">
+      <Action Name="Initialisation" Type="workflowScriptImplementation" ID="1448472454995">
+      </Action>
+      <Action Name="Notifier" Type="pluginMail-1" ID="1448472764360">
+      </Action>
+      <Action Name="acceptationEligible" Type="workflowScriptImplementation" ID="1452270989283">
+// affectation du role
+var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+meibo.setWorkflowVariable(&quot;ROLE-Participant&quot;, participantDn); 
+
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getId() + &quot;) d&apos;acceptation de mission &quot; + missionID + &quot; &#224; &quot; + participantDn);
+
+// notification
+var email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+if(email==null){
+  meibo.logWarn(&quot;Impossible de notifier &quot; + participantDn + &quot; car il n&apos;a pas d&apos;email&quot;);
+}else{
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  //params.add(&quot;participantDN&quot;, meibo.getWorkflowVariable(&quot;participantDN&quot;));
+  params.add(&quot;recipient&quot;, email);
+  meibo.executePlugin(&quot;NotifyParticipantForAcceptation&quot;,params);
+}
+      </Action>
+      <Action Name="managerValidationEligible" Type="workflowScriptImplementation" ID="1452522071084">
+///$debug
+var /*String*/ participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+var /*ResultSet*/ managerRs = getManager(participantDn);
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+meibo.logDebug(&quot;getCurrentWorkflowTask : &quot; + wapiworkitem);
+var /*UserTask*/ userTask = meibo.getWorkflowUserTask()
+meibo.logDebug(&quot;getWorkflowUserTask : &quot; + userTask);
+
+if(managerRs.getEntryCount()&gt;0){
+  // affectation du role
+  var /*Entry*/ managerEntry = managerRs.getEntry();
+  meibo.setWorkflowVariable(&quot;ROLE-Manager&quot;, managerEntry.dn[0]); 
+  meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getId() + &quot;) de validation de la mission &quot; + missionID + &quot; &#224; &quot; + managerEntry.dn[0] + &quot; pour &quot; + participantDn);
+
+  // notification
+  var email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+  if(email==null){
+    meibo.logWarn(&quot;Impossible de notifier &quot; + participantDn + &quot; car il n&apos;a pas d&apos;email&quot;);
+  }else{
+    var /*Parameters*/ params = new Parameters();
+    params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+    params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+    params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+    params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+    params.add(&quot;user&quot;, user);
+    params.add(&quot;missionID&quot;, missionID);
+    params.add(&quot;recipient&quot;, email);
+    params.add(&quot;participantDN&quot;, participantDn);
+    
+    meibo.executePlugin(&quot;NotifyForValidation&quot;,params);
+  }
+}else{
+  meibo.logWarn(&quot;Pas de manager trouv&#233; pour &quot; + participantDn);
+  //TODO : voire comment traiter; par d&#233;faut le workflow resterait bloqu&#233;
+  wapiworkitem.complete();
+}
+      </Action>
+      <Action Name="modificationEligible" Type="workflowScriptImplementation" ID="1452524978986">
+// affectation du role
+var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ reason = meibo.getWorkflowVariable(&quot;comment&quot;); 
+meibo.setWorkflowVariable(&quot;ROLE-Participant&quot;, participantDn); 
+
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getId() + &quot;) de modification de mission &quot; + missionID + &quot; &#224; &quot; + participantDn);
+
+// notification
+var email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+if(email==null){
+  meibo.logWarn(&quot;Impossible de notifier &quot; + participantDn + &quot; car il n&apos;a pas d&apos;email&quot;);
+}else{
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;recipient&quot;, email);
+  params.add(&quot;reason&quot;, reason);
+  meibo.executePlugin(&quot;NotifyRejection&quot;,params);
+}
+      </Action>
+      <Action Name="secondLevelValidationEligible" Type="workflowScriptImplementation" ID="1452593973817">
+var /*Set*/ validationRoleSet = meibo.setWorkflowVariable(&quot;secondValidationRoles&quot;); 
+var /*Array*/ validationRoleArray = new Array(validationRoleSet.toArray());
+meibo.setWorkflowVariable(&quot;ROLE_SecondLevelValidation&quot;, validationRoleArray);
+
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+meibo.logDebug(&quot;getCurrentWorkflowTask : &quot; + wapiworkitem);
+var /*UserTask*/ userTask = meibo.getWorkflowUserTask()
+meibo.logDebug(&quot;getWorkflowUserTask : &quot; + userTask);
+
+meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getId() + &quot;) de validation de la mission &quot; + missionID + &quot; &#224; &quot; + validationRoleArray + &quot; pour &quot; + participantDn);
+
+if(!validationRoleSet.isEmpty()){
+
+  // notification
+  var email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+  //TODO recherche emails correspondant aux roles
+  var targetUsers = getRecursiveGroupMembersFromGroupNames(validationRoleArray);
+  if(targetUsers.isEmpty()){
+    meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec les roles &quot; + validationRoleArray + &quot; pour validation de second niveau&quot;);
+  }else{
+    var secondLevelValidationPeople = new Array(targetUsers.toArray());
+    meibo.setWorkflowVariable(&quot;secondLevelValidationPeople&quot;, secondLevelValidationPeople);
+
+    var /*Parameters*/ params = new Parameters();
+    params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+    params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+    params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+    params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+    params.add(&quot;user&quot;, user);
+    params.add(&quot;missionID&quot;, missionID);
+    params.add(&quot;recipient&quot;, email);
+    params.add(&quot;participantDN&quot;, participantDn);
+    
+    meibo.executePlugin(&quot;NotifyForSecondLevelValidation&quot;,params);
+  }
+}else{
+  // normalement &#231;a ne devrait pas arriver quand on passe par ici
+  meibo.logDebug(&quot;Pas de role d&#233;fini pour validation de 2nd niveau&quot;);
+  wapiworkitem.complete();
+}
+      </Action>
+    </ExtendedAttribute>
+   </ExtendedAttributes>
+   <DataFields>
+    <DataField Id="ROLE-Manager" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-Initiateur" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-Participant" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="missionDN" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="accepted" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="costDefined" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="firstEventStartDate" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="DEADLINE"/>
+     </DataType>
+     <InitialValue>01/01/16 10:24</InitialValue>
+    </DataField>
+    <DataField Id="MAIL_HEADER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="MAIL_FOOTER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="MAIL_SENDER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="participantCn" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="participantEmail" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="isDG" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="managerValidated" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="DDIvalidationRequired" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>true</InitialValue>
+    </DataField>
+    <DataField Id="notificationRoles" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="OBJECT"/>
+     </DataType>
+    </DataField>
+    <DataField Id="secondValidationRoles" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="OBJECT"/>
+     </DataType>
+    </DataField>
+    <DataField Id="finalConfirmation" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="completedForOrganisation" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="secondLevelValidated" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="missionModified" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+     <InitialValue>false</InitialValue>
+    </DataField>
+    <DataField Id="ROLE_SecondLevelValidation" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+    </DataField>
+    <DataField Id="secondLevelValidationPeople" IsArray="TRUE">
+     <DataType>
+      <BasicType Type="OBJECT"/>
+     </DataType>
+    </DataField>
+   </DataFields>
+   <FormalParameters>
+    <FormalParameter Id="participantDN" Index="23" Mode="IN">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="missionID" Index="24" Mode="IN">
+     <DataType>
+      <BasicType Type="INTEGER"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="initiatorDN" Index="25" Mode="IN">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="initiatorID" Index="26" Mode="IN">
+     <DataType>
+      <BasicType Type="INTEGER"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="participantID" Index="27" Mode="IN">
+     <DataType>
+      <BasicType Type="INTEGER"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="baseURL" Index="28" Mode="IN">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="comment" Index="29" Mode="INOUT">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </FormalParameter>
+   </FormalParameters>
+   <Participants>
+    <Participant Id="AdminMeibo" Name="AdminMeibo">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="AnalyseurDeplacement" Name="AnalyseurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="DDI" Name="DDI">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="InitiateurDeplacement" Name="InitiateurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="OrganisateurVoyage" Name="OrganisateurVoyage">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Studio" Name="Studio">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Utilisateur" Name="Utilisateur">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+   </Participants>
+   <Activities>
+    <Activity Id="A1448472295866" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448472522446"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="D&#233;but"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="96"/>
+      <ExtendedAttribute Name="YOffset" Value="4"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472343512" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Fin"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="992"/>
+      <ExtendedAttribute Name="YOffset" Value="1024"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472369326" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>//$debug
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ missionDN = &quot;T_MISSION_TMN,TMN_ID,&quot; + missionID; 
+meibo.setWorkflowVariable(&quot;missionDN&quot;, missionDN);
+var /*String*/ ownerID = meibo.getWorkflowVariable(&quot;participantID&quot;);
+
+meibo.setWorkflowVariable(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+
+var /*String*/ particpantLdapDN = null;
+var /*Entry*/ personEntry = meibo.getDnEntry(&quot;TravelPeople&quot;,&quot;T_PERSON_PRS,PRS_ID,&quot; + ownerID, &quot;mail,ldapDn,PRS_LOGIN,displayName&quot;);
+var participantEmail = personEntry.mail[0];
+if((participantEmail==null) || (participantEmail==&quot;&quot;)){
+  meibo.logWarn(&quot;Le participant &quot; + ownerID + &quot; n&apos;a pas d&apos;adresse email&quot;);
+}else{
+  meibo.setWorkflowVariable(&quot;participantEmail&quot;, participantEmail);
+}
+meibo.setWorkflowVariable(&quot;participantDN&quot;, personEntry.ldapDn[0]);
+meibo.setWorkflowVariable(&quot;participantCn&quot;, personEntry.PRS_LOGIN[0]);
+meibo.setWorkflowVariable(&quot;participantDisplayName&quot;, personEntry.displayName[0]);
+
+var wfVariables = meibo.getWorkflowVariables(); // utile seulement en debug
+
+meibo.logDebug(&quot;Initialisation workflow mission &quot; + missionID + &quot; pour &quot; + ownerID);
+
+var /*Entry*/ missionEntry = meibo.getDnEntry(&quot;Mission&quot;, missionDN);
+
+// recherche les caract&#233;ristiques des participications aux &#233;v&#232;nements :
+// - 1ere date de d&#233;but de participation &#224; un &#233;venement (pour constituer l&apos;&#233;ch&#233;ance du workflow)
+// - roles pour les validations et notifications en fonction de ces &#233;venements et participations
+var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionDN,&quot;fkTCT_ID,fkTES_ID,fkTTY_ID&quot;);
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var missionId=null;
+var /*Date*/ eventStartDate = null;
+var /*Date*/ overallStartDate = null;
+var scopeID = null;
+var evtTypeID = null;
+var purposeID = null;
+var involvementID = null;
+var /*ResultSet*/ validationRoleRS = null;
+var /*Entry*/ validationRoleEntry = null;
+var /*Set*/ validationRoleSet = new java.util.HashSet();
+var /*ResultSet*/ notificationRoleRS = null;
+var /*Entry*/ notificationRoleEntry = null;
+var /*Set*/ notificationRoleSet = new java.util.HashSet();
+
+for each(var missionEvent in missionEventRS){
+  missionId = missionEvent.fkTCT_ID[0] 
+  eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot;+ ownerID + &quot; AND TCT_ID=&quot;+missionId ,1,&quot;RAS_START_DATE,TPE_ID,TIN_ID&quot;);
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+  
+  scopeID = missionEvent.fkTES_ID[0];
+  evtTypeID = missionEvent.fkTTY_ID[0];
+  purposeID = eventAttendeesEntry.TPE_ID[0];
+  involvementID = eventAttendeesEntry.TIN_ID[0];
+
+  // recherche des roles pour la 2eme validation (validation &quot;DDI&quot;)  
+  validationRoleRS = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_travel_validation_roles(&apos;&quot;+ scopeID + &quot;&apos;,&apos;&quot; + evtTypeID + &quot;&apos;,&apos;&quot; + purposeID + &quot;&apos;,&apos;&quot; + involvementID + &quot;&apos;)&quot;,0); 
+  for each(var validationRoleEntry in validationRoleRS){
+    meibo.logDebug(&quot;ValidationRole : &quot; + validationRoleEntry);
+    validationRoleSet.add(validationRoleEntry.ValidationRoles[0]);
+  }
+  meibo.setWorkflowVariable(&quot;secondValidationRoles&quot;, validationRoleSet);
+  
+  // recherche des roles pour la natification sans validation (notification &quot;DDI&quot;)  
+  notificationRoleRS = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_travel_notified_roles(&apos;&quot;+ scopeID + &quot;&apos;,&apos;&quot; + evtTypeID + &quot;&apos;,&apos;&quot; + purposeID + &quot;&apos;,&apos;&quot; + involvementID + &quot;&apos;)&quot;,0); 
+  for each(var notificationRoleEntry in notificationRoleRS){
+    meibo.logDebug(&quot;ValidationRole : &quot; + notificationRoleEntry);   
+    notificationRoleSet.add(notificationRoleEntry.ValidationRoles[0]); 
+  }
+  meibo.setWorkflowVariable(&quot;notificationRoles&quot;, notificationRoleSet);
+  
+  //1ere date de d&#233;but de participation &#224; un &#233;venement (pour constituer l&apos;&#233;ch&#233;ance du workflow)    
+  eventStartDate = new Date(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]));
+  if((overallStartDate==null) || (eventStartDate &lt; overallStartDate)){
+    overallStartDate = eventStartDate;
+  }
+}
+meibo.logDebug(&quot;Date d&apos;&#233;cheance workflow mission &quot; + missionID + &quot; : &quot; + overallStartDate.toLocaleString());
+meibo.setWorkflowVariable(&quot;firstEventStartDate&quot;, new WAPIDeadline(overallStartDate));
+
+// v&#233;rifie si le participant est Directeur G&#233;n&#233;ral
+var parameters_groupsMapping = getProvisioningParameters_Droit();
+var /*boolean*/isDG = userHasRole(personEntry.ldapDn[0], &quot;DG&quot;, parameters_groupsMapping);
+meibo.setWorkflowVariable(&quot;isDG&quot;, &quot;&quot;+ isDG);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452072000756"/>
+         <TransitionRef Id="T1452245070560"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Initialisation"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="288"/>
+      <ExtendedAttribute Name="YOffset" Value="4"/>
+      <ExtendedAttribute Name="Width" Value="145"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472568550" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Mission</ActualParameter>
+        <ActualParameter>MissionValidate</ActualParameter>
+        <ActualParameter>missionDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer>PROCESS.ROLE-Manager</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition>VARIABLE firstEventStartDate</DeadlineCondition>
+       <ExceptionName>horsD&#233;lai1</ExceptionName>
+      </Deadline>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>DELAY 2 day</DeadlineCondition>
+       <ExceptionName>rappel1</ExceptionName>
+      </Deadline>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>escaladeDDI</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452078466709"/>
+         <TransitionRef Id="T1448473268060"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Validation Manager"/>
+      <ExtendedAttribute Name="fr_description"  Value="Valider une mission"/>
+      <ExtendedAttribute Name="XOffset" Value="332"/>
+      <ExtendedAttribute Name="YOffset" Value="340"/>
+      <ExtendedAttribute Name="Width" Value="185"/>
+      <ExtendedAttribute Name="Height" Value="41"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1452522071084</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472625633" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Mission</ActualParameter>
+        <ActualParameter>MissionValidate</ActualParameter>
+        <ActualParameter>missionDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer>PROCESS.ROLE_SecondLevelValidation</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>DELAY 2 day</DeadlineCondition>
+       <ExceptionName>rappel1</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448473765695"/>
+         <TransitionRef Id="T1448473752360"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Validation DDI"/>
+      <ExtendedAttribute Name="fr_description"  Value="Valider une mission"/>
+      <ExtendedAttribute Name="XOffset" Value="0"/>
+      <ExtendedAttribute Name="YOffset" Value="556"/>
+      <ExtendedAttribute Name="Width" Value="269"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448472836106" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448473616152"/>
+         <TransitionRef Id="T1448472950998"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="route"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="320"/>
+      <ExtendedAttribute Name="YOffset" Value="460"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448473028474" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>PROCESS.ROLE-Participant</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition>VARIABLE firstEventStartDate</DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448527696302"/>
+         <TransitionRef Id="T1452079411023"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Compl&#232;te demande"/>
+      <ExtendedAttribute Name="fr_description"  Value="Compl&#233;ter une demande de mission pour son organisation"/>
+      <ExtendedAttribute Name="XOffset" Value="344"/>
+      <ExtendedAttribute Name="YOffset" Value="672"/>
+      <ExtendedAttribute Name="Width" Value="201"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448473223019" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Mission</ActualParameter>
+        <ActualParameter>MissionCreate</ActualParameter>
+        <ActualParameter>missionDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer>PROCESS.ROLE-Participant</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition>VARIABLE firstEventStartDate</DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448473468781"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Modifie demande"/>
+      <ExtendedAttribute Name="fr_description"  Value="Modifier une demande de mission"/>
+      <ExtendedAttribute Name="XOffset" Value="484"/>
+      <ExtendedAttribute Name="YOffset" Value="556"/>
+      <ExtendedAttribute Name="Width" Value="189"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1452524978986</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448473316383" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1448473472486"/>
+         <TransitionRef Id="T1452260326665"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="d&#233;cision demandeur"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="728"/>
+      <ExtendedAttribute Name="YOffset" Value="636"/>
+      <ExtendedAttribute Name="Width" Value="205"/>
+      <ExtendedAttribute Name="Height" Value="45"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448527318016" Name="">
+     <Description></Description>
+     <Implementation>
+      <SubFlow>
+       <Id>1449063509239</Id>
+       <Execution>SYNCHR</Execution>
+       <ActualParameters>
+        <ActualParameter>userDN</ActualParameter>
+        <ActualParameter>isMission</ActualParameter>
+       </ActualParameters>
+      </SubFlow>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1449065800871"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="OrganiseDeplacement"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="652"/>
+      <ExtendedAttribute Name="YOffset" Value="756"/>
+      <ExtendedAttribute Name="Width" Value="205"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="numberSubflowToLaunch" Value="1"/>
+      <ExtendedAttribute Name="fr_titleParameter"  Value="Organisation D&#233;placement mission {userDn}"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448527724520" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ ownerID = meibo.getWorkflowVariable(&quot;participantID&quot;);
+var /*String*/ ownerDN = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+
+meibo.logDebug(&quot;Abandon automatique de la mission &quot; + missionID + &quot; pour &quot; + ownerDN + &quot;; le d&#233;lai est expir&#233;&quot;); 
+updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatique, d&#233;lai expir&#233;&quot;);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1449141870986"/>
+         <TransitionRef Id="T1449136047940"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Abandon Automatique"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="1644"/>
+      <ExtendedAttribute Name="YOffset" Value="704"/>
+      <ExtendedAttribute Name="Width" Value="189"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448527961473" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>PROCESS.ROLE-Participant</Performer>
+     <Priority>2</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>VARIABLE </DeadlineCondition>
+       <ExceptionName>d&#233;partProche</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452592386838"/>
+         <TransitionRef Id="T1448531893154"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="EditeOrdreDeMission"/>
+      <ExtendedAttribute Name="fr_description"  Value="Editer un ordre de mission"/>
+      <ExtendedAttribute Name="XOffset" Value="456"/>
+      <ExtendedAttribute Name="YOffset" Value="836"/>
+      <ExtendedAttribute Name="Width" Value="217"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448531734892" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="notif pour annulation organisation"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="864"/>
+      <ExtendedAttribute Name="YOffset" Value="916"/>
+      <ExtendedAttribute Name="Width" Value="253"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448531857602" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="832"/>
+      <ExtendedAttribute Name="YOffset" Value="860"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448536722066" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>OrganisateurVoyage</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>DELAY 2 day</DeadlineCondition>
+       <ExceptionName>rappel1</ExceptionName>
+      </Deadline>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>escalade</ExceptionName>
+      </Deadline>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition>VARIABLE firstEventStartDate</DeadlineCondition>
+       <ExceptionName>horsDelai</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="EstimationCout"/>
+      <ExtendedAttribute Name="fr_description"  Value="Estimer le co&#251;t d&apos;une mission"/>
+      <ExtendedAttribute Name="XOffset" Value="824"/>
+      <ExtendedAttribute Name="YOffset" Value="208"/>
+      <ExtendedAttribute Name="Width" Value="161"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448545744181" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Relance"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="32"/>
+      <ExtendedAttribute Name="YOffset" Value="640"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448545874035" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Relance"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="588"/>
+      <ExtendedAttribute Name="YOffset" Value="348"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448546285917" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Relance"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="1056"/>
+      <ExtendedAttribute Name="YOffset" Value="208"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448546524800" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="428"/>
+      <ExtendedAttribute Name="YOffset" Value="280"/>
+      <ExtendedAttribute Name="Width" Value="101"/>
+      <ExtendedAttribute Name="Height" Value="37"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448557363960" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter></ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="rappel D&#233;part"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="416"/>
+      <ExtendedAttribute Name="YOffset" Value="924"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449135987735" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var missionID = meibo.getWorkflowVariable(&quot;missionID&quot;);
+var user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+// notification
+var email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+if(email==null){
+  meibo.logWarn(&quot;Impossible de notifier &quot; + participantDn + &quot; car il n&apos;a pas d&apos;email&quot;);
+}else{
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;user&quot;, user);
+  params.add(&quot;missionID&quot;, missionID);
+  params.add(&quot;recipient&quot;, email);  
+  params.add(&quot;participantDN&quot;, participantDn);  
+  meibo.executePlugin(&quot;NotifyMissionCanceled&quot;,params);
+}</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1449136074946"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="notification"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="1248"/>
+      <ExtendedAttribute Name="YOffset" Value="852"/>
+      <ExtendedAttribute Name="Width" Value="133"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449139919375" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452078449254"/>
+         <TransitionRef Id="T1449140025000"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="132"/>
+      <ExtendedAttribute Name="YOffset" Value="280"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449244633439" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Mission</ActualParameter>
+        <ActualParameter>MissionAccept</ActualParameter>
+        <ActualParameter>missionDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer>PROCESS.ROLE-Participant</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition>VARIABLE </DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+      <Deadline Execution="ASYNCHR">
+       <DeadlineCondition>CALENDAR_DELAY 2 day</DeadlineCondition>
+       <ExceptionName>relance</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452072030730"/>
+         <TransitionRef Id="T1452014277554"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Accepter mission"/>
+      <ExtendedAttribute Name="fr_description"  Value="Accepter une mission"/>
+      <ExtendedAttribute Name="XOffset" Value="420"/>
+      <ExtendedAttribute Name="YOffset" Value="104"/>
+      <ExtendedAttribute Name="Width" Value="201"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1452270989283</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449244931030" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Relance"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="680"/>
+      <ExtendedAttribute Name="YOffset" Value="132"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449245333752" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>var /*Set*/ notificationRoleSet = meibo.setWorkflowVariable(&quot;notificationRoles&quot;);
+if(!notificationRoleSet.isEmpty()){
+//TODO notifications DDI ou autre en fonction de notificationRoleSet
+}</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Notifications"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="676"/>
+      <ExtendedAttribute Name="YOffset" Value="972"/>
+      <ExtendedAttribute Name="Width" Value="125"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1452014265043" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="808"/>
+      <ExtendedAttribute Name="YOffset" Value="328"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1452071850125" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>var /*String*/ missionDN = meibo.getWorkflowVariable(&quot;missionDN&quot;); 
+var /*Entry*/ missionEntry = meibo.getDnEntry(&quot;Mission&quot;, missionDN);
+if((missionEntry.TMN_ESTIMATED_COST[0]!=null) &amp;&amp; (missionEntry.TMN_ESTIMATED_COST[0]!=&quot;&quot;)){
+  meibo.setWorkflowVariable(&quot;costDefined&quot;,&quot;true&quot;); 
+}else{
+  meibo.setWorkflowVariable(&quot;costDefined&quot;,&quot;false&quot;);
+}</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452071956127"/>
+         <TransitionRef Id="T1452071980389"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="verifieCout"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="288"/>
+      <ExtendedAttribute Name="YOffset" Value="196"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1452078418181" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="96"/>
+      <ExtendedAttribute Name="YOffset" Value="400"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1452260216937" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ ownerID = meibo.getWorkflowVariable(&quot;participantID&quot;);
+var /*String*/ ownerDN = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+
+meibo.logDebug(&quot;Abandon explicite de la mission &quot; + missionID + &quot; pour &quot; + ownerDN); 
+updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;&quot;);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1452260261334"/>
+         <TransitionRef Id="T1452260241541"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Abandon"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="1204"/>
+      <ExtendedAttribute Name="YOffset" Value="788"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+   </Activities>
+   <Transitions>
+    <Transition Id="T1448472522446" Name="T1448472522446" From="A1448472295866" To="A1448472369326"/>
+    <Transition Id="T1448472950998" Name="T1448472950998" From="A1448472836106" To="A1448472625633">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1448473268060" Name="T1448473268060" From="A1448472568550" To="A1448473223019">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1448473468781" Name="T1448473468781" From="A1448473223019" To="A1448473316383"/>
+    <Transition Id="T1448473472486" Name="T1448473472486" From="A1448473316383" To="A1448472568550">
+     <Condition Type="CONDITION">missionModified==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1448473616152" Name="T1448473616152" From="A1448472836106" To="A1448473028474">
+     <Condition Type="CONDITION">secondValidationRoles.isEmpty()</Condition>
+    </Transition>
+    <Transition Id="T1448473752360" Name="T1448473752360" From="A1448472625633" To="A1448473223019">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1448473765695" Name="T1448473765695" From="A1448472625633" To="A1448473028474">
+     <Condition Type="CONDITION">secondLevelValidated==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1448527696302" Name="T1448527696302" From="A1448473028474" To="A1448527318016">
+     <Condition Type="CONDITION">completedForOrganisation==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1448531893154" Name="T1448531893154" From="A1448527961473" To="A1448531857602">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1448531937565" Name="T1448531937565" From="A1448531857602" To="A1448531734892"/>
+    <Transition Id="T1448545497555" Name="T1448545497555" From="A1448527961473" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai</Condition>
+    </Transition>
+    <Transition Id="T1448545610687" Name="T1448545610687" From="A1448527318016" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai</Condition>
+    </Transition>
+    <Transition Id="T1448545750717" Name="T1448545750717" From="A1448472625633" To="A1448545744181">
+     <Condition Type="EXCEPTION">rappel1</Condition>
+    </Transition>
+    <Transition Id="T1448545879483" Name="T1448545879483" From="A1448472568550" To="A1448545874035">
+     <Condition Type="EXCEPTION">rappel1</Condition>
+    </Transition>
+    <Transition Id="T1448546325583" Name="T1448546325583" From="A1448536722066" To="A1448546285917">
+     <Condition Type="EXCEPTION">rappel1</Condition>
+    </Transition>
+    <Transition Id="T1448546538767" Name="T1448546538767" From="A1448536722066" To="A1448546524800">
+     <Condition Type="EXCEPTION">escalade</Condition>
+    </Transition>
+    <Transition Id="T1449065723371" Name="T1449065723371" From="A1448527961473" To="A1448557363960">
+     <Condition Type="EXCEPTION">d&#233;partProche</Condition>
+    </Transition>
+    <Transition Id="T1449065800871" Name="T1449065800871" From="A1448527318016" To="A1448527961473"/>
+    <Transition Id="T1449136047940" Name="T1449136047940" From="A1448527724520" To="A1449135987735">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1449136074946" Name="T1449136074946" From="A1449135987735" To="A1448472343512"/>
+    <Transition Id="T1449140025000" Name="T1449140025000" From="A1449139919375" To="A1448472568550">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1449140155934" Name="T1449140155934" From="A1448536722066" To="A1449139919375"/>
+    <Transition Id="T1449140168470" Name="T1449140168470" From="A1448546524800" To="A1449139919375"/>
+    <Transition Id="T1449141870986" Name="T1449141870986" From="A1448527724520" To="A1448472343512">
+     <Condition Type="CONDITION">isDG==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1449244728738" Name="T1449244728738" From="A1449244633439" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai</Condition>
+    </Transition>
+    <Transition Id="T1449244943062" Name="T1449244943062" From="A1449244633439" To="A1449244931030">
+     <Condition Type="EXCEPTION">relance</Condition>
+    </Transition>
+    <Transition Id="T1452014277554" Name="T1452014277554" From="A1449244633439" To="A1452014265043">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452071956127" Name="T1452071956127" From="A1452071850125" To="A1449139919375">
+     <Condition Type="CONDITION">costDefined==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452071980389" Name="T1452071980389" From="A1452071850125" To="A1448536722066">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452072000756" Name="T1452072000756" From="A1448472369326" To="A1452071850125">
+     <Condition Type="CONDITION">participantID==initiatorID</Condition>
+    </Transition>
+    <Transition Id="T1452072030730" Name="T1452072030730" From="A1449244633439" To="A1452071850125">
+     <Condition Type="CONDITION">accepted==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452078449254" Name="T1452078449254" From="A1449139919375" To="A1452078418181">
+     <Condition Type="CONDITION">isDG==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452078466709" Name="T1452078466709" From="A1448472568550" To="A1452078418181">
+     <Condition Type="CONDITION">managerValidated==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452078534818" Name="T1452078534818" From="A1452078418181" To="A1448472836106"/>
+    <Transition Id="T1452079024406" Name="T1452079024406" From="A1448536722066" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsDelai</Condition>
+    </Transition>
+    <Transition Id="T1452079250689" Name="T1452079250689" From="A1448472568550" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai1</Condition>
+    </Transition>
+    <Transition Id="T1452079411023" Name="T1452079411023" From="A1448473028474" To="A1448473316383">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452079443088" Name="T1452079443088" From="A1448473028474" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai</Condition>
+    </Transition>
+    <Transition Id="T1452079538108" Name="T1452079538108" From="A1448473223019" To="A1448527724520">
+     <Condition Type="EXCEPTION">horsD&#233;lai</Condition>
+    </Transition>
+    <Transition Id="T1452245070560" Name="T1452245070560" From="A1448472369326" To="A1449244633439">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452260241541" Name="T1452260241541" From="A1452260216937" To="A1449135987735">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452260261334" Name="T1452260261334" From="A1452260216937" To="A1448472343512">
+     <Condition Type="CONDITION">isDG==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452260301879" Name="T1452260301879" From="A1452014265043" To="A1452260216937"/>
+    <Transition Id="T1452260326665" Name="T1452260326665" From="A1448473316383" To="A1452260216937">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1452260346922" Name="T1452260346922" From="A1448531857602" To="A1452260216937"/>
+    <Transition Id="T1452592386838" Name="T1452592386838" From="A1448527961473" To="A1449245333752">
+     <Condition Type="CONDITION">finalConfirmation==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1452592394901" Name="T1452592394901" From="A1449245333752" To="A1448472343512"/>
+    <Transition Id="T1452592675661" Name="T1452592675661" From="A1448472568550" To="A1448472836106">
+     <Condition Type="EXCEPTION">escaladeDDI</Condition>
+    </Transition>
+   </Transitions>
+  </WorkflowProcess>

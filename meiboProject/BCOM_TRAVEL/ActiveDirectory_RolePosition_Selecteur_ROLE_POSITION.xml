@@ -1,0 +1,349 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source>
+  </source>
+  <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Selecteur_ROLE_POSITION (RolePosition)" zh="">
+      <label>
+        <content class="lingual">
+          <fr>Habilitation Fonctionnelle :</fr>
+          <en>cn</en>
+          <es>cn</es>
+          <de>cn</de>
+          <it>cn</it>
+          <pt>cn</pt>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">LabelFormulaire</css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">10</posx>
+        <posy class="number">58</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">152</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">15</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">40</alty>
+        <name class="text"></name>
+        <id class="hidden">c111471466807011</id>
+      </label>
+      <button>
+        <content class="lingual">
+          <fr>Rechercher</fr>
+          <en>Search</en>
+          <es>Buscar</es>
+          <de>Suchen</de>
+          <it>Search</it>
+          <pt>Procurar</pt>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alt class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+          <zh></zh>
+          <ar></ar>
+        </alt>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <onclick class="script">var criteria = getFieldValue(&quot;entry&quot;);
+var results = executeResource(&quot;RolePosition&quot;,&quot;(description=&quot;+criteria+&quot;*)&quot;,100,&quot;description&quot;);
+setFieldValue(&quot;counter&quot;,&quot;&quot;+results.getEntryCount());
+meibo.setPickerResultSet(&quot;RolePosition&quot;,results);</onclick>
+        <submit class="boolean">true</submit>
+        <separator0 class="separator"></separator0>
+        <confirmation class="boolean">false</confirmation>
+        <confirmationdialogmessage class="lingual">
+          <fr></fr>
+        </confirmationdialogmessage>
+        <confirmationdialogtitle class="lingual">
+          <fr></fr>
+        </confirmationdialogtitle>
+        <theme class="theme"></theme>
+        <css class="css">buttonBlue</css>
+        <separator1 class="separator"></separator1>
+        <waitbutton class="boolean">true</waitbutton>
+        <waitingmode class="waitingmode">none</waitingmode>
+        <progressbartitle class="lingual">
+          <fr></fr>
+        </progressbartitle>
+        <progressbarnboperationtext class="lingual">
+          <fr></fr>
+        </progressbarnboperationtext>
+        <progressbarnboperationdonetext class="lingual">
+          <fr></fr>
+        </progressbarnboperationdonetext>
+        <prescript class="script"></prescript>
+        <separator2 class="separator"></separator2>
+        <image class="file"></image>
+        <image2 class="file"></image2>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">409</posx>
+        <posy class="number">52</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">130</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">27</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">34</alty>
+        <name class="text"></name>
+        <id class="hidden">i111471474031292</id>
+      </button>
+      <label>
+        <content class="lingual">
+          <fr>Recherche Habilitation Fonctionnelle</fr>
+          <en>RolePosition</en>
+          <es>RolePosition</es>
+          <de>RolePosition</de>
+          <it>RolePosition</it>
+          <pt>RolePosition</pt>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css">TitreSelecteur</css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">177</posx>
+        <posy class="number">11</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">212</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">8</alty>
+        <name class="text"></name>
+        <id class="hidden">r111471478073303</id>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>R&#233;sultats :</fr>
+          <en>Results</en>
+          <es>Resultados</es>
+          <de>Resultate</de>
+          <it>Risultato</it>
+          <pt>Resultos</pt>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css">LabelFormulaire</css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">412</posx>
+        <posy class="number">87</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">100</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">16</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">80</alty>
+        <name class="text"></name>
+        <id class="hidden">q111471480532724</id>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>0</fr>
+          <en>0</en>
+          <es>0</es>
+          <de>0</de>
+          <it>0</it>
+          <pt>0</pt>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css">LabelFormulaire</css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">494</posx>
+        <posy class="number">87</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">52</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">16</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">80</alty>
+        <name class="text">counter</name>
+        <id class="hidden">s111471482752615</id>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text"></content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css">champFormulaireSubmit</css>
+        <tooltip class="lingual">
+          <fr></fr>
+          <en></en>
+          <es></es>
+          <de></de>
+          <it></it>
+          <pt></pt>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">186</posx>
+        <posy class="number">55</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">190</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">38</alty>
+        <name class="text">entry</name>
+        <id class="hidden">b115158885369187</id>
+      </edit>
+    </page>
+  </destination>
+  <styles>
+    <style name="Verdana_bold_12_000000__FFFFFF__000000_1">
+      <properties>
+        <font class="font">Verdana,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFFFF</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="Verdana_bold_12_000000__CCCCCC__000000_">
+      <properties>
+        <font class="font">Verdana,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">CCCCCC</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number"></linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="Verdana_bold_16_000000__FFFF99__000000_1">
+      <properties>
+        <font class="font">Verdana,bold,16</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="Verdana_bold_12_000000__FFFF99__000000_1">
+      <properties>
+        <font class="font">Verdana,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="Dialog_bold_12_000000_Opaque_FFFFFF__000000_">
+      <properties>
+        <font class="font">Dialog,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">true</opaque>
+        <bgcolor class="color">FFFFFF</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number"></linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+  </styles>
+</screen>

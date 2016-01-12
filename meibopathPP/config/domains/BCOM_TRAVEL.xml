@@ -1,0 +1,161 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<domain>
+  <datasources>
+    <datasource name="ActiveDirectory" type="LDAP">
+      <properties>
+        <JNDIUrl class="text">ldap://10.2.10.10:389</JNDIUrl>
+        <Domain class="text">DC=pprb-com,DC=local</Domain>
+        <Enabled class="boolean">true</Enabled>
+        <ConnectionObliged class="boolean">true</ConnectionObliged>
+        <SecurityProtocol class="securityprotocol">SSL</SecurityProtocol>
+        <separator class="separator"></separator>
+        <UseForAuthentication class="boolean">true</UseForAuthentication>
+        <UserBase class="dn">OU=Persons,OU=People,DC=pprb-com,DC=local</UserBase>
+        <UserFilter class="filter">(objectClass=user)(!(memberOf=CN=GGU-USERS-EXTERNAL,OU=Users,OU=Groups,OU=People,DC=pprb-com,DC=local))</UserFilter>
+        <UserScope class="scope">SUBTREE</UserScope>
+        <UserAttribute class="text">sAMAccountName</UserAttribute>
+        <UserUseGeneric class="boolean">true</UserUseGeneric>
+        <separator class="separator"></separator>
+        <AdminSecurityAuthentication class="authenticationmode">simple</AdminSecurityAuthentication>
+        <AdminDN class="dn">svc-meibo-ldapro</AdminDN>
+        <AdminPassword class="password">{dQXAwmXc2I6tZcd1szCSJg==}</AdminPassword>
+        <separator class="separator"></separator>
+        <UserSecurityAuthentication class="authenticationmode">simple</UserSecurityAuthentication>
+        <UseClientLogin class="boolean">false</UseClientLogin>
+        <separator class="separator"></separator>
+        <GenericSecurityAuthentication class="authenticationmode">simple</GenericSecurityAuthentication>
+        <GenericCheckUser class="boolean">true</GenericCheckUser>
+        <GenericDN class="dn">svc-meibo-ldapro</GenericDN>
+        <GenericPassword class="password">{dQXAwmXc2I6tZcd1szCSJg==}</GenericPassword>
+        <separator class="separator"></separator>
+        <WorkflowSecurityAuthentication class="authenticationmode">simple</WorkflowSecurityAuthentication>
+        <WorkflowDN class="dn">svc-meibo-ldapro</WorkflowDN>
+        <WorkflowPassword class="password">{dQXAwmXc2I6tZcd1szCSJg==}</WorkflowPassword>
+        <separator class="separator"></separator>
+        <WebServiceSecurityAuthentication class="authenticationmode">simple</WebServiceSecurityAuthentication>
+        <WebServiceDN class="dn"></WebServiceDN>
+        <WebServicePassword class="password"></WebServicePassword>
+        <separator class="separator"></separator>
+        <BinaryAttributes class="text"></BinaryAttributes>
+        <separator class="separator"></separator>
+        <ConnectionPoolSize class="number">1</ConnectionPoolSize>
+        <ConnectionPoolMax class="number">1</ConnectionPoolMax>
+        <ConnectionUseCount class="number">100</ConnectionUseCount>
+        <ConnectionTimeOut class="number">120</ConnectionTimeOut>
+        <separator class="separator"></separator>
+        <RequestCacheSize class="number">30</RequestCacheSize>
+        <RequestTimeToLive class="number">15</RequestTimeToLive>
+        <separator class="separator"></separator>
+        <referral class="referral">ignore</referral>
+        <separator class="separator"></separator>
+        <pagesize class="number"></pagesize>
+        <separator class="separator"></separator>
+        <activedirectory class="boolean">true</activedirectory>
+        <pwdencoding class="pwdencoding">SHA1</pwdencoding>
+      </properties>
+    </datasource>
+    <datasource name="IAM_BCOM" type="SQL">
+      <properties>
+        <JDBCConnectionURL class="text">jdbc:mysql://10.2.100.13:3306/iam_bcom</JDBCConnectionURL>
+        <Enabled class="boolean">true</Enabled>
+        <ConnectionObliged class="boolean">true</ConnectionObliged>
+        <separator class="separator"></separator>
+        <user class="text">svc-meibo-sql</user>
+        <password class="password">{zRawrMqDVCDwXX+w6nAr/g==}</password>
+        <separator class="separator"></separator>
+        <WorkflowUser class="text">svc-meibo-sql</WorkflowUser>
+        <WorkflowPassword class="password">{zRawrMqDVCDwXX+w6nAr/g==}</WorkflowPassword>
+        <separator class="separator"></separator>
+        <WebServiceUser class="text"></WebServiceUser>
+        <WebServicePassword class="password"></WebServicePassword>
+        <separator class="separator"></separator>
+        <JDBCDriver class="text">com.mysql.jdbc.Driver</JDBCDriver>
+        <separator class="separator"></separator>
+        <AppServerDatasource class="text"></AppServerDatasource>
+        <separator class="separator"></separator>
+        <BlobType class="hidden">TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB, LONGVARBINARY, IMAGE, BYTEA</BlobType>
+        <ClobType class="hidden">CLOB</ClobType>
+        <BinaryType class="hidden"></BinaryType>
+        <NumType class="hidden">NUMERIC, DOUBLE</NumType>
+        <LongType class="hidden">INT, INTEGER</LongType>
+        <ConnectionPoolSize class="number">3</ConnectionPoolSize>
+        <ConnectionPoolMax class="number">5</ConnectionPoolMax>
+        <ConnectionUseCount class="number">100</ConnectionUseCount>
+        <ConnectionTimeOut class="number">120</ConnectionTimeOut>
+      </properties>
+    </datasource>
+	<datasource name="TRAVEL_BCOM" type="SQL">
+		<properties>
+			<JDBCConnectionURL class="text">jdbc:mysql://10.2.100.13:3306/iam_bcom</JDBCConnectionURL>
+			<Enabled class="boolean">true</Enabled>
+			<ConnectionObliged class="boolean">true</ConnectionObliged>
+			<separator class="separator"/>
+			<user class="text">fjean</user>
+			<password class="password">{dQXAwmXc2I6tZcd1szCSJg==}</password>
+			<separator class="separator"/>
+			<WorkflowUser class="text">fjean</WorkflowUser>
+			<WorkflowPassword class="password">{dQXAwmXc2I6tZcd1szCSJg==}</WorkflowPassword>
+			<separator class="separator"/>
+			<WebServiceUser class="text"/>
+			<WebServicePassword class="password"/>
+			<separator class="separator"/>
+			<JDBCDriver class="text">com.mysql.jdbc.Driver</JDBCDriver>
+			<separator class="separator"/>
+			<AppServerDatasource class="text"/>
+			<separator class="separator"/>
+			<BlobType class="hidden">TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB, LONGVARBINARY, IMAGE, BYTEA</BlobType>
+			<ClobType class="hidden">CLOB</ClobType>
+			<BinaryType class="hidden"/>
+			<NumType class="hidden">NUMERIC, DOUBLE</NumType>
+			<LongType class="hidden">INT, INTEGER</LongType>
+			<ConnectionPoolSize class="number">3</ConnectionPoolSize>
+			<ConnectionPoolMax class="number">5</ConnectionPoolMax>
+			<ConnectionUseCount class="number">100</ConnectionUseCount>
+			<ConnectionTimeOut class="number">120</ConnectionTimeOut>
+		</properties>
+	</datasource>
+    <datasource name="workflow" type="SQL">
+      <properties>
+        <JDBCConnectionURL class="text">jdbc:mysql://10.2.100.13:3306/workflow</JDBCConnectionURL>
+        <Enabled class="boolean">true</Enabled>
+        <ConnectionObliged class="boolean">true</ConnectionObliged>
+        <separator class="separator"></separator>
+        <user class="text">svc-meibo-sql</user>
+        <password class="password">{zRawrMqDVCDwXX+w6nAr/g==}</password>
+        <separator class="separator"></separator>
+        <WorkflowUser class="text">svc-meibo-sql</WorkflowUser>
+        <WorkflowPassword class="password">{zRawrMqDVCDwXX+w6nAr/g==}</WorkflowPassword>
+        <separator class="separator"></separator>
+        <WebServiceUser class="text"></WebServiceUser>
+        <WebServicePassword class="password"></WebServicePassword>
+        <separator class="separator"></separator>
+        <JDBCDriver class="text">com.mysql.jdbc.Driver</JDBCDriver>
+        <separator class="separator"></separator>
+        <AppServerDatasource class="text"></AppServerDatasource>
+        <separator class="separator"></separator>
+        <BlobType class="hidden">TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB, LONGVARBINARY, IMAGE, BYTEA</BlobType>
+        <ClobType class="hidden">CLOB</ClobType>
+        <BinaryType class="hidden"></BinaryType>
+        <NumType class="hidden">NUMERIC, DOUBLE</NumType>
+        <LongType class="hidden">INT, INTEGER</LongType>
+        <ConnectionPoolSize class="number">3</ConnectionPoolSize>
+        <ConnectionPoolMax class="number">5</ConnectionPoolMax>
+        <ConnectionUseCount class="number">100</ConnectionUseCount>
+        <ConnectionTimeOut class="number">120</ConnectionTimeOut>
+      </properties>
+    </datasource>
+	
+  </datasources>
+  <workflow>
+    <properties>
+      <url class="text">wtp://10.2.100.10:2211</url>
+      <clientpassword class="password">{iWMHh8dsnbjtEJ4gMJnfjkYC3RRkrcoK}</clientpassword>
+      <studiopassword class="password">{iWMHh8dsnbjtEJ4gMJnfjkYC3RRkrcoK}</studiopassword>
+      <administratorRole class="rolelist">Studio</administratorRole>
+      <trustStore class="genericFile" filter="jks" filter_en="Java Key Store" filter_fr="Java Key Store"></trustStore>
+      <trustStorePassword class="password"></trustStorePassword>
+      <clientStore class="genericFile" filter="jks" filter_en="Java Key Store" filter_fr="Java Key Store"></clientStore>
+      <clientStorePassword class="password"></clientStorePassword>
+    </properties>
+  </workflow>
+</domain>

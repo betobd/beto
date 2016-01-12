@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <onload class="script">// Ajout d&apos;une &quot;non valeur&quot; dans la liste pour permettre de ne rien s&#233;lectionner
+var /*Field2*/ typeField= meibo.getField(&quot;fkTTY_ID&quot;);
+typeField.setOptions(&quot;-,&quot; + typeField.getOptions());
+typeField.setParameters(&quot; ,&quot; + meibo.getFieldParameters(&quot;fkTTY_ID&quot;));
+typeField.setValue(&quot; &quot;);
+ 
+ var /*Field2*/ scopeField= meibo.getField(&quot;fkTES_ID&quot;);
+scopeField.setOptions(&quot;-,&quot; + scopeField.getOptions());
+scopeField.setParameters(&quot; ,&quot; + meibo.getFieldParameters(&quot;fkTES_ID&quot;));
+scopeField.setValue(&quot; &quot;);</onload>
+  <globalscriptView class="script"></globalscriptView>
+</scripts>

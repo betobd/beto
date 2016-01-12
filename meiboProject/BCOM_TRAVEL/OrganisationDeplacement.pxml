@@ -1,0 +1,168 @@
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063509239" Name="OrganisationDeplacement">
+   <ProcessHeader DurationUnit="D">
+    <Description>Processus Meibo</Description>
+   </ProcessHeader>
+   <RedefinableHeader PublicationStatus="RELEASED">
+    <Author>Meibo</Author>
+    <Version>3</Version>
+   </RedefinableHeader>
+   <ExtendedAttributes>
+    <ExtendedAttribute Name="scale"  Value="100%"/>
+    <ExtendedAttribute Name="role"  Value="AdminMeibo"/>
+    <ExtendedAttribute Name="role"  Value="InitiateurDeplacement"/>
+    <ExtendedAttribute Name="role"  Value="Studio"/>
+    <ExtendedAttribute Name="role"  Value="Utilisateur"/>
+    <ExtendedAttribute Name="fr_name"  Value="Mission"/>
+    <ExtendedAttribute Name="fr_description"  Value=""/>
+    <ExtendedAttribute Name="actionsList" Value="">
+      <Action Name="Initialisation" Type="workflowScriptImplementation" ID="1448472454995">
+      </Action>
+      <Action Name="Notifier" Type="pluginMail-1" ID="1448472764360">
+      </Action>
+    </ExtendedAttribute>
+   </ExtendedAttributes>
+   <DataFields>
+    <DataField Id="ROLE-Manager" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-Initiateur" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="ROLE-Participant" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="PERFORMER"/>
+     </DataType>
+     <InitialValue>0</InitialValue>
+    </DataField>
+   </DataFields>
+   <FormalParameters>
+    <FormalParameter Id="userDn" Index="3" Mode="IN">
+     <DataType>
+      <BasicType Type="OBJECT"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="idMission" Index="4" Mode="IN">
+     <DataType>
+      <BasicType Type="INTEGER"/>
+     </DataType>
+    </FormalParameter>
+   </FormalParameters>
+   <Participants>
+    <Participant Id="AdminMeibo" Name="AdminMeibo">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="AnalyseurDeplacement" Name="AnalyseurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="DDI" Name="DDI">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="InitiateurDeplacement" Name="InitiateurDeplacement">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="OrganisateurVoyage" Name="OrganisateurVoyage">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Studio" Name="Studio">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+    <Participant Id="Utilisateur" Name="Utilisateur">
+     <ParticipantType Type="ROLE"/>
+    </Participant>
+   </Participants>
+   <Activities>
+    <Activity Id="A1448472295866" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1449063538696"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="D&#233;but"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="96"/>
+      <ExtendedAttribute Name="YOffset" Value="4"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1448527318016" Name="">
+     <Description></Description>
+     <Implementation>
+      <No/>
+     </Implementation>
+     <Performer>OrganisateurVoyage</Performer>
+     <Priority>1</Priority>
+      <Deadline Execution="SYNCHR">
+       <DeadlineCondition></DeadlineCondition>
+       <ExceptionName>horsD&#233;lai</ExceptionName>
+      </Deadline>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1449063562953"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Organise"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="68"/>
+      <ExtendedAttribute Name="YOffset" Value="96"/>
+      <ExtendedAttribute Name="Width" Value="169"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1449063543648" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Fin"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="92"/>
+      <ExtendedAttribute Name="YOffset" Value="172"/>
+      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+   </Activities>
+   <Transitions>
+    <Transition Id="T1449063538696" Name="T1449063538696" From="A1448472295866" To="A1448527318016"/>
+    <Transition Id="T1449063562953" Name="T1449063562953" From="A1448527318016" To="A1449063543648"/>
+   </Transitions>
+  </WorkflowProcess>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{$direction}">
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" href="images/icone-studio.png" type="image/x-icon" />
+        <LINK REL=stylesheet TYPE="text/css" HREF="web/login/css/styles.css">  
+		<title>Meibo</title>
+	</head>
+
+
+<body onLoad="document.forms[0].user.focus();">
+	<table class="table_page">
+		<tr>
+			<td>
+				<div class="authentication_page">				
+					<div class="content">
+						&nbsp;
+						<form action="./dsddostart" method="post" name="user_login"> 
+							<input type="hidden" name="Connection" value="">
+							<input type="hidden" name="deletesession" value="true">     
+							
+							<div class="form_table">
+								<table cellpadding="2" cellspacing="0">
+								  <tr>
+									<td class="form_title">{$name}</td>
+									<td><input class="form_field" tabindex="1" type="text" name="user"></td>
+								  </tr>
+								  <tr>
+									<td class="form_title">{$password}</td>
+									<td><input class="form_field" tabindex="2" type="password" name="password"></td>
+								  </tr>
+								  <tr>
+									<td class="form_title">{$application}</td>
+									<td><select  class="form_droplist" tabindex="3" name="Project" size="1">{$projects}</select></td>
+								  </tr>
+								  <tr>
+									<td>&nbsp;</td>
+									<td class="button_position"><input class="button_style" tabindex="4" type="submit" value="OK"></td>
+								  </tr>
+							 </table>
+							</div>
+						</form>							
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>  
+</body>
+</html>
