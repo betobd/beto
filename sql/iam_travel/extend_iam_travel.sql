@@ -646,7 +646,15 @@ CREATE TABLE `T_REPORT_TRT` (
   `TRT_WORKFLOW_ID`       varchar (255) ,
   `TRT_OTHER_CONTENT_TYPE`      varchar (255) ,
   `TRT_VISITORS_NB`       int ,
-  `TRT_OTHER_VIS_TYPE`    text ,
+  `TRT_BUSINESS_VIS_TYPE_RATIO`        int ,
+  `TRT_SCIENTIFIC_VIS_TYPE_RATIO`      int ,
+  `TRT_OTHER_VIS_TYPE_RATIO`           int ,
+  `TRT_OTHER_VIS_TYPE_TEXT`            text ,
+  `TRT_ASIA_VIS_ORIGIN_RATIO`          int ,
+  `TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO` int ,
+  `TRT_EUROPE_VIS_ORIGIN_RATIO`        int ,
+  `TRT_FRANCE_VIS_ORIGIN_RATIO`        int ,
+  `TRT_OTHER_VIS_ORIGIN_RATIO`         int ,
   `TRT_COUNTRY_DETAIL`    text ,
   `TRT_PARTNER_NB`        int ,
   `TRT_PARTNER_LIST`      text ,
@@ -791,6 +799,42 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+
+--
+-- Temporary view structure for view `report_choices`
+--
+
+DROP TABLE IF EXISTS `report_choices`;
+/*!50001 DROP VIEW IF EXISTS `report_choices`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `report_choices` AS SELECT 
+ 1 AS `TCS_ID`,
+ 1 AS `TCS_NAME`,
+ 1 AS `TFC_ID`,
+ 1 AS `TFC_ABBREV`,
+ 1 AS `TFC_NAME`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `report_choices`
+--
+
+/*!50001 DROP VIEW IF EXISTS `report_choices`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`192.168.13.%` SQL SECURITY DEFINER */
+/*!50001 VIEW `report_choices` AS select `tcs`.`TCS_ID` AS `TCS_ID`,`tcs`.`TCS_NAME` AS `TCS_NAME`,`tfc`.`TFC_ID` AS `TFC_ID`,`tfc`.`TFC_ABBREV` AS `TFC_ABBREV`,`tfc`.`TFC_NAME` AS `TFC_NAME` from (`T_CHOICE_TYPES_TCS` `tcs` join `T_FILTERED_CHOICES_TFC` `tfc` on((`tcs`.`TFC_ID` = `tfc`.`TFC_ID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
 
 --
 -- Dumping routines for database 'iam_bcom_mission'
