@@ -689,6 +689,7 @@ CREATE TABLE `T_REPORT_TRT` (
   `TRT_QUAL_PRICE_RATIO_NOTE`   varchar (2) NOT NULL ,
   `TRT_QUAL_PRICE_RATIO_COMMENT`      text NOT NULL ,
   `TRT_NEXTEDITION_NOTE`   varchar (2) NOT NULL ,
+  `TRT_NEXTEDITION_COMMENT`   text NOT NULL ,
   PRIMARY KEY (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
