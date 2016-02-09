@@ -1,0 +1,5 @@
+*.xpdl
+*-.xml
+*-.ixp
+*.bak
+*.css
