@@ -7,6 +7,8 @@ try{
   if ((lastComment != null) &amp;&amp; (lastComment!=&quot;&quot;)) {
     meibo.showField(&quot;lastCommentLayout&quot;,true);
     meibo.getField(&quot;LAST_COMMENT&quot;).setValue(&quot;&quot; + lastComment);
+    // commentaire organisateur par d&#233;faut = demande de l&apos;utilisateur
+    meibo.getField(&quot;COMMENT&quot;).setValue(&quot;&quot; + lastComment);    
   }else{
     meibo.showField(&quot;lastCommentLayout&quot;,false);
   }

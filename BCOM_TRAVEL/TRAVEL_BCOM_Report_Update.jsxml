@@ -1,0 +1,214 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script">var CONTAINERS_COUNT = 5; // Nombre de blocs &quot;contacts&quot;
+var CHECK_REPORT_ACTIVITY_ID = &quot;A1448529288334&quot;;   // identifiant de l&apos;activit&#233; &quot;v&#233;rifie CR&quot;
+
+/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants &#224; l&apos;abbr&#233;viation choiceType
+ * pr&#233;s&#233;lectionne les valeurs enregistr&#233;es
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType,reportId){
+  var /*Table*/ table = meibo.getField(tableName);
+  // recherche des choix possibles 
+  var /*ResultSet*/ choicesRs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_ID,TFC_ID,TCS_NAME&quot;);
+  var /*Entry*/ choiceEntry = choicesRs.getEntry();
+  var filteredChoiceId = choiceEntry.TFC_ID[0];
+  // recherche des valeurs enregistr&#233;es
+  var /*ResultSet*/ selectedChoicesRs = meibo.executeResource(&quot;R_ReportChoice&quot;, &quot;TRT_ID=&quot; + reportId + &quot; AND TFC_ID=&quot; + filteredChoiceId, 0);
+  var /*Array*/ selectedChoicesArray = resultSetToArray(selectedChoicesRs,&quot;TCS_ID&quot;);
+  table.fillInWithResultSet(choicesRs,0,0,&quot;TCS_NAME&quot;);
+  // positionne l&apos;entr&#233;e en row object pour pouvoir r&#233;cup&#233;rer les valeurs au moment de la soumission du formulaire 
+  var choiceId = null;
+  for(var i=0;i&lt;choicesRs.getEntryCount();i++){
+    choiceEntry = choicesRs.getEntry(i);
+    table.addRowObject(i,choiceEntry);
+    choiceId = choiceEntry.TCS_ID[0];
+    // pr&#233;s&#233;lectionne la valeur si elle &#233;tait enregistr&#233;e
+    if(choiceId in selectedChoicesArray){
+      table.checkRow(i,true);
+    }
+  }
+}
+
+/**
+ * Remplit la liste d&#233;roulante listName avec les ReportChoices correspondants &#224; l&apos;abbr&#233;viation choiceType
+ */
+function /*void*/ fillListWithChoices(listName, choiceType){
+  var /*List*/choice = meibo.getField(listName);
+  var /*ResultSet*/ choicesRs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_NAME,TCS_VALUE&quot;);
+  //var /*ResultSet*/ choicesRs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_NAME&quot;);      
+  var /*Array*/ nameArray = resultSetToArray(choicesRs, &quot;TCS_NAME&quot;);
+  var /*Array*/ valueArray = resultSetToArray(choicesRs, &quot;TCS_VALUE&quot;);
+  choice.setValues(valueArray);
+  //choice.setValues(nameArray);
+  choice.setDisplayedTexts(nameArray);
+}
+
+/**
+ * Indique si le formulaire est ouvert dans le cadre de la validation du compte rendu (par AnalyseurDeplacement)
+ */
+function /*boolean*/ isCheckReportStep(){
+  var CHECK_REPORT_ACTIVITY_ID = &quot;A1448529288334&quot;;
+  var /*wapiWorkItem*/ wapiWorkItem = meibo.getCurrentWorkflowTask();
+  meibo.logDebug(&quot;wapiWorkItem.getId() : &quot; + wapiWorkItem.getId());
+  var wapiActivityInst = wapiWorkItem.getActivityInstance();
+  /*
+  meibo.logDebug(&quot;wapiActivityInst.getActivityId() : &quot; + wapiActivityInst.getActivityId());
+  meibo.logDebug(&quot;wapiActivityInst.getId() : &quot; + wapiActivityInst.getId());
+  meibo.logDebug(&quot;wapiActivityInst.getDisplayName() : &quot; + wapiActivityInst.getDisplayName());
+  */
+  return ((wapiActivityInst.getActivityId()==CHECK_REPORT_ACTIVITY_ID) &amp;&amp; (meibo.isUserInRole(&quot;AnalyseurDeplacement&quot;)));
+}</globalScriptView>
+  <onload class="script">///$debug
+try{
+  var /*wapiWorkItem*/ wapiWorkItem = meibo.getCurrentWorkflowTask();
+  var wapiActivityInst = wapiWorkItem.getActivityInstance();
+  
+  if(isCheckReportStep()){
+  // mode validation par AnalyseurDeplacement
+    meibo.logDebug(&quot;Traitement de l&apos;activit&#233; de compte-rendu : &quot; + wapiActivityInst.getDisplayName() + &quot; en mode AnalyseurDeplacement&quot;);
+  }else{
+  // mode contribution
+    meibo.logDebug(&quot;Traitement de l&apos;activit&#233; de compte-rendu : &quot; + wapiActivityInst.getDisplayName() + &quot; en mode contributeur&quot;);
+    var comment = meibo.getWorkflowVariable(&quot;checkReportStepComment&quot;);
+    if((comment!=null) &amp;&amp; (comment.length &gt;0)){
+      meibo.showField(&quot;RejectPanel&quot;,true);
+      meibo.setFieldValue(&quot;RejectComment&quot;,comment); 
+    }
+  }
+
+}catch(exception){
+  meibo.logWarn(&quot;Erreur sur r&#233;cup&#233;ration de contexte de workflow  : &quot; + exception);
+}
+
+
+var reportId= meibo.getFieldValue(&quot;TRT_ID&quot;)
+// Remplit les valeurs possibles des tableaux et listes utilis&#233;s
+fillTableWithChoices(&quot;R_CONTENTS_TYPE&quot;,&quot;CNT&quot;,reportId);
+fillTableWithChoices(&quot;R_MEDIA_TYPE&quot;,&quot;MED&quot;,reportId);
+fillListWithChoices(&quot;TRT_QUALITY_NOTE&quot;,&quot;GQ&quot;);
+fillListWithChoices(&quot;TRT_RENOWN_COMMENT&quot;,&quot;RN&quot;);
+fillListWithChoices(&quot;TRT_DYN_PREVIOUS_SESSION_NOTE&quot;,&quot;DPS&quot;);
+fillListWithChoices(&quot;TRT_STRATEGIC_COVER_NOTE&quot;,&quot;SNC&quot;);
+fillListWithChoices(&quot;TRT_LOBBY_CONTACT_QUAL_NOTE&quot;,&quot;LCQ&quot;);
+fillListWithChoices(&quot;TRT_BUSINESS_CONTACT_QUAL_NOTE&quot;,&quot;BCQ&quot;);
+fillListWithChoices(&quot;TRT_BCOM_SPREAD_VALUE_COMMENT&quot;,&quot;BSC&quot;);
+fillListWithChoices(&quot;TRT_BENCHMARK_QUALITY_NOTE&quot;,&quot;BQ&quot;);
+fillListWithChoices(&quot;TRT_QUAL_PRICE_RATIO_NOTE&quot;,&quot;PQR&quot;);
+fillListWithChoices(&quot;TRT_NEXTEDITION_NOTE&quot;,&quot;NEN&quot;);
+
+// traitement sp&#233;cifique des contacts
+// les valeurs ne sont pas port&#233;es dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+
+// recherche des valeurs enregistr&#233;es
+var /*ResultSet*/ contactRs = meibo.executeResource(&quot;ReportNetworkingContacts&quot;, &quot;TRT_ID=&quot; + reportId, 0);
+var contactIndex = 1;
+for each(var /*Entry*/ networkingContactEntry in contactRs){
+  meibo.setFieldValue(&quot;CONTACT_NAME_&quot; + contactIndex, networkingContactEntry.TNC_NAME[0]);
+  meibo.setFieldValue(&quot;CONTACT_TITLE_&quot; + contactIndex, networkingContactEntry.TNC_TITLE[0]);
+  meibo.setFieldValue(&quot;CONTACT_STRUCTURE_&quot; + contactIndex, networkingContactEntry.TNC_STRUCTURE[0]);
+  meibo.setFieldValue(&quot;CONTACT_DISCUSSION_&quot; + contactIndex, networkingContactEntry.TNC_DISCUSSION[0]);
+  meibo.setFieldValue(&quot;CONTACT_FOLLOWUP_&quot; + contactIndex, networkingContactEntry.TNC_FOLLOWUP[0]);
+  
+  meibo.showField(&quot;CONTACT_CONTAINER_&quot; + contactIndex, true);
+  contactIndex++;
+}
+
+// contournement du fonctionnement meibo qui ne prend en compte que la premi&#232;re valeur des champs multivalu&#233;s dans le cas d&apos;une ressource de type base de donn&#233;es
+fixMultiValueFieldsOnLoad(&quot;TRT_PARTNER_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_NEWSPAPER_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_JOURNALIST_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_KEYWORDS&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_DIFFUSION_EMAIL_LIST&quot;);
+
+// formatage date
+meibo.setFieldValue(&quot;EventDate&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;EventDate&quot;))));</onload>
+  <onquit class="script">///$debug
+// contournement du fonctionnement meibo qui ne prend en compte que la premi&#232;re valeur des champs multivalu&#233;s dans le cas d&apos;une ressource de type base de donn&#233;es
+fixMultiValueFieldsOnSubmit(&quot;TRT_PARTNER_LIST&quot;);
+fixMultiValueFieldsOnSubmit(&quot;TRT_NEWSPAPER_LIST&quot;);
+fixMultiValueFieldsOnSubmit(&quot;TRT_JOURNALIST_LIST&quot;);
+fixMultiValueFieldsOnSubmit(&quot;TRT_KEYWORDS&quot;);
+fixMultiValueFieldsOnSubmit(&quot;TRT_DIFFUSION_EMAIL_LIST&quot;);
+
+meibo.setReturnValue(true);</onquit>
+  <onoperationok class="script">///$debug
+/**
+ * Affecte &#224; la ressource R_ReportChoice les &#233;lements s&#233;lectionn&#233;s dans le tableau tableName
+ */
+function /*void*/ setReportChoices(tableName, reportID){
+  var /*Table*/ table = meibo.getField(tableName);
+  var /*array*/selectedRowsIndex = table.getCheckedRows();
+
+  // on ajoute les lignes qui sont s&#233;lectionn&#233;es
+  for each(var rowIndex in selectedRowsIndex){
+    var /*Entry*/ choiceEntry = table.getRowObject(rowIndex);
+    choiceEntry.updateAttribute(new Attribute(&quot;TRT_ID&quot;,reportID));
+    choiceEntry.deleteAttribute(&quot;TCS_NAME&quot;);
+    
+    meibo.createEntry(&quot;R_ReportChoice&quot;,null, choiceEntry);
+  }
+}
+
+var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+// traitement sp&#233;cifique des listes/tableaux en multi-s&#233;lection :
+// les valeurs ne sont pas port&#233;es dans la table REPORT, mais dans la table d&apos;association TRT_TFC_TCS (ressource R_ReportChoice)
+var /*String*/reportID = meibo.getFieldValue(&quot;TRT_ID&quot;);
+var /*String*/eventID = meibo.getFieldValue(&quot;EventID&quot;);
+
+// on commence par supprimer toutes les entr&#233;es actuelles li&#233;es au compte-rendu
+meibo.deleteEntries(&quot;R_ReportChoice&quot;,&quot;TRT_ID=&quot; + reportID);
+
+setReportChoices(&quot;R_CONTENTS_TYPE&quot;, reportID);
+setReportChoices(&quot;R_MEDIA_TYPE&quot;, reportID);
+
+// traitement sp&#233;cifique des contacts
+// les valeurs ne sont pas port&#233;es dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+var /*Entry*/ networkingContactEntry = null;
+
+// on commence par supprimer toutes les entr&#233;es actuelles li&#233;es au compte-rendu
+meibo.deleteEntries(&quot;ReportNetworkingContacts&quot;,&quot;TRT_ID=&quot; + reportID);
+
+for(var i=1;i&lt;=CONTAINERS_COUNT;i++){
+  // on ne traite que les contacts visibles dont le nom est valoris&#233; 
+  if((meibo.getField(&quot;CONTACT_CONTAINER_&quot; + i).isVisible()) &amp;&amp; (meibo.getFieldValue(&quot;CONTACT_NAME_&quot; + i)!=null) &amp;&amp; (meibo.getFieldValue(&quot;CONTACT_NAME_&quot; + i).trim().length()&gt;0)){
+    networkingContactEntry = new Entry(new Attribute(&quot;TRT_ID&quot;, reportID));
+    networkingContactEntry.updateAttribute(new Attribute(&quot;TNC_NAME&quot;, meibo.getFieldValue(&quot;CONTACT_NAME_&quot; + i)));
+    networkingContactEntry.updateAttribute(new Attribute(&quot;TNC_TITLE&quot;, meibo.getFieldValue(&quot;CONTACT_TITLE_&quot; + i)));
+    networkingContactEntry.updateAttribute(new Attribute(&quot;TNC_STRUCTURE&quot;, meibo.getFieldValue(&quot;CONTACT_STRUCTURE_&quot; + i)));
+    networkingContactEntry.updateAttribute(new Attribute(&quot;TNC_DISCUSSION&quot;, meibo.getFieldValue(&quot;CONTACT_DISCUSSION_&quot; + i)));
+    networkingContactEntry.updateAttribute(new Attribute(&quot;TNC_FOLLOWUP&quot;, meibo.getFieldValue(&quot;CONTACT_FOLLOWUP_&quot; + i)));
+    
+    meibo.createEntry(&quot;ReportNetworkingContacts&quot;,null, networkingContactEntry);
+  }
+}
+
+meibo.logInfo(&quot;Compte-rendu &quot; + reportID + &quot; enregistr&#233; par &quot; + meibo.getUserDn() + &quot; pour l&apos;&#233;v&#232;nement &quot; + eventID);
+
+var wfParam= meibo.getFieldValue(&quot;WORKFLOW_PARAMETER&quot;);
+if(isCheckReportStep()){
+  meibo.setWorkflowVariable(&quot;checkReportStepAction&quot;, wfParam);
+  meibo.setWorkflowVariable(&quot;checkReportStepLastActorId&quot;, userId);
+  if(wfParam!=&quot;record&quot;){
+    if(wfParam==&quot;reject&quot;){
+      var comment = meibo.getFieldValue(&quot;Comment&quot;);
+      if(comment.trim()==&quot;&quot;){
+        comment = &quot;-&quot;;  // commentaire non vide utile au retour sur le formulaire
+      }
+      meibo.setWorkflowVariable(&quot;checkReportStepComment&quot;, comment);
+      meibo.logInfo(&quot;Compte-rendu &quot; + reportID + &quot; rejet&#233; par &quot; + meibo.getUserDn() + &quot; pour l&apos;&#233;v&#232;nement &quot; + eventID);
+    }else{
+      meibo.logInfo(&quot;Compte-rendu &quot; + reportID + &quot; valid&#233; par &quot; + meibo.getUserDn() + &quot; pour l&apos;&#233;v&#232;nement &quot; + eventID);
+    }
+    meibo.completeCurrentWorkflowTask();
+  }
+}else{
+  meibo.setWorkflowVariable(&quot;completeReportStepAction&quot;, wfParam);
+  meibo.setWorkflowVariable(&quot;completeReportStepLastActorId&quot;, userId);
+  meibo.completeCurrentWorkflowTask();
+}
+
+meibo.switchToApplicationView(&quot;Validation_OK&quot;);</onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

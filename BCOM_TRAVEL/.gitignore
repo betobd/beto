@@ -2,4 +2,5 @@
 *-.xml
 *-.ixp
 *.bak
+*/*.bak
 *.css

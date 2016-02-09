@@ -1,0 +1,3 @@
+//$debug
+var path= meibo.getMeiboPath();
+scripter.print(path);

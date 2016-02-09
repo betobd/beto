@@ -13,7 +13,7 @@
   
   return newAttribute;
 }</globalScriptView>
-  <onload class="script">//$debug
+  <onload class="script">///$debug
 /**/
 /* Script  de chargement de la fiche utilisateur pour audit */
 /**/
