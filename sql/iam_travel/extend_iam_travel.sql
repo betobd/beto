@@ -96,10 +96,14 @@ DROP TABLE IF EXISTS `R_PRS_TRT_TST`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `R_PRS_TRT_TST` (
+  `PRS_TRT_TST_ID`      int (11) AUTO_INCREMENT  NOT NULL ,
+  `PRS_TRT_TST_DATE`    datetime NOT NULL ,
+  `PRS_TRT_TST_COMMENT` text ,
   `TRT_ID` int(11) NOT NULL,
   `TST_ID` int(11) NOT NULL,
   `PRS_ID` int(11) NOT NULL,
-  PRIMARY KEY (`TRT_ID`,`TST_ID`,`PRS_ID`),
+  PRIMARY KEY (`PRS_TRT_TST_ID`),
+  KEY `FK_R_PRS_TRT_TST_TRT_ID` (`TRT_ID`),
   KEY `FK_R_PRS_TRT_TST_TST_ID` (`TST_ID`),
   KEY `FK_R_PRS_TRT_TST_PRS_ID` (`PRS_ID`),
   CONSTRAINT `FK_R_PRS_TRT_TST_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
@@ -286,6 +290,21 @@ CREATE TABLE `R_TTY_TES_CONSTRAINT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `T_NATURE_ADDRESS_TNA`
+--
+
+DROP TABLE IF EXISTS `T_NATURE_ADDRESS_TNA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `T_NATURE_ADDRESS_TNA`(
+        `TNA_ABBREV`      varchar (25) NOT NULL ,
+        `TNA_DESCRIPTION` varchar (255) ,
+        PRIMARY KEY (`TNA_ABBREV`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `T_ADDRESS_TAS`
 --
@@ -304,9 +323,12 @@ CREATE TABLE `T_ADDRESS_TAS` (
   `TAS_PHONENUMBER` varchar(25) DEFAULT NULL,
   `TAS_TOWN` varchar(255) DEFAULT NULL,
   `TCY_ID` int(11) NOT NULL,
+  `TNA_ABBREV` varchar(25) NOT NULL,
   PRIMARY KEY (`TAS_ID`),
   KEY `FK_T_ADDRESS_TAS_TCY_ID` (`TCY_ID`),
-  CONSTRAINT `FK_T_ADDRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`)
+  KEY `FK_T_ADDRESS_TAS_TNA_ABBREV` (`TNA_ABBREV`),
+  CONSTRAINT `FK_T_ADDRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`),
+  CONSTRAINT `FK_T_ADDRESS_TAS_TNA_ABBREV` FOREIGN KEY (`TNA_ABBREV`) REFERENCES `T_NATURE_ADDRESS_TNA` (`TNA_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -326,21 +348,18 @@ CREATE TABLE `T_CONCRETE_EVENT_TCT` (
   `TCT_URL` varchar(1048) DEFAULT NULL,
   `TCT_COST` float DEFAULT NULL,
   `PRS_ID_AUTHOR` int(11) NOT NULL,
-  `TRT_ID` int(11) DEFAULT NULL,
   `PRS_ID_LEADER` int(11) DEFAULT NULL,
   `TAS_ID` int(11) DEFAULT NULL,
   `TET_ID` int(11) NOT NULL,
   PRIMARY KEY (`TCT_ID`),
   KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID_AUTHOR` (`PRS_ID_AUTHOR`),
-  KEY `FK_T_CONCRETE_EVENT_TCT_TRT_ID` (`TRT_ID`),
   KEY `FK_T_CONCRETE_EVENT_TCT_PRS_ID_LEADER` (`PRS_ID_LEADER`),
   KEY `FK_T_CONCRETE_EVENT_TCT_TAS_ID` (`TAS_ID`),
   KEY `FK_T_CONCRETE_EVENT_TCT_TET_ID` (`TET_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TET_ID` FOREIGN KEY (`TET_ID`) REFERENCES `T_EVENT_TET` (`TET_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_AUTHOR` FOREIGN KEY (`PRS_ID_AUTHOR`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
   CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_PRS_ID_LEADER` FOREIGN KEY (`PRS_ID_LEADER`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
-  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`),
-  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TRT_ID` FOREIGN KEY (`TRT_ID`) REFERENCES `T_REPORT_TRT` (`TRT_ID`)
+  CONSTRAINT `FK_T_CONCRETE_EVENT_TCT_TAS_ID` FOREIGN KEY (`TAS_ID`) REFERENCES `T_ADDRESS_TAS` (`TAS_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -646,7 +665,15 @@ CREATE TABLE `T_REPORT_TRT` (
   `TRT_WORKFLOW_ID`       varchar (255) ,
   `TRT_OTHER_CONTENT_TYPE`      varchar (255) ,
   `TRT_VISITORS_NB`       int ,
-  `TRT_OTHER_VIS_TYPE`    text ,
+  `TRT_BUSINESS_VIS_TYPE_RATIO`        int ,
+  `TRT_SCIENTIFIC_VIS_TYPE_RATIO`      int ,
+  `TRT_OTHER_VIS_TYPE_RATIO`           int ,
+  `TRT_OTHER_VIS_TYPE_TEXT`            text ,
+  `TRT_ASIA_VIS_ORIGIN_RATIO`          int ,
+  `TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO` int ,
+  `TRT_EUROPE_VIS_ORIGIN_RATIO`        int ,
+  `TRT_FRANCE_VIS_ORIGIN_RATIO`        int ,
+  `TRT_OTHER_VIS_ORIGIN_RATIO`         int ,
   `TRT_COUNTRY_DETAIL`    text ,
   `TRT_PARTNER_NB`        int ,
   `TRT_PARTNER_LIST`      text ,
@@ -660,24 +687,31 @@ CREATE TABLE `T_REPORT_TRT` (
   `TRT_STANDS_DEMOS`      text ,
   `TRT_POSITIVE_POINTS`         text ,
   `TRT_NEGATIVE_POINTS`         text ,
-  `TRT_BCOM_ACTIONS`      text ,
-  `TRT_CONTENTS`          text ,
-  `TRT_KEYWORDS`          text ,
+  `TRT_BCOM_ACTIONS`      text,
+  `TRT_CONTENTS`          text,
+  `TRT_KEYWORDS`          text,
   `TRT_DIFFUSION_EMAIL_LIST`    text ,
-  `TRT_QUALITY_NOTE`      varchar (2) NOT NULL ,
-  `TRT_QUALITY_COMMENT`         text NOT NULL ,
-  `TRT_RENOWN_COMMENT`    text NOT NULL ,
-  `TRT_DYN_PREVIOUS_SESSION_COMMENT`  text NOT NULL ,
-  `TRT_DYN_PREVIOUS_SESSION_NOTE`     varchar (2) NOT NULL ,
-  `TRT_STRATEGIC_COVER_NOTE`    varchar (2) NOT NULL ,
-  `TRT_STRATEGIC_COVER_COMMENT`       varchar (2) NOT NULL ,
-  `TRT_LOBBY_CONTACT_QUAL_NOTE`       varchar (2) NOT NULL ,
-  `TRT_LOBBY_CONTACT_QUAL_COMMENT`    varchar (2) NOT NULL ,
-  `TRT_BUSINESS_CONTACT_QUAL_NOTE`    varchar (2) NOT NULL ,
-  `TRT_BUSINESS_CONTACT_QUAL_COMMENT` varchar (2) NOT NULL ,
-  `TRT_BCOM_SPREAD_VALUE_COMMENT`     text NOT NULL ,
-  `TRT_QUAL_PRICE_RATIO_NOTE`   varchar (2) NOT NULL ,
-  `TRT_QUAL_PRICE_RATIO_COMMENT`      text NOT NULL ,
+  `TRT_QUALITY_NOTE`      varchar (2),
+  `TRT_QUALITY_COMMENT`   text,
+  `TRT_RENOWN_COMMENT`    text,
+  `TRT_DYN_PREVIOUS_SESSION_COMMENT`  text ,
+  `TRT_DYN_PREVIOUS_SESSION_NOTE`     varchar (2) ,
+  `TRT_STRATEGIC_COVER_NOTE`    varchar (2)  ,
+  `TRT_STRATEGIC_COVER_COMMENT`       text,
+  `TRT_LOBBY_CONTACT_QUAL_NOTE`       varchar (2),
+  `TRT_LOBBY_CONTACT_QUAL_COMMENT`    text,
+  `TRT_BUSINESS_CONTACT_QUAL_NOTE`    varchar (2),
+  `TRT_BUSINESS_CONTACT_QUAL_COMMENT` text,
+  `TRT_BCOM_SPREAD_VALUE_COMMENT`     text,
+  `TRT_BENCHMARK_QUALITY_NOTE`   varchar (2),
+  `TRT_BENCHMARK_QUALITY_COMMENT`      text,
+  `TRT_QUAL_PRICE_RATIO_NOTE`   varchar (2),
+  `TRT_QUAL_PRICE_RATIO_COMMENT`      text,
+  `TRT_NEXTEDITION_NOTE`   varchar (2),
+  `TRT_NEXTEDITION_COMMENT`   text,
+  `TCT_ID` int NOT NULL,
+  KEY `FK_T_REPORT_TRT_TCT_ID` (`TCT_ID`),
+  CONSTRAINT `FK_T_REPORT_TRT_TCT_ID` FOREIGN KEY (`TCT_ID`) REFERENCES `T_CONCRETE_EVENT_TCT`(`TCT_ID`),
   PRIMARY KEY (`TRT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -787,10 +821,46 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `travel_event` AS select `tet`.`TET_ID` AS `TET_ID`,`tet`.`TET_NAME` AS `TET_NAME`,`tet`.`TET_URL` AS `TET_URL`,`tet`.`TET_COMMENT` AS `TET_COMMENT`,`tet`.`TET_ISPRIVATE` AS `TET_ISPRIVATE`,`tet`.`TET_ISTEMPLATE` AS `TET_ISTEMPLATE`,`tet`.`TET_DURATION` AS `TET_DURATION`,`tet`.`TET_AVERAGE_COST` AS `TET_AVERAGE_COST`,`tet`.`TTY_ID` AS `fkTTY_ID`,`tet`.`TES_ID` AS `fkTES_ID`,`tct`.`TCT_ID` AS `fkTCT_ID`,`tct`.`TCT_CREATE_DATE` AS `TCT_CREATE_DATE`,`tct`.`TCT_START_DATE` AS `TCT_START_DATE`,`tct`.`TCT_DURATION` AS `TCT_DURATION`,`tct`.`TCT_COMMENT` AS `TCT_COMMENT`,`tct`.`TCT_URL` AS `TCT_URL`,`tct`.`PRS_ID_AUTHOR` AS `fkPRS_ID_AUTHOR`,`tct`.`TRT_ID` AS `fkTRT_ID`,`tct`.`PRS_ID_LEADER` AS `fkPRS_ID_LEADER`,`tct`.`TAS_ID` AS `fkTAS_ID`,`tct`.`TET_ID` AS `fkTET_ID` from (`T_EVENT_TET` `tet` join `T_CONCRETE_EVENT_TCT` `tct` on((`tet`.`TET_ID` = `tct`.`TET_ID`))) */;
+/*!50001 VIEW `travel_event` AS select `tet`.`TET_ID` AS `TET_ID`,`tet`.`TET_NAME` AS `TET_NAME`,`tet`.`TET_URL` AS `TET_URL`,`tet`.`TET_COMMENT` AS `TET_COMMENT`,`tet`.`TET_ISPRIVATE` AS `TET_ISPRIVATE`,`tet`.`TET_ISTEMPLATE` AS `TET_ISTEMPLATE`,`tet`.`TET_DURATION` AS `TET_DURATION`,`tet`.`TET_AVERAGE_COST` AS `TET_AVERAGE_COST`,`tet`.`TTY_ID` AS `fkTTY_ID`,`tet`.`TES_ID` AS `fkTES_ID`,`tct`.`TCT_ID` AS `fkTCT_ID`,`tct`.`TCT_CREATE_DATE` AS `TCT_CREATE_DATE`,`tct`.`TCT_START_DATE` AS `TCT_START_DATE`,`tct`.`TCT_DURATION` AS `TCT_DURATION`,`tct`.`TCT_COMMENT` AS `TCT_COMMENT`,`tct`.`TCT_URL` AS `TCT_URL`,`tct`.`PRS_ID_AUTHOR` AS `fkPRS_ID_AUTHOR`,`trt`.`TRT_ID` AS `fkTRT_ID`,`tct`.`PRS_ID_LEADER` AS `fkPRS_ID_LEADER`,`tct`.`TAS_ID` AS `fkTAS_ID`,`tct`.`TET_ID` AS `fkTET_ID` from (`T_EVENT_TET` `tet` join `T_CONCRETE_EVENT_TCT` `tct` on((`tet`.`TET_ID` = `tct`.`TET_ID`)) left join `T_REPORT_TRT` `trt` on ((`trt`.`TCT_ID` = `tct`.`TCT_ID`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+
+--
+-- Temporary view structure for view `report_choices`
+--
+
+DROP TABLE IF EXISTS `report_choices`;
+/*!50001 DROP VIEW IF EXISTS `report_choices`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `report_choices` AS SELECT 
+ 1 AS `TCS_ID`,
+ 1 AS `TCS_NAME`,
+ 1 AS `TFC_ID`,
+ 1 AS `TFC_ABBREV`,
+ 1 AS `TFC_NAME`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `report_choices`
+--
+
+/*!50001 DROP VIEW IF EXISTS `report_choices`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`192.168.13.%` SQL SECURITY DEFINER */
+/*!50001 VIEW `report_choices` AS select `tcs`.`TCS_ID` AS `TCS_ID`,`tcs`.`TCS_NAME` AS `TCS_NAME`,`tfc`.`TFC_ID` AS `TFC_ID`,`tfc`.`TFC_ABBREV` AS `TFC_ABBREV`,`tfc`.`TFC_NAME` AS `TFC_NAME` from (`T_CHOICE_TYPES_TCS` `tcs` join `T_FILTERED_CHOICES_TFC` `tfc` on((`tcs`.`TFC_ID` = `tfc`.`TFC_ID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
 
 --
 -- Dumping routines for database 'iam_bcom_mission'
@@ -914,12 +984,16 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_validation_roles`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_validation_roles`(in eventScopeID int,in eventTypeID int,in purposeID int,in involvementID int)
 BEGIN
 SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
 inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
 inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
-WHERE roles.INVOLVED_ROLES_VALID = 1
+WHERE roles.INVOLVED_ROLES_VALID = 1 
+AND ((TES_ID = eventScopeID) OR (TES_ID IS NULL) )
+AND ((TTY_ID = eventTypeID) OR (TTY_ID  IS NULL)) 
+AND ((TPE_ID = purposeID) OR (TPE_ID  IS NULL)) 
+AND ((TIN_ID = involvementID) OR (TIN_ID  IS NULL)) 
 group BY tfl.DIR_ID;
 END;;
 DELIMITER ;
@@ -937,12 +1011,16 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_notified_roles`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_notified_roles`(in eventScopeID int,in eventTypeID int,in purposeID int,in involvementID int)
 BEGIN
-SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
+SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as NotifiedRoles from R_INVOLVED_ROLES roles
 inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
 inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
-WHERE roles.INVOLVED_ROLES_VALID = 0 AND  roles.INVOLVED_ROLES_INFO = 1
+WHERE roles.INVOLVED_ROLES_INFO = 1 
+AND ((TES_ID = eventScopeID) OR (TES_ID IS NULL) )
+AND ((TTY_ID = eventTypeID) OR (TTY_ID  IS NULL)) 
+AND ((TPE_ID = purposeID) OR (TPE_ID  IS NULL)) 
+AND ((TIN_ID = involvementID) OR (TIN_ID  IS NULL)) 
 group BY tfl.DIR_ID;
 END ;;
 DELIMITER ;
@@ -1106,6 +1184,31 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `add_event_report` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_event_report`(in concreteEvtID int,in workflowID varchar(255))
+BEGIN
+IF (concreteEvtID IS NOT NULL)
+THEN
+START TRANSACTION;
+INSERT INTO T_REPORT_TRT (TRT_WORKFLOW_ID,TCT_ID) VALUES (workflowID,concreteEvtID);
+SELECT LAST_INSERT_ID();
+COMMIT;
+END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `add_mission` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1162,9 +1265,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addAddress`(adrName varchar(255), state varchar(255), zipcode varchar(255), phoneNumber varchar(25), town varchar(255), addr1 varchar(255), addr2 varchar(255), addr3 varchar(255), countryID int(11)) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `addAddress`(addrNature varchar(25),adrName varchar(255), state varchar(255), zipcode varchar(255), phoneNumber varchar(25), town varchar(255), addr1 varchar(255), addr2 varchar(255), addr3 varchar(255), countryID int(11)) RETURNS int(11)
 BEGIN
-INSERT INTO T_ADDRESS_TAS (TAS_NAME,TAS_STATE,TAS_ZIPCODE,TAS_PHONENUMBER,TAS_TOWN,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TCY_ID) VALUES (adrName,state,zipcode,phoneNumber,town,addr1,addr2,addr3,countryID);
+INSERT INTO T_ADDRESS_TAS (TAS_NAME,TAS_STATE,TAS_ZIPCODE,TAS_PHONENUMBER,TAS_TOWN,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TCY_ID,TNA_ABBREV) VALUES (adrName,state,zipcode,phoneNumber,town,addr1,addr2,addr3,countryID,addrNature);
 RETURN LAST_INSERT_ID();
 END;;
 DELIMITER ;
@@ -1182,7 +1285,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in addrNature varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
 BEGIN
 DECLARE addrID int(11);
 DECLARE countryID int(11);
@@ -1193,7 +1296,7 @@ SELECT TCY_ID INTO countryID FROM T_COUNTRY_TCY WHERE TCY_ALPHA3=countryAlpha3;
 IF (countryID IS NOT NULL AND (addrType = 'T_EVENT_ADDRESS_TEA' OR addrType = 'T_HOSTING_LOCATION_THL' OR addrType = 'T_TRAVEL_LOCATION_TTL'))
 THEN           
 START TRANSACTION;                                                                               
-SET addrID = addAddress(adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
+SET addrID = addAddress(addrNature,adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
 
 IF (addrType = 'T_EVENT_ADDRESS_TEA')
 THEN

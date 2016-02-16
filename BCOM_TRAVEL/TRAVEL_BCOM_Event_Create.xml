@@ -2530,6 +2530,200 @@
           </fieldPart>
         </components>
       </edit>
+      <label>
+        <content class="lingual">
+          <fr>TypeName :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TypeName</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">624</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">89</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">624</alty>
+        <name class="text"></name>
+        <id class="hidden">x2896161049454012</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit currentResource="Event" logical="true">
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TypeName</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">621</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">621</alty>
+        <name class="text">TypeName</name>
+        <id class="hidden">t2896161051110863</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TypeName</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>ScopeName :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">ScopeName</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">648</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">97</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">648</alty>
+        <name class="text"></name>
+        <id class="hidden">u2896161054096114</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit currentResource="Event" logical="true">
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">ScopeName</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">645</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">645</alty>
+        <name class="text">ScopeName</name>
+        <id class="hidden">m2896161054665015</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">ScopeName</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
     </page>
   </source>
   <destination>
@@ -3753,7 +3947,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">228</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTET_ISTEMPLATE</name>
@@ -3921,7 +4115,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                   <fr></fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
-                <onclick class="script">//$debug
+                <onclick class="script">///$debug
 backupView(&quot;Event&quot;);
 
 meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>

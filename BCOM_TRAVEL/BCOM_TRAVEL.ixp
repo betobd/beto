@@ -4843,6 +4843,76 @@ if(dn==null){
           </rights>
         </sequence>
       </resource>
+      <resource name="ConcreteEvent">
+        <properties>
+          <displayname class="lingual">
+            <fr>ConcreteEvent</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">T_CONCRETE_EVENT_TCT</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>PRS_ID_AUTHOR,PRS_ID_LEADER,TAS_ID,TCT_COMMENT,TCT_COST,TCT_CREATE_DATE,TCT_DURATION,TCT_ID,TCT_START_DATE,TCT_URL,TET_ID</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TCT_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TCT_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TCT_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TCT_ID</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <PRS_ID_AUTHOR class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID_AUTHOR>
+          <PRS_ID_LEADER class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID_LEADER>
+          <TAS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TAS_ID>
+          <TCT_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCT_COMMENT>
+          <TCT_COST class="label">MAY  - Text - FLOAT - SINGLE-VALUED</TCT_COST>
+          <TCT_CREATE_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</TCT_CREATE_DATE>
+          <TCT_DURATION class="label">MAY  - Text - SMALLINT - SINGLE-VALUED</TCT_DURATION>
+          <TCT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCT_ID>
+          <TCT_START_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</TCT_START_DATE>
+          <TCT_URL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCT_URL>
+          <TET_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TET_ID>
+        </attributetable>
+        <sequence name="Udpate" type="1">
+          <properties>
+            <displayname class="lingual">
+              <fr>Udpate</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_ConcreteEvent_Udpate.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+      </resource>
       <resource name="Continent">
         <properties>
           <displayname class="lingual">
@@ -4967,6 +5037,8 @@ if(dn==null){
               <attribute attrs="TAS_TOWN" pattern_fr="{0}" resourcelink="EventAddress" type="link">TAS_TOWN</attribute>
               <attribute attrs="TTY_ABBREV" pattern_fr="{0}" resourcelink="EventEventType" type="link">Type</attribute>
               <attribute attrs="TES_ABBREV" pattern_fr="{0}" resourcelink="EventEventScope" type="link">Scope</attribute>
+              <attribute attrs="TTY_NAME" pattern_fr="{0}" resourcelink="EventEventType" type="link">TypeName</attribute>
+              <attribute attrs="TES_NAME" pattern_fr="{0}" resourcelink="EventEventScope" type="link">ScopeName</attribute>
             </logical>
           </return>
           <onRead class="script">var scriptedAttributes = meibo.getParameter(&quot;scripted&quot;);
@@ -5116,81 +5188,6 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <class></class>
         </sequence>
       </resource>
-      <resource name="Event2">
-        <properties>
-          <displayname class="lingual">
-            <fr>Event</fr>
-          </displayname>
-          <hiddenresource class="boolean">false</hiddenresource>
-          <separator class="separator"></separator>
-          <objectclass class="objectclass">T_CONCRETE_EVENT_TCT</objectclass>
-          <separator class="separator"></separator>
-          <request class="text"></request>
-          <separator class="separator"></separator>
-          <return class="returnallattributes">
-            <physical>TAS_ID,TCT_COMMENT,TCT_CREATE_DATE,TCT_DURATION,TCT_ID,TCT_START_DATE,TCT_URL,TET_ID,TRT_ID,PRS_ID_AUTHOR,PRS_ID_LEADER</physical>
-            <logical>
-              <attribute attrs="" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">Header</attribute>
-              <attribute attrs="" pattern_fr="{0}" resourcelink="EventAuthorPerson" type="link">Author</attribute>
-              <attribute attrs="TET_NAME,TET_COMMENT,TET_ISPRIVATE" pattern_fr="{0}  ; {1} ; {2}" resourcelink="ConcreteEventEventHeader" type="link">HeaderFullName</attribute>
-              <attribute attrs="TET_URL" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">HeaderURL</attribute>
-              <attribute type="script">displayName</attribute>
-              <attribute attrs="TET_NAME" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">TET_NAME</attribute>
-              <attribute attrs="TAS_TOWN" pattern_fr="{0}" resourcelink="EventAddress" type="link">TAS_TOWN</attribute>
-            </logical>
-          </return>
-          <onRead class="script">var scriptedAttributes = meibo.getParameter(&quot;scripted&quot;);
-var mappedAttributes = meibo.getParameter(&quot;mapped&quot;);
-var linkedAttributes = meibo.getParameter(&quot;linked&quot;);
-var entry = meibo.getCurrentEntry();
-
-if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedAttributes)) {
-  // calcul attribut displayName
-  var name=entry.TET_NAME[0];
-  var location=entry.TAS_TOWN[0];
-  var date=entry.TCT_START_DATE[0];
-  if((name==null) || (location ==null) || (login ==null)){
-    // rechargement de l&apos;entr&#233;e avec les attributs requis
-    var newEntry = meibo.getDnEntry(&quot;Event&quot;, meibo.getCurrentDn(),&quot;TAS_TOWN,TET_NAME,TCT_START_DATE&quot;);
-    name=newEntry.TET_NAME[0];
-    location=newEntry.TAS_TOWN[0];
-    date=newEntry.TCT_START_DATE[0];
-  }
-  entry.displayName = name + &quot; - &quot; + location + &quot; (&quot; + date + &quot;)&quot;;
-}</onRead>
-          <onSubmit class="script"></onSubmit>
-          <onoperationok class="script"></onoperationok>
-          <onoperationko class="script"></onoperationko>
-          <separator class="separator"></separator>
-          <keyattribute class="returnattributes">TCT_ID</keyattribute>
-          <separator class="separator"></separator>
-          <sortingon class="sortingon">
-            <attribute class="attribute">TCT_ID</attribute>
-            <reverseOrder class="boolean">true</reverseOrder>
-          </sortingon>
-          <separator class="separator"></separator>
-          <key class="attribute">displayName</key>
-          <entriesbrowsed class="integer">20</entriesbrowsed>
-          <separator class="separator"></separator>
-          <searchattribute class="attribute">TCT_START_DATE</searchattribute>
-          <separator class="separator"></separator>
-          <imageclosed class="file">images/black-time.gif</imageclosed>
-          <imageopened class="file">images/green-clock.gif</imageopened>
-        </properties>
-        <attributetable>
-          <PRS_ID_AUTHOR class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID_AUTHOR>
-          <PRS_ID_LEADER class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID_LEADER>
-          <TAS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TAS_ID>
-          <TCT_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCT_COMMENT>
-          <TCT_CREATE_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</TCT_CREATE_DATE>
-          <TCT_DURATION class="label">MAY  - Text - SMALLINT - SINGLE-VALUED</TCT_DURATION>
-          <TCT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCT_ID>
-          <TCT_START_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</TCT_START_DATE>
-          <TCT_URL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCT_URL>
-          <TET_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TET_ID>
-          <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
-        </attributetable>
-      </resource>
       <resource name="EventHeader">
         <properties>
           <displayname class="lingual">
@@ -5242,6 +5239,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <TET_URL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TET_URL>
           <TTY_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TTY_ID>
         </attributetable>
+        <sequence name="Display" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Display</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_EventHeader_Display.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
       </resource>
       <resource name="EventScope">
         <properties>
@@ -5333,6 +5348,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <TET_URL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TET_URL>
           <TTY_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TTY_ID>
         </attributetable>
+        <sequence name="Display" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Display</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_EventTemplate_Display.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
       </resource>
       <resource name="EventType">
         <properties>
@@ -5518,6 +5551,94 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
+        <sequence name="MissionCompleteForOrganisation" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionCompleteForOrganisation.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="MissionOrganise" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrganise.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+          </rights>
+        </sequence>
+        <sequence name="MissionOrder" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrder.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="MissionOrderPrint" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrderPrint.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="MissionLevel2Validate" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionLevel2Validate.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
         <sequence name="MissionUpdate" type="1">
           <properties>
             <displayname class="lingual">
@@ -5594,6 +5715,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
               <attribute attrs="TIN_NAME" pattern_fr="{0}" resourcelink="AttendeesInvolvementNature" type="link">TIN_NAME</attribute>
               <attribute attrs="PRS_LOGIN" pattern_fr="{0}" resourcelink="AttendeesPerson" type="link">PRS_LOGIN</attribute>
               <attribute attrs="TPE_NAME" pattern_fr="{0}" resourcelink="AttendeesPurpose" type="link">TPE_NAME</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="AttendeesPerson" type="link">personDisplayName</attribute>
             </logical>
           </return>
           <onRead class="script"></onRead>
@@ -5778,6 +5900,365 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <TST_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TST_ID>
           <TST_TMN_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TST_TMN_COMMENT>
           <TST_TMN_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</TST_TMN_DATE>
+        </attributetable>
+      </resource>
+      <resource name="R_ReportChoice">
+        <properties>
+          <displayname class="lingual">
+            <fr>R_ReportChoice</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">R_TRT_TFC_TCS</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>TCS_ID,TFC_ID,TRT_ID</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TCS_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute"></attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TCS_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TCS_ID</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <TCS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCS_ID>
+          <TFC_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TFC_ID>
+          <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
+        </attributetable>
+      </resource>
+      <resource name="R_ReportStatus">
+        <properties>
+          <displayname class="lingual">
+            <fr>R_ReportStatus</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">R_PRS_TRT_TST</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>PRS_ID,TRT_ID,TST_ID</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">PRS_ID,TRT_ID,TST_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TST_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TST_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TST_ID</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <PRS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID>
+          <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
+          <TST_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TST_ID>
+        </attributetable>
+      </resource>
+      <resource name="Report">
+        <properties>
+          <displayname class="lingual">
+            <fr>Compte-Rendu</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">T_REPORT_TRT</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>TRT_ARTICLE_PRESS_LINKS,TRT_BCOM_ACTIONS,TRT_BCOM_SPREAD_VALUE_COMMENT,TRT_BUSINESS_CONTACT_QUAL_COMMENT,TRT_BUSINESS_CONTACT_QUAL_NOTE,TRT_CONTENTS,TRT_COUNTRY_DETAIL,TRT_DIFFUSION_EMAIL_LIST,TRT_DYN_PREVIOUS_SESSION_COMMENT,TRT_DYN_PREVIOUS_SESSION_NOTE,TRT_ID,TRT_JOURNALIST_LIST,TRT_KEYNOTES,TRT_KEYWORDS,TRT_LOBBY_CONTACT_QUAL_COMMENT,TRT_LOBBY_CONTACT_QUAL_NOTE,TRT_NEGATIVE_POINTS,TRT_NEWSPAPER_LIST,TRT_OTHER_CONTENT_TYPE,TRT_PARTNER_LIST,TRT_PARTNER_NB,TRT_POSITIVE_POINTS,TRT_QUALITY_COMMENT,TRT_QUALITY_NOTE,TRT_QUAL_PRICE_RATIO_COMMENT,TRT_QUAL_PRICE_RATIO_NOTE,TRT_RENOWN_COMMENT,TRT_STANDS_DEMOS,TRT_STRATEGIC_COVER_COMMENT,TRT_STRATEGIC_COVER_NOTE,TRT_TREND_1,TRT_TREND_2,TRT_TREND_3,TRT_VISITORS_NB,TRT_WORKFLOW_ID,TRT_ASIA_VIS_ORIGIN_RATIO,TRT_BUSINESS_VIS_TYPE_RATIO,TRT_EUROPE_VIS_ORIGIN_RATIO,TRT_FRANCE_VIS_ORIGIN_RATIO,TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO,TRT_OTHER_VIS_ORIGIN_RATIO,TRT_OTHER_VIS_TYPE_RATIO,TRT_OTHER_VIS_TYPE_TEXT,TRT_SCIENTIFIC_VIS_TYPE_RATIO,TRT_BENCHMARK_QUALITY_COMMENT,TRT_BENCHMARK_QUALITY_NOTE,TRT_NEXTEDITION_NOTE,TRT_NEXTEDITION_COMMENT,TCT_ID</physical>
+            <logical>
+              <attribute attrs="TCT_START_DATE" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventDate</attribute>
+              <attribute attrs="TET_NAME" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventName</attribute>
+              <attribute attrs="TCT_DURATION" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventDuration</attribute>
+              <attribute attrs="TCT_COMMENT" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventComment</attribute>
+              <attribute attrs="TCT_URL" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventURL</attribute>
+              <attribute attrs="ScopeName" pattern_fr="{0}" resourcelink="ReportEvent" type="link">ScopeName</attribute>
+              <attribute attrs="TypeName" pattern_fr="{0}" resourcelink="ReportEvent" type="link">TypeName</attribute>
+            </logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TRT_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TRT_ID</attribute>
+            <reverseOrder class="boolean">true</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TRT_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TRT_ID</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file">images/black-document.gif</imageclosed>
+          <imageopened class="file">images/green-document.gif</imageopened>
+        </properties>
+        <attributetable>
+          <TCT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCT_ID>
+          <TRT_ARTICLE_PRESS_LINKS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_ARTICLE_PRESS_LINKS>
+          <TRT_ASIA_VIS_ORIGIN_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ASIA_VIS_ORIGIN_RATIO>
+          <TRT_BCOM_ACTIONS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BCOM_ACTIONS>
+          <TRT_BCOM_SPREAD_VALUE_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BCOM_SPREAD_VALUE_COMMENT>
+          <TRT_BENCHMARK_QUALITY_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BENCHMARK_QUALITY_COMMENT>
+          <TRT_BENCHMARK_QUALITY_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BENCHMARK_QUALITY_NOTE>
+          <TRT_BUSINESS_CONTACT_QUAL_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BUSINESS_CONTACT_QUAL_COMMENT>
+          <TRT_BUSINESS_CONTACT_QUAL_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_BUSINESS_CONTACT_QUAL_NOTE>
+          <TRT_BUSINESS_VIS_TYPE_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_BUSINESS_VIS_TYPE_RATIO>
+          <TRT_CONTENTS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_CONTENTS>
+          <TRT_COUNTRY_DETAIL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_COUNTRY_DETAIL>
+          <TRT_DIFFUSION_EMAIL_LIST class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_DIFFUSION_EMAIL_LIST>
+          <TRT_DYN_PREVIOUS_SESSION_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_DYN_PREVIOUS_SESSION_COMMENT>
+          <TRT_DYN_PREVIOUS_SESSION_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_DYN_PREVIOUS_SESSION_NOTE>
+          <TRT_EUROPE_VIS_ORIGIN_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_EUROPE_VIS_ORIGIN_RATIO>
+          <TRT_FRANCE_VIS_ORIGIN_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_FRANCE_VIS_ORIGIN_RATIO>
+          <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
+          <TRT_JOURNALIST_LIST class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_JOURNALIST_LIST>
+          <TRT_KEYNOTES class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_KEYNOTES>
+          <TRT_KEYWORDS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_KEYWORDS>
+          <TRT_LOBBY_CONTACT_QUAL_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_LOBBY_CONTACT_QUAL_COMMENT>
+          <TRT_LOBBY_CONTACT_QUAL_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_LOBBY_CONTACT_QUAL_NOTE>
+          <TRT_NEGATIVE_POINTS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_NEGATIVE_POINTS>
+          <TRT_NEWSPAPER_LIST class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_NEWSPAPER_LIST>
+          <TRT_NEXTEDITION_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_NEXTEDITION_COMMENT>
+          <TRT_NEXTEDITION_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_NEXTEDITION_NOTE>
+          <TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO>
+          <TRT_OTHER_CONTENT_TYPE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_OTHER_CONTENT_TYPE>
+          <TRT_OTHER_VIS_ORIGIN_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_OTHER_VIS_ORIGIN_RATIO>
+          <TRT_OTHER_VIS_TYPE_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_OTHER_VIS_TYPE_RATIO>
+          <TRT_OTHER_VIS_TYPE_TEXT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_OTHER_VIS_TYPE_TEXT>
+          <TRT_PARTNER_LIST class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_PARTNER_LIST>
+          <TRT_PARTNER_NB class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_PARTNER_NB>
+          <TRT_POSITIVE_POINTS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_POSITIVE_POINTS>
+          <TRT_QUALITY_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_QUALITY_COMMENT>
+          <TRT_QUALITY_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_QUALITY_NOTE>
+          <TRT_QUAL_PRICE_RATIO_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_QUAL_PRICE_RATIO_COMMENT>
+          <TRT_QUAL_PRICE_RATIO_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_QUAL_PRICE_RATIO_NOTE>
+          <TRT_RENOWN_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_RENOWN_COMMENT>
+          <TRT_SCIENTIFIC_VIS_TYPE_RATIO class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_SCIENTIFIC_VIS_TYPE_RATIO>
+          <TRT_STANDS_DEMOS class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_STANDS_DEMOS>
+          <TRT_STRATEGIC_COVER_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_STRATEGIC_COVER_COMMENT>
+          <TRT_STRATEGIC_COVER_NOTE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_STRATEGIC_COVER_NOTE>
+          <TRT_TREND_1 class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_TREND_1>
+          <TRT_TREND_2 class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_TREND_2>
+          <TRT_TREND_3 class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_TREND_3>
+          <TRT_VISITORS_NB class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_VISITORS_NB>
+          <TRT_WORKFLOW_ID class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TRT_WORKFLOW_ID>
+        </attributetable>
+        <sequence name="Create2" type="2">
+          <properties>
+            <displayname class="lingual">
+              <fr>Create2</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Create2.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Create" type="2">
+          <properties>
+            <displayname class="lingual">
+              <fr>Create2</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Create.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Update" type="1">
+          <properties>
+            <displayname class="lingual">
+              <fr>Update</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Update.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Show" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Show</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Show.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Print" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Print</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Print.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+      </resource>
+      <resource name="ReportChoices">
+        <properties>
+          <displayname class="lingual">
+            <fr>ReportChoices</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">report_choices</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>TCS_ID,TCS_NAME,TFC_ABBREV,TFC_ID,TFC_NAME</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TCS_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TCS_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TCS_NAME</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TCS_NAME</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <TCS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCS_ID>
+          <TCS_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCS_NAME>
+          <TFC_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TFC_ABBREV>
+          <TFC_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TFC_ID>
+          <TFC_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TFC_NAME>
+        </attributetable>
+      </resource>
+      <resource name="ReportNetworkingContacts">
+        <properties>
+          <displayname class="lingual">
+            <fr>ReportNetworkingContacts</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">T_NETWORKING_CONTACT_TNC</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>TNC_DISCUSSION,TNC_FOLLOWUP,TNC_ID,TNC_NAME,TNC_STRUCTURE,TNC_TITLE,TRT_ID</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TNC_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TNC_NAME</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TNC_NAME</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TNC_NAME</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <TNC_DISCUSSION class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNC_DISCUSSION>
+          <TNC_FOLLOWUP class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNC_FOLLOWUP>
+          <TNC_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TNC_ID>
+          <TNC_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNC_NAME>
+          <TNC_STRUCTURE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNC_STRUCTURE>
+          <TNC_TITLE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNC_TITLE>
+          <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
         </attributetable>
       </resource>
       <resource name="Status">
@@ -5977,6 +6458,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <type class="linktype">4</type>
         <attribute1 class="text">TCY_ID</attribute1>
         <attribute2 class="text">TCY_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="AttendeesEvent">
+      <properties>
+        <displayname class="lingual">
+          <fr>Evenements</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">R_Attendees</resourcefrom>
+        <resourceto class="resource">Event</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCT_ID</attribute1>
+        <attribute2 class="text">fkTCT_ID</attribute2>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>
@@ -6307,9 +6806,9 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <resourcefrom class="resource">Event</resourcefrom>
         <resourceto class="resource">TravelPeople</resourceto>
         <separator class="separator"></separator>
-        <type class="linktype">0</type>
+        <type class="linktype">4</type>
         <attribute1 class="text">PRS_ID_LEADER</attribute1>
-        <attribute2 class="text"></attribute2>
+        <attribute2 class="text">PRS_ID</attribute2>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>
@@ -6325,6 +6824,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <firstlink class="link">EventRMission</firstlink>
         <secondlink class="link">REventMission</secondlink>
         <type class="hidden">6</type>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="EventReport">
+      <properties>
+        <displayname class="lingual">
+          <fr>EventReport</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Event</resourcefrom>
+        <resourceto class="resource">Report</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">fkTCT_ID</attribute1>
+        <attribute2 class="text">TCT_ID</attribute2>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>
@@ -6621,6 +7138,108 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <imageopened class="file"></imageopened>
       </properties>
     </resourcelink>
+    <resourcelink name="ReportChoices">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportChoices</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <firstlink class="link">ReportRChoice</firstlink>
+        <secondlink class="link">RReportChoice</secondlink>
+        <type class="hidden">6</type>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportEvent">
+      <properties>
+        <displayname class="lingual">
+          <fr>Ev&#232;nement</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">Event</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCT_ID</attribute1>
+        <attribute2 class="text">fkTCT_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportNetworkingContacts">
+      <properties>
+        <displayname class="lingual">
+          <fr>NetworkingContacts</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">ReportNetworkingContacts</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportRChoice">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportRChoice</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">R_ReportChoice</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportRStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">R_ReportStatus</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <firstlink class="link">ReportRStatus</firstlink>
+        <secondlink class="link">RReportStatus</secondlink>
+        <type class="hidden">6</type>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
     <resourcelink name="REventHeaderAddress">
       <properties>
         <displayname class="lingual">
@@ -6711,6 +7330,42 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <imageopened class="file"></imageopened>
       </properties>
     </resourcelink>
+    <resourcelink name="RReportChoice">
+      <properties>
+        <displayname class="lingual">
+          <fr>RReportChoice</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">R_ReportChoice</resourcefrom>
+        <resourceto class="resource">ReportChoices</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCS_ID</attribute1>
+        <attribute2 class="text">TCS_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="RReportStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">R_ReportStatus</resourcefrom>
+        <resourceto class="resource">Status</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TST_ID</attribute1>
+        <attribute2 class="text">TST_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
     <resourcelink name="TravelPeopleADPeople">
       <properties>
         <displayname class="lingual">
@@ -6724,6 +7379,39 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <type class="linktype">4</type>
         <attribute1 class="text">PRS_LOGIN</attribute1>
         <attribute2 class="text">CN</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="TravelPeopleAttendees">
+      <properties>
+        <displayname class="lingual">
+          <fr>TravelPeopleAttendees</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">TravelPeople</resourcefrom>
+        <resourceto class="resource">R_Attendees</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">PRS_ID</attribute1>
+        <attribute2 class="text">PRS_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="TravelPeopleEvents">
+      <properties>
+        <displayname class="lingual">
+          <fr>TravelPeopleEvents</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <firstlink class="link">TravelPeopleAttendees</firstlink>
+        <secondlink class="link">AttendeesEvent</secondlink>
+        <type class="hidden">6</type>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>
@@ -6828,7 +7516,6 @@ meibo.setReturnObject(resultSet);</onexecute>
       <rights>
         <AdminMeibo>true</AdminMeibo>
         <AnalyseurDeplacement>true</AnalyseurDeplacement>
-        <DDI>true</DDI>
         <InitiateurDeplacement>true</InitiateurDeplacement>
         <OrganisateurVoyage>true</OrganisateurVoyage>
         <Utilisateur>true</Utilisateur>
@@ -6866,9 +7553,9 @@ meibo.setReturnObject(resultSet);</onexecute>
         <type class="dynamictype">DHTML</type>
         <persistent class="boolean">true</persistent>
         <separator class="separator"></separator>
-        <resources class="resources">People,Continent,RoleOperation,GroupProject,Country,Event,EventHeader,Mission,Address,EventScope,EventType,EventTemplate</resources>
+        <resources class="resources">People,Continent,RoleOperation,GroupProject,Country,Event,EventHeader,Mission,Address,EventScope,EventType,EventTemplate,Report,ReportChoices</resources>
         <separator class="separator"></separator>
-        <links class="links">ContinentPays,PeopleRolePosition,PeopleRoleOperation,UserManager,ProjetToMembre,GGROPRJToMembre,ContinentCountry,MissionEvent,EventHeaderConcreteEvent,EventAuthor,EventLeader,EventTypeEventScope,EventHeaderEventScope,EventHeaderEventType,EventAddress,EventHeaderAddress,EventTemplateConcreteEvent,EventMission,EventAttendeesPersonADPeople,EventAttendeesPerson,MissionStatus,MissionRootMission,MissionOwnerADPeople,MissionInitiatorADPeople</links>
+        <links class="links">ContinentPays,PeopleRolePosition,PeopleRoleOperation,UserManager,ProjetToMembre,GGROPRJToMembre,ContinentCountry,MissionEvent,EventHeaderConcreteEvent,EventAuthor,EventLeader,EventTypeEventScope,EventHeaderEventScope,EventHeaderEventType,EventAddress,EventHeaderAddress,EventTemplateConcreteEvent,EventMission,EventAttendeesPersonADPeople,EventAttendeesPerson,MissionStatus,MissionRootMission,MissionOwnerADPeople,MissionInitiatorADPeople,EventReport,ReportEvent,ReportNetworkingContacts,ReportStatus,ReportChoices,TravelPeopleEvents</links>
         <separator class="separator"></separator>
         <imageheader class="file"></imageheader>
         <menubackcolor class="color">FFFFFF</menubackcolor>
@@ -6972,8 +7659,9 @@ meibo.setReturnObject(resultSet);</onexecute>
       <rights>
         <AdminMeibo>true</AdminMeibo>
         <AnalyseurDeplacement>true</AnalyseurDeplacement>
-        <DDI>true</DDI>
         <InitiateurDeplacement>true</InitiateurDeplacement>
+        <OrganisateurVoyage>true</OrganisateurVoyage>
+        <Utilisateur>true</Utilisateur>
       </rights>
     </sequence>
     <sequence name="Error">
@@ -7074,7 +7762,7 @@ meibo.setReturnObject(resultSet);</onexecute>
       <properties>
         <rolelevel class="rolelevel">2</rolelevel>
         <separator class="separator"></separator>
-        <startperspective class="perspective"></startperspective>
+        <startperspective class="perspective">Accueil</startperspective>
       </properties>
     </role>
     <role name="DDI" type="3">
@@ -7116,8 +7804,26 @@ meibo.setReturnObject(resultSet);</onexecute>
   <policy>
     <properties></properties>
   </policy>
-  <reports auto="A -&gt; Z"></reports>
-  <batches auto="A -&gt; Z"></batches>
+  <reports auto="A -&gt; Z">
+    <report name="OrdreDeMission">
+      <properties>
+        <script class="noxmlextscript"></script>
+        <parameters class="list">
+          <item0>mission</item0>
+        </parameters>
+      </properties>
+      <path>reports/OrdreDeMission.script</path>
+    </report>
+  </reports>
+  <batches auto="A -&gt; Z">
+    <batch name="test">
+      <properties>
+        <script class="noxmlextscript"></script>
+        <parameters class="list"></parameters>
+      </properties>
+      <path>batches/test.script</path>
+    </batch>
+  </batches>
   <webservices auto="A -&gt; Z">
     <properties>
       <WSMaxPoolSize class="text">30</WSMaxPoolSize>
@@ -7170,6 +7876,124 @@ meibo.setReturnObject(resultSet);</onexecute>
     
   </adaptors>
   <plugins auto="A -&gt; Z">
+    <plugin name="pluginMail-1" title="NotifyForCompletion">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Organisation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une mission a &#233;t&#233; valid&#233;e pour vous.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la compl&#233;ter afin de permettre son organisation.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForMissionOrder">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Ordre de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;L&apos;organisation de votre mission a &#233;t&#233; effectu&#233;e.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour confirmer votre participation et &#233;diter l&apos;odre de mission.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+&lt;P&gt;Informations founies sur l&apos;organisation de la mission :&lt;/P&gt;
+&lt;P&gt;{param.organisationComment}&lt;/P&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForOrganisation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Organisation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une mission a &#233;t&#233; valid&#233;e et doit &#234;tre organis&#233;e.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour traiter cette organisation.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>targetPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>{param.recipient}
+            
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForReportValidation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d&apos;&#233;v&#232;nement - demande de validation</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Un compte rendu d&apos;&#233;v&#232;nment vient d&apos;&#234;tre r&#233;alis&#233;.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour le valider.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>targetPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>{param.recipient}
+            
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
     <plugin name="pluginMail-1" title="NotifyForSecondLevelValidation">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
@@ -7178,16 +8002,16 @@ meibo.setReturnObject(resultSet);</onexecute>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Une mission a &#233;t&#233; cr&#233;&#233;e pour {param.user}.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
 &lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
   </files>
           <to>
-            <resvar>
-              <resource>secondLevelValidationPeople</resource>
+            <entries>
+              <result>secondLevelValidationPeople</result>
               <attr>mail</attr>
-            </resvar>
+            </entries>
           </to>
           <cc>
             <mail>
@@ -7197,7 +8021,7 @@ meibo.setReturnObject(resultSet);</onexecute>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -7210,7 +8034,7 @@ meibo.setReturnObject(resultSet);</onexecute>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Une mission a &#233;t&#233; cr&#233;&#233;e pour {param.user}.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
 &lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -7229,7 +8053,7 @@ meibo.setReturnObject(resultSet);</onexecute>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -7259,7 +8083,7 @@ meibo.setReturnObject(resultSet);</onexecute>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -7272,7 +8096,7 @@ meibo.setReturnObject(resultSet);</onexecute>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Une mission a &#233;t&#233; cr&#233;&#233;e pour vous.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour accepter ou refuser  la mission.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour accepter ou refuser  la mission.&lt;/P&gt;
 &lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -7287,7 +8111,71 @@ meibo.setReturnObject(resultSet);</onexecute>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyParticipantForReport">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d&apos;&#233;v&#232;nement</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Vous &#234;tes identifi&#233; comme ayant particip&#233; r&#233;cemment &#224; un &#233;venement.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour contribuer au compte-rendu de cette &#233;v&#232;mement.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mailvar>
+              <mail>recipient</mail>
+            </mailvar>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyParticipantForReportAdjustment">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d&apos;&#233;v&#232;nement - demande de modification ou compl&#233;ment</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Vous &#234;tes identifi&#233; comme ayant particip&#233; r&#233;cemment &#224; un &#233;venement.&lt;/P&gt;
+&lt;P&gt;Un premier compte rendu a &#233;t&#233; r&#233;alis&#233;, mais des compl&#233;ments ou modifications sont demand&#233;s :&lt;/P&gt;
+&lt;P&gt;{param.checkReportStepComment}&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour traiter cette demande.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mailvar>
+              <mail>recipient</mail>
+            </mailvar>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -7295,13 +8183,13 @@ meibo.setReturnObject(resultSet);</onexecute>
     <plugin name="pluginMail-1" title="NotifyRejection">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
-          <subject>Proposition de mission</subject>
+          <subject>Mission rejett&#233;e</subject>
           <html>true</html>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Votre mission a &#233;t&#233; rejett&#233;e avec le motif suivant :.&lt;/P&gt;
 &lt;P&gt;{param.reason}&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour la modifier ou l&apos;annuler.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la modifier ou l&apos;annuler.&lt;/P&gt;
 &lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -7316,7 +8204,35 @@ meibo.setReturnObject(resultSet);</onexecute>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="Reminder">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Rappel sur le workflow de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une tache vous a &#233;t&#233; affect&#233;e.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la traiter.&lt;/P&gt;
+&lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>

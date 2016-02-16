@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">// Restaure les valeur pr&#233;c&#233;dentes dans le cas on l&apos;on revient sur ce formulaire
+restoreFields(&quot;ConcreteEvent&quot;);
+
+if(hasSourceView()){
+  meibo.showField(&quot;BTN_CANCEL&quot;, true);
+}</onload>
+  <onquit class="script">///$debug
+// contournement de meibo qui ne g&#232;re pas tout seul les dates sql
+var sqlDate = SQL_DATE_FORMAT.format(DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;)));
+meibo.setFieldValue(&quot;TCT_START_DATE&quot;,sqlDate);
+  
+meibo.setReturnValue(true);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>
