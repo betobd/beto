@@ -96,10 +96,14 @@ DROP TABLE IF EXISTS `R_PRS_TRT_TST`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `R_PRS_TRT_TST` (
+  `PRS_TRT_TST_ID`      int (11) AUTO_INCREMENT  NOT NULL ,
+  `PRS_TRT_TST_DATE`    datetime NOT NULL ,
+  `PRS_TRT_TST_COMMENT` text ,
   `TRT_ID` int(11) NOT NULL,
   `TST_ID` int(11) NOT NULL,
   `PRS_ID` int(11) NOT NULL,
-  PRIMARY KEY (`TRT_ID`,`TST_ID`,`PRS_ID`),
+  PRIMARY KEY (`PRS_TRT_TST_ID`),
+  KEY `FK_R_PRS_TRT_TST_TRT_ID` (`TRT_ID`),
   KEY `FK_R_PRS_TRT_TST_TST_ID` (`TST_ID`),
   KEY `FK_R_PRS_TRT_TST_PRS_ID` (`PRS_ID`),
   CONSTRAINT `FK_R_PRS_TRT_TST_PRS_ID` FOREIGN KEY (`PRS_ID`) REFERENCES `T_PERSON_PRS` (`PRS_ID`),
@@ -286,6 +290,21 @@ CREATE TABLE `R_TTY_TES_CONSTRAINT` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `T_NATURE_ADDRESS_TNA`
+--
+
+DROP TABLE IF EXISTS `T_NATURE_ADDRESS_TNA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `T_NATURE_ADDRESS_TNA`(
+        `TNA_ABBREV`      varchar (25) NOT NULL ,
+        `TNA_DESCRIPTION` varchar (255) ,
+        PRIMARY KEY (`TNA_ABBREV`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `T_ADDRESS_TAS`
 --
@@ -304,9 +323,12 @@ CREATE TABLE `T_ADDRESS_TAS` (
   `TAS_PHONENUMBER` varchar(25) DEFAULT NULL,
   `TAS_TOWN` varchar(255) DEFAULT NULL,
   `TCY_ID` int(11) NOT NULL,
+  `TNA_ABBREV` varchar(25) NOT NULL,
   PRIMARY KEY (`TAS_ID`),
   KEY `FK_T_ADDRESS_TAS_TCY_ID` (`TCY_ID`),
-  CONSTRAINT `FK_T_ADDRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`)
+  KEY `FK_T_ADDRESS_TAS_TNA_ABBREV` (`TNA_ABBREV`),
+  CONSTRAINT `FK_T_ADDRESS_TAS_TCY_ID` FOREIGN KEY (`TCY_ID`) REFERENCES `T_COUNTRY_TCY` (`TCY_ID`),
+  CONSTRAINT `FK_T_ADDRESS_TAS_TNA_ABBREV` FOREIGN KEY (`TNA_ABBREV`) REFERENCES `T_NATURE_ADDRESS_TNA` (`TNA_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -962,12 +984,16 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_validation_roles`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_validation_roles`(in eventScopeID int,in eventTypeID int,in purposeID int,in involvementID int)
 BEGIN
 SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
 inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
 inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
-WHERE roles.INVOLVED_ROLES_VALID = 1
+WHERE roles.INVOLVED_ROLES_VALID = 1 
+AND ((TES_ID = eventScopeID) OR (TES_ID IS NULL) )
+AND ((TTY_ID = eventTypeID) OR (TTY_ID  IS NULL)) 
+AND ((TPE_ID = purposeID) OR (TPE_ID  IS NULL)) 
+AND ((TIN_ID = involvementID) OR (TIN_ID  IS NULL)) 
 group BY tfl.DIR_ID;
 END;;
 DELIMITER ;
@@ -985,12 +1011,16 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_notified_roles`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_travel_notified_roles`(in eventScopeID int,in eventTypeID int,in purposeID int,in involvementID int)
 BEGIN
-SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as ValidationRoles from R_INVOLVED_ROLES roles
+SELECT GROUP_CONCAT(trg.TRG_ID_AD SEPARATOR ', ') as NotifiedRoles from R_INVOLVED_ROLES roles
 inner join T_ROLE_GROUPS_TRG trg on trg.TRG_ID = roles.TRG_ID
 inner join TRG_FUNCTIONAL_TFL tfl on tfl.TRG_ID = trg.TRG_ID
-WHERE roles.INVOLVED_ROLES_VALID = 0 AND  roles.INVOLVED_ROLES_INFO = 1
+WHERE roles.INVOLVED_ROLES_INFO = 1 
+AND ((TES_ID = eventScopeID) OR (TES_ID IS NULL) )
+AND ((TTY_ID = eventTypeID) OR (TTY_ID  IS NULL)) 
+AND ((TPE_ID = purposeID) OR (TPE_ID  IS NULL)) 
+AND ((TIN_ID = involvementID) OR (TIN_ID  IS NULL)) 
 group BY tfl.DIR_ID;
 END ;;
 DELIMITER ;
@@ -1235,9 +1265,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `addAddress`(adrName varchar(255), state varchar(255), zipcode varchar(255), phoneNumber varchar(25), town varchar(255), addr1 varchar(255), addr2 varchar(255), addr3 varchar(255), countryID int(11)) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `addAddress`(addrNature varchar(25),adrName varchar(255), state varchar(255), zipcode varchar(255), phoneNumber varchar(25), town varchar(255), addr1 varchar(255), addr2 varchar(255), addr3 varchar(255), countryID int(11)) RETURNS int(11)
 BEGIN
-INSERT INTO T_ADDRESS_TAS (TAS_NAME,TAS_STATE,TAS_ZIPCODE,TAS_PHONENUMBER,TAS_TOWN,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TCY_ID) VALUES (adrName,state,zipcode,phoneNumber,town,addr1,addr2,addr3,countryID);
+INSERT INTO T_ADDRESS_TAS (TAS_NAME,TAS_STATE,TAS_ZIPCODE,TAS_PHONENUMBER,TAS_TOWN,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TCY_ID,TNA_ABBREV) VALUES (adrName,state,zipcode,phoneNumber,town,addr1,addr2,addr3,countryID,addrNature);
 RETURN LAST_INSERT_ID();
 END;;
 DELIMITER ;
@@ -1255,7 +1285,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_address`(in addrType varchar(25),in addrNature varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
 BEGIN
 DECLARE addrID int(11);
 DECLARE countryID int(11);
@@ -1266,7 +1296,7 @@ SELECT TCY_ID INTO countryID FROM T_COUNTRY_TCY WHERE TCY_ALPHA3=countryAlpha3;
 IF (countryID IS NOT NULL AND (addrType = 'T_EVENT_ADDRESS_TEA' OR addrType = 'T_HOSTING_LOCATION_THL' OR addrType = 'T_TRAVEL_LOCATION_TTL'))
 THEN           
 START TRANSACTION;                                                                               
-SET addrID = addAddress(adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
+SET addrID = addAddress(addrNature,adrName, state, zipcode, phoneNumber, town, addr1, addr2, addr3, countryID);
 
 IF (addrType = 'T_EVENT_ADDRESS_TEA')
 THEN

@@ -3958,7 +3958,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">228</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTET_ISTEMPLATE</name>
