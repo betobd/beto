@@ -1172,7 +1172,8 @@
                         </headerpercents>
                         <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
                         <onheaderclick class="script"></onheaderclick>
-                        <ondoubleclick class="script">// a noter: le clic sur le bouton radio lui-m&#234;me ne d&#233;clenche pas l&apos;evenement onClick; il n&apos;y a pas de script correspondant &#224; la s&#233;lection d&apos;une ligne
+                        <ondoubleclick class="script">///$debug
+// a noter: le clic sur le bouton radio lui-m&#234;me ne d&#233;clenche pas l&apos;evenement onClick; il n&apos;y a pas de script correspondant &#224; la s&#233;lection d&apos;une ligne
 // il faut donc clicker sur une ligne du tableau, cette ligne n&apos;est pas pour autant la ligne s&#233;lectionn&#233;e
 
 var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
@@ -1319,7 +1320,7 @@ updateEventsTableContent();</param>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">434</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">34</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -1351,7 +1352,7 @@ updateEventsTableContent();</param>
                         <posy class="number">197</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">434</sizex>
+                        <sizex class="number">442</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                         <sizey class="number">21</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -1398,7 +1399,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">20</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">216</alty>
                             <name class="text">labelPURPOSE</name>
@@ -1560,7 +1561,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">20</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">labelSTART_DATE</name>
@@ -1607,7 +1608,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">80</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">START_DATE</name>
@@ -1662,7 +1663,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">20</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">labelEND_DATE</name>
@@ -1709,7 +1710,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">80</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">END_DATE</name>
@@ -1742,7 +1743,7 @@ updateEventsTableContent();</param>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">434</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">34</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -1970,7 +1971,7 @@ if(selectedRowIndex&gt;=0){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">115</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTMN_ESTIMATED_COST</name>
@@ -2081,7 +2082,7 @@ if(selectedRowIndex&gt;=0){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">663</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">22</sizey>
+                <sizey class="number">34</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>

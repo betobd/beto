@@ -2956,7 +2956,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">110</sizey>
+            <sizey class="number">53</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">TCT_COMMENT_display</name>
@@ -2982,7 +2982,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                <sizey class="number">102</sizey>
+                <sizey class="number">45</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTCT_COMMENT</name>
@@ -3006,7 +3006,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">434</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">102</sizey>
+                <sizey class="number">45</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TCT_COMMENT</name>
@@ -3781,7 +3781,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">30</sizey>
+            <sizey class="number">28</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -3882,6 +3882,186 @@
               </label>
             </childs>
           </horizontallayout>
+          <image>
+            <image class="file">images/eframe02.gif</image>
+            <css class="css"></css>
+            <alt class="lingual">
+              <fr></fr>
+            </alt>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">45</posx>
+            <posy class="number">341</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">607</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">28</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">y19602976171286728</id>
+            <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+            <components class="components">
+              <fieldPart class="node" en="" fr="">
+                <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                  <field class="field"></field>
+                </values>
+              </fieldPart>
+            </components>
+          </image>
+          <label>
+            <content class="lingual">
+              <fr>Missions</fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css">libelle</css>
+            <linklabelid class="text">MISSION_TABLE</linklabelid>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <mail class="boolean">false</mail>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">84</posx>
+            <posy class="number">368</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">115</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">20</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">216</alty>
+            <name class="text">labelMISSION_TABLE</name>
+            <id class="hidden">q19535312201399527</id>
+          </label>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">102</posx>
+            <posy class="number">306</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">607</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">56</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">w19534309032886524</id>
+            <childs class="hidden">
+              <fixspace>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">700</posx>
+                <posy class="number">292</posy>
+                <sizextype class="hidden">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">22</sizex>
+                <sizeytype class="hidden">FIXED</sizeytype>
+                <sizey class="number">30</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">o19534309034176825</id>
+              </fixspace>
+              <multilist>
+                <content class="text"></content>
+                <tablecss class="css"></tablecss>
+                <headercss class="css"></headercss>
+                <evenrowcss class="css"></evenrowcss>
+                <oddrowcss class="css"></oddrowcss>
+                <hoverrowcss class="css"></hoverrowcss>
+                <hoverrowboolean class="boolean">true</hoverrowboolean>
+                <tooltip class="lingual">
+                  <fr>Cliquez sur une mission pour l&apos;afficher</fr>
+                </tooltip>
+                <headertitles class="linguallist">
+                  <fr>
+                    <item0>Identifiant</item0>
+                    <item1>date de cr&#233;ation</item1>
+                    <item2>participant</item2>
+                  </fr>
+                </headertitles>
+                <headerpercents class="list">
+                  <item0>10</item0>
+                  <item1>40</item1>
+                  <item2>50</item2>
+                </headerpercents>
+                <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
+                <onheaderclick class="script"></onheaderclick>
+                <ondoubleclick class="script">///$debug
+var /*Table*/table = meibo.getField(&quot;MISSION_TABLE&quot;);
+var /*int*/ selectedRowIndex = table.getSelectedRow();
+var /*String*/ selectedMissionDn = table.getRowObject(selectedRowIndex);
+meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoubleclick>
+                <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
+                <separator1 class="separator"></separator1>
+                <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
+                <caption class="lingual">
+                  <fr></fr>
+                </caption>
+                <summary class="lingual">
+                  <fr></fr>
+                </summary>
+                <headerabbreviations class="linguallist">
+                  <fr></fr>
+                </headerabbreviations>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">730</posx>
+                <posy class="number">259</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">577</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">MISSION_TABLE</name>
+                <id class="hidden">n19534309035467126</id>
+              </multilist>
+            </childs>
+          </horizontallayout>
+          <image>
+            <image class="file">images/eframe02.gif</image>
+            <css class="css"></css>
+            <alt class="lingual">
+              <fr></fr>
+            </alt>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">-39</posx>
+            <posy class="number">425</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">607</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">28</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">p19623663896605329</id>
+            <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+            <components class="components">
+              <fieldPart class="node" en="" fr="">
+                <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                  <field class="field"></field>
+                </values>
+              </fieldPart>
+            </components>
+          </image>
           <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
             <css class="css"></css>
@@ -3895,7 +4075,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">159</sizey>
+            <sizey class="number">83</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -3910,7 +4090,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">349</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
-                <sizey class="number">151</sizey>
+                <sizey class="number">75</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>

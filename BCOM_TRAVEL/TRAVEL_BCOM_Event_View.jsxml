@@ -3,5 +3,21 @@
   <globalScriptView class="script"> </globalScriptView>
   <onload class="script">// formatage date
 meibo.setFieldValue(&quot;TCT_START_DATE&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;)))); 
-meibo.setFieldValue(&quot;TCT_CREATE_DATE&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_CREATE_DATE&quot;))));</onload>
+meibo.setFieldValue(&quot;TCT_CREATE_DATE&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_CREATE_DATE&quot;))));
+
+// Met &#224; jour le contenu du tableau de missions
+var /*Field*/table = meibo.getField(&quot;MISSION_TABLE&quot;);
+var /*String*/ currentDN=meibo.getCurrentDn();
+
+var /*ResultSet*/ missionRS = meibo.executeLink(&quot;EventMission&quot;, currentDN, &quot;TMN_ID,TMN_CREATE_DATE,OwnerName&quot;);
+var /*int*/ line=0;
+
+for each(var mission in missionRS){
+
+  table.addRowObject(line, mission.dn[0]);
+  table.addCell(line,0,mission.TMN_ID[0]);          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(mission.TMN_CREATE_DATE[0])));
+  table.addCell(line,2,mission.OwnerName[0]);  
+  line++ 
+}</onload>
 </scripts>

@@ -897,6 +897,7 @@ var ROLES_CONFIG_PREFIX = "BCOM_PROFIL_"; // préfix des clés de roles dans le fi
 var ROLES_STRING = "Utilisateur|InitiateurDeplacement|AnalyseurDeplacement|OrganisateurVoyage|DDI|AdminMeibo"; // liste des roles meibo à prendre en compte
 var ROLES_ARRAY = ROLES_STRING.split("|");
 var DATE_FORMAT = new java.text.SimpleDateFormat("dd/MM/yyyy"); // format d'affichage
+var DATETIME_FORMAT = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm"); // format d'affichage
 var SQL_DATE_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd"); // format en retour de la base
 var SQL_DATETIME_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 var /*Class*/ INTEGER_CLASS = new Class("java.lang.Integer");
@@ -3516,13 +3517,6 @@ if(hasSourceView()){
         <properties>
           <displayname class="lingual">
             <fr>AddressNature</fr>
-            <en>AddressNature</en>
-            <es>AddressNature</es>
-            <de>AddressNature</de>
-            <it>AddressNature</it>
-            <pt>AddressNature</pt>
-            <zh>AddressNature</zh>
-            <ar>AddressNature</ar>
           </displayname>
           <hiddenresource class="boolean">false</hiddenresource>
           <separator class="separator"/>
@@ -3830,20 +3824,20 @@ function /*void*/ setScopesForType(){
 
     // affectation des valeurs à la liste des portées
     var /*String*/ scopeFieldOptions="";
-    var /*String*/ scodeFieldParameters="";
+    var /*String*/ scopeFieldParameters="";
     for each(var entry in rs){
       if(scopeFieldOptions==""){
         scopeFieldOptions=entry.TES_NAME[0];
-        scodeFieldParameters=entry.TES_ABBREV[0];
+        scopeFieldParameters=entry.TES_ABBREV[0];
       }else{
         scopeFieldOptions=scopeFieldOptions + "," + entry.TES_NAME[0];
-        scodeFieldParameters=scodeFieldParameters + "," + entry.TES_ABBREV[0];
+        scopeFieldParameters=scopeFieldParameters + "," + entry.TES_ABBREV[0];
       }
     }
 
     var /*Field2*/ scopeField = meibo.getField("fkTES_ID");
     scopeField.setOptions(scopeFieldOptions);
-    scopeField.setParameters(scodeFieldParameters);
+    scopeField.setParameters(scopeFieldParameters);
   }
 }
 
@@ -4191,7 +4185,23 @@ meibo.setReturnValue(false);</onquit>
             <globalScriptView class="script"> </globalScriptView>
             <onload class="script">// formatage date
 meibo.setFieldValue("TCT_START_DATE", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE")))); 
-meibo.setFieldValue("TCT_CREATE_DATE", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("TCT_CREATE_DATE"))));</onload>
+meibo.setFieldValue("TCT_CREATE_DATE", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("TCT_CREATE_DATE"))));
+
+// Met à jour le contenu du tableau de missions
+var /*Field*/table = meibo.getField("MISSION_TABLE");
+var /*String*/ currentDN=meibo.getCurrentDn();
+
+var /*ResultSet*/ missionRS = meibo.executeLink("EventMission", currentDN, "TMN_ID,TMN_CREATE_DATE,OwnerName");
+var /*int*/ line=0;
+
+for each(var mission in missionRS){
+
+  table.addRowObject(line, mission.dn[0]);
+  table.addCell(line,0,mission.TMN_ID[0]);          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(mission.TMN_CREATE_DATE[0])));
+  table.addCell(line,2,mission.OwnerName[0]);  
+  line++ 
+}</onload>
           </trigger>
         </sequence>
         <sequence name="Search" type="4">
@@ -4517,6 +4527,7 @@ scopeField.setValue(" ");</onload>
             <logical>
               <attribute attrs="" pattern_fr="{0}" resourcelink="MissionEvent" type="link">Events</attribute>
               <attribute attrs="cn" pattern_fr="{0}" resourcelink="MissionOwnerADPeople" type="link">OwnerCn</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="MissionOwnerPerson" type="link">OwnerName</attribute>
             </logical>
           </return>
           <onRead class="script"/>
@@ -4850,6 +4861,73 @@ if(checkOK){
 meibo.setReturnValue(false);</onquit>
             <onoperationok class="script"/>
             <onoperationko class="script"/>
+          </trigger>
+        </sequence>
+        <sequence name="MissionDisplay" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionDisplay.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
+// Met à jour le contenu du tableau d'evenements
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+var /*String*/ currentDN=meibo.getCurrentDn();
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.dn[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}
+
+// Met à jour le contenu du tableau d'historique
+table = meibo.getField("HISTORY_TABLE");
+
+var /*ResultSet*/ missionHistoryRS = meibo.executeLink("MissionRStatus", currentDN,"TST_TMN_DATE,TST_TMN_COMMENT,peopleName,TST_NAME");
+line = 0;
+
+for each(var statusEntry in missionHistoryRS){
+
+  //table.addRowObject(line, statusEntry.fkTCT_ID[0]);
+  table.addCell(line,0,statusEntry.peopleName[0]);
+  table.addCell(line,1,DATETIME_FORMAT.format(SQL_DATETIME_FORMAT.parse(statusEntry.TST_TMN_DATE[0])));
+  table.addCell(line,2,statusEntry.TST_NAME[0]);
+  table.addCell(line,3,statusEntry.TST_TMN_COMMENT[0]);
+  
+  line++ 
+}</onload>
           </trigger>
         </sequence>
         <sequence name="MissionAccept" type="0">
@@ -5960,7 +6038,10 @@ meibo.setReturnValue(false);</onquit>
           <separator class="separator"/>
           <return class="returnallattributes">
             <physical>PRS_ID,TMN_ID,TST_ID,TST_TMN_COMMENT,TST_TMN_DATE</physical>
-            <logical/>
+            <logical>
+              <attribute attrs="TST_NAME" pattern_fr="{0}" resourcelink="RMissionStatus" type="link">TST_NAME</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="RMissionStatusPeople" type="link">peopleName</attribute>
+            </logical>
           </return>
           <onRead class="script"/>
           <onSubmit class="script"/>
@@ -6928,13 +7009,6 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
       <properties>
         <displayname class="lingual">
           <fr>AddressAddressNature</fr>
-          <en>AddressAddressNature</en>
-          <es>AddressAddressNature</es>
-          <de>AddressAddressNature</de>
-          <it>AddressAddressNature</it>
-          <pt>AddressAddressNature</pt>
-          <zh>AddressAddressNature</zh>
-          <ar>AddressAddressNature</ar>
         </displayname>
         <hiddenlink class="boolean">false</hiddenlink>
         <separator class="separator"/>
@@ -7844,6 +7918,24 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <type class="linktype">4</type>
         <attribute1 class="text">TST_ID</attribute1>
         <attribute2 class="text">TST_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="RMissionStatusPeople">
+      <properties>
+        <displayname class="lingual">
+          <fr>RMissionStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">R_MissionStatus</resourcefrom>
+        <resourceto class="resource">TravelPeople</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">PRS_ID</attribute1>
+        <attribute2 class="text">PRS_ID</attribute2>
         <separator class="separator"/>
         <imageclosed class="file"/>
         <imageopened class="file"/>

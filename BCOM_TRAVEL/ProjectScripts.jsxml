@@ -887,6 +887,7 @@ var ROLES_CONFIG_PREFIX = &quot;BCOM_PROFIL_&quot;; // pr&#233;fix des cl&#233;s
 var ROLES_STRING = &quot;Utilisateur|InitiateurDeplacement|AnalyseurDeplacement|OrganisateurVoyage|DDI|AdminMeibo&quot;; // liste des roles meibo &#224; prendre en compte
 var ROLES_ARRAY = ROLES_STRING.split(&quot;|&quot;);
 var DATE_FORMAT = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;); // format d&apos;affichage
+var DATETIME_FORMAT = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy HH:mm&quot;); // format d&apos;affichage
 var SQL_DATE_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&quot;); // format en retour de la base
 var SQL_DATETIME_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
 var /*Class*/ INTEGER_CLASS = new Class(&quot;java.lang.Integer&quot;);

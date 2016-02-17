@@ -4908,13 +4908,6 @@ if(dn==null){
         <properties>
           <displayname class="lingual">
             <fr>AddressNature</fr>
-            <en>AddressNature</en>
-            <es>AddressNature</es>
-            <de>AddressNature</de>
-            <it>AddressNature</it>
-            <pt>AddressNature</pt>
-            <zh>AddressNature</zh>
-            <ar>AddressNature</ar>
           </displayname>
           <hiddenresource class="boolean">false</hiddenresource>
           <separator class="separator"></separator>
@@ -5175,7 +5168,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <reverseOrder class="boolean">true</reverseOrder>
           </sortingon>
           <separator class="separator"></separator>
-          <key class="attribute">displayName</key>
+          <key class="attribute"></key>
           <entriesbrowsed class="integer">20</entriesbrowsed>
           <separator class="separator"></separator>
           <searchattribute class="attribute">TET_NAME</searchattribute>
@@ -5569,6 +5562,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <logical>
               <attribute attrs="" pattern_fr="{0}" resourcelink="MissionEvent" type="link">Events</attribute>
               <attribute attrs="cn" pattern_fr="{0}" resourcelink="MissionOwnerADPeople" type="link">OwnerCn</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="MissionOwnerPerson" type="link">OwnerName</attribute>
             </logical>
           </return>
           <onRead class="script"></onRead>
@@ -5617,6 +5611,25 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <rights>
             <AdminMeibo>true</AdminMeibo>
             <InitiateurDeplacement>true</InitiateurDeplacement>
+          </rights>
+        </sequence>
+        <sequence name="MissionDisplay" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionDisplay.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
         <sequence name="MissionAccept" type="0">
@@ -5976,7 +5989,10 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <separator class="separator"></separator>
           <return class="returnallattributes">
             <physical>PRS_ID,TMN_ID,TST_ID,TST_TMN_COMMENT,TST_TMN_DATE</physical>
-            <logical></logical>
+            <logical>
+              <attribute attrs="TST_NAME" pattern_fr="{0}" resourcelink="RMissionStatus" type="link">TST_NAME</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="RMissionStatusPeople" type="link">peopleName</attribute>
+            </logical>
           </return>
           <onRead class="script"></onRead>
           <onSubmit class="script"></onSubmit>
@@ -6538,13 +6554,6 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
       <properties>
         <displayname class="lingual">
           <fr>AddressAddressNature</fr>
-          <en>AddressAddressNature</en>
-          <es>AddressAddressNature</es>
-          <de>AddressAddressNature</de>
-          <it>AddressAddressNature</it>
-          <pt>AddressAddressNature</pt>
-          <zh>AddressAddressNature</zh>
-          <ar>AddressAddressNature</ar>
         </displayname>
         <hiddenlink class="boolean">false</hiddenlink>
         <separator class="separator"></separator>
@@ -7454,6 +7463,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <type class="linktype">4</type>
         <attribute1 class="text">TST_ID</attribute1>
         <attribute2 class="text">TST_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="RMissionStatusPeople">
+      <properties>
+        <displayname class="lingual">
+          <fr>RMissionStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">R_MissionStatus</resourcefrom>
+        <resourceto class="resource">TravelPeople</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">PRS_ID</attribute1>
+        <attribute2 class="text">PRS_ID</attribute2>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>
