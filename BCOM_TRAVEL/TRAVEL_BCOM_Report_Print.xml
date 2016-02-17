@@ -6843,7 +6843,7 @@ meibo.setHttpResponse(response);</onclick>
                     <posy class="number">735</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="number">286</altersizex>
-                    <sizex class="hidden">254</sizex>
+                    <sizex class="hidden">404</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="hidden">31</sizey>
                     <altersizey class="number">28</altersizey>
@@ -7460,7 +7460,7 @@ meibo.setHttpResponse(response);</onclick>
                     <posy class="number">391</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="number">286</altersizex>
-                    <sizex class="hidden">254</sizex>
+                    <sizex class="hidden">388</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="hidden">28</sizey>
                     <altersizey class="number">28</altersizey>
@@ -8743,7 +8743,7 @@ meibo.setHttpResponse(response);</onclick>
                     <posy class="number">857</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">10</sizex>
+                    <sizex class="number">11</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -8795,7 +8795,7 @@ meibo.setHttpResponse(response);</onclick>
                     <posy class="number">881</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">10</sizex>
+                    <sizex class="number">11</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -8847,7 +8847,7 @@ meibo.setHttpResponse(response);</onclick>
                     <posy class="number">884</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">10</sizex>
+                    <sizex class="number">11</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">30</altersizey>

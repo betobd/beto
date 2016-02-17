@@ -82,7 +82,7 @@ fixMultiValueFieldsOnLoad(&quot;TRT_DIFFUSION_EMAIL_LIST&quot;);
 // formatage date
 var /*java.util.Date*/ startDate= SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;EventDate&quot;));
 var /*String*/ eventDuration = meibo.getFieldValue(&quot;EventDate&quot;);
-var /*java.util.Date*/ endDate= addDays(startDate, NUMBERFORMAT_INSTANCE.parse(eventDuration).intValue());
+var /*java.util.Date*/ endDate= addDays(startDate, NUMBERFORMAT_INSTANCE.parse(eventDuration).intValue()-1);
 
 meibo.setFieldValue(&quot;EventDate&quot;, &quot;du &quot; + DATE_FORMAT.format(startDate) +  &quot; au &quot; + DATE_FORMAT.format(endDate));
 

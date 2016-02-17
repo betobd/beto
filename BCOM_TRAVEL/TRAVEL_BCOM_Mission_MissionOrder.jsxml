@@ -7,6 +7,11 @@ try{
   if ((lastComment != null) &amp;&amp; (lastComment!=&quot;&quot;)) {
     meibo.showField(&quot;lastCommentLayout&quot;,true);
     meibo.getField(&quot;LAST_COMMENT&quot;).setValue(&quot;&quot; + lastComment);
+    
+    // Note les vues qui ne sont pas appel&#233;e directement par le workflow n&apos;acc&#232;dent pas &#224; la tache de workflow; elles n&apos;ont donc pas acc&#232;s &#224; ses variables
+    // Ceci est donc probl&#233;matique pour la vue utilis&#233;e pour la cr&#233;ation du PDF
+    // On transmet donc les infos par variables globale
+    meibo.setGlobalVar(&quot;CurrentMissionComment&quot; , lastComment);
   }else{
     meibo.showField(&quot;lastCommentLayout&quot;,false);
   }

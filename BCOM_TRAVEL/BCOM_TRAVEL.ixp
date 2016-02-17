@@ -299,6 +299,41 @@ cursor:default;</extraparms>
         </content>
       </properties>
     </message>
+    <message name="eventsTable_date1">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_date2">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_involvement">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_name">
+      <properties>
+        <content class="lingual">
+          <fr>Nom</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_purpose">
+      <properties>
+        <content class="lingual">
+          <fr>Objectif</fr>
+        </content>
+      </properties>
+    </message>
     <message name="justifyRejection">
       <properties>
         <content class="lingual">
@@ -4735,12 +4770,13 @@ if(dn==null){
           <request class="text"></request>
           <separator class="separator"></separator>
           <return class="returnallattributes">
-            <physical>TAS_ID,TAS_NAME,TAS_PHONENUMBER,TAS_STATE,TAS_TOWN,TAS_ZIPCODE,TCY_ID,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3</physical>
+            <physical>TAS_ID,TAS_NAME,TAS_PHONENUMBER,TAS_STATE,TAS_TOWN,TAS_ZIPCODE,TCY_ID,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TNA_ABBREV</physical>
             <logical>
               <attribute attrs="TCY_FR_FR_NAME" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCY_FR_FR_NAME</attribute>
               <attribute attrs="TCT_NAME" pattern_fr="{0}" resourcelink="AddressContinent" type="link">TCT_NAME</attribute>
               <attribute attrs="TCT_ID" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCT_ID</attribute>
               <attribute attrs="TCY_EN_GB_NAME" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCY_EN_GB_NAME</attribute>
+              <attribute attrs="TNA_DESCRIPTION" pattern_fr="{0}" resourcelink="AddressAddressNature" type="link">TNA_DESCRIPTION</attribute>
             </logical>
           </return>
           <onRead class="script"></onRead>
@@ -4774,6 +4810,7 @@ if(dn==null){
           <TAS_TOWN class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TAS_TOWN>
           <TAS_ZIPCODE class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TAS_ZIPCODE>
           <TCY_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCY_ID>
+          <TNA_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TNA_ABBREV>
         </attributetable>
         <sequence name="Picker" type="7">
           <properties>
@@ -4797,6 +4834,30 @@ if(dn==null){
             <displayattributes class="attributes">TAS_ID,TAS_NAME,TAS_STATE,TAS_TOWN,TAS_ADDR1,TCY_FR_FR_NAME (logique),TCY_EN_GB_NAME (logique)</displayattributes>
           </properties>
           <path>TRAVEL_BCOM_Address_Picker.xml</path>
+          <class></class>
+        </sequence>
+        <sequence name="EventAddressPicker" type="7">
+          <properties>
+            <displayname class="lingual">
+              <fr></fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <separator class="separator"></separator>
+            <custompicker class="boolean">true</custompicker>
+            <separator class="separator"></separator>
+            <height class="integer">140</height>
+            <pickerwidth class="integer">500</pickerwidth>
+            <pickerheight class="integer">400</pickerheight>
+            <separator class="separator"></separator>
+            <pickerhead class="css">pickerHead</pickerhead>
+            <pickerclose class="file">./web\close.gif</pickerclose>
+            <separator class="separator"></separator>
+            <displayattributes class="attributes">TAS_ID,TAS_NAME,TAS_STATE,TAS_TOWN,TAS_ADDR1,TCY_FR_FR_NAME (logique),TCY_EN_GB_NAME (logique)</displayattributes>
+          </properties>
+          <path>TRAVEL_BCOM_Address_EventAddressPicker.xml</path>
           <class></class>
         </sequence>
         <sequence name="Display" type="0">
@@ -4842,6 +4903,49 @@ if(dn==null){
             <OrganisateurVoyage>true</OrganisateurVoyage>
           </rights>
         </sequence>
+      </resource>
+      <resource name="AddressNature">
+        <properties>
+          <displayname class="lingual">
+            <fr>AddressNature</fr>
+            <en>AddressNature</en>
+            <es>AddressNature</es>
+            <de>AddressNature</de>
+            <it>AddressNature</it>
+            <pt>AddressNature</pt>
+            <zh>AddressNature</zh>
+            <ar>AddressNature</ar>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">T_NATURE_ADDRESS_TNA</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>TNA_ABBREV,TNA_DESCRIPTION</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">TNA_ABBREV</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TNA_ABBREV</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">TNA_DESCRIPTION</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">TNA_DESCRIPTION</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
       </resource>
       <resource name="ConcreteEvent">
         <properties>
@@ -6430,6 +6534,31 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
     </datasource>
   </datasources>
   <resourcelinks auto="A -&gt; Z">
+    <resourcelink name="AddressAddressNature">
+      <properties>
+        <displayname class="lingual">
+          <fr>AddressAddressNature</fr>
+          <en>AddressAddressNature</en>
+          <es>AddressAddressNature</es>
+          <de>AddressAddressNature</de>
+          <it>AddressAddressNature</it>
+          <pt>AddressAddressNature</pt>
+          <zh>AddressAddressNature</zh>
+          <ar>AddressAddressNature</ar>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Address</resourcefrom>
+        <resourceto class="resource">AddressNature</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TNA_ABBREV</attribute1>
+        <attribute2 class="text">TNA_ABBREV</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
     <resourcelink name="AddressContinent">
       <properties>
         <displayname class="lingual">
@@ -7876,6 +8005,39 @@ meibo.setReturnObject(resultSet);</onexecute>
     
   </adaptors>
   <plugins auto="A -&gt; Z">
+    <plugin name="pluginMail-1" title="NotifyConfirmation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Confirmation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;La mission {param.missionID} pour {param.user} a &#233;t&#233; valid&#233;e et organis&#233;e.&lt;/P&gt;
+&lt;P&gt;Voici les &#233;v&#232;nements pr&#233;vus sur cette mission : &lt;br&gt;
+{param.missionContent}
+&lt;/P&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>notificationPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>true</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
     <plugin name="pluginMail-1" title="NotifyForCompletion">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">

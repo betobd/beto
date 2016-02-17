@@ -1532,7 +1532,7 @@ var missionId = meibo.getFieldValue(&quot;TMN_ID&quot;);
 var comment = meibo.getFieldValue(&quot;COMMENT&quot;);
 var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
-meibo.logInfo(&quot;Validation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn()));
+meibo.logInfo(&quot;Validation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
 updateMissionStatus(missionId, userId, &quot;VAL&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);
 meibo.setWorkflowVariable(&quot;secondLevelValidated&quot;, &quot;true&quot;);
@@ -1797,7 +1797,7 @@ meibo.setActiveTab(2);</onclick>
       </label>
       <label>
         <content class="lingual">
-          <fr>Vous avez valider la mission. Celle-ci doit maintenant &#234;tre valid&#233;e par la DDI</fr>
+          <fr>Vous avez valid&#233; la mission. Celle-ci doit maintenant &#234;tre compl&#233;t&#233;e par le demandeur pour son organisation.</fr>
           <en>You have validated the request</en>
         </content>
         <wordwrap class="boolean">false</wordwrap>
@@ -1812,9 +1812,9 @@ meibo.setActiveTab(2);</onclick>
         <hidden class="boolean">false</hidden>
         <posx class="number">20</posx>
         <posy class="number">63</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <sizextype class="sizetype">EXTANDABLE</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">425</sizex>
+        <sizex class="number">610</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">20</sizey>
         <altersizey class="hidden">30</altersizey>

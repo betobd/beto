@@ -57,7 +57,7 @@ try{
       }else{
         resultEntry = rs.getEntry();
         resultValue = resultEntry.getAttribute(0)[0];
-        if(resultValue == 0){
+        if(resultValue == &quot;0&quot;){
           meibo.logError(&quot;valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values);
           throw  &quot;L&apos;entr&#233;e n&apos;a pas pu &#234;tre cr&#233;&#233;e&quot;;  // pas plus d&apos;explications disponibles ....
         }

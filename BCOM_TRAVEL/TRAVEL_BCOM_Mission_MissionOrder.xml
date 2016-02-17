@@ -1078,7 +1078,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">115</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTMN_ESTIMATED_COST</name>
@@ -1397,7 +1397,7 @@
                 <posy class="number">270</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">422</sizex>
+                <sizex class="number">311</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
                 <sizey class="number">32</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -1455,11 +1455,66 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">442</posx>
-                <posy class="number">603</posy>
+                <posx class="number">451</posx>
+                <posy class="number">587</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">60</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">32</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">b943074035600532</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <fr>Test Vue Imprimer</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.switchToResourceView(&quot;Mission&quot;,meibo.getCurrentDn(),&quot;MissionOrderPrint&quot;);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">none</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">439</posx>
+                <posy class="number">579</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">111</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">32</sizey>
                 <altersizey class="hidden">30</altersizey>

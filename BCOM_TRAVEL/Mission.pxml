@@ -103,16 +103,16 @@ if(email==null){
 }
       </Action>
       <Action Name="secondLevelValidationEligible" Type="workflowScriptImplementation" ID="1452593973817">
-var /*Set*/ validationRoleSet = meibo.setWorkflowVariable(&quot;secondValidationRoles&quot;); 
+var /*Set*/ validationRoleSet = meibo.getWorkflowVariable(&quot;secondValidationRoles&quot;);
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var /*String*/ user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
 var /*Array*/ validationRoleArray = new Array(validationRoleSet.toArray());
-meibo.setWorkflowVariable(&quot;ROLE_SecondLevelValidation&quot;, validationRoleArray);
 
 var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
 meibo.logDebug(&quot;getCurrentWorkflowTask : &quot; + wapiworkitem);
 var /*UserTask*/ userTask = meibo.getWorkflowUserTask()
 meibo.logDebug(&quot;getWorkflowUserTask : &quot; + userTask);
-
-meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getActivityInstance().getId() + &quot;;&quot; + wapiworkitem.getActivityInstance().getDisplayName() + &quot;) de validation de la mission &quot; + missionID + &quot; &#224; &quot; + validationRoleArray + &quot; pour &quot; + participantDn);
 
 if(!validationRoleSet.isEmpty()){
 
@@ -122,9 +122,18 @@ if(!validationRoleSet.isEmpty()){
   var targetUsers = getRecursiveGroupMembersFromGroupNames(validationRoleArray);
   if(targetUsers.isEmpty()){
     meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec les roles &quot; + validationRoleArray + &quot; pour validation de second niveau&quot;);
+    wapiworkitem.complete();
   }else{
     var secondLevelValidationPeople = new Array(targetUsers.toArray());
-    meibo.setWorkflowVariable(&quot;secondLevelValidationPeople&quot;, secondLevelValidationPeople);
+    var /*Array*/ targetUsersDnArray = new Array();
+    for each(var userEntry in secondLevelValidationPeople){
+      targetUsersDnArray[targetUsersDnArray.length] = userEntry.dn[0];
+    }
+    meibo.setWorkflowVariable(&quot;ROLE_SecondLevelValidation&quot;, targetUsersDnArray);
+    
+    meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getActivityInstance().getId() + &quot;;&quot; + wapiworkitem.getActivityInstance().getDisplayName() + &quot;) de validation de la mission &quot; + missionID + &quot; &#224; &quot; + targetUsersDnArray + &quot; pour &quot; + participantDn);
+
+    //meibo.setWorkflowVariable(&quot;secondLevelValidationPeople&quot;, secondLevelValidationPeople);
 
     var /*Parameters*/ params = new Parameters();
     params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
@@ -141,7 +150,7 @@ if(!validationRoleSet.isEmpty()){
   }
 }else{
   // normalement &#231;a ne devrait pas arriver quand on passe par ici
-  meibo.logDebug(&quot;Pas de role d&#233;fini pour validation de 2nd niveau&quot;);
+  meibo.logWarn(&quot;Pas de role d&#233;fini pour validation de 2nd niveau&quot;);
   wapiworkitem.complete();
 }
       </Action>
@@ -509,8 +518,11 @@ var /*Set*/ validationRoleSet = new java.util.HashSet();
 var /*ResultSet*/ notificationRoleRS = null;
 var /*Entry*/ notificationRoleEntry = null;
 var /*Set*/ notificationRoleSet = new java.util.HashSet();
+var /*Array*/ rolesArray = null;
 
 for each(var missionEvent in missionEventRS){
+// parcours des &#233;venements de la mission
+
   missionId = missionEvent.fkTCT_ID[0] 
   eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot;+ ownerID + &quot; AND TCT_ID=&quot;+missionId ,1,&quot;RAS_START_DATE,TPE_ID,TIN_ID&quot;);
   eventAttendeesEntry = eventAttendeesRS.getEntry();
@@ -521,22 +533,28 @@ for each(var missionEvent in missionEventRS){
   involvementID = eventAttendeesEntry.TIN_ID[0];
 
   // recherche des roles pour la 2eme validation (validation &quot;DDI&quot;)  
-  validationRoleRS = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_travel_validation_roles(&apos;&quot;+ scopeID + &quot;&apos;,&apos;&quot; + evtTypeID + &quot;&apos;,&apos;&quot; + purposeID + &quot;&apos;,&apos;&quot; + involvementID + &quot;&apos;)&quot;,0); 
+  validationRoleRS = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_travel_validation_roles(&apos;&quot;+ scopeID + &quot;&apos;,&apos;&quot; + evtTypeID + &quot;&apos;,&apos;&quot; + purposeID + &quot;&apos;,&apos;&quot; + involvementID + &quot;&apos;)&quot;,0);     
   if(validationRoleRS!=null){
     for each(var validationRoleEntry in validationRoleRS){
       meibo.logDebug(&quot;ValidationRole : &quot; + validationRoleEntry);
-      validationRoleSet.add(validationRoleEntry.ValidationRoles[0]);
-    }
-    meibo.setWorkflowVariable(&quot;secondValidationRoles&quot;, validationRoleSet);
+      // validationRoleEntry.ValidationRoles contient une liste (chaine avec s&#233;parateur virgule)
+      rolesArray = validationRoleEntry.ValidationRoles[0].split(&quot;,&quot;);
+      for each(var role in rolesArray){
+        validationRoleSet.add(role);
+      }
+    }    
   }  
-  // recherche des roles pour la natification sans validation (notification &quot;DDI&quot;)  
+  // recherche des roles pour la notification sans validation (notification &quot;DDI&quot;)  
   notificationRoleRS = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_travel_notified_roles(&apos;&quot;+ scopeID + &quot;&apos;,&apos;&quot; + evtTypeID + &quot;&apos;,&apos;&quot; + purposeID + &quot;&apos;,&apos;&quot; + involvementID + &quot;&apos;)&quot;,0); 
   if(notificationRoleRS!=null){
     for each(var notificationRoleEntry in notificationRoleRS){
-      meibo.logDebug(&quot;ValidationRole : &quot; + notificationRoleEntry);   
-      notificationRoleSet.add(notificationRoleEntry.ValidationRoles[0]); 
+      meibo.logDebug(&quot;NotificationRole : &quot; + notificationRoleEntry);
+      // notificationRoleEntry.NotifiedRoles contient une liste (chaine avec s&#233;parateur virgule)
+      rolesArray = notificationRoleEntry.NotifiedRoles[0].split(&quot;,&quot;);
+      for each(var role in rolesArray){
+        notificationRoleSet.add(role);
+      }      
     }
-    meibo.setWorkflowVariable(&quot;notificationRoles&quot;, notificationRoleSet);
   }
   //1ere date de d&#233;but de participation &#224; un &#233;venement (pour constituer l&apos;&#233;ch&#233;ance du workflow)    
   eventStartDate = SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]);
@@ -544,6 +562,9 @@ for each(var missionEvent in missionEventRS){
     overallStartDate = eventStartDate;
   }
 }
+meibo.setWorkflowVariable(&quot;secondValidationRoles&quot;, validationRoleSet);
+meibo.setWorkflowVariable(&quot;notificationRoles&quot;, notificationRoleSet);
+
 meibo.logDebug(&quot;Date d&apos;&#233;cheance workflow mission &quot; + missionID + &quot; : &quot; + DATE_FORMAT.format(overallStartDate));
 meibo.setWorkflowVariable(&quot;firstEventStartDate&quot;, new WAPIDeadline(new Date(overallStartDate)));
 
@@ -673,6 +694,16 @@ meibo.setWorkflowVariable(&quot;isDG&quot;, &quot;&quot;+ isDG);</ActualParamete
       <ExtendedAttribute Name="Width" Value="269"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1452593973817</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
      </ExtendedAttributes>
     </Activity>
     <Activity Id="A1448472836106" Name="">
@@ -864,11 +895,11 @@ meibo.setWorkflowVariable(&quot;isDG&quot;, &quot;&quot;+ isDG);</ActualParamete
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="OrganiseDeplacement"/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="fr_name"  Value="Organisation D&#233;placement"/>
+      <ExtendedAttribute Name="fr_description"  Value="sous processus d&apos;organisation du d&#233;placement"/>
       <ExtendedAttribute Name="XOffset" Value="652"/>
       <ExtendedAttribute Name="YOffset" Value="756"/>
-      <ExtendedAttribute Name="Width" Value="205"/>
+      <ExtendedAttribute Name="Width" Value="229"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
       <ExtendedAttribute Name="numberSubflowToLaunch" Value="1"/>
@@ -939,14 +970,14 @@ updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatiq
        <Join Type="XOR"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452592386838"/>
+         <TransitionRef Id="T1455612553886"/>
          <TransitionRef Id="T1448531893154"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="EditeOrdreDeMission"/>
+      <ExtendedAttribute Name="fr_name"  Value="Edite Ordre de Mission"/>
       <ExtendedAttribute Name="fr_description"  Value="Editer un ordre de mission"/>
       <ExtendedAttribute Name="XOffset" Value="456"/>
       <ExtendedAttribute Name="YOffset" Value="836"/>
@@ -1013,11 +1044,11 @@ meibo.logDebug(&quot;TODO : Notifification pour annulation organisation mission&
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_name"  Value="route Abandon"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="832"/>
+      <ExtendedAttribute Name="XOffset" Value="844"/>
       <ExtendedAttribute Name="YOffset" Value="860"/>
-      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Width" Value="161"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
      </ExtendedAttributes>
@@ -1128,7 +1159,7 @@ if(email==null){
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="notification"/>
+      <ExtendedAttribute Name="fr_name"  Value="notification Annulation"/>
       <ExtendedAttribute Name="fr_description"  Value="Notifcation de l&apos;annulation de la mission"/>
       <ExtendedAttribute Name="XOffset" Value="1356"/>
       <ExtendedAttribute Name="YOffset" Value="948"/>
@@ -1155,11 +1186,11 @@ if(email==null){
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_name"  Value="route validations"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="260"/>
+      <ExtendedAttribute Name="XOffset" Value="212"/>
       <ExtendedAttribute Name="YOffset" Value="184"/>
-      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Width" Value="168"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
      </ExtendedAttributes>
@@ -1255,8 +1286,46 @@ meibo.logDebug(&quot;Relance &#224; faire ...&quot;);</ActualParameter>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
         <ActualParameter>var /*Set*/ notificationRoleSet = meibo.getWorkflowVariable(&quot;notificationRoles&quot;);
+var /*String*/ missionID = meibo.getWorkflowVariable(&quot;missionID&quot;); 
+var /*String*/ participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var /*String*/ user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+var /*String*/ email = meibo.getWorkflowVariable(&quot;participantEmail&quot;);
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+
 if(!notificationRoleSet.isEmpty()){
-//TODO notifications DDI ou autre, en fonction de notificationRoleSet
+// notifications DDI ou autre, en fonction de notificationRoleSet
+  var /*Array*/ notificationRoleArray = new Array(notificationRoleSet.toArray());
+  
+  // recherche personnes correspondant aux roles
+  var targetUsers = getRecursiveGroupMembersFromGroupNames(notificationRoleArray);
+  if(targetUsers.isEmpty()){
+    meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec les roles &quot; + validationRoleArray + &quot; pour notification finale&quot;);
+    wapiworkitem.complete();
+  }else{
+    var notificationPeople = new Array(targetUsers.toArray());
+   
+    meibo.logInfo(&quot;Notification de confirmation finale de la mission &quot; + missionID + &quot; vers &quot; + notificationPeople + &quot; pour &quot; + participantDn);
+
+    var /*String*/ missionContent = getHtmlMissionContent(missionID);
+    
+    var /*Parameters*/ params = new Parameters();
+    params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+    params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+    params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+    params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+    params.add(&quot;user&quot;, user);
+    params.add(&quot;missionID&quot;, missionID);
+    params.add(&quot;missionContent&quot;, missionContent);
+    params.add(&quot;recipient&quot;, email);
+    params.add(&quot;participantDN&quot;, participantDn);
+    params.add(&quot;notificationPeople&quot;, notificationPeople);
+    
+    meibo.executePlugin(&quot;NotifyConfirmation&quot;,params);
+  }
+}else{
+  // normalement &#231;a ne devrait pas arriver quand on passe par ici
+  meibo.logWarn(&quot;Pas de role d&#233;fini pour notification finale&quot;);
+  wapiworkitem.complete();
 }</ActualParameter>
        </ActualParameters>
       </Tool>
@@ -1275,9 +1344,9 @@ if(!notificationRoleSet.isEmpty()){
      </TransitionRestrictions>
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Notifications"/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="664"/>
-      <ExtendedAttribute Name="YOffset" Value="944"/>
+      <ExtendedAttribute Name="fr_description"  Value="Notification finale confirmant la mission"/>
+      <ExtendedAttribute Name="XOffset" Value="700"/>
+      <ExtendedAttribute Name="YOffset" Value="1040"/>
       <ExtendedAttribute Name="Width" Value="125"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -1299,11 +1368,11 @@ if(!notificationRoleSet.isEmpty()){
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_name"  Value="route Abandon"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="808"/>
+      <ExtendedAttribute Name="XOffset" Value="792"/>
       <ExtendedAttribute Name="YOffset" Value="328"/>
-      <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Width" Value="136"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
      </ExtendedAttributes>
@@ -1324,7 +1393,7 @@ if(!notificationRoleSet.isEmpty()){
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value=""/>
+      <ExtendedAttribute Name="fr_name"  Value="route"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
       <ExtendedAttribute Name="XOffset" Value="76"/>
       <ExtendedAttribute Name="YOffset" Value="328"/>
@@ -1420,7 +1489,7 @@ for each(var missionEvent in missionEventRS){
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="annulation"/>
+      <ExtendedAttribute Name="fr_name"  Value="Annulation"/>
       <ExtendedAttribute Name="fr_description"  Value="Traitement de l&apos;annulation de la mission"/>
       <ExtendedAttribute Name="XOffset" Value="1304"/>
       <ExtendedAttribute Name="YOffset" Value="864"/>
@@ -1457,6 +1526,33 @@ meibo.logDebug(&quot;Relance &#224; faire ...&quot;);</ActualParameter>
       <ExtendedAttribute Name="XOffset" Value="380"/>
       <ExtendedAttribute Name="YOffset" Value="924"/>
       <ExtendedAttribute Name="Width" Value="120"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1455612463725" Name="">
+     <Description></Description>
+     <Route/>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Manual</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1455612519820"/>
+         <TransitionRef Id="T1455612483457"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="route confirmation finale"/>
+      <ExtendedAttribute Name="fr_description"  Value=""/>
+      <ExtendedAttribute Name="XOffset" Value="560"/>
+      <ExtendedAttribute Name="YOffset" Value="932"/>
+      <ExtendedAttribute Name="Width" Value="208"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
      </ExtendedAttributes>
@@ -1542,9 +1638,6 @@ meibo.logDebug(&quot;Relance &#224; faire ...&quot;);</ActualParameter>
      <Condition Type="OTHERWISE"></Condition>
     </Transition>
     <Transition Id="T1452260346922" Name="T1452260346922" From="A1448531857602" To="A1452260216937"/>
-    <Transition Id="T1452592386838" Name="T1452592386838" From="A1448527961473" To="A1449245333752">
-     <Condition Type="CONDITION">finalConfirmation==&quot;true&quot;</Condition>
-    </Transition>
     <Transition Id="T1452592394901" Name="T1452592394901" From="A1449245333752" To="A1448472343512"/>
     <Transition Id="T1452592675661" Name="T1452592675661" From="A1448472568550" To="A1448472836106">
      <Condition Type="EXCEPTION">escaladeDDI</Condition>
@@ -1566,6 +1659,15 @@ meibo.logDebug(&quot;Relance &#224; faire ...&quot;);</ActualParameter>
     </Transition>
     <Transition Id="T1454690216184" Name="T1454690216184" From="A1449244633439" To="A1449139919375">
      <Condition Type="CONDITION">accepted==&quot;true&quot;</Condition>
+    </Transition>
+    <Transition Id="T1455612483457" Name="T1455612483457" From="A1455612463725" To="A1449245333752">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1455612519820" Name="T1455612519820" From="A1455612463725" To="A1448472343512">
+     <Condition Type="CONDITION">notificationRoles.isEmpty()</Condition>
+    </Transition>
+    <Transition Id="T1455612553886" Name="T1455612553886" From="A1448527961473" To="A1455612463725">
+     <Condition Type="CONDITION">finalConfirmation==&quot;true&quot;</Condition>
     </Transition>
    </Transitions>
   </WorkflowProcess>

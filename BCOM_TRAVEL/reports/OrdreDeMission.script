@@ -1,3 +1,4 @@
+///$debug
 var mission = getParameter("mission");
 //Ouverture du document
 var document = new PdfDocument();
@@ -8,10 +9,14 @@ var dn = entry.getDn();
 var template = meibo.createPdfView(document, "Mission","MissionOrderPrint", dn);
 //template.addTitle("Ordre de mission " + mission);
 template.scale(85);
+
 var table = new PdfTable(1);
 table.addCell(template);
 table.addCell("test 1...");
 document.add(table);
+
+//document.add(template);
 //fermeture du document
 document.close();
+
 meibo.setReport(document);

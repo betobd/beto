@@ -1264,6 +1264,10 @@ function /*void*/ updateEventsTableContent(){
         
         startDate = SQL_DATE_FORMAT.parse(eventEntry.TCT_START_DATE[0]);
         duration = INTEGER_CLASS.parseInt(eventEntry.TCT_DURATION[0]);
+        if(duration&gt;0){
+          // si un evt dure 1 journ&#233;e par exemple, alors la date de fin est en fait la m&#234;me que la date de d&#233;but, donc on retranche 1 &#224; la dur&#233;e
+          duration = duration -1;
+        }
         endDate = addDays(startDate, duration);
 
         if((table.getRowObject(line) == null) || (table.getRowObject(line) != eventEntry.fkTCT_ID[0])){
@@ -1446,6 +1450,41 @@ function /*java.util.Date*/ addDays(javaDate, days){
   javaCalendar.setTime(javaDate);
   javaCalendar.add(JAVA_CALENDAR_CLASS.DATE, days);
   return javaCalendar.getTime();
+}
+
+/**
+ * Renvoi le contenu de la mission au format HTML
+ */
+function /*String*/ getHtmlMissionContent(missionID){
+  var /*String*/ htmlContent=&quot;&lt;table&gt;&lt;tr&gt;&lt;th&gt;&quot; + meibo.getMessage(&quot;eventsTable_name&quot;) + &quot;&lt;/th&gt;&lt;th&gt;&quot; + meibo.getMessage(&quot;eventsTable_date1&quot;) + &quot;&lt;/th&gt;&lt;th&gt;&quot; + meibo.getMessage(&quot;eventsTable_date2&quot;) + &quot;&lt;/th&gt;&lt;th&gt;&quot; + meibo.getMessage(&quot;eventsTable_purpose&quot;) + &quot;&lt;/th&gt;&lt;th&gt;&quot; + meibo.getMessage(&quot;eventsTable_involvement&quot;) + &quot;&lt;/th&gt;&lt;/tr&gt;&quot;;
+  
+  var /*ResultSet*/ missionRS = meibo.executeResource(&quot;Mission&quot;,&quot;TMN_ID=&quot; + missionID ,1,&quot;PRS_ID&quot;);
+  var /*Entry*/ missionEntry = missionRS.getEntry();  
+  var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionEntry.dn[0],&quot;fkTCT_ID,TET_NAME&quot;);  
+  var /*ResultSet*/ eventAttendeesRS = null;
+  var /*Entry*/ eventAttendeesEntry = null;
+
+  for each(var missionEvent in missionEventRS){
+    htmlContent= htmlContent +  &quot;&lt;tr&gt;&lt;td&gt;&quot;;
+    htmlContent= htmlContent +  missionEvent.TET_NAME[0];
+    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+    
+    eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot; + missionEntry.PRS_ID[0] + &quot; AND TCT_ID=&quot; + missionEvent.fkTCT_ID[0] ,1,&quot;TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE&quot;);
+    eventAttendeesEntry = eventAttendeesRS.getEntry();
+
+    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]));
+    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0]));
+    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+    htmlContent= htmlContent +  eventAttendeesEntry.TPE_NAME[0];
+    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+    htmlContent= htmlContent +  eventAttendeesEntry.TIN_NAME[0];    
+    htmlContent= htmlContent +  &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+  } 
+  
+  htmlContent= htmlContent +  &quot;&lt;/table&gt;&quot;;
+  
+  return htmlContent;
 }
 
 /////////////////////

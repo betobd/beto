@@ -11,6 +11,12 @@ if(hasSourceView()){
 // contournement de meibo qui ne g&#232;re pas tout seul les dates sql
 var sqlDate = SQL_DATE_FORMAT.format(DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;)));
 meibo.setFieldValue(&quot;TCT_START_DATE&quot;,sqlDate);
+
+var cost = meibo.getFieldValue(&quot;TET_AVERAGE_COST&quot;);
+if (cost==&quot;&quot;){
+  cost=null;
+}
+meibo.setFieldValue(&quot;TET_AVERAGE_COST&quot;,cost);
   
 meibo.setReturnValue(true);</onquit>
   <onoperationok class="script"></onoperationok>
