@@ -12,39 +12,158 @@
     <ExtendedAttribute Name="role"  Value="InitiateurDeplacement"/>
     <ExtendedAttribute Name="role"  Value="Studio"/>
     <ExtendedAttribute Name="role"  Value="Utilisateur"/>
-    <ExtendedAttribute Name="fr_name"  Value="Mission"/>
-    <ExtendedAttribute Name="fr_description"  Value=""/>
+    <ExtendedAttribute Name="fr_name"  Value="Compte-rendu"/>
+    <ExtendedAttribute Name="fr_description"  Value="Compte-rendu d&apos;&#233;v&#232;nement"/>
     <ExtendedAttribute Name="actionsList" Value="">
-      <Action Name="Initialisation" Type="workflowScriptImplementation" ID="1448472454995">
+      <Action Name="ContribOnElligible" Type="workflowScriptImplementation" ID="1454665712827">
+// affectation du role
+var /*String */eventDN = meibo.getWorkflowVariable(&quot;eventDN&quot;);
+//var /*Entry*/ eventEntry = meibo.getDnEntry(&quot;Event&quot;,eventDN);
+var /*ResultSet*/ eventAttendeesRs = meibo.executeLink(&quot;EventAttendees&quot;,eventDN,&quot;PRS_ID&quot;);
+//var /*ResultSet*/ eventAttendeesRs = meibo.executeResource(&quot;R_Attendees&quot;, &quot;TCT_ID=&quot; + eventID, 0,&quot;RAS_START_DATE,RAS_END_DATE,TIN_NAME,TPE_NAME,personDisplayName&quot;);
+
+var /*Entry*/ personEntry = null;
+var /*String*/ personEmail = null;
+var /*Array*/ participantsEmail = new Array();
+var /*Array*/ participantsDn = new Array();
+
+for each(var attendeesEntry in eventAttendeesRs){
+
+  personEntry = meibo.getDnEntry(&quot;TravelPeople&quot;,&quot;T_PERSON_PRS,PRS_ID,&quot; + attendeesEntry.PRS_ID[0], &quot;mail,ldapDn,PRS_LOGIN,displayName&quot;);
+  participantsDn[participantsDn.length] = personEntry.ldapDn[0];
+  personEmail = personEntry.mail[0];
+  if((personEmail==null) || (personEmail==&quot;&quot;)){
+    meibo.logWarn(&quot;Le participant &quot; + attendeesEntry.PRS_ID[0] + &quot; n&apos;a pas d&apos;adresse email&quot;);
+  }else{
+    participantsEmail[participantsEmail.length] = personEmail;
+  }
+}
+meibo.setWorkflowVariable(&quot;ROLE-ParticipantEvt&quot;, participantsDn);
+
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getActivityInstance().getId() + &quot;;&quot; + wapiworkitem.getActivityInstance().getDisplayName() + &quot;) de compte-rendu &#224; l&apos;evenement &quot; + eventDN + &quot; &#224; &quot; + participantsDn);
+  
+// notification
+if(participantsEmail.length==0){
+  meibo.logWarn(&quot;Impossible de notifier les participants &quot; + participantsDn + &quot; car ils n&apos;ont pas d&apos;email&quot;);
+}else{
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;recipient&quot;, participantsEmail);
+  
+  var checkReportStepComment = meibo.getWorkflowVariable(&quot;checkReportStepComment&quot;);
+  if((checkReportStepComment!=null) &amp;&amp; (checkReportStepComment.trim().length&gt;0)){
+  // la validation a &#233;t&#233; refus&#233;e
+    params.add(&quot;checkReportStepComment&quot;, checkReportStepComment);
+    meibo.executePlugin(&quot;NotifyParticipantForReportAdjustment&quot;,params);    
+  }else{
+  // 1er passage sur cette tache
+    meibo.executePlugin(&quot;NotifyParticipantForReport&quot;,params);
+  }
+}
       </Action>
-      <Action Name="Notifier" Type="pluginMail-1" ID="1448472764360">
+      <Action Name="verifCrOnElligible" Type="workflowScriptImplementation" ID="1454938873916">
+var /*String */eventDN = meibo.getWorkflowVariable(&quot;eventDN&quot;);
+//var /*Entry*/ eventEntry = meibo.getDnEntry(&quot;Event&quot;,eventDN);
+var /*WapiWorkItem*/ wapiworkitem = meibo.getCurrentWorkflowTask();
+
+var /*Set&lt;People&gt;*/eligiblePeople = getRecursiveGroupMembersForRole(&quot;AnalyseurDeplacement&quot;);
+if(eligiblePeople.isEmpty()){
+  // ne devrait pas arriver ...
+  meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec le role AnalyseurDeplacement&quot;);
+  //wapiworkitem.complete();
+}else{
+  var targetPeopleArray = new Array(eligiblePeople.toArray());
+
+  meibo.logInfo(&quot;Affectation de la tache (&quot; + wapiworkitem.getActivityInstance().getId() + &quot;;&quot; + wapiworkitem.getActivityInstance().getDisplayName() + &quot;) de validation de compte-rendu d&apos;&#233;v&#232;nement &quot; + eventDN + &quot; &#224; &quot; + targetPeopleArray);
+
+  // notification
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;targetPeople&quot;, targetPeopleArray);
+  meibo.executePlugin(&quot;NotifyForReportValidation&quot;,params);
+
+}
       </Action>
     </ExtendedAttribute>
    </ExtendedAttributes>
    <DataFields>
-    <DataField Id="ROLE-Manager" IsArray="FALSE">
-     <DataType>
-      <BasicType Type="PERFORMER"/>
-     </DataType>
-     <InitialValue>0</InitialValue>
-    </DataField>
-    <DataField Id="ROLE-Initiateur" IsArray="FALSE">
-     <DataType>
-      <BasicType Type="PERFORMER"/>
-     </DataType>
-     <InitialValue>0</InitialValue>
-    </DataField>
     <DataField Id="ROLE-ParticipantEvt" IsArray="FALSE">
      <DataType>
       <BasicType Type="PERFORMER"/>
      </DataType>
-     <InitialValue>0</InitialValue>
+    </DataField>
+    <DataField Id="MAIL_HEADER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="MAIL_FOOTER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="MAIL_LINKNAME" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="MAIL_SENDER" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="reportDN" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="reportID" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="completeReportStepAction" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="checkReportStepAction" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="checkReportStepComment" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="checkReportStepLastActorId" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </DataField>
+    <DataField Id="completeReportStepLastActorId" IsArray="FALSE">
+     <DataType>
+      <BasicType Type="STRING"/>
+     </DataType>
     </DataField>
    </DataFields>
    <FormalParameters>
-    <FormalParameter Id="idEvt" Index="3" Mode="IN">
+    <FormalParameter Id="eventDN" Index="12" Mode="IN">
      <DataType>
-      <BasicType Type="INTEGER"/>
+      <BasicType Type="STRING"/>
+     </DataType>
+    </FormalParameter>
+    <FormalParameter Id="baseURL" Index="13" Mode="IN">
+     <DataType>
+      <BasicType Type="STRING"/>
      </DataType>
     </FormalParameter>
    </FormalParameters>
@@ -91,8 +210,8 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="D&#233;but"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="308"/>
-      <ExtendedAttribute Name="YOffset" Value="12"/>
+      <ExtendedAttribute Name="XOffset" Value="276"/>
+      <ExtendedAttribute Name="YOffset" Value="16"/>
       <ExtendedAttribute Name="Width" Value="120"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -116,8 +235,8 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Fin"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="308"/>
-      <ExtendedAttribute Name="YOffset" Value="324"/>
+      <ExtendedAttribute Name="XOffset" Value="260"/>
+      <ExtendedAttribute Name="YOffset" Value="540"/>
       <ExtendedAttribute Name="Width" Value="120"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -128,7 +247,97 @@
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter></ActualParameter>
+        <ActualParameter>///$debug
+var /*String*/ eventDN = meibo.getWorkflowVariable(&quot;eventDN&quot;);
+var /*Entry*/ eventEntry = meibo.getDnEntry(&quot;Event&quot;,eventDN,&quot;fkTCT_ID&quot;);
+
+meibo.setWorkflowVariable(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+meibo.setWorkflowVariable(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+
+// Cr&#233;ation du compte-rendu en base
+var /*String*/ eventID = eventEntry.fkTCT_ID[0];
+var /*Array*/ values = new Array();
+var /*Array*/ types = new Array();
+var /*SqlProcResult*/ sqlProcResult = null;
+var resultValue = null;
+var /*String*/ procName = null;
+var /*ResultSet*/ rs = null;
+var /*Entry*/ resultEntry = null;
+
+meibo.logDebug(&quot;pr&#233;paration du compte-rendu pour l&apos;&#233;v&#232;nement &quot; + eventDN + &quot; (ID : &quot; + eventID + &quot;)&quot;);
+
+var wapiworkitem = meibo.getCurrentWorkflowTask();
+var wapiactivityinst = wapiworkitem.getActivityInstance();
+var wapiprocinst = wapiactivityinst.getProcessInstance();
+var /*String*/ processID = wapiprocinst.getId();
+
+try{
+  values[0] = eventID; // concreteEvtID
+  types[0] = &quot;IN&quot;;  
+  values[1] = processID;  // workflowID
+  types[1] = &quot;IN&quot;;
+  procName = &quot;add_event_report&quot;;
+  resultValue = null;
+  resultEntry = null;
+  
+  // appel proc&#233;dure stock&#233;e pour creation
+  var sqlProcResult = meibo.executeSqlProc(&quot;TRAVEL_BCOM&quot;, procName, types, values);
+
+  // v&#233;rification du r&#233;sultat
+  if(sqlProcResult==null){
+    meibo.logError(&quot;null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+    throw &quot;null en retour de l&apos;appel &#224; &quot;+ procName;
+  }else{  
+  
+    try{
+      rs= sqlProcResult.getResultSet();
+    }catch(exception){
+      // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+      // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+      meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
+      sqlProcResult.close();
+      throw &quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName;
+    }
+    try{        
+      if(rs==null){
+        meibo.logError(&quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        throw &quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName;
+      }else if(rs.getEntryCount()==0){
+        meibo.logError(&quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        throw  &quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName;
+      }else{
+        resultEntry = rs.getEntry();
+        resultValue = resultEntry.getAttribute(0)[0];
+        if(resultValue == &quot;0&quot;){
+          meibo.logError(&quot;valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values);
+          throw  &quot;L&apos;entr&#233;e n&apos;a pas pu &#234;tre cr&#233;&#233;e&quot;;  // pas plus d&apos;explications disponibles ....
+        }else{
+          meibo.logDebug(&quot;Entr&#233;e cr&#233;&#233;e :&quot; + resultValue + &quot; avec les valeurs &quot; + values);
+                  
+          var /*String*/ reportDn = &quot;T_REPORT_TRT,TRT_ID,&quot; + resultValue;
+          meibo.setWorkflowVariable(&quot;reportDN&quot;, reportDn);
+          meibo.setWorkflowVariable(&quot;reportID&quot;, resultValue);
+        }
+      }
+      sqlProcResult.close();
+            
+    }catch(exception){
+      sqlProcResult.close();
+      throw exception;
+    }      
+      
+  } // if(sqlProcResult==null)
+
+          
+      
+}catch(exception){
+  // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+  // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+  meibo.logError(&quot;Erreur sur l&apos;enregistrement des donn&#233;es suite &#224; l&apos;appel &#224; &quot; + procName + &quot; pour les valeurs : &quot; + values + &quot; : &quot; exception);
+  wapiprocinst.abort();
+}</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -147,8 +356,8 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Initialisation"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="500"/>
-      <ExtendedAttribute Name="YOffset" Value="16"/>
+      <ExtendedAttribute Name="XOffset" Value="544"/>
+      <ExtendedAttribute Name="YOffset" Value="20"/>
       <ExtendedAttribute Name="Width" Value="120"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -157,12 +366,18 @@
     <Activity Id="A1448528684451" Name="">
      <Description></Description>
      <Implementation>
-      <No/>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Report</ActualParameter>
+        <ActualParameter>Update</ActualParameter>
+        <ActualParameter>reportDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
      </Implementation>
      <Performer>PROCESS.ROLE-ParticipantEvt</Performer>
      <Priority>1</Priority>
       <Deadline Execution="ASYNCHR">
-       <DeadlineCondition></DeadlineCondition>
+       <DeadlineCondition>CALENDAR_DELAY 1 week</DeadlineCondition>
        <ExceptionName>rappel1</ExceptionName>
       </Deadline>
       <Deadline Execution="ASYNCHR">
@@ -172,29 +387,44 @@
      <StartMode>Manual</StartMode>
      <TransitionRestrictions>
       <TransitionRestriction>
-       <Join Type="AND"/>
+       <Join Type="XOR"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1448529319111"/>
-         <TransitionRef Id="T1449070395553"/>
+         <TransitionRef Id="T1454946219089"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="ContributionCompteRendu"/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="452"/>
-      <ExtendedAttribute Name="YOffset" Value="88"/>
-      <ExtendedAttribute Name="Width" Value="221"/>
+      <ExtendedAttribute Name="fr_name"  Value="Contribution au Compte-Rendu"/>
+      <ExtendedAttribute Name="fr_description"  Value="Contribuer au Compte-Rendu d&apos;&#233;venement"/>
+      <ExtendedAttribute Name="XOffset" Value="476"/>
+      <ExtendedAttribute Name="YOffset" Value="96"/>
+      <ExtendedAttribute Name="Width" Value="257"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1454665712827</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
      </ExtendedAttributes>
     </Activity>
     <Activity Id="A1448529288334" Name="">
      <Description></Description>
      <Implementation>
-      <No/>
+      <Tool Id="MeiboView" Type="APPLICATION">
+       <ActualParameters>
+        <ActualParameter>Report</ActualParameter>
+        <ActualParameter>Update</ActualParameter>
+        <ActualParameter>reportDN</ActualParameter>
+       </ActualParameters>
+      </Tool>
      </Implementation>
      <Performer>AnalyseurDeplacement</Performer>
      <Priority>1</Priority>
@@ -204,72 +434,30 @@
        <Join Type="XOR"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1448554557405"/>
-         <TransitionRef Id="T1448529461380"/>
+         <TransitionRef Id="T1454946308252"/>
+         <TransitionRef Id="T1454946339262"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
      </TransitionRestrictions>
      <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="Verifie CR"/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="4"/>
-      <ExtendedAttribute Name="YOffset" Value="128"/>
+      <ExtendedAttribute Name="fr_name"  Value="V&#233;rifie CR"/>
+      <ExtendedAttribute Name="fr_description"  Value="V&#233;rifier et valider le compte-rendu"/>
+      <ExtendedAttribute Name="XOffset" Value="224"/>
+      <ExtendedAttribute Name="YOffset" Value="288"/>
       <ExtendedAttribute Name="Width" Value="188"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
-     </ExtendedAttributes>
-    </Activity>
-    <Activity Id="A1448529423187" Name="">
-     <Description></Description>
-     <Implementation>
-      <No/>
-     </Implementation>
-     <Performer>PROCESS.ROLE-ParticipantEvt</Performer>
-     <Priority>1</Priority>
-     <StartMode>Manual</StartMode>
-     <TransitionRestrictions>
-      <TransitionRestriction>
-       <Join Type="AND"/>
-       <Split Type="AND">
-        <TransitionRefs>
-        </TransitionRefs>
-       </Split>
-      </TransitionRestriction>
-     </TransitionRestrictions>
-     <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value="ModifieCR"/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="468"/>
-      <ExtendedAttribute Name="YOffset" Value="216"/>
-      <ExtendedAttribute Name="Width" Value="209"/>
-      <ExtendedAttribute Name="Height" Value="40"/>
-      <ExtendedAttribute Name="State" Value="0"/>
-     </ExtendedAttributes>
-    </Activity>
-    <Activity Id="A1448529486134" Name="">
-     <Description></Description>
-     <Route/>
-     <Performer></Performer>
-     <Priority>1</Priority>
-     <StartMode>Manual</StartMode>
-     <TransitionRestrictions>
-      <TransitionRestriction>
-       <Join Type="AND"/>
-       <Split Type="AND">
-        <TransitionRefs>
-        </TransitionRefs>
-       </Split>
-      </TransitionRestriction>
-     </TransitionRestrictions>
-     <ExtendedAttributes>
-      <ExtendedAttribute Name="fr_name"  Value=""/>
-      <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="352"/>
-      <ExtendedAttribute Name="YOffset" Value="156"/>
-      <ExtendedAttribute Name="Width" Value="84"/>
-      <ExtendedAttribute Name="Height" Value="32"/>
-      <ExtendedAttribute Name="State" Value="0"/>
+      <ExtendedAttribute Name="Handlers" Value="HandlerList" >
+<plugin en="Detect events" fr="D&#233;tection d&apos;&#233;v&#233;nements">
+  <entries>
+    <activity.state.Eligible>
+      <action>1454938873916</action>
+    </activity.state.Eligible>
+  </entries>
+</plugin>
+
+      </ExtendedAttribute>
      </ExtendedAttributes>
     </Activity>
     <Activity Id="A1448529961347" Name="">
@@ -292,8 +480,8 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Rappel"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="748"/>
-      <ExtendedAttribute Name="YOffset" Value="88"/>
+      <ExtendedAttribute Name="XOffset" Value="836"/>
+      <ExtendedAttribute Name="YOffset" Value="100"/>
       <ExtendedAttribute Name="Width" Value="120"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -304,7 +492,7 @@
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter></ActualParameter>
+        <ActualParameter>//TODO</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -323,8 +511,8 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Envoi CR"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="308"/>
-      <ExtendedAttribute Name="YOffset" Value="248"/>
+      <ExtendedAttribute Name="XOffset" Value="260"/>
+      <ExtendedAttribute Name="YOffset" Value="456"/>
       <ExtendedAttribute Name="Width" Value="120"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
@@ -335,7 +523,7 @@
      <Route/>
      <Performer></Performer>
      <Priority>2</Priority>
-     <StartMode>Manual</StartMode>
+     <StartMode>Automatic</StartMode>
      <TransitionRestrictions>
       <TransitionRestriction>
        <Join Type="AND"/>
@@ -348,9 +536,109 @@
      <ExtendedAttributes>
       <ExtendedAttribute Name="fr_name"  Value="Demande contributions"/>
       <ExtendedAttribute Name="fr_description"  Value=""/>
-      <ExtendedAttribute Name="XOffset" Value="668"/>
-      <ExtendedAttribute Name="YOffset" Value="172"/>
+      <ExtendedAttribute Name="XOffset" Value="788"/>
+      <ExtendedAttribute Name="YOffset" Value="196"/>
       <ExtendedAttribute Name="Width" Value="192"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1454945811830" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>meibo.logInfo(&quot;Le compte-rendu &quot; + meibo.getWorkflowVariable(&quot;reportID&quot;) + &quot; a &#233;t&#233; compl&#233;t&#233; par &quot; + meibo.getWorkflowVariable(&quot;completeReportStepLastActorId&quot;));
+updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWorkflowVariable(&quot;completeReportStepLastActorId&quot;), &quot;CRE&quot;, null);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="XOR"/>
+       <Split Type="XOR">
+        <TransitionRefs>
+         <TransitionRef Id="T1454946248242"/>
+         <TransitionRef Id="T1454947161361"/>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Mise A jour Etat CR"/>
+      <ExtendedAttribute Name="fr_description"  Value="Etat cr&#233;&#233; ou mis &#224; jour"/>
+      <ExtendedAttribute Name="XOffset" Value="520"/>
+      <ExtendedAttribute Name="YOffset" Value="192"/>
+      <ExtendedAttribute Name="Width" Value="173"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1454946259219" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>meibo.logInfo(&quot;Le compte-rendu &quot; + meibo.getWorkflowVariable(&quot;reportID&quot;) + &quot; a &#233;t&#233; valid&#233; par &quot; + meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;));
+
+updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;), &quot;VAL&quot;, null);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Mise A jour Etat CR"/>
+      <ExtendedAttribute Name="fr_description"  Value="Etat valid&#233;"/>
+      <ExtendedAttribute Name="XOffset" Value="232"/>
+      <ExtendedAttribute Name="YOffset" Value="380"/>
+      <ExtendedAttribute Name="Width" Value="173"/>
+      <ExtendedAttribute Name="Height" Value="40"/>
+      <ExtendedAttribute Name="State" Value="0"/>
+     </ExtendedAttributes>
+    </Activity>
+    <Activity Id="A1454946298444" Name="">
+     <Description></Description>
+     <Implementation>
+      <Tool Id="MeiboScript" Type="SCRIPT">
+       <ActualParameters>
+        <ActualParameter>meibo.logInfo(&quot;Le compte-rendu &quot; + meibo.getWorkflowVariable(&quot;reportID&quot;) + &quot; a &#233;t&#233; rejett&#233; par &quot; + meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;));
+
+updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;), &quot;MOD&quot;, null);</ActualParameter>
+       </ActualParameters>
+      </Tool>
+     </Implementation>
+     <Performer></Performer>
+     <Priority>1</Priority>
+     <StartMode>Automatic</StartMode>
+     <TransitionRestrictions>
+      <TransitionRestriction>
+       <Join Type="AND"/>
+       <Split Type="AND">
+        <TransitionRefs>
+        </TransitionRefs>
+       </Split>
+      </TransitionRestriction>
+     </TransitionRestrictions>
+     <ExtendedAttributes>
+      <ExtendedAttribute Name="fr_name"  Value="Mise A jour Etat CR"/>
+      <ExtendedAttribute Name="fr_description"  Value="Etat demande de modification"/>
+      <ExtendedAttribute Name="XOffset" Value="264"/>
+      <ExtendedAttribute Name="YOffset" Value="140"/>
+      <ExtendedAttribute Name="Width" Value="173"/>
       <ExtendedAttribute Name="Height" Value="40"/>
       <ExtendedAttribute Name="State" Value="0"/>
      </ExtendedAttributes>
@@ -358,25 +646,26 @@
    </Activities>
    <Transitions>
     <Transition Id="T1448472522446" Name="T1448472522446" From="A1448472295866" To="A1448472369326"/>
-    <Transition Id="T1448529319111" Name="T1448529319111" From="A1448528684451" To="A1448529288334">
-     <Condition Type="CONDITION">soumissionCR</Condition>
-    </Transition>
-    <Transition Id="T1448529461380" Name="T1448529461380" From="A1448529288334" To="A1448529423187">
-     <Condition Type="CONDITION">KO</Condition>
-    </Transition>
-    <Transition Id="T1448529513943" Name="T1448529513943" From="A1448529423187" To="A1448529486134"/>
-    <Transition Id="T1448529515759" Name="T1448529515759" From="A1448529486134" To="A1448529288334"/>
     <Transition Id="T1448530018565" Name="T1448530018565" From="A1448528684451" To="A1448529961347">
      <Condition Type="EXCEPTION">rappel1</Condition>
     </Transition>
     <Transition Id="T1448554549702" Name="T1448554549702" From="A1448554523343" To="A1448472343512"/>
-    <Transition Id="T1448554557405" Name="T1448554557405" From="A1448529288334" To="A1448554523343">
-     <Condition Type="CONDITION">OK</Condition>
-    </Transition>
     <Transition Id="T1449068270576" Name="T1449068270576" From="A1448472369326" To="A1448528684451"/>
-    <Transition Id="T1449070395553" Name="T1449070395553" From="A1448528684451" To="A1449070349726">
-     <Condition Type="CONDITION">demandeContributions</Condition>
+    <Transition Id="T1454946219089" Name="T1454946219089" From="A1448528684451" To="A1454945811830"/>
+    <Transition Id="T1454946248242" Name="T1454946248242" From="A1454945811830" To="A1448529288334">
+     <Condition Type="CONDITION">completeReportStepAction==&quot;submit&quot;</Condition>
     </Transition>
-    <Transition Id="T1449070652939" Name="T1449070652939" From="A1449070349726" To="A1448528684451"/>
+    <Transition Id="T1454946308252" Name="T1454946308252" From="A1448529288334" To="A1454946259219">
+     <Condition Type="CONDITION">checkReportStepAction==&quot;submit&quot;</Condition>
+    </Transition>
+    <Transition Id="T1454946324757" Name="T1454946324757" From="A1454946259219" To="A1448554523343"/>
+    <Transition Id="T1454946339262" Name="T1454946339262" From="A1448529288334" To="A1454946298444">
+     <Condition Type="CONDITION">checkReportStepAction==&quot;reject&quot;</Condition>
+    </Transition>
+    <Transition Id="T1454946516550" Name="T1454946516550" From="A1454946298444" To="A1448528684451"/>
+    <Transition Id="T1454947161361" Name="T1454947161361" From="A1454945811830" To="A1449070349726">
+     <Condition Type="OTHERWISE"></Condition>
+    </Transition>
+    <Transition Id="T1454947229556" Name="T1454947229556" From="A1449070349726" To="A1448528684451"/>
    </Transitions>
   </WorkflowProcess>

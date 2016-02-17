@@ -99,101 +99,6 @@
       </edit>
       <label>
         <content class="lingual">
-          <fr>TML_CREATE_DATE :</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alignment class="alignment">right</alignment>
-        <css class="css">labelField</css>
-        <linklabelid class="text">TML_CREATE_DATE</linklabelid>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <mail class="boolean">false</mail>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">80</posx>
-        <posy class="number">24</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">150</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">21</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">24</alty>
-        <name class="text"></name>
-        <id class="hidden">h3106246458528358</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <pattern class="lingual">
-                <fr>{0}</fr>
-              </pattern>
-              <attrs class="linkattrs"></attrs>
-              <clickable class="boolean">false</clickable>
-              <resource class="resource_blank"></resource>
-              <multivalue class="boolean">false</multivalue>
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </label>
-      <edit>
-        <placeholder class="lingual">
-          <fr></fr>
-        </placeholder>
-        <content class="text">TML_CREATE_DATE</content>
-        <limitchar class="number"></limitchar>
-        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
-        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
-        <autoComplete class="boolean">true</autoComplete>
-        <separator1 class="separator"></separator1>
-        <required class="boolean">false</required>
-        <resourcefed class="resourcefed">
-          <param>///false/false/0/0</param>
-        </resourcefed>
-        <deletable class="boolean">true</deletable>
-        <separator2 class="separator"></separator2>
-        <theme class="theme"></theme>
-        <css class="css"></css>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <tabindex class="number"></tabindex>
-        <noecho class="boolean">false</noecho>
-        <multiline class="boolean">false</multiline>
-        <tinymce class="tinymce">false</tinymce>
-        <tinymceparameter class="text"></tinymceparameter>
-        <format class="text"></format>
-        <kind class="edittype"></kind>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">339</posx>
-        <posy class="number">21</posy>
-        <sizextype class="sizetype">FIXED</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">224</sizex>
-        <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">21</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">21</alty>
-        <name class="text">TML_CREATE_DATE</name>
-        <id class="hidden">w3106246464217259</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-            <field class="field">TML_CREATE_DATE</field>
-          </values>
-        </fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </edit>
-      <label>
-        <content class="lingual">
           <fr>TMN_ESTIMATED_COST :</fr>
         </content>
         <wordwrap class="boolean">false</wordwrap>
@@ -207,14 +112,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">80</posx>
-        <posy class="number">48</posy>
+        <posy class="number">24</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">180</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">48</alty>
+        <alty class="hidden">24</alty>
         <name class="text"></name>
         <id class="hidden">h3106246472046860</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
@@ -264,14 +169,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">339</posx>
-        <posy class="number">45</posy>
+        <posy class="number">21</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">224</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">45</alty>
+        <alty class="hidden">21</alty>
         <name class="text">TMN_ESTIMATED_COST</name>
         <id class="hidden">h3106246477383861</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
@@ -302,14 +207,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">80</posx>
-        <posy class="number">72</posy>
+        <posy class="number">48</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">73</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">72</alty>
+        <alty class="hidden">48</alty>
         <name class="text"></name>
         <id class="hidden">l3106246484861662</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
@@ -359,14 +264,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">339</posx>
-        <posy class="number">69</posy>
+        <posy class="number">45</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">224</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">69</alty>
+        <alty class="hidden">45</alty>
         <name class="text">TMN_ID</name>
         <id class="hidden">c3106246490169363</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
@@ -397,14 +302,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">80</posx>
-        <posy class="number">96</posy>
+        <posy class="number">72</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">166</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">96</alty>
+        <alty class="hidden">72</alty>
         <name class="text"></name>
         <id class="hidden">i3106246497617664</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
@@ -454,6 +359,103 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">339</posx>
+        <posy class="number">69</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">69</alty>
+        <name class="text">TMN_WORKFLOW_ID</name>
+        <id class="hidden">q3106246502866765</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TMN_WORKFLOW_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TMN_ID_ROOT :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TMN_ID_ROOT</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">96</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">121</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">96</alty>
+        <name class="text"></name>
+        <id class="hidden">w1070610452107376</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TMN_ID_ROOT</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
         <posy class="number">93</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -462,11 +464,108 @@
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">93</alty>
-        <name class="text">TMN_WORKFLOW_ID</name>
-        <id class="hidden">q3106246502866765</id>
+        <name class="text">TMN_ID_ROOT</name>
+        <id class="hidden">c1070610469760877</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-            <field class="field">TMN_WORKFLOW_ID</field>
+            <field class="field">TMN_ID_ROOT</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TMN_CREATE_DATE :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TMN_CREATE_DATE</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">120</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">152</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">120</alty>
+        <name class="text"></name>
+        <id class="hidden">v1070610492194278</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TMN_CREATE_DATE</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">117</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">117</alty>
+        <name class="text">TMN_CREATE_DATE</name>
+        <id class="hidden">h1070610498029879</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TMN_CREATE_DATE</field>
           </values>
         </fieldButton>
         <components class="components">
@@ -492,14 +591,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">80</posx>
-        <posy class="number">120</posy>
+        <posy class="number">144</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">63</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">120</alty>
+        <alty class="hidden">144</alty>
         <name class="text"></name>
         <id class="hidden">g3106246511927966</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
@@ -549,14 +648,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">339</posx>
-        <posy class="number">117</posy>
+        <posy class="number">141</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">224</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">117</alty>
+        <alty class="hidden">141</alty>
         <name class="text">Events</name>
         <id class="hidden">r3106246517177067</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
@@ -587,14 +686,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">80</posx>
-        <posy class="number">144</posy>
+        <posy class="number">168</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">81</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">144</alty>
+        <alty class="hidden">168</alty>
         <name class="text"></name>
         <id class="hidden">r3106246525769068</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
@@ -647,14 +746,14 @@
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
         <posx class="number">339</posx>
-        <posy class="number">141</posy>
+        <posy class="number">165</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">224</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">21</sizey>
         <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">141</alty>
+        <alty class="hidden">165</alty>
         <name class="text">OwnerCn</name>
         <id class="hidden">q3106246531047469</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
@@ -684,7 +783,7 @@
         <posy class="number">4</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">670</sizex>
+        <sizex class="number">673</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">700</sizey>
         <altersizey class="hidden">30</altersizey>
@@ -859,7 +958,7 @@
             <posy class="number">96</posy>
             <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">668</sizex>
+            <sizex class="number">671</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">81</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -940,7 +1039,7 @@
                 <posy class="number">230</posy>
                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">545</sizex>
+                <sizex class="number">548</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">72</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -973,7 +1072,7 @@
             <posy class="number">201</posy>
             <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">668</sizex>
+            <sizex class="number">671</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">290</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -1017,7 +1116,7 @@
                 <posy class="number">127</posy>
                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">545</sizex>
+                <sizex class="number">548</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">282</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -1036,7 +1135,7 @@
                     <posy class="number">130</posy>
                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">537</sizex>
+                    <sizex class="number">540</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">100</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1106,7 +1205,7 @@ showEventFieldsForRow(selectedRowIndex);</ondoubleclick>
                         <posy class="number">187</posy>
                         <sizextype class="sizetype">EXTANDABLE</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">528</sizex>
+                        <sizex class="number">531</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                         <sizey class="number">50</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -1670,7 +1769,7 @@ updateEventsTableContent();</param>
                     <posy class="number">436</posy>
                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">537</sizex>
+                    <sizex class="number">540</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">28</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1753,29 +1852,31 @@ meibo.switchToCreateView(&quot;Event&quot;,null,0);</onclick>
                         </tooltip>
                         <tabindex class="number"></tabindex>
                         <onclick class="script">///$debug
-var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+var /*Table*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
 var selectedRowIndex= getSelectedRowIndex();
 
 if(selectedRowIndex&gt;=0){
   // retirer l&apos;&#233;lement du tableau EVENTS_TABLE et de la liste ATTENDEES_TCT_ID
   
-  var /*String*/ selectedRowId = table.getRowObject(selectedRowIndex);
+  var /*String*/ selectedEventId = table.getRowObject(selectedRowIndex);
   table.deleteRow(selectedRowIndex);
-  var /*Field2*/ attendeesField =  meibo.getField(&quot;ATTENDEES_TCT_ID&quot;);
+  var /*Edit*/ attendeesField =  meibo.getField(&quot;ATTENDEES_TCT_ID&quot;);
   var /*Array*/ values = attendeesField.getContents();
   var /*Array*/ newValues = new Array(values.length-1);
+
+  meibo.setFieldValue(&quot;ROW_INDEX&quot;,&quot;-1&quot;);
 
   if(values.length &gt; 1){
     var /*int*/ i =0;
     for each(var value in values){
-      if(value != selectedRowId){
+      if(value != selectedEventId){
         newValues[i] = value;
         i++;
       }
     }
     showEventFieldsForRow(0);
   }else{
-    meibo.showField(&quot;REMOVE_BTN&quot;, false);
+    meibo.showField(&quot;REMOVE_BTN&quot;, false);    
     meibo.getField(&quot;PARTICIPATION_BLOC&quot;).show(false);
   }
   attendeesField.setContents(newValues);
@@ -1812,8 +1913,8 @@ if(selectedRowIndex&gt;=0){
                         <separator class="separator"></separator>
                         <hidden class="boolean">true</hidden>
                         <enable class="boolean">true</enable>
-                        <posx class="number">677</posx>
-                        <posy class="number">297</posy>
+                        <posx class="number">290</posx>
+                        <posy class="number">452</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">47</sizex>
@@ -1841,7 +1942,7 @@ if(selectedRowIndex&gt;=0){
             <posy class="number">191</posy>
             <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">668</sizex>
+            <sizex class="number">671</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
             <sizey class="number">23</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -1955,7 +2056,7 @@ if(selectedRowIndex&gt;=0){
             <posy class="number">503</posy>
             <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">668</sizex>
+            <sizex class="number">671</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">30</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -1978,7 +2079,7 @@ if(selectedRowIndex&gt;=0){
                 <posy class="number">164</posy>
                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">660</sizex>
+                <sizex class="number">663</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">22</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -2007,7 +2108,7 @@ if(selectedRowIndex&gt;=0){
             <posy class="number">495</posy>
             <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">668</sizex>
+            <sizex class="number">671</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -2022,7 +2123,7 @@ if(selectedRowIndex&gt;=0){
                 <posy class="number">270</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">572</sizex>
+                <sizex class="number">575</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
                 <sizey class="number">32</sizey>
                 <altersizey class="hidden">30</altersizey>

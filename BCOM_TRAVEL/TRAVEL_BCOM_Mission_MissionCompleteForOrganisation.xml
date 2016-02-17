@@ -749,7 +749,7 @@
     </page>
   </source>
   <destination>
-    <page fr="1" technicalName="1" titleTab="MissionValidate (Mission)">
+    <page fr="1" technicalName="1" titleTab="MissionCompleteForOrganisation (Mission)">
       <verticallayout>
         <css class="css"></css>
         <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
@@ -766,11 +766,11 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">viewContainer</name>
-        <id class="hidden">m195415047118491</id>
+        <id class="hidden">n1804823087727555</id>
         <childs>
           <label>
             <content class="lingual">
-              <fr>Valider une mission</fr>
+              <fr>Votre mission a &#233;t&#233; valid&#233;e, veuillez fournir les instructions pour son organisation</fr>
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
@@ -834,7 +834,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">75</sizey>
+            <sizey class="number">66</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -908,7 +908,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">265</sizey>
+            <sizey class="number">227</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -952,7 +952,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">545</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">257</sizey>
+                <sizey class="number">219</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1166,7 +1166,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">26</sizey>
+            <sizey class="number">21</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1191,7 +1191,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizey class="number">89</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">lastCommentLayout</name>
@@ -1311,108 +1311,87 @@
               </fieldPart>
             </components>
           </image>
-          <horizontallayout>
-            <verticalalignment class="verticalalignment">top</verticalalignment>
-            <css class="css"></css>
-            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
-            <theme class="theme"></theme>
+          <label>
+            <content class="lingual">
+              <en>Comments</en>
+              <fr>Instructions pour l&apos;organisation de la mission :</fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css">libelle</css>
+            <linklabelid class="text">COMMENT</linklabelid>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <mail class="boolean">false</mail>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">673</posx>
-            <posy class="number">398</posy>
-            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <posx class="number">190</posx>
+            <posy class="number">466</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">588</sizex>
-            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizex class="number">668</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">216</alty>
+            <name class="text">labelCOMMENT</name>
+            <id class="hidden">m10780357322251434</id>
+          </label>
+          <edit>
+            <placeholder class="lingual">
+              <fr></fr>
+            </placeholder>
+            <content class="text"></content>
+            <limitchar class="number"></limitchar>
+            <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+            <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+            <autoComplete class="boolean">true</autoComplete>
+            <separator1 class="separator"></separator1>
+            <required class="boolean">false</required>
+            <resourcefed class="resourcefed">
+              <param>///false/false/0/0/</param>
+              <pickertitle class="lingual">
+                <fr></fr>
+                <en></en>
+                <es></es>
+                <de></de>
+                <it></it>
+                <pt></pt>
+                <zh></zh>
+                <ar></ar>
+              </pickertitle>
+            </resourcefed>
+            <deletable class="boolean">true</deletable>
+            <separator2 class="separator"></separator2>
+            <theme class="theme"></theme>
+            <css class="css">valeur</css>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <tabindex class="number"></tabindex>
+            <noecho class="boolean">false</noecho>
+            <multiline class="boolean">true</multiline>
+            <tinymce class="tinymce">false</tinymce>
+            <tinymceparameter class="text"></tinymceparameter>
+            <tinymcesetup class="text"></tinymcesetup>
+            <format class="text"></format>
+            <kind class="edittype">regular</kind>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <enable class="boolean">true</enable>
+            <posx class="number">177</posx>
+            <posy class="number">400</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">668</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">90</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
-            <name class="text"></name>
-            <id class="hidden">r11310170730407069</id>
-            <childs class="hidden">
-              <label>
-                <content class="lingual">
-                  <en>Comments</en>
-                  <fr>Votre commentaire</fr>
-                </content>
-                <wordwrap class="boolean">false</wordwrap>
-                <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
-                <linklabelid class="text">COMMENT</linklabelid>
-                <tooltip class="lingual">
-                  <fr></fr>
-                </tooltip>
-                <mail class="boolean">false</mail>
-                <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
-                <posx class="number">190</posx>
-                <posy class="number">466</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
-                <altersizex class="hidden">30</altersizex>
-                <sizex class="number">115</sizex>
-                <sizeytype class="sizetype">FIXED</sizeytype>
-                <sizey class="number">23</sizey>
-                <altersizey class="hidden">30</altersizey>
-                <alty class="hidden">216</alty>
-                <name class="text">labelCOMMENT</name>
-                <id class="hidden">m10780357322251434</id>
-              </label>
-              <edit>
-                <placeholder class="lingual">
-                  <fr></fr>
-                </placeholder>
-                <content class="text"></content>
-                <limitchar class="number"></limitchar>
-                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
-                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
-                <autoComplete class="boolean">true</autoComplete>
-                <separator1 class="separator"></separator1>
-                <required class="boolean">false</required>
-                <resourcefed class="resourcefed">
-                  <param>///false/false/0/0/</param>
-                  <pickertitle class="lingual">
-                    <fr></fr>
-                    <en></en>
-                    <es></es>
-                    <de></de>
-                    <it></it>
-                    <pt></pt>
-                    <zh></zh>
-                    <ar></ar>
-                  </pickertitle>
-                </resourcefed>
-                <deletable class="boolean">true</deletable>
-                <separator2 class="separator"></separator2>
-                <theme class="theme"></theme>
-                <css class="css">valeur</css>
-                <tooltip class="lingual">
-                  <fr></fr>
-                </tooltip>
-                <tabindex class="number"></tabindex>
-                <noecho class="boolean">false</noecho>
-                <multiline class="boolean">true</multiline>
-                <tinymce class="tinymce">false</tinymce>
-                <tinymceparameter class="text"></tinymceparameter>
-                <tinymcesetup class="text"></tinymcesetup>
-                <format class="text"></format>
-                <kind class="edittype">regular</kind>
-                <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
-                <enable class="boolean">true</enable>
-                <posx class="number">177</posx>
-                <posy class="number">400</posy>
-                <sizextype class="sizetype">EXTANDABLE</sizextype>
-                <altersizex class="hidden">30</altersizex>
-                <sizex class="number">465</sizex>
-                <sizeytype class="sizetype">FIXED</sizeytype>
-                <sizey class="number">55</sizey>
-                <altersizey class="hidden">30</altersizey>
-                <alty class="hidden">0</alty>
-                <name class="text">COMMENT</name>
-                <id class="hidden">l10780357339318235</id>
-              </edit>
-            </childs>
-          </horizontallayout>
+            <name class="text">COMMENT</name>
+            <id class="hidden">l10780357339318235</id>
+          </edit>
           <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
             <css class="css"></css>
@@ -1439,7 +1418,7 @@
                 <posy class="number">270</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">484</sizex>
+                <sizex class="number">459</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
                 <sizey class="number">32</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -1449,7 +1428,7 @@
               </expandablespace>
               <button>
                 <content class="lingual">
-                  <fr>Refuser</fr>
+                  <fr>Annuler la mission</fr>
                   <en>Validate</en>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
@@ -1466,10 +1445,10 @@ var missionId = meibo.getFieldValue(&quot;TMN_ID&quot;);
 var comment = meibo.getFieldValue(&quot;COMMENT&quot;);
 var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
-meibo.logInfo(&quot;Rejet de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
-updateMissionStatus(missionId, userId, &quot;MOD&quot;, comment);
+meibo.logInfo(&quot;Annulation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
+updateMissionStatus(missionId, userId, &quot;CAN&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);
-meibo.setWorkflowVariable(&quot;managerValidated&quot;, &quot;false&quot;);
+meibo.setWorkflowVariable(&quot;completedForOrganisation&quot;, &quot;false&quot;);
 meibo.completeCurrentWorkflowTask();
 meibo.setActiveTab(3);</onclick>
                 <submit class="boolean">true</submit>
@@ -1504,9 +1483,9 @@ meibo.setActiveTab(3);</onclick>
                 <enable class="boolean">true</enable>
                 <posx class="number">1133</posx>
                 <posy class="number">495</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">88</sizex>
+                <sizex class="number">113</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">32</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -1524,7 +1503,7 @@ meibo.setActiveTab(3);</onclick>
                   <fr></fr>
                 </alt>
                 <tooltip class="lingual">
-                  <fr>Valider la mission</fr>
+                  <fr>Accepter la mission</fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">meibo.showField(&quot;error&quot;, false);
@@ -1532,10 +1511,10 @@ var missionId = meibo.getFieldValue(&quot;TMN_ID&quot;);
 var comment = meibo.getFieldValue(&quot;COMMENT&quot;);
 var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
-meibo.logInfo(&quot;Validation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
+meibo.logInfo(&quot;Mission &quot; + missionId + &quot; compl&#233;t&#233;e pour organisation par &quot; + meibo.getUserDn());
 updateMissionStatus(missionId, userId, &quot;VAL&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);
-meibo.setWorkflowVariable(&quot;managerValidated&quot;, &quot;true&quot;);
+meibo.setWorkflowVariable(&quot;completedForOrganisation&quot;, &quot;true&quot;);
 meibo.completeCurrentWorkflowTask();
 meibo.setActiveTab(2);</onclick>
                 <submit class="boolean">true</submit>
@@ -1609,7 +1588,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">Events</name>
-        <id class="hidden">x195415047432262</id>
+        <id class="hidden">z1804823087891766</id>
       </relation>
       <label type="Text">
         <content class="lingual">
@@ -1635,7 +1614,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">216</alty>
         <name class="text">PRS_ID</name>
-        <id class="hidden">j195415047508503</id>
+        <id class="hidden">p1804823087970947</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
             <pattern class="lingual">
@@ -1687,7 +1666,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">72</alty>
         <name class="text">TMN_ID</name>
-        <id class="hidden">q195415047570084</id>
+        <id class="hidden">v1804823088038388</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
             <pattern class="lingual">
@@ -1716,10 +1695,10 @@ meibo.setActiveTab(2);</onclick>
         </components>
       </label>
     </page>
-    <page fr="2" technicalName="2" titleTab="MissionValidate (Mission)">
+    <page fr="2" technicalName="2" titleTab="MissionCompleteForOrganisation (Mission)">
       <label>
         <content class="lingual">
-          <fr>Valider une mission</fr>
+          <fr>Compl&#233;ter une mission</fr>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
@@ -1797,7 +1776,7 @@ meibo.setActiveTab(2);</onclick>
       </label>
       <label>
         <content class="lingual">
-          <fr>Vous avez valid&#233; la mission. Celle-ci doit maintenant &#234;tre valid&#233;e par la DDI</fr>
+          <fr>Vous avez compl&#233;t&#233; la mission. Celle-ci doit maintenant &#234;tre organis&#233;e.</fr>
           <en>You have validated the request</en>
         </content>
         <wordwrap class="boolean">false</wordwrap>
@@ -1814,7 +1793,7 @@ meibo.setActiveTab(2);</onclick>
         <posy class="number">63</posy>
         <sizextype class="sizetype">EXTANDABLE</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">421</sizex>
+        <sizex class="number">402</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">20</sizey>
         <altersizey class="hidden">30</altersizey>
@@ -1823,10 +1802,10 @@ meibo.setActiveTab(2);</onclick>
         <id class="hidden">q10780357541099641</id>
       </label>
     </page>
-    <page fr="3" technicalName="3" titleTab="MissionValidate (Mission)">
+    <page fr="3" technicalName="3" titleTab="MissionCompleteForOrganisation (Mission)">
       <label>
         <content class="lingual">
-          <fr>Valider une mission</fr>
+          <fr>Compl&#233;ter une mission</fr>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
@@ -1904,7 +1883,7 @@ meibo.setActiveTab(2);</onclick>
       </label>
       <label>
         <content class="lingual">
-          <fr>Vous avez refus&#233; la mission.</fr>
+          <fr>Vous avez annul&#233; la mission</fr>
           <en>You have rejected the request</en>
         </content>
         <wordwrap class="boolean">false</wordwrap>

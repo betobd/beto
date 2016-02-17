@@ -899,12 +899,13 @@ var ROLES_ARRAY = ROLES_STRING.split("|");
 var DATE_FORMAT = new java.text.SimpleDateFormat("dd/MM/yyyy"); // format d'affichage
 var SQL_DATE_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd"); // format en retour de la base
 var SQL_DATETIME_FORMAT = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-var /*Class*/ CALENDAR_CLASS =  new Class("java.util.Calendar");
 var /*Class*/ INTEGER_CLASS = new Class("java.lang.Integer");
 var /*Class*/ LOCALE_CLASS = new Class("java.util.Locale");
 var /*Locale*/ USER_LOCALE = LOCALE_CLASS.forLanguageTag(meibo.getUserLanguage());
 var /*Class*/ NUMBERFORMAT_CLASS = new Class("java.text.NumberFormat");
 var /*NumberFormat*/ NUMBERFORMAT_INSTANCE = NUMBERFORMAT_CLASS.getInstance(USER_LOCALE);
+var /*String*/ DB_MULTIVALUE_SEPARATOR = ";"; // séparateur dans les champs texte "multivaluées" en base de données
+var /*Class*/ JAVA_CALENDAR_CLASS = new Class("java.util.Calendar");
 
 
 // nom des variables globales
@@ -1010,12 +1011,29 @@ function /*Set&lt;People&gt;*/ getRecursiveGroupMembersFromGroupNames(groupCnArr
 }
 
 /**
+ * Renvoi un Set des membres (People) directs ou indirects des groupes associés au role dont ne nom est fourni
+ */
+function /*Set&lt;People&gt;*/ getRecursiveGroupMembersForRole(roleName){
+  var userRS = new java.util.HashSet();
+  var parameters_groupsMapping = getProvisioningParameters_Droit();
+  // recupere les CN des groupes associé au role
+  var roleGroupsCN = parameters_groupsMapping.get(ROLES_CONFIG_PREFIX+ roleName);  
+  if(roleGroupsCN==null){
+    meibo.logWarn("Pas de configuration trouvée pour le role " + roleName);
+  }else{
+    var roleGroupsCNarray=roleGroupsCN.split(GROUPS_SEPARATOR);
+    userRS = getRecursiveGroupMembersFromGroupNames(roleGroupsCNarray);
+  }
+  return userRS; 
+}
+
+/**
  * Indique si l'utilisateur a le role fourni (d'après ses groupes AD)
  */    
 function /*boolean*/ userHasRole(userDn, roleName, parameters_groupsMapping){
   // recupere les CN des groupes associé au role
   var roleGroupsCN = parameters_groupsMapping.get(ROLES_CONFIG_PREFIX+ roleName);
-  if(parameters_groupsMapping==null){
+  if(roleGroupsCN==null){
     meibo.logWarn("Pas de configuration trouvée pour le role " + roleName);
   }else{
     var roleGroupsCNarray=roleGroupsCN.split(GROUPS_SEPARATOR);
@@ -1050,14 +1068,29 @@ function /*void*/ setUserRoles(userDn){
  */
 function /*String*/ arrayToString(array, separator){
   var resultString = null;
-  for(var item in array){
-    if(resultString == ""){
-      resultString = item;
-    }else{
-      resultString = resultString + separator + item;
+  if(array!=null){
+    for each(var item in array){
+      if(resultString == null){
+        resultString = item;
+      }else{
+        resultString = resultString + separator + item;
+      }
     }
   }
   return resultString;
+}
+
+/**
+ * Retourne un array constitué des attributs 'attributeName' des entrées du ResultSet
+ */
+function /*Array*/ resultSetToArray(resultSet, attributeName){
+   var array = new Array(resultSet.getEntryCount());
+   var i=0;
+   for each(var entry in resultSet){
+    array[i] = entry.getAttribute(attributeName)[0];
+    i++;    
+   }
+   return array;
 }
 
 /**
@@ -1188,16 +1221,6 @@ function /*void*/ backToSourceView(){
   }
 }
 
-/**
- * Renvoi la date fournie en entrée avec "days" jours de plus
- */
-function /*Date*/ addDaysToDate(date, days){
-  var /*java.util.Calendar*/ calendar = CALENDAR_CLASS.getInstance();
-  calendar.setTime(date);
-  calendar.add(CALENDAR_CLASS.DATE, days);
-  return calendar.getTime();
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fonctions concernent la vue de création d'évenement 
 // (Elles sont mise ici dans le script partagé pour pouvoir être appelée depuis le formulaire de création d'evenement, lors du retour vers la création de mission)
@@ -1251,7 +1274,11 @@ function /*void*/ updateEventsTableContent(){
         
         startDate = SQL_DATE_FORMAT.parse(eventEntry.TCT_START_DATE[0]);
         duration = INTEGER_CLASS.parseInt(eventEntry.TCT_DURATION[0]);
-        endDate = addDaysToDate(startDate, duration);
+        if(duration&gt;0){
+          // si un evt dure 1 journée par exemple, alors la date de fin est en fait la même que la date de début, donc on retranche 1 à la durée
+          duration = duration -1;
+        }
+        endDate = addDays(startDate, duration);
 
         if((table.getRowObject(line) == null) || (table.getRowObject(line) != eventEntry.fkTCT_ID[0])){
           table.addRowObject(line, eventEntry.fkTCT_ID[0]);
@@ -1268,6 +1295,7 @@ function /*void*/ updateEventsTableContent(){
 
     }else{
       meibo.getField("PARTICIPATION_BLOC").show(false);
+      meibo.setFieldValue("ROW_INDEX","-1");
       removeBtn.show(false);
     }
   }
@@ -1345,7 +1373,7 @@ function /*int*/ getIdFromAbbrev(resourceName, resourcePrefix, abbrev){
  */
 function /*void*/ updateMissionStatus(missionId, actorId, newStatusAbbrev, comment){
   var statusId = getIdFromAbbrev("Status","TST", newStatusAbbrev);
-  var missionStatusEntry = new Entry();
+  var /*Entry*/ missionStatusEntry = new Entry();
   missionStatusEntry.updateAttribute(new Attribute("TST_ID",statusId));
   missionStatusEntry.updateAttribute(new Attribute("PRS_ID",actorId));
   missionStatusEntry.updateAttribute(new Attribute("TMN_ID",missionId));
@@ -1361,11 +1389,114 @@ function /*void*/ updateMissionStatus(missionId, actorId, newStatusAbbrev, comme
 }
 
 /**
+ * Met à jour le statut d'un compte-rendu
+ */
+function /*void*/ updateReportStatus(reportId, actorId, newStatusAbbrev, comment){
+  var RESOURCE_NAME= "R_ReportStatus";
+  // Note: actuellement l'implémentation de la table/ressource ne permet pas de gérér historique, date et commentaire
+  var statusId = getIdFromAbbrev("Status","TST", newStatusAbbrev);
+  var /*Entry*/ reportStatusEntry = new Entry();
+  reportStatusEntry.updateAttribute(new Attribute("TST_ID",statusId));
+  reportStatusEntry.updateAttribute(new Attribute("PRS_ID",actorId));
+  reportStatusEntry.updateAttribute(new Attribute("TRT_ID",reportId));
+  /*
+  reportStatusEntry.updateAttribute(new Attribute("TST_TMN_DATE", SQL_DATETIME_FORMAT.format(new java.util.Date())));
+  if((comment!=null) &amp;&amp; (comment.length&gt;0)){
+    reportStatusEntry.updateAttribute(new Attribute("TST_TMN_COMMENT",comment));
+  }
+  */
+  var entryOK = false;
+  var /*ResultSet*/ rs = meibo.executeResource(RESOURCE_NAME,"TST_ID=" + statusId + " AND PRS_ID=" + actorId + " AND TRT_ID=" + reportId,1);
+  if((rs!=null) &amp;&amp; (rs.getEntry()!=null)){
+  // entrée trouvée : modification
+    entryOK = meibo.updateEntry(RESOURCE_NAME,rs.getEntry().getDn(),reportStatusEntry);
+  }else{
+  // non trouvée: création
+    entryOK = meibo.createEntry(RESOURCE_NAME,null,reportStatusEntry);
+  }
+  if(!entryOK){
+    meibo.logError("Echec de création/mise à jour de l'entrée " + reportStatusEntry);
+    throw "Impossible de définir le statut du compte rendu";
+  }
+}
+
+/**
  * Renvoi l'URL de base Meibo à utiliser pour un lien sur une tache de workflow
  */
 function /*String*/ getBaseURLForWorkflow(){
   return meibo.getMeiboBaseUrl() + "dsddores?external=true&amp;frames=true";
 }
+
+/**
+ * contournement du fonctionnement meibo qui ne prend en compte que la première valeur des champs multivalués dans le cas d'une ressource de type base de données
+ */
+function /*void*/ fixMultiValueFieldsOnSubmit(fieldName){
+  var /*Edit*/field = meibo.getField(fieldName);
+  if((field.getContents()!=null) &amp;&amp; (field.getContents().length&gt;0)){
+    meibo.setFieldValue(fieldName,arrayToString(field.getContents(),DB_MULTIVALUE_SEPARATOR));
+  }else{
+    meibo.setFieldValue(fieldName,null);
+  }
+}
+
+/**
+ * contournement du fonctionnement meibo qui ne prend en compte que la première valeur des champs multivalués dans le cas d'une ressource de type base de données
+ */
+function /*void*/ fixMultiValueFieldsOnLoad(fieldName){
+  var /*Edit*/field = meibo.getField(fieldName);
+  if((field.getContent()!=null) &amp;&amp; (field.getContent()!="")){
+    field.setContents(field.getContent().split(DB_MULTIVALUE_SEPARATOR));
+  }else{
+    field.setContents(new Array());
+  }
+}
+
+/**
+ * Retourne la date additionnée de days jours
+ * (dates au format Java)
+ */
+function /*java.util.Date*/ addDays(javaDate, days){
+  var /*java.util.Calendar*/ javaCalendar = JAVA_CALENDAR_CLASS.getInstance();
+  javaCalendar.setTime(javaDate);
+  javaCalendar.add(JAVA_CALENDAR_CLASS.DATE, days);
+  return javaCalendar.getTime();
+}
+
+/**
+ * Renvoi le contenu de la mission au format HTML
+ */
+function /*String*/ getHtmlMissionContent(missionID){
+  var /*String*/ htmlContent="&lt;table&gt;&lt;tr&gt;&lt;th&gt;" + meibo.getMessage("eventsTable_name") + "&lt;/th&gt;&lt;th&gt;" + meibo.getMessage("eventsTable_date1") + "&lt;/th&gt;&lt;th&gt;" + meibo.getMessage("eventsTable_date2") + "&lt;/th&gt;&lt;th&gt;" + meibo.getMessage("eventsTable_purpose") + "&lt;/th&gt;&lt;th&gt;" + meibo.getMessage("eventsTable_involvement") + "&lt;/th&gt;&lt;/tr&gt;";
+  
+  var /*ResultSet*/ missionRS = meibo.executeResource("Mission","TMN_ID=" + missionID ,1,"PRS_ID");
+  var /*Entry*/ missionEntry = missionRS.getEntry();  
+  var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", missionEntry.dn[0],"fkTCT_ID,TET_NAME");  
+  var /*ResultSet*/ eventAttendeesRS = null;
+  var /*Entry*/ eventAttendeesEntry = null;
+
+  for each(var missionEvent in missionEventRS){
+    htmlContent= htmlContent +  "&lt;tr&gt;&lt;td&gt;";
+    htmlContent= htmlContent +  missionEvent.TET_NAME[0];
+    htmlContent= htmlContent + "&lt;/td&gt;&lt;td&gt;";
+    
+    eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID=" + missionEntry.PRS_ID[0] + " AND TCT_ID=" + missionEvent.fkTCT_ID[0] ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+    eventAttendeesEntry = eventAttendeesRS.getEntry();
+
+    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]));
+    htmlContent= htmlContent + "&lt;/td&gt;&lt;td&gt;";
+    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0]));
+    htmlContent= htmlContent + "&lt;/td&gt;&lt;td&gt;";
+    htmlContent= htmlContent +  eventAttendeesEntry.TPE_NAME[0];
+    htmlContent= htmlContent + "&lt;/td&gt;&lt;td&gt;";
+    htmlContent= htmlContent +  eventAttendeesEntry.TIN_NAME[0];    
+    htmlContent= htmlContent +  "&lt;/td&gt;&lt;/tr&gt;";
+  } 
+  
+  htmlContent= htmlContent +  "&lt;/table&gt;";
+  
+  return htmlContent;
+}
+
 /////////////////////
 //  Fin de script  //
 /////////////////////</globalscript>
@@ -1751,6 +1882,41 @@ cursor:default;</extraparms>
       <properties>
         <content class="lingual">
           <fr>dd/MM/yyyy</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_date1">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_date2">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_involvement">
+      <properties>
+        <content class="lingual">
+          <fr>???</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_name">
+      <properties>
+        <content class="lingual">
+          <fr>Nom</fr>
+        </content>
+      </properties>
+    </message>
+    <message name="eventsTable_purpose">
+      <properties>
+        <content class="lingual">
+          <fr>Objectif</fr>
         </content>
       </properties>
     </message>
@@ -2227,7 +2393,7 @@ if(dn==null){
   
   return newAttribute;
 }</globalScriptView>
-            <onload class="script">//$debug
+            <onload class="script">///$debug
 /**/
 /* Script  de chargement de la fiche utilisateur */
 /**/
@@ -2411,7 +2577,7 @@ else{
   
   return newAttribute;
 }</globalScriptView>
-            <onload class="script">//$debug
+            <onload class="script">///$debug
 /**/
 /* Script  de chargement de la fiche utilisateur pour audit */
 /**/
@@ -3191,12 +3357,13 @@ meibo.setFieldValue("test",trombinoscope)</onload>
           <request class="text"/>
           <separator class="separator"/>
           <return class="returnallattributes">
-            <physical>TAS_ID,TAS_NAME,TAS_PHONENUMBER,TAS_STATE,TAS_TOWN,TAS_ZIPCODE,TCY_ID,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3</physical>
+            <physical>TAS_ID,TAS_NAME,TAS_PHONENUMBER,TAS_STATE,TAS_TOWN,TAS_ZIPCODE,TCY_ID,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TNA_ABBREV</physical>
             <logical>
               <attribute attrs="TCY_FR_FR_NAME" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCY_FR_FR_NAME</attribute>
               <attribute attrs="TCT_NAME" pattern_fr="{0}" resourcelink="AddressContinent" type="link">TCT_NAME</attribute>
               <attribute attrs="TCT_ID" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCT_ID</attribute>
               <attribute attrs="TCY_EN_GB_NAME" pattern_fr="{0}" resourcelink="AddressCountry" type="link">TCY_EN_GB_NAME</attribute>
+              <attribute attrs="TNA_DESCRIPTION" pattern_fr="{0}" resourcelink="AddressAddressNature" type="link">TNA_DESCRIPTION</attribute>
             </logical>
           </return>
           <onRead class="script"/>
@@ -3242,6 +3409,34 @@ meibo.setFieldValue("test",trombinoscope)</onload>
             <displayattributes class="attributes">TAS_ID,TAS_NAME,TAS_STATE,TAS_TOWN,TAS_ADDR1,TCY_FR_FR_NAME (logique),TCY_EN_GB_NAME (logique)</displayattributes>
           </properties>
           <path>TRAVEL_BCOM_Address_Picker.xml</path>
+          <class/>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script"> </onload>
+          </trigger>
+        </sequence>
+        <sequence name="EventAddressPicker" type="7">
+          <properties>
+            <displayname class="lingual">
+              <fr/>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+            <separator class="separator"/>
+            <custompicker class="boolean">true</custompicker>
+            <separator class="separator"/>
+            <height class="integer">140</height>
+            <pickerwidth class="integer">500</pickerwidth>
+            <pickerheight class="integer">400</pickerheight>
+            <separator class="separator"/>
+            <pickerhead class="css">pickerHead</pickerhead>
+            <pickerclose class="file">./web\close.gif</pickerclose>
+            <separator class="separator"/>
+            <displayattributes class="attributes">TAS_ID,TAS_NAME,TAS_STATE,TAS_TOWN,TAS_ADDR1,TCY_FR_FR_NAME (logique),TCY_EN_GB_NAME (logique)</displayattributes>
+          </properties>
+          <path>TRAVEL_BCOM_Address_EventAddressPicker.xml</path>
           <class/>
           <trigger>
             <globalScriptView class="script"> </globalScriptView>
@@ -3302,8 +3497,141 @@ meibo.showField("error", false);
 ok = ok &amp;&amp; checkMandatoryField("TCY_ID", 1);
 meibo.setCreationBase("");
 meibo.setReturnValue(ok);</onquit>
-            <onoperationok class="script">///$debug
-backToSourceView();</onoperationok>
+            <onoperationok class="script">//$debug
+if(hasSourceView()){
+// retour et pré-sélection de l'adresse créée
+  backToSourceView();
+  // Note : il faudrait idéalement ici mettre à jour l'adresse dans le formulaire appelant
+  // on ne ne le fait pas car ici on a pas l'id de l'adresse que l'on vient de créer
+  // (il faudrait passer par une procédure stockée pour créer l'adresse)
+  //meibo.setFieldValue("fkTAS_ID",???);  
+}else{
+  meibo.switchToApplicationView("Validation_OK");
+}</onoperationok>
+            <onoperationko class="script"/>
+          </trigger>
+        </sequence>
+      </resource>
+      <resource name="AddressNature">
+        <properties>
+          <displayname class="lingual">
+            <fr>AddressNature</fr>
+            <en>AddressNature</en>
+            <es>AddressNature</es>
+            <de>AddressNature</de>
+            <it>AddressNature</it>
+            <pt>AddressNature</pt>
+            <zh>AddressNature</zh>
+            <ar>AddressNature</ar>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">T_NATURE_ADDRESS_TNA</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>TNA_ABBREV,TNA_DESCRIPTION</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TNA_ABBREV</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TNA_ABBREV</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TNA_DESCRIPTION</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TNA_DESCRIPTION</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+      </resource>
+      <resource name="ConcreteEvent">
+        <properties>
+          <displayname class="lingual">
+            <fr>ConcreteEvent</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">T_CONCRETE_EVENT_TCT</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>PRS_ID_AUTHOR,PRS_ID_LEADER,TAS_ID,TCT_COMMENT,TCT_COST,TCT_CREATE_DATE,TCT_DURATION,TCT_ID,TCT_START_DATE,TCT_URL,TET_ID</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TCT_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TCT_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TCT_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TCT_ID</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+        
+        <sequence name="Udpate" type="1">
+          <properties>
+            <displayname class="lingual">
+              <fr>Udpate</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+            <onquit class="extscript"/>
+            <onoperationok class="extscript"/>
+            <onoperationko class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_ConcreteEvent_Udpate.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script">// Restaure les valeur précédentes dans le cas on l'on revient sur ce formulaire
+restoreFields("ConcreteEvent");
+
+if(hasSourceView()){
+  meibo.showField("BTN_CANCEL", true);
+}</onload>
+            <onquit class="script">///$debug
+// contournement de meibo qui ne gère pas tout seul les dates sql
+var sqlDate = SQL_DATE_FORMAT.format(DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE")));
+meibo.setFieldValue("TCT_START_DATE",sqlDate);
+
+var cost = meibo.getFieldValue("TET_AVERAGE_COST");
+if (cost==""){
+  cost=null;
+}
+meibo.setFieldValue("TET_AVERAGE_COST",cost);
+  
+meibo.setReturnValue(true);</onquit>
+            <onoperationok class="script"/>
             <onoperationko class="script"/>
           </trigger>
         </sequence>
@@ -3425,6 +3753,8 @@ backToSourceView();</onoperationok>
               <attribute attrs="TAS_TOWN" pattern_fr="{0}" resourcelink="EventAddress" type="link">TAS_TOWN</attribute>
               <attribute attrs="TTY_ABBREV" pattern_fr="{0}" resourcelink="EventEventType" type="link">Type</attribute>
               <attribute attrs="TES_ABBREV" pattern_fr="{0}" resourcelink="EventEventScope" type="link">Scope</attribute>
+              <attribute attrs="TTY_NAME" pattern_fr="{0}" resourcelink="EventEventType" type="link">TypeName</attribute>
+              <attribute attrs="TES_NAME" pattern_fr="{0}" resourcelink="EventEventScope" type="link">ScopeName</attribute>
             </logical>
           </return>
           <onRead class="script">var scriptedAttributes = meibo.getParameter("scripted");
@@ -3524,7 +3854,7 @@ function /*void*/ switchTemplateUse(){
   var /*Field2*/ field = meibo.getField("fkTET_ID");
   var /*String*/ fieldValue = field.getValue();
   
-  if((fieldValue!=null) &amp;&amp; (fieldValue.trim()!="")){
+  if((fieldValue!=null) &amp;&amp; (fieldValue.trim()!="-1")){
     // cas d'un évenement nouveau à partir d'un template
     // charger les données du template
     meibo.getField("TET_NAME_display").show(false);
@@ -3550,7 +3880,13 @@ function /*void*/ switchTemplateUse(){
   }else{
     // cas d'un évenement nouveau "from scratch"
     meibo.getField("TET_NAME_display").show(true);
-    meibo.getField("TET_ISTEMPLATE").show(true);
+    if((meibo.isUserInRole("DDI")) || (meibo.isUserInRole("AdminMeibo"))){
+      meibo.getField("TET_ISTEMPLATE").show(true);
+      meibo.getField("labelTET_ISTEMPLATE").show(true);
+    }else{
+      meibo.getField("TET_ISTEMPLATE").show(false);
+      meibo.getField("labelTET_ISTEMPLATE").show(false);
+    }
     meibo.getField("TET_ISPRIVATE_Layout").show(true);
     //meibo.getField("TET_AVERAGE_COST").setEnabled(true);
     meibo.getField("fkTTY_ID").setEnabled(true);
@@ -3564,8 +3900,10 @@ var /*Field2*/ headerIdField= meibo.getField("fkTET_ID");
 headerIdField.setOptions("-," + headerIdField.getOptions());
 //headerIdField.setParameters(" ," + headerIdField.getParameters());
 // Bug Meibo : getParameters ne fonctionne pas; contournement avec l'ancienne méthode meibo.getFieldParameters(
-headerIdField.setParameters(" ," + meibo.getFieldParameters("fkTET_ID"));
-headerIdField.setValue(" ");
+headerIdField.setParameters("-1," + meibo.getFieldParameters("fkTET_ID"));
+headerIdField.setValue("-1");
+
+meibo.setFieldValue("ADDRESS_MODE","existing");
 
 // Restaure les valeur précédentes dans le cas on l'on revient sur ce formulaire
 restoreFields("Event");
@@ -3590,120 +3928,214 @@ if(checkOK){
   var /*boolean*/ recordOK = false;
   var /*String*/ errorMessage = null;
 
-  // enregistrement "manuel" (via procédure stockée) en lieu et place du mécanisme meibo standard/automatique
   var /*Array*/ values = new Array();
   var /*Array*/ types = new Array();
   var /*SqlProcResult*/ sqlProcResult = null;
   var /*String*/ procName= null;
   var resultValue = null;
 
-  if(meibo.getFieldValue("fkTET_ID") == " "){
-  //cas des évenements "from scratch"
-    values[0] = meibo.getFieldValue("TET_NAME");
+  // Adresse
+  var addressId= null;
+  var addressMode= meibo.getFieldValue("ADDRESS_MODE");
+  if(addressMode=="existing"){
+  // utilisation adresse existante
+    addressId= meibo.getFieldValue("fkTAS_ID")
+  }else{
+  // nouvelle adresse à enregistrer
+    var eventTypeAbbrev = meibo.getFieldValue("fkTTY_ID");
+    // nature d'addresse
+    var addressNature = "EVT";
+    if((eventTypeAbbrev=="CUS")||(eventTypeAbbrev=="B2B")){
+      addressNature = "CUS";
+    }    
+    // type d'adresse
+    var adressType = "T_EVENT_ADDRESS_TEA";
+       
+    values[0] = adressType;
     types[0] = "IN";
-    values[1] = meibo.getFieldValue("TCT_URL");
+    values[1] = addressNature;
     types[1] = "IN";
-    values[2] = meibo.getFieldValue("TCT_COMMENT");
+    values[2] = meibo.getFieldValue("TAS_NAME");
     types[2] = "IN";
-    values[3] = meibo.getFieldValue("TET_ISPRIVATE");
+    values[3] = meibo.getFieldValue("TAS_ADDR1");
     types[3] = "IN";
-    values[4] = meibo.getFieldValue("TET_ISTEMPLATE");
+    values[4] = meibo.getFieldValue("TAS_ADDR2");
     types[4] = "IN";
-    values[5] = meibo.getFieldValue("TCT_DURATION");
+    values[5] = meibo.getFieldValue("TAS_ADDR3");
     types[5] = "IN";
-    if(meibo.getFieldValue("TET_AVERAGE_COST").trim()!=""){
-      values[6] = meibo.getFieldValue("TET_AVERAGE_COST");
-    }else{
-      values[6] = null;
-    }
+    values[6] = meibo.getFieldValue("TAS_ZIPCODE");
     types[6] = "IN";
-    values[7] = meibo.getFieldValue("fkTES_ID");
+    values[7] = meibo.getFieldValue("TAS_TOWN");
     types[7] = "IN";
-    values[8] = meibo.getFieldValue("fkTTY_ID");
+    values[8] = meibo.getFieldValue("TAS_STATE");
     types[8] = "IN";
-    //values[9] = new java.sql.Date(DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE")).getTime());
-    values[9] = DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE"));
+    values[9] = meibo.getFieldValue("TCY_ID");
     types[9] = "IN";
+    values[10] = meibo.getFieldValue("TAS_PHONENUMBER");
+    types[10] = "IN";
     
-    // définit l'auteur de l'évenement : utilisateur courant
-    var /*Entry*/ userEntry=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ENTRY);
-    if(userEntry!=null){    
-      values[10] = userEntry.cn[0];
-      types[10] = "IN";
-    }
-    values[11] = meibo.getFieldValue("fkTAS_ID");
-    types[11] = "IN";
-    
-    procName = "add_event";
+    procName = "add_address";
+
+    // add_address`(in addrType varchar(25),in addrNature varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
+    // appel procédure stockée
+    sqlProcResult = meibo.executeSqlProc("TRAVEL_BCOM",procName ,types, values);
   
-  }else{  
-  // cas des évenements  "from template"
-  //(in eventID int(11),in startDate date, in duration smallint(6),in remark text, in url varchar(1048),in cost float,in prsLogin varchar(255), in addressID int(11))
-    values[0] = meibo.getFieldValue("fkTET_ID");
-    types[0] = "IN";
-    values[1] = DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE"));
-    types[1] = "IN";
-    values[2] = meibo.getFieldValue("TCT_DURATION");
-    types[2] = "IN";
-    values[3] = meibo.getFieldValue("TCT_COMMENT");
-    types[3] = "IN";
-    values[4] = meibo.getFieldValue("TCT_URL");
-    types[4] = "IN";
-    if(meibo.getFieldValue("TET_AVERAGE_COST").trim()!=""){
-      values[5] = meibo.getFieldValue("TET_AVERAGE_COST");
-    }else{
-      values[5] = null;
-    }
-    types[5] = "IN";
-    // définit l'auteur de l'évenement : utilisateur courant
-    var /*Entry*/ userEntry=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ENTRY);
-    if(userEntry!=null){    
-      values[6] = userEntry.cn[0];
-      types[6] = "IN";
-    }
-    values[7] = meibo.getFieldValue("fkTAS_ID");
-    types[7] = "IN";
-  
-    procName = "add_concrete_event";
-  
-  }
-  // appel procédure stockée
-  sqlProcResult = meibo.executeSqlProc("TRAVEL_BCOM",procName ,types, values);
-  
-  // vérification du résultat
-  if(sqlProcResult==null){
-    meibo.logError("null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
-    meibo.setFieldValue("error","null en retour de l'appel à "+ procName);
-    meibo.showField("error", true);
-  }else{  
-    try{
-      var rs= sqlProcResult.getResultSet();
-      if(rs==null){
-        meibo.logError("ResultSet null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
-        errorMessage = "ResultSet null en retour de l'appel à "+ procName;
-      }else if(rs.getEntryCount()==0){
-        meibo.logError("ResultSet vide en retour de l'appel à "+ procName + " pour les valeurs : " + values);
-        errorMessage = "ResultSet vide en retour de l'appel à "+ procName;
-      }else{
-        var resultEntry = rs.getEntry();
-        resultValue = resultEntry.getAttribute(0)[0];
-        if(resultValue == 0){
-          meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
-          errorMessage = "L'évenement n'a pas pu être créé";  // pas plus d'explications disponibles ....
-        } else{
-        // ICI : le cas où c'est censé fonctionner
-          recordOK = true;
-          meibo.logDebug("Evenement créé :" + resultValue + " avec les valeurs " + values);
+    // vérification du résultat
+    if(sqlProcResult==null){
+      meibo.logError("null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+      meibo.setFieldValue("error","null en retour de l'appel à "+ procName);
+      meibo.showField("error", true);
+    }else{  
+      try{
+        var rs= sqlProcResult.getResultSet();
+        if(rs==null){
+          meibo.logError("ResultSet null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+          errorMessage = "ResultSet null en retour de l'appel à "+ procName;
+        }else if(rs.getEntryCount()==0){
+          meibo.logError("ResultSet vide en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+          errorMessage = "ResultSet vide en retour de l'appel à "+ procName;
+        }else{
+          var resultEntry = rs.getEntry();
+          resultValue = resultEntry.getAttribute(0)[0];
+          if(resultValue == "0"){
+            meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
+            errorMessage = "L'adresse n'a pas pu être créée";  // pas plus d'explications disponibles ....
+          } else{
+          // ICI : le cas où c'est censé fonctionner
+            meibo.logDebug("Adresse créé :" + resultValue + " avec les valeurs " + values);
+            addressId= resultValue;
+          }
         }
+      }catch(exception){
+        // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception "null" au lieu de renvoyer un resultset vide ou null
+        // en pratique les données peuvent très bien avoir été enregistrées
+        meibo.logError("Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName + " pour les valeurs : " + values, exception);
+        errorMessage = "Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName;
       }
-    }catch(exception){
-      // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception "null" au lieu de renvoyer un resultset vide ou null
-      // en pratique les données peuvent très bien avoir été enregistrées
-      meibo.logError("Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName + " pour les valeurs : " + values, exception);
-      errorMessage = "Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName;
+      sqlProcResult.close();
     }
-    sqlProcResult.close();
+    
   }
+
+  if(addressId!=null){
+  
+    // enregistrement "manuel" evenement (via procédure stockée) en lieu et place du mécanisme meibo standard/automatique
+    values = new Array();
+    types = new Array();
+    sqlProcResult = null;
+    procName= null;
+    resultValue = null;
+
+    if(meibo.getFieldValue("fkTET_ID") == "-1"){
+    //cas des évenements "from scratch"
+      values[0] = meibo.getFieldValue("TET_NAME");
+      types[0] = "IN";
+      values[1] = meibo.getFieldValue("TCT_URL");
+      types[1] = "IN";
+      values[2] = meibo.getFieldValue("TCT_COMMENT");
+      types[2] = "IN";
+      values[3] = meibo.getFieldValue("TET_ISPRIVATE");
+      types[3] = "IN";
+      values[4] = meibo.getFieldValue("TET_ISTEMPLATE");
+      types[4] = "IN";
+      values[5] = meibo.getFieldValue("TCT_DURATION");
+      types[5] = "IN";
+      if(meibo.getFieldValue("TET_AVERAGE_COST").trim()!=""){
+        values[6] = meibo.getFieldValue("TET_AVERAGE_COST");
+      }else{
+        values[6] = null;
+      }
+      types[6] = "IN";
+      values[7] = meibo.getFieldValue("fkTES_ID");
+      types[7] = "IN";
+      values[8] = meibo.getFieldValue("fkTTY_ID");
+      types[8] = "IN";
+      //values[9] = new java.sql.Date(DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE")).getTime());
+      values[9] = DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE"));
+      types[9] = "IN";
+      
+      // définit l'auteur de l'évenement : utilisateur courant
+      var /*Entry*/ userEntry=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ENTRY);
+      if(userEntry!=null){    
+        values[10] = userEntry.cn[0];
+        types[10] = "IN";
+      }
+      values[11] = addressId;
+      types[11] = "IN";
+      
+      procName = "add_event";
+    
+    }else{  
+    // cas des évenements  "from template"
+    //(in eventID int(11),in startDate date, in duration smallint(6),in remark text, in url varchar(1048),in cost float,in prsLogin varchar(255), in addressID int(11))
+      values[0] = meibo.getFieldValue("fkTET_ID");
+      types[0] = "IN";
+      values[1] = DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE"));
+      types[1] = "IN";
+      values[2] = meibo.getFieldValue("TCT_DURATION");
+      types[2] = "IN";
+      values[3] = meibo.getFieldValue("TCT_COMMENT");
+      types[3] = "IN";
+      values[4] = meibo.getFieldValue("TCT_URL");
+      types[4] = "IN";
+      if(meibo.getFieldValue("TET_AVERAGE_COST").trim()!=""){
+        values[5] = meibo.getFieldValue("TET_AVERAGE_COST");
+      }else{
+        values[5] = null;
+      }
+      types[5] = "IN";
+      // définit l'auteur de l'évenement : utilisateur courant
+      var /*Entry*/ userEntry=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ENTRY);
+      if(userEntry!=null){    
+        values[6] = userEntry.cn[0];
+        types[6] = "IN";
+      }
+      values[7] = addressId;
+      types[7] = "IN";
+    
+      procName = "add_concrete_event";
+    
+    }
+    // appel procédure stockée
+    sqlProcResult = meibo.executeSqlProc("TRAVEL_BCOM",procName ,types, values);
+    
+    // vérification du résultat
+    if(sqlProcResult==null){
+      meibo.logError("null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+      meibo.setFieldValue("error","null en retour de l'appel à "+ procName);
+      meibo.showField("error", true);
+    }else{  
+      try{
+        var rs= sqlProcResult.getResultSet();
+        if(rs==null){
+          meibo.logError("ResultSet null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+          errorMessage = "ResultSet null en retour de l'appel à "+ procName;
+        }else if(rs.getEntryCount()==0){
+          meibo.logError("ResultSet vide en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+          errorMessage = "ResultSet vide en retour de l'appel à "+ procName;
+        }else{
+          var resultEntry = rs.getEntry();
+          resultValue = resultEntry.getAttribute(0)[0];
+          if(resultValue == "0"){
+            meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
+            errorMessage = "L'évenement n'a pas pu être créé";  // pas plus d'explications disponibles ....
+          } else{
+          // ICI : le cas où c'est censé fonctionner
+            recordOK = true;
+            meibo.logDebug("Evenement créé :" + resultValue + " avec les valeurs " + values);
+          }
+        }
+      }catch(exception){
+        // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception "null" au lieu de renvoyer un resultset vide ou null
+        // en pratique les données peuvent très bien avoir été enregistrées
+        meibo.logError("Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName + " pour les valeurs : " + values, exception);
+        errorMessage = "Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName;
+      }
+      sqlProcResult.close();
+    }
+    
+  }
+    
   if(recordOK){
     if(hasSourceView()){
     // retour et pré-sélection de l'évenement créé
@@ -3726,6 +4158,7 @@ if(checkOK){
     meibo.setFieldValue("error",errorMessage);      
     meibo.showField("error", true);
   }
+  
 }
 
 // contournement du fonctionnement nominal meibo :
@@ -3756,7 +4189,9 @@ meibo.setReturnValue(false);</onquit>
           </rights>
           <trigger>
             <globalScriptView class="script"> </globalScriptView>
-            <onload class="script"> </onload>
+            <onload class="script">// formatage date
+meibo.setFieldValue("TCT_START_DATE", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("TCT_START_DATE")))); 
+meibo.setFieldValue("TCT_CREATE_DATE", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("TCT_CREATE_DATE"))));</onload>
           </trigger>
         </sequence>
         <sequence name="Search" type="4">
@@ -3831,69 +4266,6 @@ scopeField.setValue(" ");</onload>
           </trigger>
         </sequence>
       </resource>
-      <resource name="Event2">
-        <properties>
-          <displayname class="lingual">
-            <fr>Event</fr>
-          </displayname>
-          <hiddenresource class="boolean">false</hiddenresource>
-          <separator class="separator"/>
-          <objectclass class="objectclass">T_CONCRETE_EVENT_TCT</objectclass>
-          <separator class="separator"/>
-          <request class="text"/>
-          <separator class="separator"/>
-          <return class="returnallattributes">
-            <physical>TAS_ID,TCT_COMMENT,TCT_CREATE_DATE,TCT_DURATION,TCT_ID,TCT_START_DATE,TCT_URL,TET_ID,TRT_ID,PRS_ID_AUTHOR,PRS_ID_LEADER</physical>
-            <logical>
-              <attribute attrs="" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">Header</attribute>
-              <attribute attrs="" pattern_fr="{0}" resourcelink="EventAuthorPerson" type="link">Author</attribute>
-              <attribute attrs="TET_NAME,TET_COMMENT,TET_ISPRIVATE" pattern_fr="{0}  ; {1} ; {2}" resourcelink="ConcreteEventEventHeader" type="link">HeaderFullName</attribute>
-              <attribute attrs="TET_URL" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">HeaderURL</attribute>
-              <attribute type="script">displayName</attribute>
-              <attribute attrs="TET_NAME" pattern_fr="{0}" resourcelink="ConcreteEventEventHeader" type="link">TET_NAME</attribute>
-              <attribute attrs="TAS_TOWN" pattern_fr="{0}" resourcelink="EventAddress" type="link">TAS_TOWN</attribute>
-            </logical>
-          </return>
-          <onRead class="script">var scriptedAttributes = meibo.getParameter("scripted");
-var mappedAttributes = meibo.getParameter("mapped");
-var linkedAttributes = meibo.getParameter("linked");
-var entry = meibo.getCurrentEntry();
-
-if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)) {
-  // calcul attribut displayName
-  var name=entry.TET_NAME[0];
-  var location=entry.TAS_TOWN[0];
-  var date=entry.TCT_START_DATE[0];
-  if((name==null) || (location ==null) || (login ==null)){
-    // rechargement de l'entrée avec les attributs requis
-    var newEntry = meibo.getDnEntry("Event", meibo.getCurrentDn(),"TAS_TOWN,TET_NAME,TCT_START_DATE");
-    name=newEntry.TET_NAME[0];
-    location=newEntry.TAS_TOWN[0];
-    date=newEntry.TCT_START_DATE[0];
-  }
-  entry.displayName = name + " - " + location + " (" + date + ")";
-}</onRead>
-          <onSubmit class="script"/>
-          <onoperationok class="script"/>
-          <onoperationko class="script"/>
-          <separator class="separator"/>
-          <keyattribute class="returnattributes">TCT_ID</keyattribute>
-          <separator class="separator"/>
-          <sortingon class="sortingon">
-            <attribute class="attribute">TCT_ID</attribute>
-            <reverseOrder class="boolean">true</reverseOrder>
-          </sortingon>
-          <separator class="separator"/>
-          <key class="attribute">displayName</key>
-          <entriesbrowsed class="integer">20</entriesbrowsed>
-          <separator class="separator"/>
-          <searchattribute class="attribute">TCT_START_DATE</searchattribute>
-          <separator class="separator"/>
-          <imageclosed class="file">images/black-time.gif</imageclosed>
-          <imageopened class="file">images/green-clock.gif</imageopened>
-        </properties>
-        
-      </resource>
       <resource name="EventHeader">
         <properties>
           <displayname class="lingual">
@@ -3934,6 +4306,28 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
           <imageopened class="file">images/green-news.gif</imageopened>
         </properties>
         
+        <sequence name="Display" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Display</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_EventHeader_Display.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script"> </onload>
+          </trigger>
+        </sequence>
       </resource>
       <resource name="EventScope">
         <properties>
@@ -4010,6 +4404,28 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
           <imageopened class="file">images/green-news.gif</imageopened>
         </properties>
         
+        <sequence name="Display" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Display</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_EventTemplate_Display.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script"> </onload>
+          </trigger>
+        </sequence>
       </resource>
       <resource name="EventType">
         <properties>
@@ -4155,7 +4571,7 @@ restoreFields("Mission");
 
 // Met à jour le contenu du tableau avec les évenements sélectionnés
 updateEventsTableContent();</onload>
-            <onquit class="script">//$debug
+            <onquit class="script">///$debug
 var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
 // sauvegarder au préalable les valeurs des champs dans le tableau
@@ -4278,7 +4694,7 @@ if(checkOK){
           }else{
             resultEntry = rs.getEntry();
             resultValue = resultEntry.getAttribute(0)[0];
-            if(resultValue == 0){
+            if(resultValue == "0"){
               meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
               throw  "La mission n'a pas pu être créée";  // pas plus d'explications disponibles ....
             }
@@ -4455,7 +4871,7 @@ meibo.setReturnValue(false);</onquit>
           </rights>
           <trigger>
             <globalScriptView class="script"/>
-            <onload class="script">//$debug
+            <onload class="script">///$debug
 try{
   var lastComment = meibo.getWorkflowVariable("comment");
   if ((lastComment != null) &amp;&amp; (lastComment!="")) {
@@ -4540,7 +4956,418 @@ for each(var missionEvent in missionEventRS){
           </rights>
           <trigger>
             <globalScriptView class="script"/>
-            <onload class="script">//$debug
+            <onload class="script">///$debug
+try{
+  var lastComment = meibo.getWorkflowVariable("comment");
+  if ((lastComment != null) &amp;&amp; (lastComment!="")) {
+    meibo.showField("lastCommentLayout",true);
+    meibo.getField("LAST_COMMENT").setValue("" + lastComment);
+  }else{
+    meibo.showField("lastCommentLayout",false);
+  }
+}catch(exception){
+  meibo.logWarn("Erreur sur récupération de variable de wokflow 'comment' : " + exception);
+}
+
+
+
+///$debug
+// utilisateur courant
+//var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+
+// récupération de l'initiateur de la mission si ce n'est pas le titulaire
+var /*String*/ currentDN=meibo.getCurrentDn();
+var /*ResultSet*/ rootMissionRS = meibo.executeLink("MissionRootMission", currentDN);
+
+if((rootMissionRS!=null) &amp;&amp; (rootMissionRS.getEntryCount()&gt;0)){
+  var /*Entry*/ rootMissionEntry = rootMissionRS.getEntry();
+  var rootMissionDn= rootMissionEntry.getDn();
+  var /*ResultSet*/ adPeopleOwnerRS = meibo.executeLink("MissionOwnerADPeople", rootMissionDn, "cn,sn,givenName");
+  if((adPeopleOwnerRS!=null) &amp;&amp; (adPeopleOwnerRS.getEntryCount()&gt;0)){
+    var /*Entry*/ adPeopleOwnerEntry = adPeopleOwnerRS.getEntry();
+    meibo.setFieldValue("titleView","Mission proposée par " + adPeopleOwnerEntry.givenName[0] + " " + adPeopleOwnerEntry.sn[0] + " (" + adPeopleOwnerEntry.cn[0] + ")");
+  }
+}
+
+// Restaure les valeur précédentes dans le cas où l'on revient sur ce formulaire
+//restoreFields("Mission");
+
+// Met à jour le contenu du tableau
+
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}</onload>
+          </trigger>
+        </sequence>
+        <sequence name="MissionCompleteForOrganisation" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionCompleteForOrganisation.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
+try{
+  var lastComment = meibo.getWorkflowVariable("comment");
+  if ((lastComment != null) &amp;&amp; (lastComment!="")) {
+    meibo.showField("lastCommentLayout",true);
+    meibo.getField("LAST_COMMENT").setValue("" + lastComment);
+  }else{
+    meibo.showField("lastCommentLayout",false);
+  }
+}catch(exception){
+  meibo.logWarn("Erreur sur récupération de variable de wokflow 'comment' : " + exception);
+}
+
+
+
+///$debug
+// utilisateur courant
+//var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+
+// récupération de l'initiateur de la mission si ce n'est pas le titulaire
+var /*String*/ currentDN=meibo.getCurrentDn();
+var /*ResultSet*/ rootMissionRS = meibo.executeLink("MissionRootMission", currentDN);
+
+if((rootMissionRS!=null) &amp;&amp; (rootMissionRS.getEntryCount()&gt;0)){
+  var /*Entry*/ rootMissionEntry = rootMissionRS.getEntry();
+  var rootMissionDn= rootMissionEntry.getDn();
+  var /*ResultSet*/ adPeopleOwnerRS = meibo.executeLink("MissionOwnerADPeople", rootMissionDn, "cn,sn,givenName");
+  if((adPeopleOwnerRS!=null) &amp;&amp; (adPeopleOwnerRS.getEntryCount()&gt;0)){
+    var /*Entry*/ adPeopleOwnerEntry = adPeopleOwnerRS.getEntry();
+    meibo.setFieldValue("titleView","Mission proposée par " + adPeopleOwnerEntry.givenName[0] + " " + adPeopleOwnerEntry.sn[0] + " (" + adPeopleOwnerEntry.cn[0] + ")");
+  }
+}
+
+// Restaure les valeur précédentes dans le cas où l'on revient sur ce formulaire
+//restoreFields("Mission");
+
+// Met à jour le contenu du tableau
+
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}</onload>
+          </trigger>
+        </sequence>
+        <sequence name="MissionOrganise" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrganise.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
+try{
+  var lastComment = meibo.getWorkflowVariable("comment");
+  if ((lastComment != null) &amp;&amp; (lastComment!="")) {
+    meibo.showField("lastCommentLayout",true);
+    meibo.getField("LAST_COMMENT").setValue("" + lastComment);
+    // commentaire organisateur par défaut = demande de l'utilisateur
+    meibo.getField("COMMENT").setValue("" + lastComment);    
+  }else{
+    meibo.showField("lastCommentLayout",false);
+  }
+}catch(exception){
+  meibo.logWarn("Erreur sur récupération de variable de wokflow 'comment' : " + exception);
+}
+
+
+
+///$debug
+// utilisateur courant
+//var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+
+// récupération de l'initiateur de la mission si ce n'est pas le titulaire
+var /*String*/ currentDN=meibo.getCurrentDn();
+var /*ResultSet*/ rootMissionRS = meibo.executeLink("MissionRootMission", currentDN);
+
+if((rootMissionRS!=null) &amp;&amp; (rootMissionRS.getEntryCount()&gt;0)){
+  var /*Entry*/ rootMissionEntry = rootMissionRS.getEntry();
+  var rootMissionDn= rootMissionEntry.getDn();
+  var /*ResultSet*/ adPeopleOwnerRS = meibo.executeLink("MissionOwnerADPeople", rootMissionDn, "cn,sn,givenName");
+  if((adPeopleOwnerRS!=null) &amp;&amp; (adPeopleOwnerRS.getEntryCount()&gt;0)){
+    var /*Entry*/ adPeopleOwnerEntry = adPeopleOwnerRS.getEntry();
+    meibo.setFieldValue("titleView","Mission proposée par " + adPeopleOwnerEntry.givenName[0] + " " + adPeopleOwnerEntry.sn[0] + " (" + adPeopleOwnerEntry.cn[0] + ")");
+  }
+}
+
+// Restaure les valeur précédentes dans le cas où l'on revient sur ce formulaire
+//restoreFields("Mission");
+
+// Met à jour le contenu du tableau
+
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}</onload>
+          </trigger>
+        </sequence>
+        <sequence name="MissionOrder" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrder.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
+try{
+  var lastComment = meibo.getWorkflowVariable("organisationComment");
+  if ((lastComment != null) &amp;&amp; (lastComment!="")) {
+    meibo.showField("lastCommentLayout",true);
+    meibo.getField("LAST_COMMENT").setValue("" + lastComment);
+    
+    // Note les vues qui ne sont pas appelée directement par le workflow n'accèdent pas à la tache de workflow; elles n'ont donc pas accès à ses variables
+    // Ceci est donc problématique pour la vue utilisée pour la création du PDF
+    // On transmet donc les infos par variables globale
+    meibo.setGlobalVar("CurrentMissionComment" , lastComment);
+  }else{
+    meibo.showField("lastCommentLayout",false);
+  }
+}catch(exception){
+  meibo.logWarn("Erreur sur récupération de variable de wokflow 'organisationComment' : " + exception);
+}
+
+
+
+///$debug
+// utilisateur courant
+//var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+
+// récupération de l'initiateur de la mission si ce n'est pas le titulaire
+var /*String*/ currentDN=meibo.getCurrentDn();
+var /*ResultSet*/ rootMissionRS = meibo.executeLink("MissionRootMission", currentDN);
+
+if((rootMissionRS!=null) &amp;&amp; (rootMissionRS.getEntryCount()&gt;0)){
+  var /*Entry*/ rootMissionEntry = rootMissionRS.getEntry();
+  var rootMissionDn= rootMissionEntry.getDn();
+  var /*ResultSet*/ adPeopleOwnerRS = meibo.executeLink("MissionOwnerADPeople", rootMissionDn, "cn,sn,givenName");
+  if((adPeopleOwnerRS!=null) &amp;&amp; (adPeopleOwnerRS.getEntryCount()&gt;0)){
+    var /*Entry*/ adPeopleOwnerEntry = adPeopleOwnerRS.getEntry();
+    meibo.setFieldValue("titleView","Mission proposée par " + adPeopleOwnerEntry.givenName[0] + " " + adPeopleOwnerEntry.sn[0] + " (" + adPeopleOwnerEntry.cn[0] + ")");
+  }
+}
+
+// Restaure les valeur précédentes dans le cas où l'on revient sur ce formulaire
+//restoreFields("Mission");
+
+// Met à jour le contenu du tableau
+
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}</onload>
+          </trigger>
+        </sequence>
+        <sequence name="MissionOrderPrint" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionOrderPrint.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
+var lastComment = null;
+try{
+  lastComment = meibo.getWorkflowVariable("organisationComment");
+}catch(exception){
+    // Note les vues qui ne sont pas appelée directement par le workflow n'accèdent pas à la tache de workflow; elles n'ont donc pas accès à ses variables
+    // Ceci est donc problématique pour la vue utilisée pour la création du PDF
+    // On récupère donc les infos par variables globale
+    lastComment = meibo.getGlobalVar("CurrentMissionComment");
+}
+if ((lastComment != null) &amp;&amp; (lastComment!="")) {
+  meibo.showField("lastCommentLayout",true);
+  meibo.getField("LAST_COMMENT").setValue("" + lastComment);
+}else{
+  meibo.showField("lastCommentLayout",false);
+}
+
+
+// Met à jour le contenu du tableau
+var /*Field*/table = meibo.getField("EVENTS_TABLE");
+var /*String*/ownerID = meibo.getFieldValue("PRS_ID");
+var /*String*/ currentDN=meibo.getCurrentDn();
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink("MissionEvent", currentDN,"fkTCT_ID,TET_NAME");
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var missionId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  missionId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource("R_Attendees","PRS_ID="+ ownerID + " AND TCT_ID="+missionId ,1,"TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE");
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+          
+  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+  
+  line++ 
+}</onload>
+          </trigger>
+        </sequence>
+        <sequence name="MissionLevel2Validate" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionAccept</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Mission_MissionLevel2Validate.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"/>
+            <onload class="script">///$debug
 try{
   var lastComment = meibo.getWorkflowVariable("comment");
   if ((lastComment != null) &amp;&amp; (lastComment!="")) {
@@ -4648,7 +5475,7 @@ restoreFields("Mission");
 
 // Met à jour le contenu du tableau avec les évenements sélectionnés
 updateEventsTableContent();</onload>
-            <onquit class="script">//$debug
+            <onquit class="script">///$debug
 var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
 // sauvegarder au préalable les valeurs des champs dans le tableau
@@ -4762,7 +5589,7 @@ if(checkOK){
           }else{
             resultEntry = rs.getEntry();
             resultValue = resultEntry.getAttribute(0)[0];
-            if(resultValue == 0){
+            if(resultValue == "0"){
               meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
               throw  "La mission n'a pas pu être créée";  // pas plus d'explications disponibles ....
             }
@@ -4986,6 +5813,7 @@ meibo.setReturnValue(false);</onquit>
               <attribute attrs="TIN_NAME" pattern_fr="{0}" resourcelink="AttendeesInvolvementNature" type="link">TIN_NAME</attribute>
               <attribute attrs="PRS_LOGIN" pattern_fr="{0}" resourcelink="AttendeesPerson" type="link">PRS_LOGIN</attribute>
               <attribute attrs="TPE_NAME" pattern_fr="{0}" resourcelink="AttendeesPurpose" type="link">TPE_NAME</attribute>
+              <attribute attrs="displayName" pattern_fr="{0}" resourcelink="AttendeesPerson" type="link">personDisplayName</attribute>
             </logical>
           </return>
           <onRead class="script"/>
@@ -5156,6 +5984,787 @@ meibo.setReturnValue(false);</onquit>
         </properties>
         
       </resource>
+      <resource name="R_ReportChoice">
+        <properties>
+          <displayname class="lingual">
+            <fr>R_ReportChoice</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">R_TRT_TFC_TCS</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>TCS_ID,TFC_ID,TRT_ID</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TCS_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute"/>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TCS_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TCS_ID</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+        
+      </resource>
+      <resource name="R_ReportStatus">
+        <properties>
+          <displayname class="lingual">
+            <fr>R_ReportStatus</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">R_PRS_TRT_TST</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>PRS_ID,TRT_ID,TST_ID</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">PRS_ID,TRT_ID,TST_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TST_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TST_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TST_ID</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+        
+      </resource>
+      <resource name="Report">
+        <properties>
+          <displayname class="lingual">
+            <fr>Compte-Rendu</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">T_REPORT_TRT</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>TRT_ARTICLE_PRESS_LINKS,TRT_BCOM_ACTIONS,TRT_BCOM_SPREAD_VALUE_COMMENT,TRT_BUSINESS_CONTACT_QUAL_COMMENT,TRT_BUSINESS_CONTACT_QUAL_NOTE,TRT_CONTENTS,TRT_COUNTRY_DETAIL,TRT_DIFFUSION_EMAIL_LIST,TRT_DYN_PREVIOUS_SESSION_COMMENT,TRT_DYN_PREVIOUS_SESSION_NOTE,TRT_ID,TRT_JOURNALIST_LIST,TRT_KEYNOTES,TRT_KEYWORDS,TRT_LOBBY_CONTACT_QUAL_COMMENT,TRT_LOBBY_CONTACT_QUAL_NOTE,TRT_NEGATIVE_POINTS,TRT_NEWSPAPER_LIST,TRT_OTHER_CONTENT_TYPE,TRT_PARTNER_LIST,TRT_PARTNER_NB,TRT_POSITIVE_POINTS,TRT_QUALITY_COMMENT,TRT_QUALITY_NOTE,TRT_QUAL_PRICE_RATIO_COMMENT,TRT_QUAL_PRICE_RATIO_NOTE,TRT_RENOWN_COMMENT,TRT_STANDS_DEMOS,TRT_STRATEGIC_COVER_COMMENT,TRT_STRATEGIC_COVER_NOTE,TRT_TREND_1,TRT_TREND_2,TRT_TREND_3,TRT_VISITORS_NB,TRT_WORKFLOW_ID,TRT_ASIA_VIS_ORIGIN_RATIO,TRT_BUSINESS_VIS_TYPE_RATIO,TRT_EUROPE_VIS_ORIGIN_RATIO,TRT_FRANCE_VIS_ORIGIN_RATIO,TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO,TRT_OTHER_VIS_ORIGIN_RATIO,TRT_OTHER_VIS_TYPE_RATIO,TRT_OTHER_VIS_TYPE_TEXT,TRT_SCIENTIFIC_VIS_TYPE_RATIO,TRT_BENCHMARK_QUALITY_COMMENT,TRT_BENCHMARK_QUALITY_NOTE,TRT_NEXTEDITION_NOTE,TRT_NEXTEDITION_COMMENT,TCT_ID</physical>
+            <logical>
+              <attribute attrs="TCT_START_DATE" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventDate</attribute>
+              <attribute attrs="TET_NAME" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventName</attribute>
+              <attribute attrs="TCT_DURATION" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventDuration</attribute>
+              <attribute attrs="TCT_COMMENT" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventComment</attribute>
+              <attribute attrs="TCT_URL" pattern_fr="{0}" resourcelink="ReportEvent" type="link">EventURL</attribute>
+              <attribute attrs="ScopeName" pattern_fr="{0}" resourcelink="ReportEvent" type="link">ScopeName</attribute>
+              <attribute attrs="TypeName" pattern_fr="{0}" resourcelink="ReportEvent" type="link">TypeName</attribute>
+            </logical>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TRT_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TRT_ID</attribute>
+            <reverseOrder class="boolean">true</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TRT_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TRT_ID</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file">images/black-document.gif</imageclosed>
+          <imageopened class="file">images/green-document.gif</imageopened>
+        </properties>
+        
+        <sequence name="Create2" type="2">
+          <properties>
+            <displayname class="lingual">
+              <fr>Create2</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+            <onquit class="extscript"/>
+            <onoperationok class="extscript"/>
+            <onoperationko class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Create2.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script">///$debug
+/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants à l'abbréviation choiceType
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType){
+  var /*Table*/ table = meibo.getField(tableName);
+  table.fillInWithQuery("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_NAME");
+}
+
+/**
+ * Remplit la liste déroulante listName avec les ReportChoices correspondants à l'abbréviation choiceType
+ */
+function /*void*/ fillListWithChoices(listName, choiceType){
+  var /*List*/choice = meibo.getField(listName);
+  var /*ResultSet*/ rs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_NAME");
+  var /*Array*/ array = resultSetToArray(rs, "TCS_NAME");
+  choice.setValues(array);
+  choice.setDisplayedTexts(array);
+}
+
+// Remplit les valeurs possibles des tableaux et listes utilisés
+fillTableWithChoices("R_CONTENTS_TYPE","CNT");
+fillTableWithChoices("R_MEDIA_TYPE","MED");
+fillListWithChoices("TRT_QUALITY_NOTE","GQ");
+fillListWithChoices("TRT_RENOWN_COMMENT","RN");
+fillListWithChoices("TRT_DYN_PREVIOUS_SESSION_NOTE","DPS");
+fillListWithChoices("TRT_STRATEGIC_COVER_NOTE","SNC");
+fillListWithChoices("TRT_LOBBY_CONTACT_QUAL_NOTE","LCQ");
+fillListWithChoices("TRT_BUSINESS_CONTACT_QUAL_NOTE","BCQ");
+fillListWithChoices("TRT_BCOM_SPREAD_VALUE_COMMENT","BSC");
+fillListWithChoices("TRT_BENCHMARK_QUALITY_NOTE","BQ");
+fillListWithChoices("TRT_QUAL_PRICE_RATIO_NOTE","PQR");
+fillListWithChoices("TRT_NEXTEDITION_NOTE","NEN");</onload>
+            <onquit class="script">meibo.setReturnValue(true);
+</onquit>
+            <onoperationok class="script"/>
+            <onoperationko class="script"/>
+          </trigger>
+        </sequence>
+        <sequence name="Create" type="2">
+          <properties>
+            <displayname class="lingual">
+              <fr>Create2</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+            <onquit class="extscript"/>
+            <onoperationok class="extscript"/>
+            <onoperationko class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Create.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script">///$debug</onload>
+            <onquit class="script">var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+var /*Edit*/ errorField =  meibo.getField("error");
+errorField.show(false);
+
+var /*String*/ eventID = meibo.getFieldValue("TCT_ID");
+var /*Array*/ values = new Array();
+var /*Array*/ types = new Array();
+var /*SqlProcResult*/ sqlProcResult = null;
+var resultValue = null;
+var /*String*/ procName = null;
+var /*ResultSet*/ rs = null;
+var /*Entry*/ resultEntry = null;
+var /*boolean*/ recordOK=false;
+var /*String*/ errorMessage = "";
+
+ meibo.beginTransaction("TRAVEL_BCOM");
+
+try{
+  values[0] = eventID; // concreteEvtID
+  types[0] = "IN";  
+  values[1] = "DUMMY";  // workflowID
+  types[1] = "IN";
+  procName = "add_event_report";
+  resultValue = null;
+  resultEntry = null;
+  
+  // appel procédure stockée pour creation
+  var sqlProcResult = meibo.executeSqlProc("TRAVEL_BCOM", procName, types, values);
+
+  // vérification du résultat
+  if(sqlProcResult==null){
+    meibo.logError("null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+    throw "null en retour de l'appel à "+ procName;
+  }else{  
+  
+    try{
+      rs= sqlProcResult.getResultSet();
+    }catch(exception){
+      // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception "null" au lieu de renvoyer un resultset vide ou null
+      // en pratique les données peuvent très bien avoir été enregistrées
+      meibo.logError("Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName + " pour les valeurs : " + values, exception);
+      sqlProcResult.close();
+      throw "Erreur sur la récupération du ResultSet en retour de l'appel à "+ procName;
+    }
+    try{        
+      if(rs==null){
+        meibo.logError("ResultSet null en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+        throw "ResultSet null en retour de l'appel à "+ procName;
+      }else if(rs.getEntryCount()==0){
+        meibo.logError("ResultSet vide en retour de l'appel à "+ procName + " pour les valeurs : " + values);
+        throw  "ResultSet vide en retour de l'appel à "+ procName;
+      }else{
+        resultEntry = rs.getEntry();
+        resultValue = resultEntry.getAttribute(0)[0];
+        if(resultValue == "0"){
+          meibo.logError("valeur zéro dans le resultset en retour de "+ procName + " pour les valeurs :" + values);
+          throw  "L'entrée n'a pas pu être créée";  // pas plus d'explications disponibles ....
+        }
+      }
+      sqlProcResult.close();
+            
+    }catch(exception){
+      sqlProcResult.close();
+      throw exception;
+    }      
+      
+  } // if(sqlProcResult==null)
+
+  var commitResultOK = meibo.commit("TRAVEL_BCOM");
+  recordOK = commitResultOK;
+  if(commitResultOK){
+    meibo.logDebug("Entrée créée :" + resultValue + " avec les valeurs " + values);      
+  }else{
+    meibo.logError("retour KO sur le commit de la transaction pour l'entrée  :" + resultValue + " avec les valeurs " + values);
+    errorMessage =  "Echec de la transaction";
+  }
+      
+}catch(exception){
+  // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception "null" au lieu de renvoyer un resultset vide ou null
+  // en pratique les données peuvent très bien avoir été enregistrées
+  meibo.logError("Erreur sur l'enregistrement des données suite à l'appel à " + procName + " pour les valeurs : " + values + " : " exception);
+  recordOK = false;
+  errorMessage = exception;
+  try{
+    var rollBackResultOK = meibo.rollBack("TRAVEL_BCOM");
+    if(rollBackResultOK){
+      meibo.logInfo("Transaction annulée");
+    }else{
+      throw "Le rollback de la transaction renvoi false";
+    }
+  }catch(exception2){
+    meibo.logError("Erreur sur le rollback de la transaction", exception);
+    errorMessage = errorMessage + "; Echec d'annulation de la transation";
+  }
+}
+
+if(recordOK){
+  var /*String*/ reportDn = "T_REPORT_TRT,TRT_ID," + resultValue;
+  meibo.switchToModifyView("Report", reportDn, 0) 
+  
+}else{    
+  errorField.setContent(errorMessage);
+  errorField.show(true);      
+}
+
+} //if(checkOK)
+
+// contournement du fonctionnement nominal meibo :
+// on retourne false pour ne pas que meibo tente ensuite lui même la création automatique de l'entrée comme il le ferait normalement si on ne passait pas par une procédure stockée
+meibo.setReturnValue(false);</onquit>
+            <onoperationok class="script"/>
+            <onoperationko class="script"/>
+          </trigger>
+        </sequence>
+        <sequence name="Update" type="1">
+          <properties>
+            <displayname class="lingual">
+              <fr>Update</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+            <onquit class="extscript"/>
+            <onoperationok class="extscript"/>
+            <onoperationko class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Update.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script">var CONTAINERS_COUNT = 5; // Nombre de blocs "contacts"
+var CHECK_REPORT_ACTIVITY_ID = "A1448529288334";   // identifiant de l'activité "vérifie CR"
+
+/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants à l'abbréviation choiceType
+ * présélectionne les valeurs enregistrées
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType,reportId){
+  var /*Table*/ table = meibo.getField(tableName);
+  // recherche des choix possibles 
+  var /*ResultSet*/ choicesRs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_ID,TFC_ID,TCS_NAME");
+  var /*Entry*/ choiceEntry = choicesRs.getEntry();
+  var filteredChoiceId = choiceEntry.TFC_ID[0];
+  // recherche des valeurs enregistrées
+  var /*ResultSet*/ selectedChoicesRs = meibo.executeResource("R_ReportChoice", "TRT_ID=" + reportId + " AND TFC_ID=" + filteredChoiceId, 0);
+  var /*Array*/ selectedChoicesArray = resultSetToArray(selectedChoicesRs,"TCS_ID");
+  table.fillInWithResultSet(choicesRs,0,0,"TCS_NAME");
+  // positionne l'entrée en row object pour pouvoir récupérer les valeurs au moment de la soumission du formulaire 
+  var choiceId = null;
+  for(var i=0;i&lt;choicesRs.getEntryCount();i++){
+    choiceEntry = choicesRs.getEntry(i);
+    table.addRowObject(i,choiceEntry);
+    choiceId = choiceEntry.TCS_ID[0];
+    // présélectionne la valeur si elle était enregistrée
+    if(choiceId in selectedChoicesArray){
+      table.checkRow(i,true);
+    }
+  }
+}
+
+/**
+ * Remplit la liste déroulante listName avec les ReportChoices correspondants à l'abbréviation choiceType
+ */
+function /*void*/ fillListWithChoices(listName, choiceType){
+  var /*List*/choice = meibo.getField(listName);
+  var /*ResultSet*/ choicesRs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_NAME,TCS_VALUE");
+  //var /*ResultSet*/ choicesRs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_NAME");      
+  var /*Array*/ nameArray = resultSetToArray(choicesRs, "TCS_NAME");
+  var /*Array*/ valueArray = resultSetToArray(choicesRs, "TCS_VALUE");
+  choice.setValues(valueArray);
+  //choice.setValues(nameArray);
+  choice.setDisplayedTexts(nameArray);
+}
+
+/**
+ * Indique si le formulaire est ouvert dans le cadre de la validation du compte rendu (par AnalyseurDeplacement)
+ */
+function /*boolean*/ isCheckReportStep(){
+  var CHECK_REPORT_ACTIVITY_ID = "A1448529288334";
+  var /*wapiWorkItem*/ wapiWorkItem = meibo.getCurrentWorkflowTask();
+  meibo.logDebug("wapiWorkItem.getId() : " + wapiWorkItem.getId());
+  var wapiActivityInst = wapiWorkItem.getActivityInstance();
+  /*
+  meibo.logDebug("wapiActivityInst.getActivityId() : " + wapiActivityInst.getActivityId());
+  meibo.logDebug("wapiActivityInst.getId() : " + wapiActivityInst.getId());
+  meibo.logDebug("wapiActivityInst.getDisplayName() : " + wapiActivityInst.getDisplayName());
+  */
+  return ((wapiActivityInst.getActivityId()==CHECK_REPORT_ACTIVITY_ID) &amp;&amp; (meibo.isUserInRole("AnalyseurDeplacement")));
+}</globalScriptView>
+            <onload class="script">///$debug
+try{
+  var /*wapiWorkItem*/ wapiWorkItem = meibo.getCurrentWorkflowTask();
+  var wapiActivityInst = wapiWorkItem.getActivityInstance();
+  
+  if(isCheckReportStep()){
+  // mode validation par AnalyseurDeplacement
+    meibo.logDebug("Traitement de l'activité de compte-rendu : " + wapiActivityInst.getDisplayName() + " en mode AnalyseurDeplacement");
+  }else{
+  // mode contribution
+    meibo.logDebug("Traitement de l'activité de compte-rendu : " + wapiActivityInst.getDisplayName() + " en mode contributeur");
+    var comment = meibo.getWorkflowVariable("checkReportStepComment");
+    if((comment!=null) &amp;&amp; (comment.length &gt;0)){
+      meibo.showField("RejectPanel",true);
+      meibo.setFieldValue("RejectComment",comment); 
+    }
+  }
+
+}catch(exception){
+  meibo.logWarn("Erreur sur récupération de contexte de workflow  : " + exception);
+}
+
+
+var reportId= meibo.getFieldValue("TRT_ID")
+// Remplit les valeurs possibles des tableaux et listes utilisés
+fillTableWithChoices("R_CONTENTS_TYPE","CNT",reportId);
+fillTableWithChoices("R_MEDIA_TYPE","MED",reportId);
+fillListWithChoices("TRT_QUALITY_NOTE","GQ");
+fillListWithChoices("TRT_RENOWN_COMMENT","RN");
+fillListWithChoices("TRT_DYN_PREVIOUS_SESSION_NOTE","DPS");
+fillListWithChoices("TRT_STRATEGIC_COVER_NOTE","SNC");
+fillListWithChoices("TRT_LOBBY_CONTACT_QUAL_NOTE","LCQ");
+fillListWithChoices("TRT_BUSINESS_CONTACT_QUAL_NOTE","BCQ");
+fillListWithChoices("TRT_BCOM_SPREAD_VALUE_COMMENT","BSC");
+fillListWithChoices("TRT_BENCHMARK_QUALITY_NOTE","BQ");
+fillListWithChoices("TRT_QUAL_PRICE_RATIO_NOTE","PQR");
+fillListWithChoices("TRT_NEXTEDITION_NOTE","NEN");
+
+// traitement spécifique des contacts
+// les valeurs ne sont pas portées dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+
+// recherche des valeurs enregistrées
+var /*ResultSet*/ contactRs = meibo.executeResource("ReportNetworkingContacts", "TRT_ID=" + reportId, 0);
+var contactIndex = 1;
+for each(var /*Entry*/ networkingContactEntry in contactRs){
+  meibo.setFieldValue("CONTACT_NAME_" + contactIndex, networkingContactEntry.TNC_NAME[0]);
+  meibo.setFieldValue("CONTACT_TITLE_" + contactIndex, networkingContactEntry.TNC_TITLE[0]);
+  meibo.setFieldValue("CONTACT_STRUCTURE_" + contactIndex, networkingContactEntry.TNC_STRUCTURE[0]);
+  meibo.setFieldValue("CONTACT_DISCUSSION_" + contactIndex, networkingContactEntry.TNC_DISCUSSION[0]);
+  meibo.setFieldValue("CONTACT_FOLLOWUP_" + contactIndex, networkingContactEntry.TNC_FOLLOWUP[0]);
+  
+  meibo.showField("CONTACT_CONTAINER_" + contactIndex, true);
+  contactIndex++;
+}
+
+// contournement du fonctionnement meibo qui ne prend en compte que la première valeur des champs multivalués dans le cas d'une ressource de type base de données
+fixMultiValueFieldsOnLoad("TRT_PARTNER_LIST");
+fixMultiValueFieldsOnLoad("TRT_NEWSPAPER_LIST");
+fixMultiValueFieldsOnLoad("TRT_JOURNALIST_LIST");
+fixMultiValueFieldsOnLoad("TRT_KEYWORDS");
+fixMultiValueFieldsOnLoad("TRT_DIFFUSION_EMAIL_LIST");
+
+// formatage date
+meibo.setFieldValue("EventDate", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("EventDate"))));</onload>
+            <onquit class="script">///$debug
+// contournement du fonctionnement meibo qui ne prend en compte que la première valeur des champs multivalués dans le cas d'une ressource de type base de données
+fixMultiValueFieldsOnSubmit("TRT_PARTNER_LIST");
+fixMultiValueFieldsOnSubmit("TRT_NEWSPAPER_LIST");
+fixMultiValueFieldsOnSubmit("TRT_JOURNALIST_LIST");
+fixMultiValueFieldsOnSubmit("TRT_KEYWORDS");
+fixMultiValueFieldsOnSubmit("TRT_DIFFUSION_EMAIL_LIST");
+
+meibo.setReturnValue(true);</onquit>
+            <onoperationok class="script">///$debug
+/**
+ * Affecte à la ressource R_ReportChoice les élements sélectionnés dans le tableau tableName
+ */
+function /*void*/ setReportChoices(tableName, reportID){
+  var /*Table*/ table = meibo.getField(tableName);
+  var /*array*/selectedRowsIndex = table.getCheckedRows();
+
+  // on ajoute les lignes qui sont sélectionnées
+  for each(var rowIndex in selectedRowsIndex){
+    var /*Entry*/ choiceEntry = table.getRowObject(rowIndex);
+    choiceEntry.updateAttribute(new Attribute("TRT_ID",reportID));
+    choiceEntry.deleteAttribute("TCS_NAME");
+    
+    meibo.createEntry("R_ReportChoice",null, choiceEntry);
+  }
+}
+
+var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+// traitement spécifique des listes/tableaux en multi-sélection :
+// les valeurs ne sont pas portées dans la table REPORT, mais dans la table d'association TRT_TFC_TCS (ressource R_ReportChoice)
+var /*String*/reportID = meibo.getFieldValue("TRT_ID");
+var /*String*/eventID = meibo.getFieldValue("EventID");
+
+// on commence par supprimer toutes les entrées actuelles liées au compte-rendu
+meibo.deleteEntries("R_ReportChoice","TRT_ID=" + reportID);
+
+setReportChoices("R_CONTENTS_TYPE", reportID);
+setReportChoices("R_MEDIA_TYPE", reportID);
+
+// traitement spécifique des contacts
+// les valeurs ne sont pas portées dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+var /*Entry*/ networkingContactEntry = null;
+
+// on commence par supprimer toutes les entrées actuelles liées au compte-rendu
+meibo.deleteEntries("ReportNetworkingContacts","TRT_ID=" + reportID);
+
+for(var i=1;i&lt;=CONTAINERS_COUNT;i++){
+  // on ne traite que les contacts visibles dont le nom est valorisé 
+  if((meibo.getField("CONTACT_CONTAINER_" + i).isVisible()) &amp;&amp; (meibo.getFieldValue("CONTACT_NAME_" + i)!=null) &amp;&amp; (meibo.getFieldValue("CONTACT_NAME_" + i).trim().length()&gt;0)){
+    networkingContactEntry = new Entry(new Attribute("TRT_ID", reportID));
+    networkingContactEntry.updateAttribute(new Attribute("TNC_NAME", meibo.getFieldValue("CONTACT_NAME_" + i)));
+    networkingContactEntry.updateAttribute(new Attribute("TNC_TITLE", meibo.getFieldValue("CONTACT_TITLE_" + i)));
+    networkingContactEntry.updateAttribute(new Attribute("TNC_STRUCTURE", meibo.getFieldValue("CONTACT_STRUCTURE_" + i)));
+    networkingContactEntry.updateAttribute(new Attribute("TNC_DISCUSSION", meibo.getFieldValue("CONTACT_DISCUSSION_" + i)));
+    networkingContactEntry.updateAttribute(new Attribute("TNC_FOLLOWUP", meibo.getFieldValue("CONTACT_FOLLOWUP_" + i)));
+    
+    meibo.createEntry("ReportNetworkingContacts",null, networkingContactEntry);
+  }
+}
+
+meibo.logInfo("Compte-rendu " + reportID + " enregistré par " + meibo.getUserDn() + " pour l'évènement " + eventID);
+
+var wfParam= meibo.getFieldValue("WORKFLOW_PARAMETER");
+if(isCheckReportStep()){
+  meibo.setWorkflowVariable("checkReportStepAction", wfParam);
+  meibo.setWorkflowVariable("checkReportStepLastActorId", userId);
+  if(wfParam!="record"){
+    if(wfParam=="reject"){
+      var comment = meibo.getFieldValue("Comment");
+      if(comment.trim()==""){
+        comment = "-";  // commentaire non vide utile au retour sur le formulaire
+      }
+      meibo.setWorkflowVariable("checkReportStepComment", comment);
+      meibo.logInfo("Compte-rendu " + reportID + " rejeté par " + meibo.getUserDn() + " pour l'évènement " + eventID);
+    }else{
+      meibo.logInfo("Compte-rendu " + reportID + " validé par " + meibo.getUserDn() + " pour l'évènement " + eventID);
+    }
+    meibo.completeCurrentWorkflowTask();
+  }
+}else{
+  meibo.setWorkflowVariable("completeReportStepAction", wfParam);
+  meibo.setWorkflowVariable("completeReportStepLastActorId", userId);
+  meibo.completeCurrentWorkflowTask();
+}
+
+meibo.switchToApplicationView("Validation_OK");</onoperationok>
+            <onoperationko class="script"/>
+          </trigger>
+        </sequence>
+        <sequence name="Show" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Show</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Show.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script">// formatage date
+meibo.setFieldValue("EventDate", DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue("EventDate"))));</onload>
+          </trigger>
+        </sequence>
+        <sequence name="Print" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>Print</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"/>
+            <globalScriptView class="extscriptnodebug"/>
+            <onload class="extscript"/>
+          </properties>
+          <path>TRAVEL_BCOM_Report_Print.xml</path>
+          <class/>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+          <trigger>
+            <globalScriptView class="script"> </globalScriptView>
+            <onload class="script">/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants à l'abbréviation choiceType
+ * présélectionne les valeurs enregistrées
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType,reportId){
+  var /*Table*/ table = meibo.getField(tableName);
+  // recherche des choix possibles 
+  var /*ResultSet*/ choicesRs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "'", 0, "TCS_ID,TFC_ID,TCS_NAME");
+  var /*Entry*/ choiceEntry = choicesRs.getEntry();
+  var filteredChoiceId = choiceEntry.TFC_ID[0];
+  // recherche des valeurs enregistrées
+  var /*ResultSet*/ selectedChoicesRs = meibo.executeResource("R_ReportChoice", "TRT_ID=" + reportId + " AND TFC_ID=" + filteredChoiceId, 0);
+  var /*Array*/ selectedChoicesArray = resultSetToArray(selectedChoicesRs,"TCS_ID");
+  table.fillInWithResultSet(choicesRs,0,0,"TCS_NAME");
+  // positionne l'entrée en row object pour pouvoir récupérer les valeurs au moment de la soumission du formulaire 
+  var choiceId = null;
+  for(var i=0;i&lt;choicesRs.getEntryCount();i++){
+    choiceEntry = choicesRs.getEntry(i);
+    table.addRowObject(i,choiceEntry);
+    choiceId = choiceEntry.TCS_ID[0];
+    // présélectionne la valeur si elle était enregistrée
+    if(choiceId in selectedChoicesArray){
+      table.checkRow(i,true);
+    }
+  }
+}
+
+function /*void*/ fillChoiceValues(listName, choiceType){
+  var /*Label*/choice = meibo.getField(listName);
+  var value= choice.getContent();
+  var /*ResultSet*/ choicesRs = meibo.executeResource("ReportChoices", "TFC_ABBREV='" + choiceType + "' AND TCS_VALUE=" + value, 1, "TCS_NAME");
+  choice.setContent(choicesRs.getEntry().TCS_NAME[0]);
+}
+
+
+var reportId= meibo.getFieldValue("TRT_ID")
+var eventID = meibo.getCurrentEntry().TCT_ID[0];
+
+// Remplit les valeurs possibles des tableaux et listes utilisés
+fillTableWithChoices("R_CONTENTS_TYPE","CNT",reportId);
+fillTableWithChoices("R_MEDIA_TYPE","MED",reportId);
+
+fillChoiceValues("TRT_QUALITY_NOTE","GQ");
+fillChoiceValues("TRT_RENOWN_COMMENT","RN");
+fillChoiceValues("TRT_DYN_PREVIOUS_SESSION_NOTE","DPS");
+fillChoiceValues("TRT_STRATEGIC_COVER_NOTE","SNC");
+fillChoiceValues("TRT_LOBBY_CONTACT_QUAL_NOTE","LCQ");
+fillChoiceValues("TRT_BUSINESS_CONTACT_QUAL_NOTE","BCQ");
+fillChoiceValues("TRT_BCOM_SPREAD_VALUE_COMMENT","BSC");
+fillChoiceValues("TRT_BENCHMARK_QUALITY_NOTE","BQ");
+fillChoiceValues("TRT_QUAL_PRICE_RATIO_NOTE","PQR");
+fillChoiceValues("TRT_NEXTEDITION_NOTE","NEN");
+
+
+// traitement spécifique des contacts
+// les valeurs ne sont pas portées dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+
+// recherche des valeurs enregistrées
+var /*ResultSet*/ contactRs = meibo.executeResource("ReportNetworkingContacts", "TRT_ID=" + reportId, 0);
+var contactIndex = 1;
+for each(var /*Entry*/ networkingContactEntry in contactRs){
+  meibo.setFieldValue("CONTACT_NAME_" + contactIndex, networkingContactEntry.TNC_NAME[0]);
+  meibo.setFieldValue("CONTACT_TITLE_" + contactIndex, networkingContactEntry.TNC_TITLE[0]);
+  meibo.setFieldValue("CONTACT_STRUCTURE_" + contactIndex, networkingContactEntry.TNC_STRUCTURE[0]);
+  meibo.setFieldValue("CONTACT_DISCUSSION_" + contactIndex, networkingContactEntry.TNC_DISCUSSION[0]);
+  meibo.setFieldValue("CONTACT_FOLLOWUP_" + contactIndex, networkingContactEntry.TNC_FOLLOWUP[0]);
+  
+  meibo.showField("CONTACT_CONTAINER_" + contactIndex, true);
+  contactIndex++;
+}
+
+// contournement du fonctionnement meibo qui ne prend en compte que la première valeur des champs multivalués dans le cas d'une ressource de type base de données
+fixMultiValueFieldsOnLoad("TRT_PARTNER_LIST");
+fixMultiValueFieldsOnLoad("TRT_NEWSPAPER_LIST");
+fixMultiValueFieldsOnLoad("TRT_JOURNALIST_LIST");
+fixMultiValueFieldsOnLoad("TRT_KEYWORDS");
+fixMultiValueFieldsOnLoad("TRT_DIFFUSION_EMAIL_LIST");
+
+// formatage date
+var /*java.util.Date*/ startDate= SQL_DATE_FORMAT.parse(meibo.getFieldValue("EventDate"));
+var /*String*/ eventDuration = meibo.getFieldValue("EventDate");
+var /*java.util.Date*/ endDate= addDays(startDate, NUMBERFORMAT_INSTANCE.parse(eventDuration).intValue()-1);
+
+meibo.setFieldValue("EventDate", "du " + DATE_FORMAT.format(startDate) +  " au " + DATE_FORMAT.format(endDate));
+
+// Tableau des participants
+var /*Table*/attendeesTable = meibo.getField("ATTENDEES_TABLE");
+var /*ResultSet*/ eventAttendeesRs = meibo.executeResource("R_Attendees", "TCT_ID=" + eventID, 0,"RAS_START_DATE,RAS_END_DATE,TIN_NAME,TPE_NAME,personDisplayName");
+var /*Date*/ startDate = null;
+var /*Date*/ endDate = null;
+
+var line=0;
+for each(var attendeesEntry in eventAttendeesRs){
+  startDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_START_DATE[0]);
+  endDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_END_DATE[0]);
+      
+  attendeesTable.addCell(line,0,attendeesEntry.personDisplayName[0]);
+  attendeesTable.addCell(line,1,DATE_FORMAT.format(startDate));
+  attendeesTable.addCell(line,2,DATE_FORMAT.format(endDate));
+  attendeesTable.addCell(line,3,attendeesEntry.TIN_NAME[0]);
+  attendeesTable.addCell(line,4,attendeesEntry.TPE_NAME[0]);
+  line++;
+}
+
+// Tableau des contacts
+var /*Table*/contactsTable = meibo.getField("CONTACTS_TABLE");
+var /*ResultSet*/ contactRs = meibo.executeResource("ReportNetworkingContacts", "TRT_ID=" + reportId, 0);
+line=0;
+for each(var contactEntry in contactRs){
+  contactsTable.addCell(line,0,contactEntry.TNC_NAME[0]);
+  contactsTable.addCell(line,1,contactEntry.TNC_TITLE[0]);
+  contactsTable.addCell(line,2,contactEntry.TNC_STRUCTURE[0]);
+  contactsTable.addCell(line,3,contactEntry.TNC_DISCUSSION[0]);
+  contactsTable.addCell(line,4,contactEntry.TNC_FOLLOWUP[0]);
+  line++;
+}</onload>
+          </trigger>
+        </sequence>
+      </resource>
+      <resource name="ReportChoices">
+        <properties>
+          <displayname class="lingual">
+            <fr>ReportChoices</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">report_choices</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>TCS_ID,TCS_NAME,TFC_ABBREV,TFC_ID,TFC_NAME</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TCS_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TCS_ID</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TCS_NAME</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TCS_NAME</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+        
+      </resource>
+      <resource name="ReportNetworkingContacts">
+        <properties>
+          <displayname class="lingual">
+            <fr>ReportNetworkingContacts</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"/>
+          <objectclass class="objectclass">T_NETWORKING_CONTACT_TNC</objectclass>
+          <separator class="separator"/>
+          <request class="text"/>
+          <separator class="separator"/>
+          <return class="returnallattributes">
+            <physical>TNC_DISCUSSION,TNC_FOLLOWUP,TNC_ID,TNC_NAME,TNC_STRUCTURE,TNC_TITLE,TRT_ID</physical>
+            <logical/>
+          </return>
+          <onRead class="script"/>
+          <onSubmit class="script"/>
+          <onoperationok class="script"/>
+          <onoperationko class="script"/>
+          <separator class="separator"/>
+          <keyattribute class="returnattributes">TNC_ID</keyattribute>
+          <separator class="separator"/>
+          <sortingon class="sortingon">
+            <attribute class="attribute">TNC_NAME</attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"/>
+          <key class="attribute">TNC_NAME</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"/>
+          <searchattribute class="attribute">TNC_NAME</searchattribute>
+          <separator class="separator"/>
+          <imageclosed class="file"/>
+          <imageopened class="file"/>
+        </properties>
+        
+      </resource>
       <resource name="Status">
         <properties>
           <displayname class="lingual">
@@ -5315,6 +6924,31 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
     </datasource>
   </datasources>
   <resourcelinks auto="A -&gt; Z">
+    <resourcelink name="AddressAddressNature">
+      <properties>
+        <displayname class="lingual">
+          <fr>AddressAddressNature</fr>
+          <en>AddressAddressNature</en>
+          <es>AddressAddressNature</es>
+          <de>AddressAddressNature</de>
+          <it>AddressAddressNature</it>
+          <pt>AddressAddressNature</pt>
+          <zh>AddressAddressNature</zh>
+          <ar>AddressAddressNature</ar>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Address</resourcefrom>
+        <resourceto class="resource">AddressNature</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TNA_ABBREV</attribute1>
+        <attribute2 class="text">TNA_ABBREV</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
     <resourcelink name="AddressContinent">
       <properties>
         <displayname class="lingual">
@@ -5343,6 +6977,24 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <type class="linktype">4</type>
         <attribute1 class="text">TCY_ID</attribute1>
         <attribute2 class="text">TCY_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="AttendeesEvent">
+      <properties>
+        <displayname class="lingual">
+          <fr>Evenements</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">R_Attendees</resourcefrom>
+        <resourceto class="resource">Event</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCT_ID</attribute1>
+        <attribute2 class="text">fkTCT_ID</attribute2>
         <separator class="separator"/>
         <imageclosed class="file"/>
         <imageopened class="file"/>
@@ -5673,9 +7325,9 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <resourcefrom class="resource">Event</resourcefrom>
         <resourceto class="resource">TravelPeople</resourceto>
         <separator class="separator"/>
-        <type class="linktype">0</type>
+        <type class="linktype">4</type>
         <attribute1 class="text">PRS_ID_LEADER</attribute1>
-        <attribute2 class="text"/>
+        <attribute2 class="text">PRS_ID</attribute2>
         <separator class="separator"/>
         <imageclosed class="file"/>
         <imageopened class="file"/>
@@ -5691,6 +7343,24 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <firstlink class="link">EventRMission</firstlink>
         <secondlink class="link">REventMission</secondlink>
         <type class="hidden">6</type>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="EventReport">
+      <properties>
+        <displayname class="lingual">
+          <fr>EventReport</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Event</resourcefrom>
+        <resourceto class="resource">Report</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">fkTCT_ID</attribute1>
+        <attribute2 class="text">TCT_ID</attribute2>
         <separator class="separator"/>
         <imageclosed class="file"/>
         <imageopened class="file"/>
@@ -5987,6 +7657,108 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <imageopened class="file"/>
       </properties>
     </resourcelink>
+    <resourcelink name="ReportChoices">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportChoices</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <firstlink class="link">ReportRChoice</firstlink>
+        <secondlink class="link">RReportChoice</secondlink>
+        <type class="hidden">6</type>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportEvent">
+      <properties>
+        <displayname class="lingual">
+          <fr>Evènement</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">Event</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCT_ID</attribute1>
+        <attribute2 class="text">fkTCT_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportNetworkingContacts">
+      <properties>
+        <displayname class="lingual">
+          <fr>NetworkingContacts</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">ReportNetworkingContacts</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportRChoice">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportRChoice</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">R_ReportChoice</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportRStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">Report</resourcefrom>
+        <resourceto class="resource">R_ReportStatus</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TRT_ID</attribute1>
+        <attribute2 class="text">TRT_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="ReportStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <firstlink class="link">ReportRStatus</firstlink>
+        <secondlink class="link">RReportStatus</secondlink>
+        <type class="hidden">6</type>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
     <resourcelink name="REventHeaderAddress">
       <properties>
         <displayname class="lingual">
@@ -6077,6 +7849,42 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <imageopened class="file"/>
       </properties>
     </resourcelink>
+    <resourcelink name="RReportChoice">
+      <properties>
+        <displayname class="lingual">
+          <fr>RReportChoice</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">R_ReportChoice</resourcefrom>
+        <resourceto class="resource">ReportChoices</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TCS_ID</attribute1>
+        <attribute2 class="text">TCS_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="RReportStatus">
+      <properties>
+        <displayname class="lingual">
+          <fr>ReportStatus</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">R_ReportStatus</resourcefrom>
+        <resourceto class="resource">Status</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TST_ID</attribute1>
+        <attribute2 class="text">TST_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
     <resourcelink name="TravelPeopleADPeople">
       <properties>
         <displayname class="lingual">
@@ -6090,6 +7898,39 @@ if ((scriptedAttributes !=null) &amp;&amp; ("displayName" in scriptedAttributes)
         <type class="linktype">4</type>
         <attribute1 class="text">PRS_LOGIN</attribute1>
         <attribute2 class="text">CN</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="TravelPeopleAttendees">
+      <properties>
+        <displayname class="lingual">
+          <fr>TravelPeopleAttendees</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <resourcefrom class="resource">TravelPeople</resourcefrom>
+        <resourceto class="resource">R_Attendees</resourceto>
+        <separator class="separator"/>
+        <type class="linktype">4</type>
+        <attribute1 class="text">PRS_ID</attribute1>
+        <attribute2 class="text">PRS_ID</attribute2>
+        <separator class="separator"/>
+        <imageclosed class="file"/>
+        <imageopened class="file"/>
+      </properties>
+    </resourcelink>
+    <resourcelink name="TravelPeopleEvents">
+      <properties>
+        <displayname class="lingual">
+          <fr>TravelPeopleEvents</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"/>
+        <firstlink class="link">TravelPeopleAttendees</firstlink>
+        <secondlink class="link">AttendeesEvent</secondlink>
+        <type class="hidden">6</type>
         <separator class="separator"/>
         <imageclosed class="file"/>
         <imageopened class="file"/>
@@ -6194,7 +8035,6 @@ meibo.setReturnObject(resultSet);</onexecute>
       <rights>
         <AdminMeibo>true</AdminMeibo>
         <AnalyseurDeplacement>true</AnalyseurDeplacement>
-        <DDI>true</DDI>
         <InitiateurDeplacement>true</InitiateurDeplacement>
         <OrganisateurVoyage>true</OrganisateurVoyage>
         <Utilisateur>true</Utilisateur>
@@ -6232,9 +8072,9 @@ meibo.setReturnObject(resultSet);</onexecute>
         <type class="dynamictype">DHTML</type>
         <persistent class="boolean">true</persistent>
         <separator class="separator"/>
-        <resources class="resources">People,Continent,RoleOperation,GroupProject,Country,Event,EventHeader,Mission,Address,EventScope,EventType,EventTemplate</resources>
+        <resources class="resources">People,Continent,RoleOperation,GroupProject,Country,Event,EventHeader,Mission,Address,EventScope,EventType,EventTemplate,Report,ReportChoices</resources>
         <separator class="separator"/>
-        <links class="links">ContinentPays,PeopleRolePosition,PeopleRoleOperation,UserManager,ProjetToMembre,GGROPRJToMembre,ContinentCountry,MissionEvent,EventHeaderConcreteEvent,EventAuthor,EventLeader,EventTypeEventScope,EventHeaderEventScope,EventHeaderEventType,EventAddress,EventHeaderAddress,EventTemplateConcreteEvent,EventMission,EventAttendeesPersonADPeople,EventAttendeesPerson,MissionStatus,MissionRootMission,MissionOwnerADPeople,MissionInitiatorADPeople</links>
+        <links class="links">ContinentPays,PeopleRolePosition,PeopleRoleOperation,UserManager,ProjetToMembre,GGROPRJToMembre,ContinentCountry,MissionEvent,EventHeaderConcreteEvent,EventAuthor,EventLeader,EventTypeEventScope,EventHeaderEventScope,EventHeaderEventType,EventAddress,EventHeaderAddress,EventTemplateConcreteEvent,EventMission,EventAttendeesPersonADPeople,EventAttendeesPerson,MissionStatus,MissionRootMission,MissionOwnerADPeople,MissionInitiatorADPeople,EventReport,ReportEvent,ReportNetworkingContacts,ReportStatus,ReportChoices,TravelPeopleEvents</links>
         <separator class="separator"/>
         <imageheader class="file"/>
         <menubackcolor class="color">FFFFFF</menubackcolor>
@@ -6338,11 +8178,18 @@ meibo.setReturnObject(resultSet);</onexecute>
       <rights>
         <AdminMeibo>true</AdminMeibo>
         <AnalyseurDeplacement>true</AnalyseurDeplacement>
-        <DDI>true</DDI>
         <InitiateurDeplacement>true</InitiateurDeplacement>
+        <OrganisateurVoyage>true</OrganisateurVoyage>
+        <Utilisateur>true</Utilisateur>
       </rights>
       <trigger>
-        <onload class="script">// Ajout d'une "non valeur" dans la liste pour permettre de ne rien sélectionner
+        <onload class="script">if(meibo.isUserInRole("DDI")){
+  meibo.showField("EVENT_PANEL",true);
+  meibo.showField("REPORT_CREATE_BTN",true);
+  meibo.showField("EVENT_CREATE_BTN",true);  
+}
+
+// Ajout d'une "non valeur" dans la liste pour permettre de ne rien sélectionner
 var /*Field2*/ typeField= meibo.getField("fkTTY_ID");
 typeField.setOptions("-," + typeField.getOptions());
 typeField.setParameters(" ," + meibo.getFieldParameters("fkTTY_ID"));
@@ -6473,7 +8320,7 @@ scopeField.setValue(" ");</onload>
       <properties>
         <rolelevel class="rolelevel">2</rolelevel>
         <separator class="separator"/>
-        <startperspective class="perspective"/>
+        <startperspective class="perspective">Accueil</startperspective>
       </properties>
     </role>
     <role name="DDI" type="3">
@@ -6515,8 +8362,49 @@ scopeField.setValue(" ");</onload>
   <policy>
     <properties/>
   </policy>
-  <reports auto="A -&gt; Z"/>
-  <batches auto="A -&gt; Z"/>
+  <reports auto="A -&gt; Z">
+    <report name="OrdreDeMission">
+      <properties>
+        <script class="script">///$debug
+var mission = getParameter("mission");
+//Ouverture du document
+var document = new PdfDocument();
+document.open("Mission "+mission);
+var resultSet = meibo.executeResource("Mission","(TMN_ID="+mission+")",1);
+var entry = resultSet.getEntry();
+var dn = entry.getDn();
+var template = meibo.createPdfView(document, "Mission","MissionOrderPrint", dn);
+//template.addTitle("Ordre de mission " + mission);
+template.scale(85);
+
+var table = new PdfTable(1);
+table.addCell(template);
+table.addCell("test 1...");
+document.add(table);
+
+//document.add(template);
+//fermeture du document
+document.close();
+
+meibo.setReport(document);
+</script>
+        <parameters class="list">
+          <item0>mission</item0>
+        </parameters>
+      </properties>
+    </report>
+  </reports>
+  <batches auto="A -&gt; Z">
+    <batch name="test">
+      <properties>
+        <script class="script">//$debug
+var path= meibo.getMeiboPath();
+scripter.print(path);
+</script>
+        <parameters class="list"/>
+      </properties>
+    </batch>
+  </batches>
   <webservices auto="A -&gt; Z">
     <properties>
       <WSMaxPoolSize class="text">30</WSMaxPoolSize>
@@ -6569,24 +8457,25 @@ scopeField.setValue(" ");</onload>
     
   </adaptors>
   <plugins auto="A -&gt; Z">
-    <plugin name="pluginMail-1" title="NotifyForSecondLevelValidation">
+    <plugin name="pluginMail-1" title="NotifyConfirmation">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
-          <subject>Validation de mission (2eme niveau)</subject>
+          <subject>Confirmation de mission</subject>
           <html>true</html>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
-&lt;P&gt;Une mission a été créée pour {param.user}.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
-&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+&lt;P&gt;La mission {param.missionID} pour {param.user} a été validée et organisée.&lt;/P&gt;
+&lt;P&gt;Voici les évènements prévus sur cette mission : &lt;br&gt;
+{param.missionContent}
+&lt;/P&gt;
 {param.MAIL_FOOTER}</body>
           <files>
   </files>
           <to>
-            <resvar>
-              <resource>secondLevelValidationPeople</resource>
+            <entries>
+              <result>notificationPeople</result>
               <attr>mail</attr>
-            </resvar>
+            </entries>
           </to>
           <cc>
             <mail>
@@ -6601,6 +8490,156 @@ scopeField.setValue(" ");</onload>
         </plugin>
       </properties>
     </plugin>
+    <plugin name="pluginMail-1" title="NotifyForCompletion">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Organisation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une mission a été validée pour vous.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la compléter afin de permettre son organisation.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForMissionOrder">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Ordre de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;L'organisation de votre mission a été effectuée.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour confirmer votre participation et éditer l'odre de mission.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+&lt;P&gt;Informations founies sur l'organisation de la mission :&lt;/P&gt;
+&lt;P&gt;{param.organisationComment}&lt;/P&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForOrganisation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Organisation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une mission a été validée et doit être organisée.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour traiter cette organisation.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>targetPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>{param.recipient}
+            
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForReportValidation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d'évènement - demande de validation</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Un compte rendu d'évènment vient d'être réalisé.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour le valider.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>targetPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>{param.recipient}
+            
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForSecondLevelValidation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Validation de mission (2eme niveau)</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une mission a été créée pour {param.user}.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>secondLevelValidationPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
     <plugin name="pluginMail-1" title="NotifyForValidation">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
@@ -6609,7 +8648,7 @@ scopeField.setValue(" ");</onload>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Une mission a été créée pour {param.user}.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour valider ou rejetter cette mission.&lt;/P&gt;
 &lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -6628,7 +8667,7 @@ scopeField.setValue(" ");</onload>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -6658,7 +8697,7 @@ scopeField.setValue(" ");</onload>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -6671,7 +8710,7 @@ scopeField.setValue(" ");</onload>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Une mission a été créée pour vous.&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour accepter ou refuser  la mission.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour accepter ou refuser  la mission.&lt;/P&gt;
 &lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -6686,7 +8725,71 @@ scopeField.setValue(" ");</onload>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyParticipantForReport">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d'évènement</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Vous êtes identifié comme ayant participé récemment à un évenement.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour contribuer au compte-rendu de cette évèmement.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mailvar>
+              <mail>recipient</mail>
+            </mailvar>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyParticipantForReportAdjustment">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Compte-rendu d'évènement - demande de modification ou complément</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Vous êtes identifié comme ayant participé récemment à un évenement.&lt;/P&gt;
+&lt;P&gt;Un premier compte rendu a été réalisé, mais des compléments ou modifications sont demandés :&lt;/P&gt;
+&lt;P&gt;{param.checkReportStepComment}&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour traiter cette demande.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mailvar>
+              <mail>recipient</mail>
+            </mailvar>
+          </to>
+          <cc>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>
@@ -6694,13 +8797,13 @@ scopeField.setValue(" ");</onload>
     <plugin name="pluginMail-1" title="NotifyRejection">
       <properties>
         <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
-          <subject>Proposition de mission</subject>
+          <subject>Mission rejettée</subject>
           <html>true</html>
           <body>&lt;P&gt;Bonjour,&lt;/P&gt;
 {process.MAIL_HEADER}
 &lt;P&gt;Votre mission a été rejettée avec le motif suivant :.&lt;/P&gt;
 &lt;P&gt;{param.reason}&lt;/P&gt;
-&lt;P&gt;Veuillez vous connecter avec le lien ci-dessous pour la modifier ou l'annuler.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la modifier ou l'annuler.&lt;/P&gt;
 &lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
 {param.MAIL_FOOTER}</body>
           <files>
@@ -6715,7 +8818,35 @@ scopeField.setValue(" ");</onload>
           <bcc>
   </bcc>
           <from>{param.MAIL_SENDER}</from>
-          <debug>true</debug>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="Reminder">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d'envoi d'e-mails (v1.2)" name="pluginMail-1">
+          <subject>Rappel sur le workflow de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;Une tache vous a été affectée.&lt;/P&gt;
+&lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour la traiter.&lt;/P&gt;
+&lt;a href="{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}"&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <mail>
+              <mail>{param.recipient}</mail>
+            </mail>
+          </to>
+          <cc>
+  </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
           <SMTPAuth>false</SMTPAuth>
         </plugin>
       </properties>

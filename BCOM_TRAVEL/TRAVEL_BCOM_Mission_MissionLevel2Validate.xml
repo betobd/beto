@@ -749,7 +749,7 @@
     </page>
   </source>
   <destination>
-    <page fr="1" technicalName="1" titleTab="MissionValidate (Mission)">
+    <page fr="1" technicalName="1" titleTab="MissionLevel2Validate (Mission)">
       <verticallayout>
         <css class="css"></css>
         <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
@@ -766,7 +766,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">viewContainer</name>
-        <id class="hidden">m195415047118491</id>
+        <id class="hidden">d1798932118050771</id>
         <childs>
           <label>
             <content class="lingual">
@@ -1469,7 +1469,7 @@ var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 meibo.logInfo(&quot;Rejet de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
 updateMissionStatus(missionId, userId, &quot;MOD&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);
-meibo.setWorkflowVariable(&quot;managerValidated&quot;, &quot;false&quot;);
+meibo.setWorkflowVariable(&quot;secondLevelValidated&quot;, &quot;false&quot;);
 meibo.completeCurrentWorkflowTask();
 meibo.setActiveTab(3);</onclick>
                 <submit class="boolean">true</submit>
@@ -1502,8 +1502,8 @@ meibo.setActiveTab(3);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">1133</posx>
-                <posy class="number">495</posy>
+                <posx class="number">514</posx>
+                <posy class="number">673</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">88</sizex>
@@ -1524,7 +1524,7 @@ meibo.setActiveTab(3);</onclick>
                   <fr></fr>
                 </alt>
                 <tooltip class="lingual">
-                  <fr>Valider la mission</fr>
+                  <fr>Accepter la mission</fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">meibo.showField(&quot;error&quot;, false);
@@ -1535,7 +1535,7 @@ var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 meibo.logInfo(&quot;Validation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
 updateMissionStatus(missionId, userId, &quot;VAL&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);
-meibo.setWorkflowVariable(&quot;managerValidated&quot;, &quot;true&quot;);
+meibo.setWorkflowVariable(&quot;secondLevelValidated&quot;, &quot;true&quot;);
 meibo.completeCurrentWorkflowTask();
 meibo.setActiveTab(2);</onclick>
                 <submit class="boolean">true</submit>
@@ -1609,7 +1609,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">Events</name>
-        <id class="hidden">x195415047432262</id>
+        <id class="hidden">k1798932118385062</id>
       </relation>
       <label type="Text">
         <content class="lingual">
@@ -1635,7 +1635,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">216</alty>
         <name class="text">PRS_ID</name>
-        <id class="hidden">j195415047508503</id>
+        <id class="hidden">i1798932118473043</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
             <pattern class="lingual">
@@ -1687,7 +1687,7 @@ meibo.setActiveTab(2);</onclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">72</alty>
         <name class="text">TMN_ID</name>
-        <id class="hidden">q195415047570084</id>
+        <id class="hidden">k1798932118543424</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
             <pattern class="lingual">
@@ -1716,7 +1716,7 @@ meibo.setActiveTab(2);</onclick>
         </components>
       </label>
     </page>
-    <page fr="2" technicalName="2" titleTab="MissionValidate (Mission)">
+    <page fr="2" technicalName="2" titleTab="MissionLevel2Validate (Mission)">
       <label>
         <content class="lingual">
           <fr>Valider une mission</fr>
@@ -1797,7 +1797,7 @@ meibo.setActiveTab(2);</onclick>
       </label>
       <label>
         <content class="lingual">
-          <fr>Vous avez valid&#233; la mission. Celle-ci doit maintenant &#234;tre valid&#233;e par la DDI</fr>
+          <fr>Vous avez valid&#233; la mission. Celle-ci doit maintenant &#234;tre compl&#233;t&#233;e par le demandeur pour son organisation.</fr>
           <en>You have validated the request</en>
         </content>
         <wordwrap class="boolean">false</wordwrap>
@@ -1814,7 +1814,7 @@ meibo.setActiveTab(2);</onclick>
         <posy class="number">63</posy>
         <sizextype class="sizetype">EXTANDABLE</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">421</sizex>
+        <sizex class="number">610</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">20</sizey>
         <altersizey class="hidden">30</altersizey>
@@ -1823,7 +1823,7 @@ meibo.setActiveTab(2);</onclick>
         <id class="hidden">q10780357541099641</id>
       </label>
     </page>
-    <page fr="3" technicalName="3" titleTab="MissionValidate (Mission)">
+    <page fr="3" technicalName="3" titleTab="MissionLevel2Validate (Mission)">
       <label>
         <content class="lingual">
           <fr>Valider une mission</fr>
@@ -1904,7 +1904,7 @@ meibo.setActiveTab(2);</onclick>
       </label>
       <label>
         <content class="lingual">
-          <fr>Vous avez refus&#233; la mission.</fr>
+          <fr>Vous avez refus&#233; la mission</fr>
           <en>You have rejected the request</en>
         </content>
         <wordwrap class="boolean">false</wordwrap>
@@ -1921,7 +1921,7 @@ meibo.setActiveTab(2);</onclick>
         <posy class="number">63</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">167</sizex>
+        <sizex class="number">164</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
         <sizey class="number">20</sizey>
         <altersizey class="hidden">30</altersizey>

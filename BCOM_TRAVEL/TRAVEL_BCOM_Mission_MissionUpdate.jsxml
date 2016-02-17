@@ -25,7 +25,7 @@ restoreFields(&quot;Mission&quot;);
 
 // Met &#224; jour le contenu du tableau avec les &#233;venements s&#233;lectionn&#233;s
 updateEventsTableContent();</onload>
-  <onquit class="script">//$debug
+  <onquit class="script">///$debug
 var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
 // sauvegarder au pr&#233;alable les valeurs des champs dans le tableau
@@ -139,7 +139,7 @@ if(checkOK){
           }else{
             resultEntry = rs.getEntry();
             resultValue = resultEntry.getAttribute(0)[0];
-            if(resultValue == 0){
+            if(resultValue == &quot;0&quot;){
               meibo.logError(&quot;valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values);
               throw  &quot;La mission n&apos;a pas pu &#234;tre cr&#233;&#233;e&quot;;  // pas plus d&apos;explications disponibles ....
             }

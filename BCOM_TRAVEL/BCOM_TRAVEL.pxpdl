@@ -26,6 +26,10 @@
   </WorkflowProcess>
   <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
   </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+  </WorkflowProcess>
  </WorkflowProcesses>
  <ExtendedAttributes>
   <ExtendedAttribute Name="activityStateColorInactive"  Value="-4144960_-16777216_-65536"/>
