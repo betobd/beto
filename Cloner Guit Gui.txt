@@ -1,0 +1,8 @@
+1) Guid Gui
+
+2) Cloner repository
+
+3) Source Location : ssh//....   .git
+   Target directiory: C:/....
+
+4) Cloner
