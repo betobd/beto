@@ -5774,6 +5774,71 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <rights></rights>
         </sequence>
       </resource>
+      <resource name="MissionList">
+        <properties>
+          <displayname class="lingual">
+            <fr>MissionList</fr>
+          </displayname>
+          <hiddenresource class="boolean">false</hiddenresource>
+          <separator class="separator"></separator>
+          <objectclass class="objectclass">mission_list</objectclass>
+          <separator class="separator"></separator>
+          <request class="text"></request>
+          <separator class="separator"></separator>
+          <return class="returnallattributes">
+            <physical>PRS_ID,RAS_END_DATE,RAS_START_DATE,STATUS_DATE,TMN_ID,TST_ABBREV</physical>
+            <logical></logical>
+          </return>
+          <onRead class="script"></onRead>
+          <onSubmit class="script"></onSubmit>
+          <onoperationok class="script"></onoperationok>
+          <onoperationko class="script"></onoperationko>
+          <separator class="separator"></separator>
+          <keyattribute class="returnattributes">PRS_ID</keyattribute>
+          <separator class="separator"></separator>
+          <sortingon class="sortingon">
+            <attribute class="attribute"></attribute>
+            <reverseOrder class="boolean">false</reverseOrder>
+          </sortingon>
+          <separator class="separator"></separator>
+          <key class="attribute">PRS_ID</key>
+          <entriesbrowsed class="integer">20</entriesbrowsed>
+          <separator class="separator"></separator>
+          <searchattribute class="attribute">PRS_ID</searchattribute>
+          <separator class="separator"></separator>
+          <imageclosed class="file"></imageclosed>
+          <imageopened class="file"></imageopened>
+        </properties>
+        <attributetable>
+          <PRS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID>
+          <RAS_END_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</RAS_END_DATE>
+          <RAS_START_DATE class="label">MAY  - Text - DATE - SINGLE-VALUED</RAS_START_DATE>
+          <STATUS_DATE class="label">MAY  - Text - DATETIME - SINGLE-VALUED</STATUS_DATE>
+          <TMN_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TMN_ID>
+          <TST_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TST_ABBREV>
+        </attributetable>
+        <sequence name="MissionListe" type="4">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionListe</fr>
+              <en>MissionListe</en>
+              <es>MissionListe</es>
+              <de>MissionListe</de>
+              <it>MissionListe</it>
+              <pt>MissionListe</pt>
+              <zh>MissionListe</zh>
+              <ar>MissionListe</ar>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+          </properties>
+          <path>TRAVEL_BCOM_MissionList_MissionListe.xml</path>
+          <class></class>
+        </sequence>
+      </resource>
       <resource name="Purpose">
         <properties>
           <displayname class="lingual">
