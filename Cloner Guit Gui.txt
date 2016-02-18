@@ -1,3 +1,5 @@
+Clonar
+
 1) Guid Gui
 
 2) Cloner repository
@@ -6,3 +8,26 @@
    Target directiory: C:/....
 
 4) Cloner
+
+
+Creer et act
+
+1) Guid Gui
+
+2) Creer repository:
+	Directory: C:/...
+
+3) Add remote:
+	name: " ...  "
+	location: ssh//:.... .git
+
+4) Rescan
+
+5) Sing off: ...sign...
+
+6) Au moins 1 file "staged changed" pour faire commits
+
+7) Push:
+	source brance : ...
+	remote:  ...
+	push
