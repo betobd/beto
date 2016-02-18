@@ -5821,13 +5821,6 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <properties>
             <displayname class="lingual">
               <fr>MissionListe</fr>
-              <en>MissionListe</en>
-              <es>MissionListe</es>
-              <de>MissionListe</de>
-              <it>MissionListe</it>
-              <pt>MissionListe</pt>
-              <zh>MissionListe</zh>
-              <ar>MissionListe</ar>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
