@@ -777,6 +777,41 @@ CREATE TABLE `T_TRIP_TTP` (
 
 
 --
+-- Temporary view structure for view `mission_list`
+--
+
+DROP TABLE IF EXISTS `mission_list`;
+/*!50001 DROP VIEW IF EXISTS `mission_list`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `mission_list` AS SELECT 
+ 1 AS `TMN_ID`,
+ 1 AS `PRS_ID`,
+ 1 AS `RAS_START_DATE`,
+ 1 AS `RAS_END_DATE`,
+ 1 AS `TST_ABBREV`,
+ 1 AS `STATUS_DATE`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `mission_list`
+--
+
+/*!50001 DROP VIEW IF EXISTS `mission_list`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `mission_list` AS select `tmn`.`TMN_ID` AS `TMN_ID`,`ras`.`PRS_ID` AS `PRS_ID`,`ras`.`RAS_START_DATE` AS `RAS_START_DATE`,`ras`.`RAS_END_DATE` AS `RAS_END_DATE`,`tst`.`TST_ABBREV` AS `TST_ABBREV`,`rtst`.`TST_TMN_DATE` AS `STATUS_DATE` from ((((((`T_MISSION_TMN` `tmn` join `R_TMN_TET` `revt` on((`tmn`.`TMN_ID` = `revt`.`TMN_ID`))) join `T_CONCRETE_EVENT_TCT` `tct` on((`revt`.`TCT_ID` = `tct`.`TCT_ID`))) join `T_EVENT_TET` `tet` on((`tct`.`TET_ID` = `tet`.`TET_ID`))) join `R_TST_TMN` `rtst` on((`rtst`.`TMN_ID` = `tmn`.`TMN_ID`))) join `T_STATUS_TST` `tst` on((`rtst`.`TST_ID` = `tst`.`TST_ID`))) join `R_ATTENDEES_RAS` `ras` on((`ras`.`TCT_ID` = `tct`.`TCT_ID`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Temporary view structure for view `travel_event`
 --
 
@@ -855,8 +890,8 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`192.168.13.%` SQL SECURITY DEFINER */
-/*!50001 VIEW `report_choices` AS select `tcs`.`TCS_ID` AS `TCS_ID`,`tcs`.`TCS_NAME` AS `TCS_NAME`,`tfc`.`TFC_ID` AS `TFC_ID`,`tfc`.`TFC_ABBREV` AS `TFC_ABBREV`,`tfc`.`TFC_NAME` AS `TFC_NAME` from (`T_CHOICE_TYPES_TCS` `tcs` join `T_FILTERED_CHOICES_TFC` `tfc` on((`tcs`.`TFC_ID` = `tfc`.`TFC_ID`))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `report_choices` AS select `tcs`.`TCS_ID` AS `TCS_ID`,`tcs`.`TCS_NAME` AS `TCS_NAME`,`tcs`.`TCS_VALUE` AS `TCS_VALUE`,`tfc`.`TFC_ID` AS `TFC_ID`,`tfc`.`TFC_ABBREV` AS `TFC_ABBREV`,`tfc`.`TFC_NAME` AS `TFC_NAME` from (`T_CHOICE_TYPES_TCS` `tcs` join `T_FILTERED_CHOICES_TFC` `tfc` on((`tcs`.`TFC_ID` = `tfc`.`TFC_ID`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -1114,6 +1149,12 @@ SELECT PRS_ID INTO prsID FROM T_PERSON_PRS WHERE PRS_LOGIN = prsLogin;
 SELECT TCT_ID INTO concreteExistingEvtID FROM T_CONCRETE_EVENT_TCT WHERE TET_ID = eventID AND TCT_START_DATE = startDate;
 SET creDate = CURDATE();
 
+IF (startDate < '2016-01-01') 
+THEN
+-- invalid start date : past date
+SET concreteExistingEvtID = 0;
+END IF;
+
 IF (concreteExistingEvtID IS NOT NULL)
 THEN 
 SELECT 0  AS 'ConcreteEventID';
@@ -1164,12 +1205,17 @@ BEGIN
 DECLARE eventID int(11);
 DECLARE scopeID int(11); 
 DECLARE evtTypeID int(11);
-
+DECLARE concreteExistingEvtID int(11) DEFAULT NULL;
 
 SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
 SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
 
-IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND prsLogin IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL AND isTemplate IS NOT NULL)
+IF (startDate >= '2016-01-01') 
+THEN
+SET concreteExistingEvtID = 1;
+END IF;
+
+IF (concreteExistingEvtID IS NOT NULL AND scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND prsLogin IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL AND isTemplate IS NOT NULL)
 THEN
 INSERT INTO T_EVENT_TET (TET_NAME,TET_URL,TET_COMMENT,TET_ISPRIVATE,TET_ISTEMPLATE,TET_DURATION,TET_AVERAGE_COST,TTY_ID,TES_ID) VALUES(eventName,url,remark,isPrivate,isTemplate,duration,cost,evtTypeID,scopeID);
 SELECT LAST_INSERT_ID() INTO eventID;
