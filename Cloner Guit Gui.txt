@@ -3,9 +3,13 @@ parte master
 parte prueba1
 	.
 	elim
+	22
+	22
 parte prueba 2
 
 	elim
+	3
+	3
 
 
 
