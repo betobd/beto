@@ -1,36 +1,8 @@
 parte master
-.
-.
-.
-.
-.
-.
-.
-.
-.
 
 parte prueba1
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+
 parte prueba 2
-.
-.
-edicion de la prueba 2
-.
-.
-.
-.
-.
-.
 
 
 
