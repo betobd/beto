@@ -1,6 +1,9 @@
 parte master
 
 parte prueba1
+	.
+	cod1
+	.
 
 parte prueba 2
 
