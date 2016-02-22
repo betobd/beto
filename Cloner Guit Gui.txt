@@ -1,4 +1,4 @@
-Clonar
+Clonar     PRUEBA 1 - BRANCH
 
 1) Guid Gui
 
@@ -32,17 +32,3 @@ Creer et act
 	remote:  ...
 	push
 
-
-q
-sdfqs
-df
-qs
-df
-qs
-d
-fq
-sd
-fq
-sd
-qs
-df
