@@ -1,7 +1,13 @@
 parte master
 
 parte prueba1
-
+	.
+	cod1
+	.
+	conti
+	.
+	. continuacion2 cod1
+	.
 parte prueba 2
 
 	problema 
