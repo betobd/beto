@@ -6389,6 +6389,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <attributetable>
           <TCS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TCS_ID>
           <TCS_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TCS_NAME>
+          <TCS_VALUE class="label">MAY  - Long - INT - SINGLE-VALUED</TCS_VALUE>
           <TFC_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TFC_ABBREV>
           <TFC_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TFC_ID>
           <TFC_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TFC_NAME>
