@@ -32,7 +32,7 @@
             <posy class="number">-58</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">575</sizex>
+            <sizex class="number">597</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">89</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -178,6 +178,99 @@
             </childs>
           </horizontallayout>
           <horizontallayout>
+            <verticalalignment class="verticalalignment">middle</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">true</hidden>
+            <posx class="number">88</posx>
+            <posy class="number">93</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">829</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">WORKFLOW_MSG_Layout</name>
+            <id class="hidden">f89799368757721</id>
+            <childs class="hidden">
+              <image>
+                <image class="file">images/icon_alert.gif</image>
+                <css class="css"></css>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">57</posx>
+                <posy class="number">113</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">16</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">16</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">d1163452073403911</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </image>
+              <label>
+                <content class="lingual">
+                  <fr>WORKFLOW_MSG</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">877</posx>
+                <posy class="number">446</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">805</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">WORKFLOW_MSG</name>
+                <id class="hidden">m91419656196544</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
             <css class="css"></css>
             <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
@@ -213,7 +306,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">821</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">34</sizey>
+                <sizey class="number">22</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -367,7 +460,7 @@
                     <altersizex class="hidden">220</altersizex>
                     <sizex class="number">220</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">15</sizey>
+                    <sizey class="number">21</sizey>
                     <altersizey class="hidden">22</altersizey>
                     <alty class="hidden">30</alty>
                     <name class="text">TET_NAME</name>
@@ -449,7 +542,7 @@
                     <altersizex class="hidden">220</altersizex>
                     <sizex class="number">220</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">15</sizey>
+                    <sizey class="number">21</sizey>
                     <altersizey class="hidden">22</altersizey>
                     <alty class="hidden">30</alty>
                     <name class="text">TET_COMMENT</name>

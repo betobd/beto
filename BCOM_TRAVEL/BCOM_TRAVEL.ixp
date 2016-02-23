@@ -348,6 +348,13 @@ cursor:default;</extraparms>
         </content>
       </properties>
     </message>
+    <message name="workflowTasksMsg">
+      <properties>
+        <content class="lingual">
+          <fr>Vous avez {0} t&#226;che(s) en cours, et {1} en attente.</fr>
+        </content>
+      </properties>
+    </message>
   </messages>
   <datasources auto="A -&gt; Z">
     <datasource auto="A -&gt; Z" name="ActiveDirectory" type="LDAP">
