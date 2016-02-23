@@ -2084,7 +2084,7 @@ if(selectedRowIndex&gt;=0){
                 <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
                 <autoComplete class="boolean">true</autoComplete>
                 <separator1 class="separator"></separator1>
-                <required class="boolean">false</required>
+                <required class="boolean">true</required>
                 <resourcefed class="resourcefed">
                   <param>///false/false/0/0/</param>
                   <pickertitle class="lingual">
