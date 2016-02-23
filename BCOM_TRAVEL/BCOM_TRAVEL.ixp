@@ -5175,7 +5175,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <reverseOrder class="boolean">true</reverseOrder>
           </sortingon>
           <separator class="separator"></separator>
-          <key class="attribute"></key>
+          <key class="attribute">displayName</key>
           <entriesbrowsed class="integer">20</entriesbrowsed>
           <separator class="separator"></separator>
           <searchattribute class="attribute">TET_NAME</searchattribute>
@@ -5623,7 +5623,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionDisplay" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5660,7 +5660,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionValidate" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Validation de Mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5678,7 +5678,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionCompleteForOrganisation" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Compl&#233;ter la mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5696,7 +5696,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionOrganise" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Organisation de mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5713,7 +5713,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionOrder" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Ordre de mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5731,7 +5731,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionOrderPrint" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Edition d&apos;ordre de mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -5748,7 +5748,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <sequence name="MissionLevel2Validate" type="0">
           <properties>
             <displayname class="lingual">
-              <fr>MissionAccept</fr>
+              <fr>Validation de mission</fr>
             </displayname>
             <maskused class="boolean">true</maskused>
             <separator class="separator"></separator>
@@ -6140,7 +6140,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <request class="text"></request>
           <separator class="separator"></separator>
           <return class="returnallattributes">
-            <physical>PRS_ID,TRT_ID,TST_ID</physical>
+            <physical>PRS_ID,TRT_ID,TST_ID,PRS_TRT_TST_COMMENT,PRS_TRT_TST_DATE,PRS_TRT_TST_ID</physical>
             <logical></logical>
           </return>
           <onRead class="script"></onRead>
@@ -6148,10 +6148,10 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <onoperationok class="script"></onoperationok>
           <onoperationko class="script"></onoperationko>
           <separator class="separator"></separator>
-          <keyattribute class="returnattributes">PRS_ID,TRT_ID,TST_ID</keyattribute>
+          <keyattribute class="returnattributes">PRS_TRT_TST_ID</keyattribute>
           <separator class="separator"></separator>
           <sortingon class="sortingon">
-            <attribute class="attribute">TST_ID</attribute>
+            <attribute class="attribute">PRS_TRT_TST_ID</attribute>
             <reverseOrder class="boolean">false</reverseOrder>
           </sortingon>
           <separator class="separator"></separator>
@@ -6165,6 +6165,9 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         </properties>
         <attributetable>
           <PRS_ID class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_ID>
+          <PRS_TRT_TST_COMMENT class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</PRS_TRT_TST_COMMENT>
+          <PRS_TRT_TST_DATE class="label">MAY  - Text - DATETIME - SINGLE-VALUED</PRS_TRT_TST_DATE>
+          <PRS_TRT_TST_ID class="label">MAY  - Long - INT - SINGLE-VALUED</PRS_TRT_TST_ID>
           <TRT_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TRT_ID>
           <TST_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TST_ID>
         </attributetable>
@@ -8041,7 +8044,9 @@ meibo.setReturnObject(resultSet);</onexecute>
     <batch name="reportWorkflow">
       <properties>
         <script class="noxmlextscript"></script>
-        <parameters class="list"></parameters>
+        <parameters class="list">
+          <item0>eventId</item0>
+        </parameters>
       </properties>
       <path>batches/reportWorkflow.script</path>
     </batch>

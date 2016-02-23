@@ -617,7 +617,7 @@ updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWor
        <ActualParameters>
         <ActualParameter>meibo.logInfo(&quot;Le compte-rendu &quot; + meibo.getWorkflowVariable(&quot;reportID&quot;) + &quot; a &#233;t&#233; rejett&#233; par &quot; + meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;));
 
-updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;), &quot;MOD&quot;, null);</ActualParameter>
+updateReportStatus(meibo.getWorkflowVariable(&quot;reportID&quot;), meibo.getWorkflowVariable(&quot;checkReportStepLastActorId&quot;), &quot;MOD&quot;, meibo.getWorkflowVariable(&quot;checkReportStepComment&quot;));</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>

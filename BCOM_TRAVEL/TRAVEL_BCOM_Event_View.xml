@@ -2676,6 +2676,105 @@
           <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
             <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">68</posx>
+            <posy class="number">6</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">310</sizex>
+            <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+            <sizey class="number">31</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">r298012910697789</id>
+            <childs class="hidden">
+              <label>
+                <content class="lingual">
+                  <fr>Identifiant</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">fkTCT_ID</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">594</posx>
+                <posy class="number">167</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">23</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelfkTCT_ID</name>
+                <id class="hidden">t2982235744198810</id>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>fkTCT_ID</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">842</posx>
+                <posy class="number">170</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">61</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">384</alty>
+                <name class="text">fkTCT_ID</name>
+                <id class="hidden">a10892654533215551</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">fkTCT_ID</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
             <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
             <theme class="theme"></theme>
             <separator class="separator"></separator>
@@ -2956,7 +3055,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">53</sizey>
+            <sizey class="number">43</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">TCT_COMMENT_display</name>
@@ -2982,7 +3081,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                <sizey class="number">45</sizey>
+                <sizey class="number">35</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTCT_COMMENT</name>
@@ -3006,7 +3105,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">434</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">45</sizey>
+                <sizey class="number">35</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TCT_COMMENT</name>
@@ -3952,7 +4051,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">56</sizey>
+            <sizey class="number">50</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4023,7 +4122,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">577</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">48</sizey>
+                <sizey class="number">42</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">MISSION_TABLE</name>
@@ -4075,7 +4174,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">83</sizey>
+            <sizey class="number">70</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4090,7 +4189,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">349</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
-                <sizey class="number">75</sizey>
+                <sizey class="number">62</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -4223,58 +4322,6 @@ try{
           </horizontallayout>
         </childs>
       </verticallayout>
-      <label>
-        <content class="lingual">
-          <fr>fkTCT_ID</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alignment class="alignment">left</alignment>
-        <css class="css"></css>
-        <linklabelid class="text"></linklabelid>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <mail class="boolean">false</mail>
-        <separator class="separator"></separator>
-        <hidden class="boolean">true</hidden>
-        <posx class="number">646</posx>
-        <posy class="number">22</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">61</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">20</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">384</alty>
-        <name class="text">fkTCT_ID</name>
-        <id class="hidden">a10892654533215551</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-            <pattern class="lingual">
-              <fr>{0}</fr>
-            </pattern>
-            <attrs class="linkattrs"></attrs>
-            <clickable class="boolean">false</clickable>
-            <resource class="resource_blank"></resource>
-            <multivalue class="boolean">false</multivalue>
-            <field class="field">fkTCT_ID</field>
-          </values>
-        </fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <pattern class="lingual">
-                <fr>{0}</fr>
-              </pattern>
-              <attrs class="linkattrs"></attrs>
-              <clickable class="boolean">false</clickable>
-              <resource class="resource_blank"></resource>
-              <multivalue class="boolean">false</multivalue>
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </label>
     </page>
   </destination>
 </screen>

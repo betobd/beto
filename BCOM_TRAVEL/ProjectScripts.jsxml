@@ -1383,30 +1383,19 @@ function /*void*/ updateMissionStatus(missionId, actorId, newStatusAbbrev, comme
  * Met &#224; jour le statut d&apos;un compte-rendu
  */
 function /*void*/ updateReportStatus(reportId, actorId, newStatusAbbrev, comment){
-  var RESOURCE_NAME= &quot;R_ReportStatus&quot;;
-  // Note: actuellement l&apos;impl&#233;mentation de la table/ressource ne permet pas de g&#233;r&#233;r historique, date et commentaire
   var statusId = getIdFromAbbrev(&quot;Status&quot;,&quot;TST&quot;, newStatusAbbrev);
   var /*Entry*/ reportStatusEntry = new Entry();
   reportStatusEntry.updateAttribute(new Attribute(&quot;TST_ID&quot;,statusId));
   reportStatusEntry.updateAttribute(new Attribute(&quot;PRS_ID&quot;,actorId));
-  reportStatusEntry.updateAttribute(new Attribute(&quot;TRT_ID&quot;,reportId));
-  /*
-  reportStatusEntry.updateAttribute(new Attribute(&quot;TST_TMN_DATE&quot;, SQL_DATETIME_FORMAT.format(new java.util.Date())));
+  reportStatusEntry.updateAttribute(new Attribute(&quot;TRT_ID&quot;,reportId));  
+  reportStatusEntry.updateAttribute(new Attribute(&quot;PRS_TRT_TST_DATE&quot;, SQL_DATETIME_FORMAT.format(new java.util.Date())));
   if((comment!=null) &amp;&amp; (comment.length&gt;0)){
-    reportStatusEntry.updateAttribute(new Attribute(&quot;TST_TMN_COMMENT&quot;,comment));
+    reportStatusEntry.updateAttribute(new Attribute(&quot;PRS_TRT_TST_COMMENT&quot;,comment));
   }
-  */
-  var entryOK = false;
-  var /*ResultSet*/ rs = meibo.executeResource(RESOURCE_NAME,&quot;TST_ID=&quot; + statusId + &quot; AND PRS_ID=&quot; + actorId + &quot; AND TRT_ID=&quot; + reportId,1);
-  if((rs!=null) &amp;&amp; (rs.getEntry()!=null)){
-  // entr&#233;e trouv&#233;e : modification
-    entryOK = meibo.updateEntry(RESOURCE_NAME,rs.getEntry().getDn(),reportStatusEntry);
-  }else{
-  // non trouv&#233;e: cr&#233;ation
-    entryOK = meibo.createEntry(RESOURCE_NAME,null,reportStatusEntry);
-  }
-  if(!entryOK){
-    meibo.logError(&quot;Echec de cr&#233;ation/mise &#224; jour de l&apos;entr&#233;e &quot; + reportStatusEntry);
+  
+  var entryCreationOK = meibo.createEntry(&quot;R_ReportStatus&quot;,null,reportStatusEntry);
+  if(!entryCreationOK){
+    meibo.logError(&quot;Echec de cr&#233;ation &#224; jour de l&apos;entr&#233;e &quot; + reportStatusEntry);
     throw &quot;Impossible de d&#233;finir le statut du compte rendu&quot;;
   }
 }
