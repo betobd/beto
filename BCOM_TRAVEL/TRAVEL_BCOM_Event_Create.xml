@@ -3090,18 +3090,7 @@ switchTemplateUse();</onclick>
                 <text class="list"></text>
                 <parameters class="list"></parameters>
                 <onclick class="script">///$debug
-setScopesForType();
-
-var /*Field2*/ typeField = meibo.getField(&quot;fkTTY_ID&quot;);
-var /*String*/ typeAbbrev= typeField.getValue();
-
-if((typeAbbrev!=null) &amp;&amp; (typeAbbrev!=&quot;&quot;)){
-  var /*Field2*/ privateCheckBoxField=meibo.getField(&quot;TET_ISPRIVATE&quot;);
-  // les rendez-vous client sont priv&#233;s par d&#233;faut
-  if(typeAbbrev==&quot;CUS&quot;){
-    privateCheckBoxField.check(true);
-  }
-}</onclick>
+setScopesForType();</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>

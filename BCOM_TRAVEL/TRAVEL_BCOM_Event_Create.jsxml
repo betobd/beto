@@ -2,6 +2,7 @@
 <scripts>
   <globalScriptView class="script">/**
  * Affectation des valeurs possibles de port&#233;es d&apos;&#233;venements en fonction du type
+ * Affecte aussi la case &#224; cocher public/priv&#233;
  */
 function /*void*/ setScopesForType(){
   var /*Field2*/ typeField = meibo.getField(&quot;fkTTY_ID&quot;);
@@ -27,6 +28,16 @@ function /*void*/ setScopesForType(){
     var /*Field2*/ scopeField = meibo.getField(&quot;fkTES_ID&quot;);
     scopeField.setOptions(scopeFieldOptions);
     scopeField.setParameters(scopeFieldParameters);
+    
+
+    var /*Field2*/ privateCheckBoxField=meibo.getField(&quot;TET_ISPRIVATE&quot;);
+    // les rendez-vous client, B2B ou Meeting projet Europ&#233;een sont priv&#233;s par d&#233;faut
+    if((typeAbbrev==&quot;CUS&quot;) || (typeAbbrev==&quot;B2B&quot;) || (typeAbbrev==&quot;EUR&quot;)){
+      privateCheckBoxField.check(true);
+    }else{
+      privateCheckBoxField.check(false);
+    }
+    
   }
 }
 
@@ -46,11 +57,12 @@ function /*void*/ switchTemplateUse(){
     meibo.getField(&quot;fkTTY_ID&quot;).setEnabled(false);
     meibo.getField(&quot;fkTES_ID&quot;).setEnabled(false);
     
-    var /*ResultSet*/ eventHeaderRS = meibo.executeResource(&quot;EventHeader&quot;,&quot;TET_ID=&quot; + fieldValue, 1,&quot;TET_NAME,TET_COMMENT,TET_DURATION,TET_URL,TET_AVERAGE_COST,TTY_ABBREV,TES_ABBREV,TAS_ID&quot;);
+    var /*ResultSet*/ eventHeaderRS = meibo.executeResource(&quot;EventHeader&quot;,&quot;TET_ID=&quot; + fieldValue, 1,&quot;TET_NAME,TET_COMMENT,TET_DURATION,TET_ISPRIVATE,TET_URL,TET_AVERAGE_COST,TTY_ABBREV,TES_ABBREV,TAS_ID&quot;);
     var /*Entry*/ eventHeaderEntry = eventHeaderRS.getEntry();
     if(eventHeaderEntry!=null){
     // pr&#233;remplir : dur&#233;e: commentaire, type, port&#233;e, URL, adresse, cout Moyen
       meibo.getField(&quot;TET_NAME&quot;).setValue(eventHeaderEntry.TET_NAME[0]);
+      meibo.getField(&quot;TET_ISPRIVATE&quot;).setValue(eventHeaderEntry.TET_ISPRIVATE[0]);
       meibo.getField(&quot;TCT_COMMENT&quot;).setValue(eventHeaderEntry.TET_COMMENT[0]);
       meibo.getField(&quot;TCT_DURATION&quot;).setValue(eventHeaderEntry.TET_DURATION[0]);
       meibo.getField(&quot;TCT_URL&quot;).setValue(eventHeaderEntry.TET_URL[0]);
