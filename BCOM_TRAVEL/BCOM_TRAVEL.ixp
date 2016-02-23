@@ -8031,6 +8031,13 @@ meibo.setReturnObject(resultSet);</onexecute>
     </report>
   </reports>
   <batches auto="A -&gt; Z">
+    <batch name="reportWorkflow">
+      <properties>
+        <script class="noxmlextscript"></script>
+        <parameters class="list"></parameters>
+      </properties>
+      <path>batches/reportWorkflow.script</path>
+    </batch>
     <batch name="test">
       <properties>
         <script class="noxmlextscript"></script>

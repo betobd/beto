@@ -1626,10 +1626,6 @@ var missionId = meibo.getFieldValue(&quot;TMN_ID&quot;);
 var comment = meibo.getFieldValue(&quot;COMMENT&quot;);
 var /*String*/ userId = meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
 
-var /*String*/ last_comment = meibo.getFieldValue(&quot;LAST_COMMENT&quot;);
-if( comment == &quot;&quot; ) { comment = &quot;Aucun&quot;; }
-comment = last_comment + &quot;Commentaire de la DDI: &quot; + comment + &quot;\n&quot; + &quot;------\n&quot;;
-
 meibo.logInfo(&quot;Validation de la mission &quot; + missionId + &quot; par &quot; + meibo.getUserDn());
 updateMissionStatus(missionId, userId, &quot;VAL&quot;, comment);
 meibo.setWorkflowVariable(&quot;comment&quot;, comment);

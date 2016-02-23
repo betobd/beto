@@ -21,7 +21,7 @@ eventFilter = eventFilter + " AND fkTRT_ID is NULL";
 
 // "Les évènements à portée locale ne donnent pas lieu à la rédaction dun compte-rendu de mission"
 // "Les déplacements à portée internationale donnent lieu à un ordre de mission ainsi quà la rédaction dun compte-rendu de mission (sauf les comités de standardisation et les meetings de projets européens)."
-// => Compte renud seulemenent pour évenement à portée internationale et de type Conférence scientifique et Salon commercial / congrès
+// => Compte rendu seulemenent pour évenement à portée internationale et de type Conférence scientifique et Salon commercial / congrès
 
 // recherche l'id de la portée internationale
 var /*ResultSet*/ scopeRs = meibo.executeResource("EventScope", "TES_ABBREV='INL'",0);
