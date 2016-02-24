@@ -1222,8 +1222,8 @@ if(email==null){
        <Join Type="AND"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452014277554"/>
          <TransitionRef Id="T1454690216184"/>
+         <TransitionRef Id="T1452014277554"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
