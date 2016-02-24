@@ -82,7 +82,28 @@ try{
 }
 
 
-var reportId= meibo.getFieldValue(&quot;TRT_ID&quot;)
+var reportId = meibo.getFieldValue(&quot;TRT_ID&quot;)
+var eventID = meibo.getFieldValue(&quot;EventID&quot;);
+
+// Tableau des participants
+var /*Table*/attendeesTable = meibo.getField(&quot;ATTENDEES_TABLE&quot;);
+var /*ResultSet*/ eventAttendeesRs = meibo.executeResource(&quot;R_Attendees&quot;, &quot;TCT_ID=&quot; + eventID, 0,&quot;RAS_START_DATE,RAS_END_DATE,TIN_NAME,TPE_NAME,personDisplayName&quot;);
+var /*Date*/ startDate = null;
+var /*Date*/ endDate = null;
+
+var line=0;
+for each(var attendeesEntry in eventAttendeesRs){
+  startDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_START_DATE[0]);
+  endDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_END_DATE[0]);
+      
+  attendeesTable.addCell(line,0,attendeesEntry.personDisplayName[0]);
+  attendeesTable.addCell(line,1,DATE_FORMAT.format(startDate));
+  attendeesTable.addCell(line,2,DATE_FORMAT.format(endDate));
+  attendeesTable.addCell(line,3,attendeesEntry.TIN_NAME[0]);
+  attendeesTable.addCell(line,4,attendeesEntry.TPE_NAME[0]);
+  line++;
+}
+
 // Remplit les valeurs possibles des tableaux et listes utilis&#233;s
 fillTableWithChoices(&quot;R_CONTENTS_TYPE&quot;,&quot;CNT&quot;,reportId);
 fillTableWithChoices(&quot;R_MEDIA_TYPE&quot;,&quot;MED&quot;,reportId);

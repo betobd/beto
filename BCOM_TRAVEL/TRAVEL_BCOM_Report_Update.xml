@@ -5437,6 +5437,1379 @@
     </page>
   </source>
   <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="Informations" titleTab="Update (Report)" zh="">
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">EventID</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css">valeur</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">false</enable>
+        <posx class="number">875</posx>
+        <posy class="number">49</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">226</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">216</alty>
+        <name class="text">EventID</name>
+        <id class="hidden">e963616238744881</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TRT_ID</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css">valeur</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">false</enable>
+        <posx class="number">875</posx>
+        <posy class="number">18</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">226</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">216</alty>
+        <name class="text">TRT_ID</name>
+        <id class="hidden">w963616544584832</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TRT_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <verticallayout>
+        <css class="css"></css>
+        <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
+        <theme class="theme"></theme>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">0</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">956</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">m963616695611914</id>
+        <childs class="hidden">
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">88</posx>
+            <posy class="number">231</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">610</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">34</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">p963616695738005</id>
+            <childs class="hidden">
+              <label>
+                <content class="lingual">
+                  <fr>Compte rendu d&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">245</posx>
+                <posy class="number">16</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">162</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">TITLE</name>
+                <id class="hidden">o963616695805456</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">EventName
+                  
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <label>
+            <content class="lingual">
+              <en></en>
+              <fr></fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css"> errorMessage</css>
+            <linklabelid class="text"></linklabelid>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <mail class="boolean">false</mail>
+            <separator class="separator"></separator>
+            <hidden class="boolean">true</hidden>
+            <posx class="number">24</posx>
+            <posy class="number">23</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">11</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">21</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">error</name>
+            <id class="hidden">z963616695858237</id>
+          </label>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">55</posx>
+            <posy class="number">269</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">954</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">34</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">j9636166961016212</id>
+            <childs class="hidden">
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Informations</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(1);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">false</enable>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">79</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">j9648344509675172</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Description g&#233;n&#233;rale</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(2);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">125</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">v9636166961690713</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Port&#233;e et rayonnement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(3);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">182</posx>
+                <posy class="number">27</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">134</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">h9636166962306514</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(4);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">223</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">j9636166962863715</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Contacts et suites &#224; donner</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(5);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">c9636166963450216</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">666</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">124</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">q9636166964007317</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Validation</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">if(isCheckReportStep()){
+  meibo.setActiveTab(8);
+}else{
+  meibo.setActiveTab(7);
+}</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">64</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">r9636166964623218</id>
+              </button>
+            </childs>
+          </horizontallayout>
+          <fixspace>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">45</posx>
+            <posy class="number">89</posy>
+            <sizextype class="hidden">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">30</sizex>
+            <sizeytype class="hidden">FIXED</sizeytype>
+            <sizey class="number">10</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">n9636166964975119</id>
+          </fixspace>
+          <verticallayout>
+            <css class="css"></css>
+            <verticallayout_spaceBetweenComponent class="text">6</verticallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">66</posx>
+            <posy class="number">-143</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">718</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">397</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">contentDisplay</name>
+            <id class="hidden">r9636166965444220</id>
+            <childs>
+              <textarea>
+                <content class="lingual">
+                  <fr>Ce formulaire vous permet d&apos;apporter votre contribution au compte-rendu de l&apos;&#233;v&#232;ment. Une fois votre contribution termin&#233;e, rendez-vous sur l&apos;onglet &quot;Validation&quot;.</fr>
+                </content>
+                <alignment class="fullalignment">left</alignment>
+                <htmlcontent class="boolean">false</htmlcontent>
+                <css class="css"></css>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">198</posx>
+                <posy class="number">56</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">65</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">u9658062807434473</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </textarea>
+              <horizontallayout>
+                <verticalalignment class="verticalalignment">top</verticalalignment>
+                <css class="css"></css>
+                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">90</posx>
+                <posy class="number">267</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">28</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">EventName</name>
+                <id class="hidden">u9636166966060121</id>
+                <childs>
+                  <label>
+                    <content class="lingual">
+                      <fr>Nom de l&apos;&#233;v&#232;nement</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">EventName</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">11</posx>
+                    <posy class="number">191</posy>
+                    <sizextype class="sizetype">FIXED</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">161</sizex>
+                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">216</alty>
+                    <name class="text">labelEventName</name>
+                    <id class="hidden">s9636166966617222</id>
+                    <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">EventName
+          </fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <pattern class="lingual">
+                            <fr>{0}</fr>
+                          </pattern>
+                          <attrs class="linkattrs"></attrs>
+                          <clickable class="boolean">false</clickable>
+                          <resource class="resource_blank"></resource>
+                          <multivalue class="boolean">false</multivalue>
+                          <field class="field">EventName</field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </label>
+                  <label>
+                    <content class="lingual">
+                      <fr>Texte initial</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css"></css>
+                    <linklabelid class="text"></linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">381</posx>
+                    <posy class="number">120</posy>
+                    <sizextype class="sizetype">EXTANDABLE</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">541</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text"></name>
+                    <id class="hidden">t9636166967027823</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                      <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                        <pattern class="lingual">
+                          <fr>{0}</fr>
+                        </pattern>
+                        <attrs class="linkattrs"></attrs>
+                        <clickable class="boolean">false</clickable>
+                        <resource class="resource_blank"></resource>
+                        <multivalue class="boolean">false</multivalue>
+                        <field class="field">EventName</field>
+                      </values>
+                    </fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <pattern class="lingual">
+                            <fr>{0}</fr>
+                          </pattern>
+                          <attrs class="linkattrs"></attrs>
+                          <clickable class="boolean">false</clickable>
+                          <resource class="resource_blank"></resource>
+                          <multivalue class="boolean">false</multivalue>
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </label>
+                </childs>
+              </horizontallayout>
+              <horizontallayout>
+                <verticalalignment class="verticalalignment">top</verticalalignment>
+                <css class="css"></css>
+                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">34</posx>
+                <posy class="number">117</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">28</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">s9636166967526324</id>
+                <childs>
+                  <label>
+                    <content class="lingual">
+                      <fr>Date</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">EventDate</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">11</posx>
+                    <posy class="number">167</posy>
+                    <sizextype class="sizetype">FIXED</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">161</sizex>
+                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">216</alty>
+                    <name class="text">labelEventDate</name>
+                    <id class="hidden">i9636166968054125</id>
+                    <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">EventDate
+          </fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <pattern class="lingual">
+                            <fr>{0}</fr>
+                          </pattern>
+                          <attrs class="linkattrs"></attrs>
+                          <clickable class="boolean">false</clickable>
+                          <resource class="resource_blank"></resource>
+                          <multivalue class="boolean">false</multivalue>
+                          <field class="field">EventDate</field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </label>
+                  <label>
+                    <content class="lingual">
+                      <fr>EventDate</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css"></css>
+                    <linklabelid class="text"></linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">339</posx>
+                    <posy class="number">80</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">66</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text">EventDate</name>
+                    <id class="hidden">g9636166968494026</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                      <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                        <pattern class="lingual">
+                          <fr>{0}</fr>
+                        </pattern>
+                        <attrs class="linkattrs"></attrs>
+                        <clickable class="boolean">false</clickable>
+                        <resource class="resource_blank"></resource>
+                        <multivalue class="boolean">false</multivalue>
+                        <field class="field">EventDate</field>
+                      </values>
+                    </fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <pattern class="lingual">
+                            <fr>{0}</fr>
+                          </pattern>
+                          <attrs class="linkattrs"></attrs>
+                          <clickable class="boolean">false</clickable>
+                          <resource class="resource_blank"></resource>
+                          <multivalue class="boolean">false</multivalue>
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </label>
+                </childs>
+              </horizontallayout>
+              <label>
+                <content class="lingual">
+                  <fr>Les personnes indiqu&#233;es ci-dessous sont enregistr&#233;es sur cet &#233;venement et sollicit&#233;es pour ce compte-rendu :</fr>
+                </content>
+                <wordwrap class="boolean">true</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">216</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">y9690425941895876</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <multilist>
+                <content class="text"></content>
+                <tablecss class="css"></tablecss>
+                <headercss class="css"></headercss>
+                <evenrowcss class="css"></evenrowcss>
+                <oddrowcss class="css"></oddrowcss>
+                <hoverrowcss class="css"></hoverrowcss>
+                <hoverrowboolean class="boolean">false</hoverrowboolean>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <headertitles class="linguallist">
+                  <fr>
+                    <item0>Nom</item0>
+                    <item1>date de d&#233;but</item1>
+                    <item2>date de fin</item2>
+                    <item3>Objectif</item3>
+                    <item4>Type de participation</item4>
+                  </fr>
+                </headertitles>
+                <headerpercents class="list">
+                  <item0>20</item0>
+                  <item1>15</item1>
+                  <item2>15</item2>
+                  <item3>25</item3>
+                  <item4>25</item4>
+                </headerpercents>
+                <headervisible class="multilistsetheaders" headerfix="false">true</headervisible>
+                <onheaderclick class="script"></onheaderclick>
+                <ondoubleclick class="script"></ondoubleclick>
+                <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
+                <separator1 class="separator"></separator1>
+                <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
+                <caption class="lingual">
+                  <fr></fr>
+                </caption>
+                <summary class="lingual">
+                  <fr></fr>
+                </summary>
+                <headerabbreviations class="linguallist">
+                  <fr></fr>
+                </headerabbreviations>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">225</posx>
+                <posy class="number">211</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">ATTENDEES_TABLE</name>
+                <id class="hidden">q9685072870520275</id>
+              </multilist>
+              <image>
+                <image class="file">images/eframe02.gif</image>
+                <css class="css"></css>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">13</posx>
+                <posy class="number">124</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">z9636166968904527</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </image>
+              <verticallayout>
+                <css class="css"></css>
+                <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">true</hidden>
+                <posx class="number">34</posx>
+                <posy class="number">255</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">710</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">79</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">RejectPanel</name>
+                <id class="hidden">u963616695911028</id>
+                <childs class="hidden">
+                  <fixspace>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">25</posx>
+                    <posy class="number">57</posy>
+                    <sizextype class="hidden">FIXED</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">30</sizex>
+                    <sizeytype class="hidden">FIXED</sizeytype>
+                    <sizey class="number">10</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text"></name>
+                    <id class="hidden">i963616695960879</id>
+                  </fixspace>
+                  <label>
+                    <content class="lingual">
+                      <fr>Des compl&#233;ments ou modifications sur votre compte-rendu sont demand&#233;s :</fr>
+                    </content>
+                    <wordwrap class="boolean">true</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css"></css>
+                    <linklabelid class="text"></linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">26</posx>
+                    <posy class="number">40</posy>
+                    <sizextype class="sizetype">EXTANDABLE</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">702</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text"></name>
+                    <id class="hidden">t9636166960048510</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <pattern class="lingual">
+                            <fr>{0}</fr>
+                          </pattern>
+                          <attrs class="linkattrs"></attrs>
+                          <clickable class="boolean">false</clickable>
+                          <resource class="resource_blank"></resource>
+                          <multivalue class="boolean">false</multivalue>
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </label>
+                  <textarea>
+                    <content class="lingual">
+                      <fr>Texte initial</fr>
+                    </content>
+                    <alignment class="fullalignment">left</alignment>
+                    <htmlcontent class="boolean">false</htmlcontent>
+                    <css class="css"></css>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">179</posx>
+                    <posy class="number">269</posy>
+                    <sizextype class="sizetype">EXTANDABLE</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">702</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">15</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text">RejectComment</name>
+                    <id class="hidden">v9636166960488411</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                  </textarea>
+                </childs>
+              </verticallayout>
+            </childs>
+          </verticallayout>
+          <image>
+            <image class="file">images/eframe02.gif</image>
+            <css class="css"></css>
+            <alt class="lingual">
+              <fr></fr>
+            </alt>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">8</posx>
+            <posy class="number">325</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">954</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">34</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">u9636166989549066</id>
+            <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+            <components class="components">
+              <fieldPart class="node" en="" fr="">
+                <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                  <field class="field"></field>
+                </values>
+              </fieldPart>
+            </components>
+          </image>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">155</posx>
+            <posy class="number">399</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">954</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">33</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">p9636166990018267</id>
+            <childs class="hidden">
+              <expandablespace>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">447</posx>
+                <posy class="number">520</posy>
+                <sizextype class="hidden">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">886</sizex>
+                <sizeytype class="hidden">EXTANDABLE</sizeytype>
+                <sizey class="number">25</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">j9636166991513768</id>
+              </expandablespace>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Suivant &gt;</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(meibo.getActiveTab()+1);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">738</posx>
+                <posy class="number">611</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">60</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">25</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">h9636166992774770</id>
+              </button>
+            </childs>
+          </horizontallayout>
+        </childs>
+      </verticallayout>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text"></content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">false</enable>
+        <posx class="number">967</posx>
+        <posy class="number">525</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">30</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">30</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">WORKFLOW_PARAMETER</name>
+        <id class="hidden">m9636282482917771</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+    </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Update (Report)" zh="">
       <edit>
         <placeholder class="lingual">
@@ -5601,7 +6974,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">610</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">34</sizey>
+            <sizey class="number">33</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -5691,7 +7064,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">79</sizey>
+            <sizey class="number">74</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">RejectPanel</name>
@@ -5794,8 +7167,8 @@
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">-13</posx>
+            <posy class="number">137</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -5804,12 +7177,12 @@
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">q1010120357250813</id>
+            <id class="hidden">u9745539336011079</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -5849,23 +7222,23 @@
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <enable class="boolean">false</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <enable class="boolean">true</enable>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">s1025842652305717</id>
+                <id class="hidden">z9745539338122480</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -5905,23 +7278,23 @@
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <enable class="boolean">true</enable>
-                <posx class="number">182</posx>
-                <posy class="number">27</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <enable class="boolean">false</enable>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">c986041558260620</id>
+                <id class="hidden">k9745539339705981</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -5962,22 +7335,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">356</posx>
+                <posx class="number">182</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">223</sizex>
+                <sizex class="number">134</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">v986041606939622</id>
+                <id class="hidden">k9745539341201482</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Contacts et suites &#224; donner</fr>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -6018,22 +7391,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
+                <sizex class="number">223</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">q986041653419224</id>
+                <id class="hidden">w9745539342667783</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                  <fr>Contacts et suites &#224; donner</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -6074,6 +7447,62 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">u9745539344104684</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
                 <posx class="number">666</posx>
                 <posy class="number">43</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
@@ -6084,7 +7513,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">w1897070370694058</id>
+                <id class="hidden">z9745539345512185</id>
               </button>
               <button>
                 <content class="lingual">
@@ -6100,9 +7529,9 @@
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">if(isCheckReportStep()){
-  meibo.setActiveTab(7);
+  meibo.setActiveTab(8);
 }else{
-  meibo.setActiveTab(6);
+  meibo.setActiveTab(7);
 }</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
@@ -6144,7 +7573,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">b192008188084513</id>
+                <id class="hidden">j9745539346978486</id>
               </button>
             </childs>
           </horizontallayout>
@@ -6175,7 +7604,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">718</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">397</sizey>
+            <sizey class="number">373</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">contentDisplay</name>
@@ -6455,7 +7884,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">710</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">45</sizey>
+                <sizey class="number">44</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TRT_CONTENTS</name>
@@ -6515,7 +7944,7 @@
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">272</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">37</sizey>
+                    <sizey class="number">36</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">CONTENT_TYPE_PANEL</name>
@@ -6580,7 +8009,7 @@
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">264</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">24</sizey>
+                        <sizey class="number">23</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -6649,7 +8078,7 @@
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">226</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">16</sizey>
+                            <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">216</alty>
                             <name class="text">TRT_OTHER_CONTENT_TYPE</name>
@@ -6815,7 +8244,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">710</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">117</sizey>
+                <sizey class="number">107</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TRT_CONTENTS</name>
@@ -7332,7 +8761,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">710</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">117</sizey>
+                <sizey class="number">107</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TRT_CONTENTS</name>
@@ -7394,7 +8823,7 @@
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">517</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">109</sizey>
+                    <sizey class="number">99</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text"></name>
@@ -7420,7 +8849,7 @@
                         <altersizex class="number">66</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">20</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelVISITOR_ORIGIN_PANEL</name>
@@ -7484,7 +8913,7 @@
                         <altersizex class="number">22</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">22</altersizey>
                         <alty class="hidden">861</alty>
                         <name class="text">TRT_NORTH_AMERICA_VIS_ORIGIN_RATIO</name>
@@ -7544,7 +8973,7 @@
                         <altersizex class="number">22</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">22</altersizey>
                         <alty class="hidden">861</alty>
                         <name class="text">TRT_EUROPE_VIS_ORIGIN_RATIO</name>
@@ -7583,7 +9012,7 @@
                         <altersizex class="number">66</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">20</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelVISITOR_ORIGIN_PANEL</name>
@@ -7626,7 +9055,7 @@
                         <altersizex class="number">66</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">20</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelVISITOR_ORIGIN_PANEL</name>
@@ -7669,7 +9098,7 @@
                         <altersizex class="number">66</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">20</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelVISITOR_ORIGIN_PANEL</name>
@@ -7733,7 +9162,7 @@
                         <altersizex class="number">22</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">22</altersizey>
                         <alty class="hidden">861</alty>
                         <name class="text">TRT_FRANCE_VIS_ORIGIN_RATIO</name>
@@ -7793,7 +9222,7 @@
                         <altersizex class="number">22</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">22</altersizey>
                         <alty class="hidden">861</alty>
                         <name class="text">TRT_ASIA_VIS_ORIGIN_RATIO</name>
@@ -7832,7 +9261,7 @@
                         <altersizex class="number">66</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">20</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelVISITOR_ORIGIN_PANEL</name>
@@ -7868,7 +9297,7 @@
                         <altersizex class="number">286</altersizex>
                         <sizex class="hidden">254</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="hidden">20</sizey>
+                        <sizey class="hidden">18</sizey>
                         <altersizey class="number">28</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -7916,7 +9345,7 @@
                             <altersizex class="hidden">28</altersizex>
                             <sizex class="number">28</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">12</sizey>
+                            <sizey class="number">10</sizey>
                             <altersizey class="hidden">22</altersizey>
                             <alty class="hidden">861</alty>
                             <name class="text">TRT_OTHER_VIS_ORIGIN_RATIO</name>
@@ -7955,7 +9384,7 @@
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">43</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">12</sizey>
+                            <sizey class="number">10</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">216</alty>
                             <name class="text">labelTRT_OTHER_VIS_ORIGIN_TEXT</name>
@@ -8018,7 +9447,7 @@
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">175</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">12</sizey>
+                            <sizey class="number">10</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">1029</alty>
                             <name class="text">TRT_OTHER_VIS_ORIGIN_TEXT</name>
@@ -8061,7 +9490,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">34</sizey>
+            <sizey class="number">30</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -8101,7 +9530,7 @@
                 <posy class="number">520</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">675</sizex>
+                <sizex class="number">599</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
                 <sizey class="number">25</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -8164,6 +9593,62 @@
                 <alty class="hidden">34</alty>
                 <name class="text">validate</name>
                 <id class="hidden">o2712282388222381</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>&lt; Pr&#233;c&#233;dent</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(meibo.getActiveTab()-1);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">806</posx>
+                <posy class="number">611</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">76</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">25</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">l9734861854651977</id>
               </button>
               <button>
                 <content class="lingual">
@@ -8371,8 +9856,8 @@
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">15</posx>
+            <posy class="number">45</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -8381,12 +9866,12 @@
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">t3057860643905463</id>
+            <id class="hidden">e9751872071339488</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -8427,22 +9912,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">w3057860645576964</id>
+                <id class="hidden">b9751872073538889</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -8482,23 +9967,23 @@
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <enable class="boolean">false</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <enable class="boolean">true</enable>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">x3057860646896565</id>
+                <id class="hidden">a9751872075093090</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -8538,23 +10023,23 @@
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <enable class="boolean">true</enable>
-                <posx class="number">356</posx>
+                <enable class="boolean">false</enable>
+                <posx class="number">182</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">223</sizex>
+                <sizex class="number">134</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">z3057860648245466</id>
+                <id class="hidden">u9751872076969791</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Contacts et suites &#224; donner</fr>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -8595,22 +10080,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
+                <sizex class="number">223</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">u3057860649565167</id>
+                <id class="hidden">d9751872078406692</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                  <fr>Contacts et suites &#224; donner</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -8651,7 +10136,63 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">674</posx>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">a9751872079843593</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">666</posx>
                 <posy class="number">43</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
@@ -8661,7 +10202,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">k1896321604947857</id>
+                <id class="hidden">g9751872081280494</id>
               </button>
               <button>
                 <content class="lingual">
@@ -8677,9 +10218,9 @@
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">if(isCheckReportStep()){
-  meibo.setActiveTab(7);
+  meibo.setActiveTab(8);
 }else{
-  meibo.setActiveTab(6);
+  meibo.setActiveTab(7);
 }</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
@@ -8711,8 +10252,8 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">853</posx>
-                <posy class="number">46</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -8721,7 +10262,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">r190381799910012</id>
+                <id class="hidden">u9751872082688095</id>
               </button>
             </childs>
           </horizontallayout>
@@ -9842,8 +11383,8 @@
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">167</posx>
+            <posy class="number">125</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -9852,12 +11393,12 @@
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">t6334098630637</id>
+            <id class="hidden">p9757969596732397</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -9898,22 +11439,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">b6334098812448</id>
+                <id class="hidden">s9757969598902398</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -9954,17 +11495,73 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">p6334098962009</id>
+                <id class="hidden">a9757969600427199</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Port&#233;e et rayonnement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(3);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">182</posx>
+                <posy class="number">27</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">134</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">w975796960192270</id>
               </button>
               <button>
                 <content class="lingual">
@@ -9979,7 +11576,7 @@
                   <fr></fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
-                <onclick class="script">meibo.setActiveTab(3);</onclick>
+                <onclick class="script">meibo.setActiveTab(4);</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
                 <confirmation class="boolean">false</confirmation>
@@ -10020,68 +11617,12 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">i63340991086210</id>
+                <id class="hidden">j975796960341831</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
                   <fr>Contacts et suites &#224; donner</fr>
-                </content>
-                <wordwrap class="boolean">false</wordwrap>
-                <alt class="lingual">
-                  <fr></fr>
-                </alt>
-                <tooltip class="lingual">
-                  <fr></fr>
-                </tooltip>
-                <tabindex class="number"></tabindex>
-                <onclick class="script">meibo.setActiveTab(4);</onclick>
-                <submit class="boolean">false</submit>
-                <separator0 class="separator"></separator0>
-                <confirmation class="boolean">false</confirmation>
-                <confirmationdialogmessage class="lingual">
-                  <fr></fr>
-                </confirmationdialogmessage>
-                <confirmationdialogtitle class="lingual">
-                  <fr></fr>
-                </confirmationdialogtitle>
-                <theme class="theme"></theme>
-                <css class="css"></css>
-                <separator1 class="separator"></separator1>
-                <waitbutton class="boolean">false</waitbutton>
-                <waitingmode class="waitingmode">prescript</waitingmode>
-                <progressbartitle class="lingual">
-                  <fr></fr>
-                </progressbartitle>
-                <progressbarnboperationtext class="lingual">
-                  <fr></fr>
-                </progressbarnboperationtext>
-                <progressbarnboperationdonetext class="lingual">
-                  <fr></fr>
-                </progressbarnboperationdonetext>
-                <prescript class="script"></prescript>
-                <separator2 class="separator"></separator2>
-                <image class="file"></image>
-                <image2 class="file"></image2>
-                <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
-                <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
-                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-                <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
-                <sizeytype class="sizetype">FIXED</sizeytype>
-                <sizey class="number">26</sizey>
-                <altersizey class="hidden">30</altersizey>
-                <alty class="hidden">0</alty>
-                <name class="text"></name>
-                <id class="hidden">x63340992640411</id>
-              </button>
-              <button>
-                <content class="lingual">
-                  <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -10122,8 +11663,64 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">654</posx>
-                <posy class="number">39</posy>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">c975796960485522</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">666</posx>
+                <posy class="number">43</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">124</sizex>
@@ -10132,7 +11729,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">r1895231215967056</id>
+                <id class="hidden">m975796960629213</id>
               </button>
               <button>
                 <content class="lingual">
@@ -10148,9 +11745,9 @@
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">if(isCheckReportStep()){
-  meibo.setActiveTab(7);
+  meibo.setActiveTab(8);
 }else{
-  meibo.setActiveTab(6);
+  meibo.setActiveTab(7);
 }</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
@@ -10182,8 +11779,8 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">866</posx>
-                <posy class="number">43</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -10192,7 +11789,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">j189451447248511</id>
+                <id class="hidden">r975796960769964</id>
               </button>
             </childs>
           </horizontallayout>
@@ -11569,8 +13166,8 @@
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">-33</posx>
+            <posy class="number">53</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -11579,12 +13176,12 @@
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">f298104477060457</id>
+            <id class="hidden">p976312633068016</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -11625,22 +13222,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">f298104478849258</id>
+                <id class="hidden">i976312633293817</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -11681,22 +13278,22 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">q298104480315459</id>
+                <id class="hidden">e976312633449238</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -11737,6 +13334,62 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
+                <posx class="number">182</posx>
+                <posy class="number">27</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">134</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">h976312633598789</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(4);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
                 <posx class="number">356</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
@@ -11747,7 +13400,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">c298104481781760</id>
+                <id class="hidden">a9763126337395410</id>
               </button>
               <button>
                 <content class="lingual">
@@ -11762,7 +13415,7 @@
                   <fr></fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
-                <onclick class="script">meibo.setActiveTab(4);</onclick>
+                <onclick class="script">meibo.setActiveTab(5);</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
                 <confirmation class="boolean">false</confirmation>
@@ -11803,7 +13456,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">z298104483218661</id>
+                <id class="hidden">h9763126338891011</id>
               </button>
               <button>
                 <content class="lingual">
@@ -11818,7 +13471,7 @@
                   <fr></fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
-                <onclick class="script">meibo.setActiveTab(5);</onclick>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
                 <confirmation class="boolean">false</confirmation>
@@ -11849,7 +13502,7 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">566</posx>
+                <posx class="number">666</posx>
                 <posy class="number">43</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
@@ -11859,7 +13512,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">v1892849660964755</id>
+                <id class="hidden">q9763126340327912</id>
               </button>
               <button>
                 <content class="lingual">
@@ -11875,9 +13528,9 @@
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">if(isCheckReportStep()){
-  meibo.setActiveTab(7);
+  meibo.setActiveTab(8);
 }else{
-  meibo.setActiveTab(6);
+  meibo.setActiveTab(7);
 }</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
@@ -11909,8 +13562,8 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">865</posx>
-                <posy class="number">45</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -11919,7 +13572,7 @@
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">t188136269041010</id>
+                <id class="hidden">c9763126341764813</id>
               </button>
             </childs>
           </horizontallayout>
@@ -15761,8 +17414,8 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">87</posx>
+            <posy class="number">85</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -15771,12 +17424,12 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">s1866859757685753</id>
+            <id class="hidden">p9765626296898315</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -15817,22 +17470,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">e1866859759327954</id>
+                <id class="hidden">x9765626299068316</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -15873,22 +17526,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">o1866859760647555</id>
+                <id class="hidden">z9765626300622517</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -15929,22 +17582,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">356</posx>
+                <posx class="number">182</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">223</sizex>
+                <sizex class="number">134</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">j1866859761937756</id>
+                <id class="hidden">q9765626302147418</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Contacts et suites &#224; donner</fr>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -15985,22 +17638,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
+                <sizex class="number">223</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">x1866859763257357</id>
+                <id class="hidden">y9765626303642919</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                  <fr>Contacts et suites &#224; donner</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -16040,9 +17693,65 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">l9765626305109120</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">meibo.setActiveTab(6);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
                 <enable class="boolean">false</enable>
                 <posx class="number">666</posx>
-                <posy class="number">51</posy>
+                <posy class="number">43</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">124</sizex>
@@ -16051,7 +17760,7 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">k1882922006400352</id>
+                <id class="hidden">m9765626306546021</id>
               </button>
               <button>
                 <content class="lingual">
@@ -16067,9 +17776,9 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <onclick class="script">if(isCheckReportStep()){
-  meibo.setActiveTab(7);
+  meibo.setActiveTab(8);
 }else{
-  meibo.setActiveTab(6);
+  meibo.setActiveTab(7);
 }</onclick>
                 <submit class="boolean">false</submit>
                 <separator0 class="separator"></separator0>
@@ -16101,8 +17810,8 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">855</posx>
-                <posy class="number">47</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -16111,7 +17820,7 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">v18673548701719</id>
+                <id class="hidden">i9765626308012322</id>
               </button>
             </childs>
           </horizontallayout>
@@ -18192,8 +19901,8 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">-1</posx>
+            <posy class="number">45</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">920</sizex>
@@ -18202,12 +19911,12 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">s29311576235544037</id>
+            <id class="hidden">d9779738118281524</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18248,22 +19957,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">q29311576237420838</id>
+                <id class="hidden">m9779738120480925</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18304,22 +20013,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">g29311576238945739</id>
+                <id class="hidden">r9779738122035126</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18360,22 +20069,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">356</posx>
+                <posx class="number">182</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">223</sizex>
+                <sizex class="number">134</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">t29311576240470540</id>
+                <id class="hidden">p9779738123589327</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Contacts et suites &#224; donner</fr>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18416,22 +20125,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
+                <sizex class="number">223</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">y29311576241995441</id>
+                <id class="hidden">q9779738125084828</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                  <fr>Contacts et suites &#224; donner</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18472,22 +20181,22 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">649</posx>
-                <posy class="number">52</posy>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">124</sizex>
+                <sizex class="number">161</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">s29311576243491042</id>
+                <id class="hidden">d9779738126521729</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Validation</fr>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -18527,9 +20236,69 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">666</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">124</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">v9779738127987930</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Validation</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">if(isCheckReportStep()){
+  meibo.setActiveTab(8);
+}else{
+  meibo.setActiveTab(7);
+}</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
                 <enable class="boolean">false</enable>
-                <posx class="number">714</posx>
-                <posy class="number">51</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -18538,7 +20307,7 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">j17802780093758</id>
+                <id class="hidden">g9779738129424831</id>
               </button>
             </childs>
           </horizontallayout>
@@ -19101,22 +20870,22 @@ meibo.setHttpResponse(response);</onclick>
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">55</posx>
-            <posy class="number">269</posy>
+            <posx class="number">51</posx>
+            <posy class="number">41</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">922</sizex>
+            <sizex class="number">920</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">34</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
-            <id class="hidden">d345073983248724</id>
+            <id class="hidden">e9782710088187533</id>
             <childs class="hidden">
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Description g&#233;n&#233;rale</fr>
+                  <fr>Informations</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19157,22 +20926,22 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">40</posx>
-                <posy class="number">43</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">-16</posx>
+                <posy class="number">67</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">79</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">v345073985594625</id>
+                <id class="hidden">o9782710090386934</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Port&#233;e et rayonnement</fr>
+                  <fr>Description g&#233;n&#233;rale</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19213,22 +20982,22 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">146</posx>
-                <posy class="number">58</posy>
-                <sizextype class="sizetype">FIXED</sizextype>
+                <posx class="number">40</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">175</sizex>
+                <sizex class="number">125</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">e345073987530026</id>
+                <id class="hidden">i9782710091941135</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
+                  <fr>Port&#233;e et rayonnement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19269,22 +21038,22 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">356</posx>
+                <posx class="number">182</posx>
                 <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">223</sizex>
+                <sizex class="number">134</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">i345073989465427</id>
+                <id class="hidden">r9782710093436636</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Contacts et suites &#224; donner</fr>
+                  <fr>Synth&#232;se des contenus et appr&#233;ciation</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19325,22 +21094,22 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">594</posx>
-                <posy class="number">67</posy>
+                <posx class="number">356</posx>
+                <posy class="number">27</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">161</sizex>
+                <sizex class="number">223</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">y345073991400928</id>
+                <id class="hidden">l9782710094902937</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
+                  <fr>Contacts et suites &#224; donner</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19381,22 +21150,22 @@ meibo.setHttpResponse(response);</onclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>
-                <posx class="number">649</posx>
-                <posy class="number">52</posy>
+                <posx class="number">594</posx>
+                <posy class="number">67</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">124</sizex>
+                <sizex class="number">161</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">k345073993365629</id>
+                <id class="hidden">z9782710096339838</id>
               </button>
               <button>
                 <content class="lingual">
                   <en></en>
-                  <fr>Validation</fr>
+                  <fr>Bilan de l&apos;&#233;v&#232;nement</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alt class="lingual">
@@ -19436,9 +21205,69 @@ meibo.setHttpResponse(response);</onclick>
                 <image2 class="file"></image2>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">666</posx>
+                <posy class="number">43</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">124</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">26</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">o9782710097776739</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <en></en>
+                  <fr>Validation</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">if(isCheckReportStep()){
+  meibo.setActiveTab(8);
+}else{
+  meibo.setActiveTab(7);
+}</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
                 <enable class="boolean">false</enable>
-                <posx class="number">714</posx>
-                <posy class="number">51</posy>
+                <posx class="number">826</posx>
+                <posy class="number">77</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">64</sizex>
@@ -19447,7 +21276,7 @@ meibo.setHttpResponse(response);</onclick>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">f345073995301030</id>
+                <id class="hidden">j9782710099213640</id>
               </button>
             </childs>
           </horizontallayout>
