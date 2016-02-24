@@ -1450,26 +1450,29 @@ function /*String*/ getHtmlMissionContent(missionID){
   
   var /*ResultSet*/ missionRS = meibo.executeResource(&quot;Mission&quot;,&quot;TMN_ID=&quot; + missionID ,1,&quot;PRS_ID&quot;);
   var /*Entry*/ missionEntry = missionRS.getEntry();  
-  var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionEntry.dn[0],&quot;fkTCT_ID,TET_NAME&quot;);  
+  var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionEntry.dn[0],&quot;fkTCT_ID,TET_NAME,displayName&quot;);  
   var /*ResultSet*/ eventAttendeesRS = null;
   var /*Entry*/ eventAttendeesEntry = null;
 
   for each(var missionEvent in missionEventRS){
     htmlContent= htmlContent +  &quot;&lt;tr&gt;&lt;td&gt;&quot;;
-    htmlContent= htmlContent +  missionEvent.TET_NAME[0];
+    htmlContent= htmlContent +  missionEvent.displayName[0];
     htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
     
     eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot; + missionEntry.PRS_ID[0] + &quot; AND TCT_ID=&quot; + missionEvent.fkTCT_ID[0] ,1,&quot;TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE&quot;);
     eventAttendeesEntry = eventAttendeesRS.getEntry();
-
-    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]));
-    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
-    htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0]));
-    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
-    htmlContent= htmlContent +  eventAttendeesEntry.TPE_NAME[0];
-    htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
-    htmlContent= htmlContent +  eventAttendeesEntry.TIN_NAME[0];    
-    htmlContent= htmlContent +  &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+    if(eventAttendeesEntry!=null){
+      htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0]));
+      htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+      htmlContent= htmlContent +  DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0]));
+      htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+      htmlContent= htmlContent +  eventAttendeesEntry.TPE_NAME[0];
+      htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td&gt;&quot;;
+      htmlContent= htmlContent +  eventAttendeesEntry.TIN_NAME[0];    
+      htmlContent= htmlContent +  &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+    }else{
+      htmlContent= htmlContent + &quot;&lt;/td&gt;&lt;td colspan=&apos;3&apos;&gt;Annul&#233;&lt;/td&gt;&lt;/tr&gt;&quot;;
+    }  
   } 
   
   htmlContent= htmlContent +  &quot;&lt;/table&gt;&quot;;

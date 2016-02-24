@@ -4801,8 +4801,33 @@ updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatiq
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter>//TODO : Notifification pour annulation organisation mission
-meibo.logDebug(&quot;TODO : Notifification pour annulation organisation mission&quot;);</ActualParameter>
+        <ActualParameter>var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var missionID = meibo.getWorkflowVariable(&quot;missionID&quot;);
+var user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+var /*Set&lt;People&gt;*/eligiblePeople = getRecursiveGroupMembersForRole(&quot;OrganisateurVoyage&quot;);
+if(eligiblePeople.isEmpty()){
+  // ne devrait pas arriver ...
+  meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec le role OrganisateurVoyage&quot;);
+}else{
+  var targetPeopleArray = new Array(eligiblePeople.toArray());
+   
+  meibo.logInfo(&quot;Notifification pour annulation organisation mission &quot; + missionID  + &quot; vers &quot; + targetPeopleArray);
+
+  var /*String*/ missionContent = getHtmlMissionContent(missionID);
+  
+  // notification
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;user&quot;, user);
+  params.add(&quot;missionID&quot;, missionID);
+  params.add(&quot;missionContent&quot;, missionContent);  
+  params.add(&quot;targetPeople&quot;, targetPeopleArray);
+  meibo.executePlugin(&quot;NotifyForOrganisationCancellation&quot;,params);
+}</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -5022,8 +5047,8 @@ if(email==null){
        <Join Type="AND"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452014277554"/>
          <TransitionRef Id="T1454690216184"/>
+         <TransitionRef Id="T1452014277554"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
@@ -6474,8 +6499,33 @@ updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatiq
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter>//TODO : Notifification pour annulation organisation mission
-meibo.logDebug(&quot;TODO : Notifification pour annulation organisation mission&quot;);</ActualParameter>
+        <ActualParameter>var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var missionID = meibo.getWorkflowVariable(&quot;missionID&quot;);
+var user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+var /*Set&lt;People&gt;*/eligiblePeople = getRecursiveGroupMembersForRole(&quot;OrganisateurVoyage&quot;);
+if(eligiblePeople.isEmpty()){
+  // ne devrait pas arriver ...
+  meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec le role OrganisateurVoyage&quot;);
+}else{
+  var targetPeopleArray = new Array(eligiblePeople.toArray());
+   
+  meibo.logInfo(&quot;Notifification pour annulation organisation mission &quot; + missionID  + &quot; vers &quot; + targetPeopleArray);
+
+  var /*String*/ missionContent = getHtmlMissionContent(missionID);
+  
+  // notification
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;user&quot;, user);
+  params.add(&quot;missionID&quot;, missionID);
+  params.add(&quot;missionContent&quot;, missionContent);  
+  params.add(&quot;targetPeople&quot;, targetPeopleArray);
+  meibo.executePlugin(&quot;NotifyForOrganisationCancellation&quot;,params);
+}</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -6695,8 +6745,8 @@ if(email==null){
        <Join Type="AND"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452014277554"/>
          <TransitionRef Id="T1454690216184"/>
+         <TransitionRef Id="T1452014277554"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
@@ -9133,8 +9183,33 @@ updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatiq
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter>//TODO : Notifification pour annulation organisation mission
-meibo.logDebug(&quot;TODO : Notifification pour annulation organisation mission&quot;);</ActualParameter>
+        <ActualParameter>var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var missionID = meibo.getWorkflowVariable(&quot;missionID&quot;);
+var user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+var /*Set&lt;People&gt;*/eligiblePeople = getRecursiveGroupMembersForRole(&quot;OrganisateurVoyage&quot;);
+if(eligiblePeople.isEmpty()){
+  // ne devrait pas arriver ...
+  meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec le role OrganisateurVoyage&quot;);
+}else{
+  var targetPeopleArray = new Array(eligiblePeople.toArray());
+   
+  meibo.logInfo(&quot;Notifification pour annulation organisation mission &quot; + missionID  + &quot; vers &quot; + targetPeopleArray);
+
+  var /*String*/ missionContent = getHtmlMissionContent(missionID);
+  
+  // notification
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;user&quot;, user);
+  params.add(&quot;missionID&quot;, missionID);
+  params.add(&quot;missionContent&quot;, missionContent);  
+  params.add(&quot;targetPeople&quot;, targetPeopleArray);
+  meibo.executePlugin(&quot;NotifyForOrganisationCancellation&quot;,params);
+}</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -9354,8 +9429,8 @@ if(email==null){
        <Join Type="AND"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452014277554"/>
          <TransitionRef Id="T1454690216184"/>
+         <TransitionRef Id="T1452014277554"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>
@@ -10806,8 +10881,33 @@ updateMissionStatus(missionID, ownerID, &quot;CAN&quot;, &quot;Abandon automatiq
      <Implementation>
       <Tool Id="MeiboScript" Type="SCRIPT">
        <ActualParameters>
-        <ActualParameter>//TODO : Notifification pour annulation organisation mission
-meibo.logDebug(&quot;TODO : Notifification pour annulation organisation mission&quot;);</ActualParameter>
+        <ActualParameter>var participantDn = meibo.getWorkflowVariable(&quot;participantDN&quot;);
+var missionID = meibo.getWorkflowVariable(&quot;missionID&quot;);
+var user = meibo.getWorkflowVariable(&quot;participantDisplayName&quot;);
+
+var /*Set&lt;People&gt;*/eligiblePeople = getRecursiveGroupMembersForRole(&quot;OrganisateurVoyage&quot;);
+if(eligiblePeople.isEmpty()){
+  // ne devrait pas arriver ...
+  meibo.logWarn(&quot;Aucun utilisateur trouv&#233; avec le role OrganisateurVoyage&quot;);
+}else{
+  var targetPeopleArray = new Array(eligiblePeople.toArray());
+   
+  meibo.logInfo(&quot;Notifification pour annulation organisation mission &quot; + missionID  + &quot; vers &quot; + targetPeopleArray);
+
+  var /*String*/ missionContent = getHtmlMissionContent(missionID);
+  
+  // notification
+  var /*Parameters*/ params = new Parameters();
+  params.add(&quot;MAIL_HEADER&quot;, returnEmpty(getMailParameter(&quot;MAIL_HEADER&quot;)));
+  params.add(&quot;MAIL_FOOTER&quot;, returnEmpty(getMailParameter(&quot;MAIL_FOOTER&quot;)));
+  params.add(&quot;MAIL_LINKNAME&quot;, returnEmpty(getMailParameter(&quot;MAIL_LINKNAME&quot;)));
+  params.add(&quot;MAIL_SENDER&quot;, getMailParameter(&quot;MAIL_SENDER&quot;));
+  params.add(&quot;user&quot;, user);
+  params.add(&quot;missionID&quot;, missionID);
+  params.add(&quot;missionContent&quot;, missionContent);  
+  params.add(&quot;targetPeople&quot;, targetPeopleArray);
+  meibo.executePlugin(&quot;NotifyForOrganisationCancellation&quot;,params);
+}</ActualParameter>
        </ActualParameters>
       </Tool>
      </Implementation>
@@ -11027,8 +11127,8 @@ if(email==null){
        <Join Type="AND"/>
        <Split Type="XOR">
         <TransitionRefs>
-         <TransitionRef Id="T1452014277554"/>
          <TransitionRef Id="T1454690216184"/>
+         <TransitionRef Id="T1452014277554"/>
         </TransitionRefs>
        </Split>
       </TransitionRestriction>

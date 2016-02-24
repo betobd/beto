@@ -302,28 +302,28 @@ cursor:default;</extraparms>
     <message name="eventsTable_date1">
       <properties>
         <content class="lingual">
-          <fr>???</fr>
+          <fr>du</fr>
         </content>
       </properties>
     </message>
     <message name="eventsTable_date2">
       <properties>
         <content class="lingual">
-          <fr>???</fr>
+          <fr>au</fr>
         </content>
       </properties>
     </message>
     <message name="eventsTable_involvement">
       <properties>
         <content class="lingual">
-          <fr>???</fr>
+          <fr>Participation</fr>
         </content>
       </properties>
     </message>
     <message name="eventsTable_name">
       <properties>
         <content class="lingual">
-          <fr>Nom</fr>
+          <fr>Ev&#232;nement</fr>
         </content>
       </properties>
     </message>
@@ -8220,6 +8220,38 @@ meibo.setReturnObject(resultSet);</onexecute>
 &lt;P&gt;Une mission a &#233;t&#233; valid&#233;e et doit &#234;tre organis&#233;e.&lt;/P&gt;
 &lt;P&gt;Veuillez-vous connecter avec le lien ci-dessous pour traiter cette organisation.&lt;/P&gt;
 &lt;a href=&quot;{param.baseURL}&amp;Project=BCOM_TRAVEL&amp;Connection=BCOM_TRAVEL&amp;activity={meibo.getCurrentWorkflowTask().getActivityInstance().getId()}&quot;&gt;{param.MAIL_LINKNAME}&lt;/a&gt;
+{param.MAIL_FOOTER}</body>
+          <files>
+  </files>
+          <to>
+            <entries>
+              <result>targetPeople</result>
+              <attr>mail</attr>
+            </entries>
+          </to>
+          <cc>{param.recipient}
+            
+          </cc>
+          <bcc>
+  </bcc>
+          <from>{param.MAIL_SENDER}</from>
+          <debug>false</debug>
+          <SMTPAuth>false</SMTPAuth>
+        </plugin>
+      </properties>
+    </plugin>
+    <plugin name="pluginMail-1" title="NotifyForOrganisationCancellation">
+      <properties>
+        <plugin en="Plugin to send e-mails (v1.2)" fr="Plugin d&apos;envoi d&apos;e-mails (v1.2)" name="pluginMail-1">
+          <subject>Annulation de mission</subject>
+          <html>true</html>
+          <body>&lt;P&gt;Bonjour,&lt;/P&gt;
+{process.MAIL_HEADER}
+&lt;P&gt;La mission {param.missionID} pour {param.user} a &#233;t&#233; annul&#233;e.&lt;/P&gt;
+&lt;P&gt;Voici les &#233;v&#232;nements qui &#233;taient pr&#233;vus sur cette mission : &lt;br&gt;
+{param.missionContent}
+&lt;/P&gt;
+&lt;P&gt;Merci de proc&#233;der &#224; l&apos;annulation des r&#233;servations effecu&#233;es.&lt;/P&gt;
 {param.MAIL_FOOTER}</body>
           <files>
   </files>
