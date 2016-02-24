@@ -2686,7 +2686,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">310</sizex>
             <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-            <sizey class="number">31</sizey>
+            <sizey class="number">34</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -2712,7 +2712,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                <sizey class="number">23</sizey>
+                <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelfkTCT_ID</name>
@@ -3055,7 +3055,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">43</sizey>
+            <sizey class="number">38</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">TCT_COMMENT_display</name>
@@ -3081,7 +3081,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                <sizey class="number">35</sizey>
+                <sizey class="number">30</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTCT_COMMENT</name>
@@ -3105,7 +3105,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">434</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">35</sizey>
+                <sizey class="number">30</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TCT_COMMENT</name>
@@ -3998,7 +3998,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">28</sizey>
+            <sizey class="number">32</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4051,7 +4051,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">50</sizey>
+            <sizey class="number">47</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4122,7 +4122,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">577</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">42</sizey>
+                <sizey class="number">39</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">MISSION_TABLE</name>
@@ -4147,7 +4147,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">28</sizey>
+            <sizey class="number">32</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4174,7 +4174,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">70</sizey>
+            <sizey class="number">64</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4189,7 +4189,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">349</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
-                <sizey class="number">62</sizey>
+                <sizey class="number">56</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>

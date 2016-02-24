@@ -38,31 +38,8 @@ if((rootMissionRS!=null) &amp;&amp; (rootMissionRS.getEntryCount()&gt;0)){
 // Restaure les valeur pr&#233;c&#233;dentes dans le cas o&#249; l&apos;on revient sur ce formulaire
 //restoreFields(&quot;Mission&quot;);
 
-// Met &#224; jour le contenu du tableau
+// Met &#224; jour le contenu des tableaux
+showEvents(currentDN);
 
-var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
-var /*String*/ownerID = meibo.getFieldValue(&quot;PRS_ID&quot;);
-
-var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, currentDN,&quot;fkTCT_ID,TET_NAME&quot;);
-var /*ResultSet*/ eventAttendeesRS = null;
-var /*Entry*/ eventAttendeesEntry = null;
-var /*int*/ line=0;
-var missionId=null;
-
-for each(var missionEvent in missionEventRS){
-
-  missionId = missionEvent.fkTCT_ID[0]
-  table.addRowObject(line, missionEvent.fkTCT_ID[0]);
-  table.addCell(line,0,missionEvent.TET_NAME[0]);
-  
-  eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot;+ ownerID + &quot; AND TCT_ID=&quot;+missionId ,1,&quot;TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE&quot;);
-  eventAttendeesEntry = eventAttendeesRS.getEntry();
-          
-  table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
-  table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
-  table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
-  table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
-  
-  line++ 
-}</onload>
+showMissionHistory(currentDN);</onload>
 </scripts>

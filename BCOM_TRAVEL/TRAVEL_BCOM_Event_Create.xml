@@ -4468,10 +4468,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_NAME</name>
                         <id class="hidden">p249766568976957</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -4575,17 +4573,15 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <posy class="number">90</posy>
                         <sizextype class="sizetype">FIXED</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">105</sizex>
+                        <sizex class="number">145</sizex>
                         <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                         <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_PHONENUMBER</name>
                         <id class="hidden">o2497665693493810</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -4696,10 +4692,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_ADDR1</name>
                         <id class="hidden">b2497665697100713</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -4810,10 +4804,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_ADDR2</name>
                         <id class="hidden">x2497665701352716</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -4924,10 +4916,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_ADDR3</name>
                         <id class="hidden">r2497665704930319</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -5038,10 +5028,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_ZIPCODE</name>
                         <id class="hidden">h2497665708449222</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -5152,10 +5140,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_TOWN</name>
                         <id class="hidden">o2497665711968225</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TAS_TOWN</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TAS_TOWN
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -5266,10 +5252,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TAS_STATE</name>
                         <id class="hidden">c2497665715487128</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">
@@ -5380,10 +5364,8 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <alty class="hidden">216</alty>
                         <name class="text">TCY_ID</name>
                         <id class="hidden">s2497665718976731</id>
-                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-                          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                            <field class="field">TCT_COMMENT</field>
-                          </values>
+                        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_COMMENT
+                          
                         </fieldButton>
                         <components class="components">
                           <fieldPart class="node" en="" fr="">

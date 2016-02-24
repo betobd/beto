@@ -1480,6 +1480,105 @@ function /*String*/ getHtmlMissionContent(missionID){
   return htmlContent;
 }
 
+/**
+ * Affiche le tableau des evenements d&apos;une mission
+ */
+function /*void*/ showEvents(missionDn){ 
+  var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+  var /*String*/ownerID = meibo.getFieldValue(&quot;PRS_ID&quot;);
+
+  var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionDn,&quot;fkTCT_ID,TET_NAME&quot;);
+  var /*ResultSet*/ eventAttendeesRS = null;
+  var /*Entry*/ eventAttendeesEntry = null;
+  var /*int*/ line=0;
+  var missionId=null;
+
+  for each(var missionEvent in missionEventRS){
+
+    missionId = missionEvent.fkTCT_ID[0]
+    //table.addRowObject(line, missionEvent.fkTCT_ID[0]);
+    table.addRowObject(line, missionEvent.dn[0]);
+    table.addCell(line,0,missionEvent.TET_NAME[0]);
+    
+    eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot;+ ownerID + &quot; AND TCT_ID=&quot;+missionId ,1,&quot;TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE&quot;);
+    eventAttendeesEntry = eventAttendeesRS.getEntry();
+            
+    table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+    table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+    table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+    table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]); 
+    
+    line++ 
+  }
+}
+
+/**
+ * Affiche le tableau d&apos;historique d&apos;une mission
+ */
+function /*void*/ showMissionHistory(missionDn){ 
+  var table = meibo.getField(&quot;HISTORY_TABLE&quot;);
+
+  var /*ResultSet*/ missionHistoryRS = meibo.executeLink(&quot;MissionRStatus&quot;, missionDn,&quot;TST_TMN_DATE,TST_TMN_COMMENT,peopleName,TST_NAME&quot;);
+  var line = 0;
+
+  for each(var statusEntry in missionHistoryRS){
+
+    //table.addRowObject(line, statusEntry.fkTCT_ID[0]);
+    table.addCell(line,0,statusEntry.peopleName[0]);
+    table.addCell(line,1,DATETIME_FORMAT.format(SQL_DATETIME_FORMAT.parse(statusEntry.TST_TMN_DATE[0])));
+    table.addCell(line,2,statusEntry.TST_NAME[0]);
+    table.addCell(line,3,statusEntry.TST_TMN_COMMENT[0]);
+    
+    line++ 
+  }
+}
+ 
+
+/**
+ * Affiche sur un formulaire le detail de la mission s&#233;lectionn&#233;e dans le tableau EVENTS_TABLE de la vue
+ */
+function /*void*/ showEventDetails(){
+  var /*Table*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+  var /*int*/ selectedRowIndex = table.getSelectedRow();
+  var /*String*/ selectedEventDn = table.getRowObject(selectedRowIndex);
+  //meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
+  meibo.showField(&quot;eventContainer&quot;,true);
+  var eventEntry = meibo.getDnEntry(&quot;Event&quot;,selectedEventDn,&quot;TET_NAME,TypeName,ScopeName,TCT_COMMENT,TCT_START_DATE,TCT_DURATION,TCT_URL,TET_AVERAGE_COST,fkTAS_ID&quot;);
+  meibo.setFieldValue(&quot;TET_NAME&quot;,eventEntry.TET_NAME[0]);
+  meibo.setFieldValue(&quot;fkTTY_ID&quot;,eventEntry.TypeName[0]);
+  meibo.setFieldValue(&quot;fkTES_ID&quot;,eventEntry.ScopeName[0]);
+  meibo.setFieldValue(&quot;TCT_COMMENT&quot;,eventEntry.TCT_COMMENT[0]);
+  meibo.setFieldValue(&quot;TCT_START_DATE&quot;,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventEntry.TCT_START_DATE[0])));
+  meibo.setFieldValue(&quot;TCT_DURATION&quot;,eventEntry.TCT_DURATION[0]);
+  meibo.setFieldValue(&quot;TCT_URL&quot;,eventEntry.TCT_URL[0]);
+  meibo.setFieldValue(&quot;TET_AVERAGE_COST&quot;,eventEntry.TET_AVERAGE_COST[0]);
+  meibo.setFieldValue(&quot;fkTAS_ID&quot;,eventEntry.fkTAS_ID[0]);
+
+  var addressRs = meibo.executeLink(&quot;EventAddress&quot;,selectedEventDn,&quot;TAS_NAME,TAS_PHONENUMBER,TAS_ADDR1,TAS_ADDR2,TAS_ADDR3,TAS_ZIPCODE,TAS_TOWN,TAS_STATE,TCY_FR_FR_NAME&quot;);
+  var addressEntry = addressRs.getEntry();
+  meibo.setFieldValue(&quot;TAS_NAME&quot;,addressEntry.TAS_NAME[0]);
+  meibo.setFieldValue(&quot;TAS_PHONENUMBER&quot;,addressEntry.TAS_PHONENUMBER[0]);
+  meibo.setFieldValue(&quot;TAS_ADDR1&quot;,addressEntry.TAS_ADDR1[0]);
+  meibo.setFieldValue(&quot;TAS_ADDR2&quot;,addressEntry.TAS_ADDR2[0]);
+  meibo.setFieldValue(&quot;TAS_ADDR3&quot;,addressEntry.TAS_ADDR3[0]);
+  meibo.setFieldValue(&quot;TAS_ZIPCODE&quot;,addressEntry.TAS_ZIPCODE[0]);
+  meibo.setFieldValue(&quot;TAS_TOWN&quot;,addressEntry.TAS_TOWN[0]);
+  meibo.setFieldValue(&quot;TAS_STATE&quot;,addressEntry.TAS_STATE[0]);
+  meibo.setFieldValue(&quot;TCY_FR_FR_NAME&quot;,addressEntry.TCY_FR_FR_NAME[0]);
+
+
+  var /*ResultSet*/ missionRS = meibo.executeLink(&quot;EventMission&quot;, selectedEventDn, &quot;TMN_ID,TMN_CREATE_DATE,OwnerName&quot;);
+  var /*int*/ line=0;
+  table = meibo.getField(&quot;MISSION_TABLE&quot;);
+  for each(var mission in missionRS){
+    table.addRowObject(line, mission.dn[0]);
+    table.addCell(line,0,mission.TMN_ID[0]);          
+    table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(mission.TMN_CREATE_DATE[0])));
+    table.addCell(line,2,mission.OwnerName[0]);  
+    line++ 
+  }
+}
+
 /////////////////////
 //  Fin de script  //
 /////////////////////</globalscript>
