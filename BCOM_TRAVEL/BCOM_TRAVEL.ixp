@@ -5837,6 +5837,15 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           </properties>
           <path>TRAVEL_BCOM_MissionList_MissionListe.xml</path>
           <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
+          </rights>
         </sequence>
       </resource>
       <resource name="Purpose">
