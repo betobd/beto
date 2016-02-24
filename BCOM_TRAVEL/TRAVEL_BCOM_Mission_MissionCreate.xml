@@ -1186,7 +1186,7 @@
                 <css class="css">libelle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
-                  <fr></fr>
+                  <fr>Vous pouvez ajouter des &#233;venements existants &#224; l&apos;aide du bouton de s&#233;lection &#224; droite, ou r&#233;f&#233;rencer de nouveaux &#233;venements ou rendez-vous en utilisant le bouton d&#233;di&#233; (sous le tableau)</fr>
                 </tooltip>
                 <mail class="boolean">false</mail>
                 <separator class="separator"></separator>
@@ -1884,7 +1884,7 @@ updateEventsTableContent();</param>
                           <fr></fr>
                         </alt>
                         <tooltip class="lingual">
-                          <fr>Affiche le formulaire pour r&#233;f&#233;rencer un nouvel &#233;venement (ou une nouvelle instance d&apos;un &#233;venement r&#233;curent)</fr>
+                          <fr>Affiche le formulaire pour r&#233;f&#233;rencer un nouvel &#233;venement ou rendez-vous (ou une nouvelle instance d&apos;un &#233;venement r&#233;curent)</fr>
                         </tooltip>
                         <tabindex class="number"></tabindex>
                         <onclick class="script">///$debug
