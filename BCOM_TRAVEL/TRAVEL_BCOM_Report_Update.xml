@@ -5576,7 +5576,7 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -6809,6 +6809,25 @@
           </fieldPart>
         </components>
       </edit>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">z135577873701241</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Update (Report)" zh="">
       <edit>
@@ -6949,7 +6968,7 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -6982,7 +7001,7 @@
             <childs class="hidden">
               <label>
                 <content class="lingual">
-                  <fr>Compte rendu d&apos;&#233;v&#232;nement</fr>
+                  <fr>Compte rendu d&apos;&#233;v&#232;nementPanneau</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -6998,7 +7017,7 @@
                 <posy class="number">16</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">162</sizex>
+                <sizex class="number">212</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -9765,6 +9784,25 @@
           </fieldPart>
         </components>
       </edit>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">e136648213559922</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="2" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -9773,7 +9811,7 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -9806,7 +9844,7 @@
             <childs class="hidden">
               <label>
                 <content class="lingual">
-                  <fr>Compte rendu d&apos;&#233;v&#232;nement</fr>
+                  <fr>Compte rendu d&apos;&#233;v&#232;nementPanneau</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -9822,7 +9860,7 @@
                 <posy class="number">0</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">162</sizex>
+                <sizex class="number">212</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -11292,6 +11330,25 @@
           </horizontallayout>
         </childs>
       </verticallayout>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">r137196767614083</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="3" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -11300,7 +11357,7 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -13075,6 +13132,25 @@
         <name class="text">error</name>
         <id class="hidden">b1905933252309220</id>
       </label>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">l137229100817144</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="4" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -13083,7 +13159,7 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -17323,6 +17399,25 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
           </horizontallayout>
         </childs>
       </verticallayout>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">v137278530822675</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="5" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -17331,7 +17426,7 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -19810,6 +19905,25 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
           </horizontallayout>
         </childs>
       </verticallayout>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">i137316054022586</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="Validation" it="" pt="" technicalName="Validation" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -19818,7 +19932,7 @@ for(var i=2; i&lt;=CONTAINERS_COUNT;i++){
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -20779,6 +20893,25 @@ meibo.setHttpResponse(response);</onclick>
           </horizontallayout>
         </childs>
       </verticallayout>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">p137353093600977</id>
+      </frame>
     </page>
     <page ar="" de="" en="" es="" fr="Validation DDI" it="" pt="" technicalName="Validation2" titleTab="Update (Report)" zh="">
       <verticallayout>
@@ -20787,7 +20920,7 @@ meibo.setHttpResponse(response);</onclick>
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">0</posx>
+        <posx class="number">10</posx>
         <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
@@ -21950,6 +22083,25 @@ meibo.setHttpResponse(response);</onclick>
           </horizontallayout>
         </childs>
       </verticallayout>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">x137394051006638</id>
+      </frame>
     </page>
   </destination>
 </screen>

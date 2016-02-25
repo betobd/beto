@@ -96,6 +96,18 @@ cursor:default;</extraparms>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
+    <style name="Dialog_bold_12_000000_Opaque_FFFFFF__000000_">
+      <properties>
+        <font class="font">Dialog,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">true</opaque>
+        <bgcolor class="color">FFFFFF</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number"></linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
     <style name="errorMessage">
       <properties>
         <font class="font">Dialog,bold,12</font>
@@ -144,27 +156,15 @@ cursor:default;</extraparms>
         <extraparms class="textarea">cursor:default;</extraparms>
       </properties>
     </style>
-    <style name="Verdana_bold_12_000000__CCCCCC__000000_">
+    <style name="TraitDeco">
       <properties>
-        <font class="font">Verdana,bold,12</font>
-        <color class="color">000000</color>
+        <font class="font">Arial,plain,12</font>
+        <color class="color">00D2F8</color>
         <opaque class="boolean">false</opaque>
-        <bgcolor class="color">CCCCCC</bgcolor>
-        <framed class="boolean">false</framed>
-        <framecolor class="color">000000</framecolor>
-        <linethickness class="number"></linethickness>
-        <extraparms class="textarea"></extraparms>
-      </properties>
-    </style>
-    <style name="Verdana_bold_12_000000__FFFFFF__000000_1">
-      <properties>
-        <font class="font">Verdana,bold,12</font>
-        <color class="color">000000</color>
-        <opaque class="boolean">false</opaque>
-        <bgcolor class="color">FFFFFF</bgcolor>
-        <framed class="boolean">false</framed>
-        <framecolor class="color">000000</framecolor>
-        <linethickness class="number">1</linethickness>
+        <bgcolor class="color">00D2F8</bgcolor>
+        <framed class="boolean">true</framed>
+        <framecolor class="color">00D2F8</framecolor>
+        <linethickness class="number">2</linethickness>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
@@ -180,15 +180,15 @@ cursor:default;</extraparms>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
-    <style name="Verdana_bold_16_000000__FFFF99__000000_1">
+    <style name="Verdana_bold_12_000000__CCCCCC__000000_">
       <properties>
-        <font class="font">Verdana,bold,16</font>
+        <font class="font">Verdana,bold,12</font>
         <color class="color">000000</color>
         <opaque class="boolean">false</opaque>
-        <bgcolor class="color">FFFF99</bgcolor>
+        <bgcolor class="color">CCCCCC</bgcolor>
         <framed class="boolean">false</framed>
         <framecolor class="color">000000</framecolor>
-        <linethickness class="number">1</linethickness>
+        <linethickness class="number"></linethickness>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
@@ -204,15 +204,27 @@ cursor:default;</extraparms>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
-    <style name="Dialog_bold_12_000000_Opaque_FFFFFF__000000_">
+    <style name="Verdana_bold_12_000000__FFFFFF__000000_1">
       <properties>
-        <font class="font">Dialog,bold,12</font>
+        <font class="font">Verdana,bold,12</font>
         <color class="color">000000</color>
-        <opaque class="boolean">true</opaque>
+        <opaque class="boolean">false</opaque>
         <bgcolor class="color">FFFFFF</bgcolor>
         <framed class="boolean">false</framed>
         <framecolor class="color">000000</framecolor>
-        <linethickness class="number"></linethickness>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="Verdana_bold_16_000000__FFFF99__000000_1">
+      <properties>
+        <font class="font">Verdana,bold,16</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
@@ -7827,8 +7839,8 @@ meibo.setReturnObject(resultSet);</onexecute>
         <separator class="separator"></separator>
         <leftwidth class="number">315</leftwidth>
         <separator class="separator"></separator>
-        <textcss class="css"> LabelFormulaireTaches</textcss>
-        <titlecss class="css"> SousTitreTache</titlecss>
+        <textcss class="css"></textcss>
+        <titlecss class="css"></titlecss>
         <textcolor class="color">000000</textcolor>
         <bgcolor class="color">FFFFFF</bgcolor>
         <separator class="separator"></separator>

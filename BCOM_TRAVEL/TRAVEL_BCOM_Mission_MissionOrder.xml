@@ -849,8 +849,8 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">4</posx>
-        <posy class="number">4</posy>
+        <posx class="number">10</posx>
+        <posy class="number">0</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">670</sizex>
@@ -2173,6 +2173,25 @@ meibo.setActiveTab(2);</onclick>
           </fieldPart>
         </components>
       </label>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">m1646334115308765</id>
+      </frame>
     </page>
     <page fr="2" technicalName="2" titleTab="MissionOrder (Mission)">
       <label>
@@ -2280,6 +2299,25 @@ meibo.setActiveTab(2);</onclick>
         <name class="text"></name>
         <id class="hidden">q10780357541099641</id>
       </label>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">k1883881035962482</id>
+      </frame>
     </page>
     <page fr="3" technicalName="3" titleTab="MissionOrder (Mission)">
       <label>
@@ -2387,6 +2425,25 @@ meibo.setActiveTab(2);</onclick>
         <name class="text"></name>
         <id class="hidden">g10780357611302345</id>
       </label>
+      <frame>
+        <css class="css"> TraitDeco</css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">2</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">7</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">645</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">S&#233;paration</name>
+        <id class="hidden">e1884974619927383</id>
+      </frame>
     </page>
   </destination>
 </screen>
