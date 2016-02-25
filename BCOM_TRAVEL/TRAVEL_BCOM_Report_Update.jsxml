@@ -67,6 +67,11 @@ try{
   if(isCheckReportStep()){
   // mode validation par AnalyseurDeplacement
     meibo.logDebug(&quot;Traitement de l&apos;activit&#233; de compte-rendu : &quot; + wapiActivityInst.getDisplayName() + &quot; en mode AnalyseurDeplacement&quot;);
+    // On reprend les remarques de l&apos;AnalyseurDeplacement qu&apos;il a pu d&#233;j&#224; entrer
+    var comment = meibo.getWorkflowVariable(&quot;checkReportStepComment&quot;);
+    if((comment!=null) &amp;&amp; (comment.length &gt;0)){
+      meibo.setFieldValue(&quot;Comment&quot;,comment); 
+    }
   }else{
   // mode contribution
     meibo.logDebug(&quot;Traitement de l&apos;activit&#233; de compte-rendu : &quot; + wapiActivityInst.getDisplayName() + &quot; en mode contributeur&quot;);
@@ -211,8 +216,13 @@ var wfParam= meibo.getFieldValue(&quot;WORKFLOW_PARAMETER&quot;);
 if(isCheckReportStep()){
   meibo.setWorkflowVariable(&quot;checkReportStepAction&quot;, wfParam);
   meibo.setWorkflowVariable(&quot;checkReportStepLastActorId&quot;, userId);
-  if(wfParam!=&quot;record&quot;){
+  if(wfParam==&quot;record&quot;){
+    // Touche : Sauvegarder les modifications
+    var comment = meibo.getFieldValue(&quot;Comment&quot;);
+    meibo.setWorkflowVariable(&quot;checkReportStepComment&quot;, comment);
+  }else{
     if(wfParam==&quot;reject&quot;){
+      // Touche : Demander des modifications
       var comment = meibo.getFieldValue(&quot;Comment&quot;);
       if(comment.trim()==&quot;&quot;){
         comment = &quot;-&quot;;  // commentaire non vide utile au retour sur le formulaire
@@ -220,6 +230,7 @@ if(isCheckReportStep()){
       meibo.setWorkflowVariable(&quot;checkReportStepComment&quot;, comment);
       meibo.logInfo(&quot;Compte-rendu &quot; + reportID + &quot; rejet&#233; par &quot; + meibo.getUserDn() + &quot; pour l&apos;&#233;v&#232;nement &quot; + eventID);
     }else{
+      // Touche : Valider
       meibo.logInfo(&quot;Compte-rendu &quot; + reportID + &quot; valid&#233; par &quot; + meibo.getUserDn() + &quot; pour l&apos;&#233;v&#232;nement &quot; + eventID);
     }
     meibo.completeCurrentWorkflowTask();

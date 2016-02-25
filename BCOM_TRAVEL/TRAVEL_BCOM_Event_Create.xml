@@ -4167,6 +4167,13 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(&quot;&quot;);
                           <param>Address/TAS_ID/EventAddressPicker/false/false/0/0/var /*ResultSet*/ addressRs= meibo.executeResource(&quot;Address&quot;,&quot;TAS_ID=&quot; + meibo.getFieldValue(&quot;fkTAS_ID&quot;),1);
 var /*Entry*/ addressEntry = addressRs.getEntry();
 
+// Dans le cas du pays, l&apos;objet &quot;TCY_ID&quot; &#233;tant un s&#233;lecteur bas&#233;e sur le param&#232;tre TCY_ALPHA3,
+// on ne peut y &#233;crire n&apos;importe quel string
+// C&apos;est le trigramme du pays qu&apos;il faut r&#233;cup&#233;rer et passer en param&#232;tre
+var /*ResultSet*/ countryRs = meibo.executeResource(&quot;Country&quot;,&quot;TCY_ID=&quot; + addressEntry.TCY_ID[0] ,1);
+var /*Entry*/     country   = countryRs.getEntry().TCY_ALPHA3[0];
+
+
 meibo.getField(&quot;TAS_NAME&quot;).setValue(addressEntry.TAS_NAME[0]);
 meibo.getField(&quot;TAS_PHONENUMBER&quot;).setValue(addressEntry.TAS_PHONENUMBER[0]);
 meibo.getField(&quot;TAS_ADDR1&quot;).setValue(addressEntry.TAS_ADDR1[0]);
@@ -4175,7 +4182,7 @@ meibo.getField(&quot;TAS_ADDR3&quot;).setValue(addressEntry.TAS_ADDR3[0]);
 meibo.getField(&quot;TAS_ZIPCODE&quot;).setValue(addressEntry.TAS_ZIPCODE[0]);
 meibo.getField(&quot;TAS_TOWN&quot;).setValue(addressEntry.TAS_TOWN[0]);
 meibo.getField(&quot;TAS_STATE&quot;).setValue(addressEntry.TAS_STATE[0]); 
-meibo.getField(&quot;TCY_ID&quot;).setValue(addressEntry.TCY_ID[0]);</param>
+meibo.getField(&quot;TCY_ID&quot;).setValue(country);</param>
                           <pickertitle class="lingual">
                             <fr>Adresse de l&apos;&#233;v&#232;nement</fr>
                             <en></en>
