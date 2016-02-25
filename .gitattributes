@@ -5,12 +5,14 @@
 # windows will replace <LF> with <CR><LF> and will be seen as modified
 # 
 # Below is a list of file that shall be converted to native line endings on checkout.
-#*.xpdl       text
-#*.pxml       text
-#*.xpdl       text
-#*.properties text
-#*.provxml    text
-#*.props      text
-#*.ixp        text
+* text=auto
+
+*.xpdl       text
+*.pxml       text
+*.xpdl       text
+*.properties text
+*.provxml    text
+*.props      text
+*.ixp        text
 
 
