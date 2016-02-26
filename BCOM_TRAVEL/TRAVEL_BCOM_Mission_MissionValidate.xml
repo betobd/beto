@@ -867,7 +867,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> title</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -881,7 +881,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">518</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -927,7 +927,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">75</sizey>
+            <sizey class="number">69</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -939,7 +939,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -968,7 +968,7 @@
                   <fr>{0} {1} ({2})</fr>
                 </pattern>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -988,6 +988,24 @@
               </relation>
             </childs>
           </horizontallayout>
+          <verticallayout>
+            <css class="css"></css>
+            <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">405</posx>
+            <posy class="number">120</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">30</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">p368960738844141</id>
+          </verticallayout>
           <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
             <css class="css"></css>
@@ -1001,7 +1019,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">265</sizey>
+            <sizey class="number">239</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1013,7 +1031,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1045,7 +1063,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">545</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">257</sizey>
+                <sizey class="number">231</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1073,8 +1091,8 @@
                       <multilist>
                         <content class="text"></content>
                         <tablecss class="css"></tablecss>
-                        <headercss class="css"></headercss>
-                        <evenrowcss class="css"></evenrowcss>
+                        <headercss class="css"> tableTitle</headercss>
+                        <evenrowcss class="css"> tableContent</evenrowcss>
                         <oddrowcss class="css"></oddrowcss>
                         <hoverrowcss class="css"></hoverrowcss>
                         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1091,11 +1109,11 @@
                           </fr>
                         </headertitles>
                         <headerpercents class="list">
-                          <item0>50</item0>
-                          <item1>30</item1>
-                          <item2>30</item2>
-                          <item3>50</item3>
-                          <item4>50</item4>
+                          <item0>40</item0>
+                          <item1>10</item1>
+                          <item2>10</item2>
+                          <item3>20</item3>
+                          <item4>20</item4>
                         </headerpercents>
                         <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
                         <onheaderclick class="script"></onheaderclick>
@@ -1114,8 +1132,8 @@
                         </headerabbreviations>
                         <separator class="separator"></separator>
                         <hidden class="boolean">false</hidden>
-                        <posx class="number">448</posx>
-                        <posy class="number">187</posy>
+                        <posx class="number">-39</posx>
+                        <posy class="number">135</posy>
                         <sizextype class="sizetype">EXTANDABLE</sizextype>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">529</sizex>
@@ -1157,7 +1175,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1204,7 +1222,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -1259,7 +1277,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">26</sizey>
+            <sizey class="number">22</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1284,7 +1302,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizey class="number">90</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">lastCommentLayout</name>
@@ -1297,7 +1315,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1344,7 +1362,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1359,8 +1377,8 @@
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">false</enable>
-                <posx class="number">177</posx>
-                <posy class="number">400</posy>
+                <posx class="number">-89</posx>
+                <posy class="number">436</posy>
                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">465</sizex>
@@ -1417,7 +1435,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizey class="number">90</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1430,7 +1448,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1477,7 +1495,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
