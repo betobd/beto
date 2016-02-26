@@ -15,10 +15,10 @@
     <screenwidth>1600</screenwidth>
     <screenheight>900</screenheight>
     <backcolor>FFFFFF</backcolor>
-    <backcolorhtml>9999FF</backcolorhtml>
+    <backcolorhtml>00D2F8</backcolorhtml>
     <tabtitlecolor>000000</tabtitlecolor>
     <htmltitlecolor>000000</htmltitlecolor>
-    <logo></logo>
+    <logo>images/logo_bcom.png</logo>
     <defaultfont>Arial,plain,12</defaultfont>
     <skin>none</skin>
     <guimodel>Default</guimodel>
