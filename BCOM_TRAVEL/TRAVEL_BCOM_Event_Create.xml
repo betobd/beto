@@ -2740,7 +2740,7 @@
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">590</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">3022</sizey>
+        <sizey class="number">778</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">viewContainer</name>
@@ -2748,11 +2748,11 @@
         <childs>
           <label>
             <content class="lingual">
-              <fr>R&#233;f&#233;rencer un &#233;v&#232;nement</fr>
+              <fr>Cr&#233;er un nouvel &#233;v&#232;nement</fr>
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> title</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -2764,9 +2764,9 @@
             <posy class="number">142</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">152</sizex>
+            <sizex class="number">210</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -2812,7 +2812,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">30</sizey>
+            <sizey class="number">26</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -2824,7 +2824,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text">TET_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -2836,9 +2836,9 @@
                 <posy class="number">132</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">236</sizex>
+                <sizex class="number">281</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">18</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">TET_ID_label</name>
@@ -2862,7 +2862,7 @@
               <choice>
                 <content class="text"> </content>
                 <resourcefed class="simpleresourcefed">EventTemplate/TET_ID/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -2881,7 +2881,7 @@ switchTemplateUse();</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">60</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">22</sizey>
+                <sizey class="number">18</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">fkTET_ID</name>
@@ -2945,7 +2945,7 @@ switchTemplateUse();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_NAME</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -2992,7 +2992,7 @@ switchTemplateUse();</onclick>
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -3059,7 +3059,7 @@ switchTemplateUse();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTTY_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3082,7 +3082,7 @@ switchTemplateUse();</onclick>
               <choice>
                 <content class="text">CUS</content>
                 <resourcefed class="simpleresourcefed">EventType/TTY_ABBREV/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -3145,7 +3145,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTES_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3168,7 +3168,7 @@ setScopesForType();</onclick>
               <choice>
                 <content class="text"></content>
                 <resourcefed class="simpleresourcefed">EventScope/TES_ABBREV/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -3218,7 +3218,7 @@ setScopesForType();</onclick>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">150</sizey>
+            <sizey class="number">126</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">TCT_COMMENT_display</name>
@@ -3230,7 +3230,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3244,7 +3244,7 @@ setScopesForType();</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                <sizey class="number">142</sizey>
+                <sizey class="number">118</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTCT_COMMENT</name>
@@ -3277,7 +3277,7 @@ setScopesForType();</onclick>
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -3299,7 +3299,7 @@ setScopesForType();</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
-                <sizey class="number">120</sizey>
+                <sizey class="number">118</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TCT_COMMENT</name>
@@ -3344,7 +3344,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_START_DATE</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3380,7 +3380,7 @@ setScopesForType();</onclick>
                 <LabelType class="boolean">false</LabelType>
                 <separator1 class="separator"></separator1>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <required class="boolean">true</required>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
@@ -3436,7 +3436,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_DURATION</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3483,7 +3483,7 @@ setScopesForType();</onclick>
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr>Indiquez la dur&#233;e de l&apos;&#233;venement en nombre de jours</fr>
@@ -3550,7 +3550,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_URL</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3597,7 +3597,7 @@ setScopesForType();</onclick>
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -3664,7 +3664,7 @@ setScopesForType();</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3711,7 +3711,7 @@ setScopesForType();</onclick>
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr>Indiquez le co&#251;t moyen estim&#233; pour une participation &#224; cet &#233;v&#232;nement</fr>
@@ -3843,7 +3843,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_ISPRIVATE</linklabelid>
                 <tooltip class="lingual">
                   <fr>Cochez si l&apos;&#233;v&#232;nement ne doit pas &#234;tre visible de tout le monde</fr>
@@ -3855,7 +3855,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <posy class="number">335</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">37</sizex>
+                <sizex class="number">44</sizex>
                 <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                 <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -3870,7 +3870,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <posy class="number">296</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">100</sizex>
+                <sizex class="number">51</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
                 <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -3933,7 +3933,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_ISTEMPLATE</linklabelid>
                 <tooltip class="lingual">
                   <fr>Cochez pour r&#233;f&#233;rencer l&apos;&#233;venement en tant que &apos;mod&#232;le&apos; pouvant servir pour les &#233;venements r&#233;currents</fr>
@@ -3945,9 +3945,9 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <posy class="number">304</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">228</sizex>
+                <sizex class="number">270</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTET_ISTEMPLATE</name>
@@ -3961,7 +3961,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> title</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr>S&#233;lectionner une adresse existance ou saisissez la ci-dessous.</fr>
@@ -3975,7 +3975,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">457</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">20</sizey>
+            <sizey class="number">23</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -3994,7 +3994,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">362</sizey>
+            <sizey class="number">292</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4027,7 +4027,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">562</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">286</sizey>
+                <sizey class="number">284</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">addressContainer</name>
@@ -4095,7 +4095,7 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(&quot;&quot;);
                         <posy class="number">454</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">27</sizex>
+                        <sizex class="number">24</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                         <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -4117,7 +4117,7 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(&quot;&quot;);
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">ADDRESS_MODE</linklabelid>
                         <tooltip class="lingual">
                           <fr>S&#233;lectionner une adresse existance ou saisissez la ci-dessous.</fr>
@@ -4129,9 +4129,9 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(&quot;&quot;);
                         <posy class="number">479</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">205</sizex>
+                        <sizex class="number">242</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">20</sizey>
+                        <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelfkTAS_ID</name>
@@ -4215,9 +4215,9 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(country);</param>
                         <enable class="boolean">true</enable>
                         <posx class="number">212</posx>
                         <posy class="number">476</posy>
-                        <sizextype class="sizetype">EXTANDABLE</sizextype>
+                        <sizextype class="sizetype">FIXED</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">304</sizex>
+                        <sizex class="number">15</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                         <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -4313,7 +4313,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">true</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css"></css>
+                        <css class="css"> labelTitle</css>
                         <linklabelid class="text">ADDRESS_MODE</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4341,7 +4341,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                     </content>
                     <wordwrap class="boolean">true</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css"></css>
+                    <css class="css"> infoAide</css>
                     <linklabelid class="text"></linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -4355,7 +4355,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">554</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">20</sizey>
+                    <sizey class="number">19</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">titleView</name>
@@ -4401,7 +4401,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_NAME</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4448,7 +4448,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -4513,7 +4513,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_PHONENUMBER</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4560,7 +4560,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -4625,7 +4625,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_ADDR1</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4672,7 +4672,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -4737,7 +4737,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css"></css>
                         <linklabelid class="text">TAS_ADDR1</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4784,7 +4784,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -4849,7 +4849,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css"></css>
                         <linklabelid class="text">TAS_ADDR3</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -4896,7 +4896,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -4961,7 +4961,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_ZIPCODE</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -5008,7 +5008,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -5073,7 +5073,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_TOWN</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -5120,7 +5120,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -5185,7 +5185,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TAS_STATE</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -5232,7 +5232,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css">labelContent</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -5275,7 +5275,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                   <horizontallayout>
                     <verticalalignment class="verticalalignment">top</verticalalignment>
                     <css class="css"></css>
-                    <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                    <horizontallayout_spaceBetweenComponent class="text">1</horizontallayout_spaceBetweenComponent>
                     <theme class="theme"></theme>
                     <separator class="separator"></separator>
                     <hidden class="boolean">false</hidden>
@@ -5297,7 +5297,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text">TCY_ID</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -5309,7 +5309,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <posy class="number">383</posy>
                         <sizextype class="sizetype">FIXED</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">165</sizex>
+                        <sizex class="number">163</sizex>
                         <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                         <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -5344,7 +5344,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css"></css>
+                        <css class="css"> caseGrise</css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>
@@ -5359,12 +5359,12 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <kind class="edittype">regular</kind>
                         <separator class="separator"></separator>
                         <hidden class="boolean">false</hidden>
-                        <enable class="boolean">false</enable>
+                        <enable class="boolean">true</enable>
                         <posx class="number">212</posx>
                         <posy class="number">380</posy>
                         <sizextype class="sizetype">FIXED</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">330</sizex>
+                        <sizex class="number">335</sizex>
                         <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                         <sizey class="number">15</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -5499,7 +5499,7 @@ meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">34</sizey>
+            <sizey class="number">5</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -5526,7 +5526,7 @@ meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">47</sizey>
+            <sizey class="number">26</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -5541,7 +5541,7 @@ meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">480</sizex>
                 <sizeytype class="hidden">EXTANDABLE</sizeytype>
-                <sizey class="number">39</sizey>
+                <sizey class="number">18</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -5598,7 +5598,7 @@ meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">52</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">18</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">BTN_CANCEL</name>
@@ -5654,7 +5654,7 @@ meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">48</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">18</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">34</alty>
                 <name class="text">validate</name>

@@ -72,6 +72,18 @@
 cursor:default;</extraparms>
       </properties>
     </style>
+    <style name="caseGrise">
+      <properties>
+        <font class="font">Verdana,plain,11</font>
+        <color class="color">404040</color>
+        <opaque class="boolean">true</opaque>
+        <bgcolor class="color">E8E8E8</bgcolor>
+        <framed class="boolean">true</framed>
+        <framecolor class="color">C0C0C0</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
     <style name="errorMessage">
       <properties>
         <font class="font">Dialog,bold,12</font>
@@ -87,6 +99,18 @@ cursor:default;</extraparms>
     <style name="info">
       <properties>
         <font class="font">Dialog,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="infoAide">
+      <properties>
+        <font class="font">Verdana,italic,10</font>
         <color class="color">000000</color>
         <opaque class="boolean">false</opaque>
         <bgcolor class="color">FFFF99</bgcolor>
@@ -164,6 +188,18 @@ cursor:default;</extraparms>
         <bgcolor class="color">A0A0A0</bgcolor>
         <framed class="boolean">false</framed>
         <framecolor class="color">A0A0A0</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="title">
+      <properties>
+        <font class="font">Verdana,bold,14</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
         <linethickness class="number">1</linethickness>
         <extraparms class="textarea"></extraparms>
       </properties>
