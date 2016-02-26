@@ -1336,7 +1336,7 @@ showEventDetails();</ondoubleclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">660</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">356</sizey>
+                <sizey class="number">408</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1369,7 +1369,7 @@ showEventDetails();</ondoubleclick>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">630</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">348</sizey>
+                    <sizey class="number">400</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text"></name>
@@ -2152,7 +2152,7 @@ showEventDetails();</ondoubleclick>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">622</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">118</sizey>
+                        <sizey class="number">180</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -2185,7 +2185,7 @@ showEventDetails();</ondoubleclick>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">592</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">110</sizey>
+                            <sizey class="number">172</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">addressContainer</name>
@@ -2204,7 +2204,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2230,7 +2230,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_NAME</name>
@@ -2256,7 +2256,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">76</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_NAME</name>
@@ -2292,7 +2292,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2318,7 +2318,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_PHONENUMBER</name>
@@ -2344,7 +2344,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_PHONENUMBER</name>
@@ -2380,7 +2380,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2406,7 +2406,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
@@ -2432,7 +2432,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR1</name>
@@ -2468,7 +2468,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2494,7 +2494,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
@@ -2520,7 +2520,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR2</name>
@@ -2556,7 +2556,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2582,7 +2582,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR3</name>
@@ -2608,7 +2608,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR3</name>
@@ -2644,7 +2644,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2670,7 +2670,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ZIPCODE</name>
@@ -2696,7 +2696,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ZIPCODE</name>
@@ -2732,7 +2732,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2758,7 +2758,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_TOWN</name>
@@ -2784,7 +2784,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_TOWN</name>
@@ -2820,7 +2820,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2846,7 +2846,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_STATE</name>
@@ -2872,7 +2872,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_STATE</name>
@@ -2908,7 +2908,7 @@ showEventDetails();</ondoubleclick>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
                                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                <sizey class="number">12</sizey>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text">TCY_ID_display</name>
@@ -2934,7 +2934,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTCY_FR_FR_NAME</name>
@@ -2960,7 +2960,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">4</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TCY_FR_FR_NAME</name>

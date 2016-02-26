@@ -3947,7 +3947,7 @@ if(currentCheckBoxField.isChecked() &amp;&amp; otherCheckBoxField.isChecked()){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">228</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTET_ISTEMPLATE</name>
@@ -4131,7 +4131,7 @@ meibo.getField(&quot;TCY_ID&quot;).setValue(&quot;&quot;);
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">205</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">15</sizey>
+                        <sizey class="number">20</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelfkTAS_ID</name>
@@ -5344,7 +5344,7 @@ meibo.getField(&quot;TCY_ID&quot;).setEnabled(true);</onclick>
                         <deletable class="boolean">true</deletable>
                         <separator2 class="separator"></separator2>
                         <theme class="theme"></theme>
-                        <css class="css">valeur</css>
+                        <css class="css"></css>
                         <tooltip class="lingual">
                           <en></en>
                           <fr></fr>

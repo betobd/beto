@@ -158,12 +158,12 @@ cursor:default;</extraparms>
     </style>
     <style name="tableTitle">
       <properties>
-        <font class="font">Verdana,bold,10</font>
+        <font class="font">Verdana,bold,11</font>
         <color class="color">000000</color>
-        <opaque class="boolean">false</opaque>
-        <bgcolor class="color">FFFF99</bgcolor>
+        <opaque class="boolean">true</opaque>
+        <bgcolor class="color">A0A0A0</bgcolor>
         <framed class="boolean">false</framed>
-        <framecolor class="color">000000</framecolor>
+        <framecolor class="color">A0A0A0</framecolor>
         <linethickness class="number">1</linethickness>
         <extraparms class="textarea"></extraparms>
       </properties>

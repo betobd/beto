@@ -1336,7 +1336,7 @@ showEventDetails();</ondoubleclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">660</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">451</sizey>
+                <sizey class="number">443</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1369,7 +1369,7 @@ showEventDetails();</ondoubleclick>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">630</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">443</sizey>
+                    <sizey class="number">435</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text"></name>
@@ -2146,17 +2146,17 @@ showEventDetails();</ondoubleclick>
                         <theme class="theme"></theme>
                         <separator class="separator"></separator>
                         <hidden class="boolean">false</hidden>
-                        <posx class="number">861</posx>
-                        <posy class="number">-40</posy>
+                        <posx class="number">869</posx>
+                        <posy class="number">-32</posy>
                         <sizextype class="sizetype">EXTANDABLE</sizextype>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">622</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">217</sizey>
+                        <sizey class="number">180</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
-                        <id class="hidden">p11896660381242048</id>
+                        <id class="hidden">x2980107678469960</id>
                         <childs class="hidden">
                           <fixspace>
                             <separator class="separator"></separator>
@@ -2171,11 +2171,11 @@ showEventDetails();</ondoubleclick>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text"></name>
-                            <id class="hidden">p11896660382239049</id>
+                            <id class="hidden">w2980107681075361</id>
                           </fixspace>
                           <verticallayout>
                             <css class="css"></css>
-                            <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+                            <verticallayout_spaceBetweenComponent class="text">0</verticallayout_spaceBetweenComponent>
                             <theme class="theme"></theme>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -2185,16 +2185,16 @@ showEventDetails();</ondoubleclick>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">592</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">209</sizey>
+                            <sizey class="number">172</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">addressContainer</name>
-                            <id class="hidden">m11896660383294750</id>
+                            <id class="hidden">z2980107683364962</id>
                             <childs>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2203,12 +2203,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">j11896660384673051</id>
+                                <id class="hidden">u2980107686088763</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2216,7 +2216,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2229,12 +2229,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_NAME</name>
-                                    <id class="hidden">j11896660385845952</id>
+                                    <id class="hidden">l2980107688496764</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2242,7 +2242,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2254,13 +2254,13 @@ showEventDetails();</ondoubleclick>
                                     <posy class="number">277</posy>
                                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                                     <altersizex class="hidden">30</altersizex>
-                                    <sizex class="number">71</sizex>
+                                    <sizex class="number">76</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_NAME</name>
-                                    <id class="hidden">k11896660386755053</id>
+                                    <id class="hidden">w2980107690431065</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2282,7 +2282,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2291,12 +2291,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">n11896660387840054</id>
+                                <id class="hidden">p2980107692681166</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2304,7 +2304,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_PHONENUMBER</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2317,12 +2317,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_PHONENUMBER</name>
-                                    <id class="hidden">d11896660389013055</id>
+                                    <id class="hidden">c2980107695089267</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2330,7 +2330,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2344,11 +2344,11 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_PHONENUMBER</name>
-                                    <id class="hidden">v11896660389892756</id>
+                                    <id class="hidden">s2980107696905168</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2370,7 +2370,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2379,12 +2379,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">e11896660391007157</id>
+                                <id class="hidden">o2980107699155269</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2392,7 +2392,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2405,12 +2405,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
-                                    <id class="hidden">k11896660392180058</id>
+                                    <id class="hidden">u2980107701326370</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2418,7 +2418,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2432,11 +2432,11 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR1</name>
-                                    <id class="hidden">y11896660393089159</id>
+                                    <id class="hidden">w2980107702708071</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2458,7 +2458,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2467,12 +2467,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">i11896660394174160</id>
+                                <id class="hidden">p2980107704326572</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2480,7 +2480,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2493,12 +2493,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
-                                    <id class="hidden">d11896660395347161</id>
+                                    <id class="hidden">p2980107706063473</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2506,7 +2506,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2520,11 +2520,11 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR2</name>
-                                    <id class="hidden">p11896660396256162</id>
+                                    <id class="hidden">g2980107707445174</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2546,7 +2546,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2555,12 +2555,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">d11896660397341263</id>
+                                <id class="hidden">g2980107709024175</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2568,7 +2568,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR3</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2581,12 +2581,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR3</name>
-                                    <id class="hidden">i11896660398514164</id>
+                                    <id class="hidden">d2980107712142776</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2594,7 +2594,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2608,11 +2608,11 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR3</name>
-                                    <id class="hidden">u11896660399423265</id>
+                                    <id class="hidden">c2980107713563877</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2634,7 +2634,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2643,12 +2643,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">j11896660400478966</id>
+                                <id class="hidden">q2980107715221878</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2656,7 +2656,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ZIPCODE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2669,12 +2669,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ZIPCODE</name>
-                                    <id class="hidden">p11896660401681267</id>
+                                    <id class="hidden">d2980107716958779</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2682,7 +2682,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2696,11 +2696,11 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ZIPCODE</name>
-                                    <id class="hidden">k11896660402560968</id>
+                                    <id class="hidden">b2980107718300980</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2722,7 +2722,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2731,12 +2731,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">v11896660403675369</id>
+                                <id class="hidden">u2980107719919481</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2744,7 +2744,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_TOWN</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2757,12 +2757,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_TOWN</name>
-                                    <id class="hidden">j11896660404848270</id>
+                                    <id class="hidden">r2980107721656482</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2770,7 +2770,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2783,12 +2783,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_TOWN</name>
-                                    <id class="hidden">d11896660405728071</id>
+                                    <id class="hidden">n2980107723038083</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2810,7 +2810,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2819,12 +2819,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">c11896660406842372</id>
+                                <id class="hidden">z2980107724696084</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2832,7 +2832,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_STATE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2845,12 +2845,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_STATE</name>
-                                    <id class="hidden">n11896660408015373</id>
+                                    <id class="hidden">x2980107726432985</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2858,7 +2858,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2871,12 +2871,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_STATE</name>
-                                    <id class="hidden">y11896660408924374</id>
+                                    <id class="hidden">s2980107727775186</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2898,7 +2898,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2907,12 +2907,12 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text">TCY_ID_display</name>
-                                <id class="hidden">o11896660410009375</id>
+                                <id class="hidden">z2980107729393687</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2920,7 +2920,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2933,12 +2933,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTCY_FR_FR_NAME</name>
-                                    <id class="hidden">f11896660411182376</id>
+                                    <id class="hidden">f2980107731130588</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2946,7 +2946,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2959,12 +2959,12 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TCY_FR_FR_NAME</name>
-                                    <id class="hidden">t11896660412062177</id>
+                                    <id class="hidden">f2980107732472789</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -3004,7 +3004,7 @@ showEventDetails();</ondoubleclick>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">622</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">24</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
