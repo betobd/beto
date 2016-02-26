@@ -1091,11 +1091,11 @@
                           </fr>
                         </headertitles>
                         <headerpercents class="list">
-                          <item0>50</item0>
-                          <item1>30</item1>
-                          <item2>30</item2>
-                          <item3>50</item3>
-                          <item4>50</item4>
+                          <item0>40</item0>
+                          <item1>15</item1>
+                          <item2>15</item2>
+                          <item3>15</item3>
+                          <item4>15</item4>
                         </headerpercents>
                         <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
                         <onheaderclick class="script"></onheaderclick>
@@ -1148,7 +1148,7 @@ showEventDetails();</ondoubleclick>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">487</sizey>
+            <sizey class="number">396</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">eventContainer</name>
@@ -1170,7 +1170,7 @@ showEventDetails();</ondoubleclick>
                 <sizey class="number">26</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
-                <name class="text"></name>
+                <name class="text">TitleEvent</name>
                 <id class="hidden">x11702780326393443</id>
                 <childs class="hidden">
                   <label>
@@ -1336,7 +1336,7 @@ showEventDetails();</ondoubleclick>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">660</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">451</sizey>
+                <sizey class="number">356</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1369,7 +1369,7 @@ showEventDetails();</ondoubleclick>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">630</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">443</sizey>
+                    <sizey class="number">348</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text"></name>
@@ -2152,7 +2152,7 @@ showEventDetails();</ondoubleclick>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">622</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">217</sizey>
+                        <sizey class="number">118</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -2175,7 +2175,7 @@ showEventDetails();</ondoubleclick>
                           </fixspace>
                           <verticallayout>
                             <css class="css"></css>
-                            <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+                            <verticallayout_spaceBetweenComponent class="text">0</verticallayout_spaceBetweenComponent>
                             <theme class="theme"></theme>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -2185,7 +2185,7 @@ showEventDetails();</ondoubleclick>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">592</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">209</sizey>
+                            <sizey class="number">110</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">addressContainer</name>
@@ -2194,7 +2194,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2203,8 +2203,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2216,7 +2216,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2229,8 +2229,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_NAME</name>
@@ -2242,7 +2242,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2254,9 +2254,9 @@ showEventDetails();</ondoubleclick>
                                     <posy class="number">277</posy>
                                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                                     <altersizex class="hidden">30</altersizex>
-                                    <sizex class="number">71</sizex>
+                                    <sizex class="number">76</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_NAME</name>
@@ -2282,7 +2282,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2291,8 +2291,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2304,7 +2304,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_PHONENUMBER</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2317,8 +2317,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_PHONENUMBER</name>
@@ -2330,7 +2330,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2344,7 +2344,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_PHONENUMBER</name>
@@ -2370,7 +2370,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2379,8 +2379,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2392,7 +2392,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2405,8 +2405,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
@@ -2418,7 +2418,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2432,7 +2432,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR1</name>
@@ -2458,7 +2458,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2467,8 +2467,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2480,7 +2480,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2493,8 +2493,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
@@ -2506,7 +2506,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2520,7 +2520,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR2</name>
@@ -2546,7 +2546,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2555,8 +2555,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2568,7 +2568,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR3</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2581,8 +2581,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR3</name>
@@ -2594,7 +2594,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2608,7 +2608,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR3</name>
@@ -2634,7 +2634,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2643,8 +2643,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2656,7 +2656,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ZIPCODE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2669,8 +2669,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ZIPCODE</name>
@@ -2682,7 +2682,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2696,7 +2696,7 @@ showEventDetails();</ondoubleclick>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ZIPCODE</name>
@@ -2722,7 +2722,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2731,8 +2731,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2744,7 +2744,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_TOWN</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2757,8 +2757,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_TOWN</name>
@@ -2770,7 +2770,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2783,8 +2783,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_TOWN</name>
@@ -2810,7 +2810,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2819,8 +2819,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
@@ -2832,7 +2832,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_STATE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2845,8 +2845,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_STATE</name>
@@ -2858,7 +2858,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2871,8 +2871,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_STATE</name>
@@ -2898,7 +2898,7 @@ showEventDetails();</ondoubleclick>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2907,8 +2907,8 @@ showEventDetails();</ondoubleclick>
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">584</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">12</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text">TCY_ID_display</name>
@@ -2920,7 +2920,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2933,8 +2933,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTCY_FR_FR_NAME</name>
@@ -2946,7 +2946,7 @@ showEventDetails();</ondoubleclick>
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2959,8 +2959,8 @@ showEventDetails();</ondoubleclick>
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">411</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">4</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TCY_FR_FR_NAME</name>
