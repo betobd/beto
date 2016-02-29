@@ -120,6 +120,18 @@ cursor:default;</extraparms>
         <extraparms class="textarea"></extraparms>
       </properties>
     </style>
+    <style name="infoError">
+      <properties>
+        <font class="font">Verdana,plain,12</font>
+        <color class="color">FF9933</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
     <style name="labelContent">
       <properties>
         <font class="font">Verdana,plain,11</font>
@@ -231,6 +243,18 @@ cursor:default;</extraparms>
     <style name="Verdana_bold_12_000000__FFFF99__000000_1">
       <properties>
         <font class="font">Verdana,bold,12</font>
+        <color class="color">000000</color>
+        <opaque class="boolean">false</opaque>
+        <bgcolor class="color">FFFF99</bgcolor>
+        <framed class="boolean">false</framed>
+        <framecolor class="color">000000</framecolor>
+        <linethickness class="number">1</linethickness>
+        <extraparms class="textarea"></extraparms>
+      </properties>
+    </style>
+    <style name="viewTitle">
+      <properties>
+        <font class="font">Verdana,bold,14</font>
         <color class="color">000000</color>
         <opaque class="boolean">false</opaque>
         <bgcolor class="color">FFFF99</bgcolor>

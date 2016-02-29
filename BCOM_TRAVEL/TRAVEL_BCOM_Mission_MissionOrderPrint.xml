@@ -867,7 +867,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -879,9 +879,9 @@
             <posy class="number">12</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">106</sizex>
+            <sizex class="number">142</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -912,7 +912,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -941,7 +941,7 @@
                   <fr>{0} {1} ({2})</fr>
                 </pattern>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -986,7 +986,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1046,8 +1046,8 @@
                       <multilist>
                         <content class="text"></content>
                         <tablecss class="css"></tablecss>
-                        <headercss class="css"></headercss>
-                        <evenrowcss class="css"></evenrowcss>
+                        <headercss class="css"> tableTitle</headercss>
+                        <evenrowcss class="css"> tableContent</evenrowcss>
                         <oddrowcss class="css"></oddrowcss>
                         <hoverrowcss class="css"></hoverrowcss>
                         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1130,7 +1130,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1156,7 +1156,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1236,7 +1236,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css">libelle</css>
+            <css class="css">labelTitle</css>
             <linklabelid class="text">COMMENT</linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -1248,7 +1248,7 @@
             <posy class="number">466</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">261</sizex>
+            <sizex class="number">312</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
             <sizey class="number">23</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -1262,7 +1262,7 @@
             </content>
             <alignment class="fullalignment">left</alignment>
             <htmlcontent class="boolean">false</htmlcontent>
-            <css class="css"></css>
+            <css class="css"> labelContent</css>
             <tooltip class="lingual">
               <fr></fr>
             </tooltip>
@@ -1299,7 +1299,7 @@
           <fr>{0}</fr>
         </pattern>
         <alignment class="alignment">left</alignment>
-        <css class="css">libelle</css>
+        <css class="css">labelContent</css>
         <tooltip class="lingual">
           <fr></fr>
         </tooltip>
@@ -1323,7 +1323,7 @@
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">valeur</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>

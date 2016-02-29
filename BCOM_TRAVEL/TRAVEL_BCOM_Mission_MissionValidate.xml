@@ -1705,7 +1705,7 @@ meibo.setActiveTab(2);</onclick>
           <fr>{0}</fr>
         </pattern>
         <alignment class="alignment">left</alignment>
-        <css class="css">libelle</css>
+        <css class="css">labelContent</css>
         <tooltip class="lingual">
           <fr></fr>
         </tooltip>
@@ -1729,7 +1729,7 @@ meibo.setActiveTab(2);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">valeur</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>

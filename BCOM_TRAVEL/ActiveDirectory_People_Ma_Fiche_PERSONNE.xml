@@ -3627,7 +3627,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3683,7 +3683,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3745,7 +3745,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3801,7 +3801,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3863,7 +3863,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3919,7 +3919,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3981,7 +3981,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4037,7 +4037,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4110,7 +4110,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4166,7 +4166,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4239,7 +4239,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4295,7 +4295,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4357,7 +4357,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">right</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -4413,7 +4413,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"> LabelFormulaire</css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>

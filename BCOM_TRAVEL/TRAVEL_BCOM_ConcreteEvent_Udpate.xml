@@ -1097,7 +1097,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -1109,9 +1109,9 @@
             <posy class="number">142</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">134</sizex>
+            <sizex class="number">188</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -1188,7 +1188,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1235,7 +1235,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -1302,7 +1302,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_START_DATE</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1338,7 +1338,7 @@
                 <LabelType class="boolean">false</LabelType>
                 <separator1 class="separator"></separator1>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <required class="boolean">true</required>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
@@ -1394,7 +1394,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_DURATION</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1441,7 +1441,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr>Indiquez la dur&#233;e de l&apos;&#233;venement en nombre de jours</fr>
@@ -1508,7 +1508,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_URL</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1555,7 +1555,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -1622,7 +1622,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1669,7 +1669,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr>Indiquez le co&#251;t moyen estim&#233; pour une participation &#224; cet &#233;v&#232;nement</fr>
@@ -1736,7 +1736,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTAS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1783,7 +1783,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>

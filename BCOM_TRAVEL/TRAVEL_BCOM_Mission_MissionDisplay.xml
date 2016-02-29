@@ -886,7 +886,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> title</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -898,7 +898,7 @@
                 <posy class="number">272</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">56</sizex>
+                <sizex class="number">72</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">22</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -912,7 +912,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> title</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -924,9 +924,9 @@
                 <posy class="number">265</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">54</sizex>
+                <sizex class="number">73</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">22</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">72</alty>
                 <name class="text">TMN_ID</name>
@@ -985,7 +985,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1014,7 +1014,7 @@
                   <fr>{0} {1} ({2})</fr>
                 </pattern>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1040,7 +1040,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css">libelle</css>
+            <css class="css">title</css>
             <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -1054,7 +1054,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">115</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">20</sizey>
+            <sizey class="number">23</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">216</alty>
             <name class="text">labelATTENDEES_TCT_ID</name>
@@ -1097,8 +1097,8 @@
               <multilist>
                 <content class="text"></content>
                 <tablecss class="css"></tablecss>
-                <headercss class="css"></headercss>
-                <evenrowcss class="css"></evenrowcss>
+                <headercss class="css"> tableTitle</headercss>
+                <evenrowcss class="css"> tableContent</evenrowcss>
                 <oddrowcss class="css"></oddrowcss>
                 <hoverrowcss class="css"></hoverrowcss>
                 <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1169,7 +1169,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">677</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">480</sizey>
+            <sizey class="number">478</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">eventContainer</name>
@@ -1200,7 +1200,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css"></css>
+                    <css class="css"> labelTitle</css>
                     <linklabelid class="text"></linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -1212,7 +1212,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     <posy class="number">143</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">131</sizex>
+                    <sizex class="number">157</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1226,7 +1226,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css"></css>
+                    <css class="css"> labelContent</css>
                     <linklabelid class="text"></linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -1238,7 +1238,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     <posy class="number">170</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">61</sizex>
+                    <sizex class="number">65</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1279,7 +1279,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     <posy class="number">33</posy>
                     <sizextype class="hidden">EXTANDABLE</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">453</sizex>
+                    <sizex class="number">423</sizex>
                     <sizeytype class="hidden">EXTANDABLE</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1357,7 +1357,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">669</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">439</sizey>
+                <sizey class="number">434</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1390,7 +1390,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">639</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">431</sizey>
+                    <sizey class="number">426</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text"></name>
@@ -1421,7 +1421,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TET_NAME</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1447,7 +1447,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -1512,7 +1512,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTTY_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1538,7 +1538,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1581,7 +1581,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTES_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1593,7 +1593,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             <posy class="number">81</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">61</sizex>
+                            <sizex class="number">73</sizex>
                             <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1607,7 +1607,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1619,7 +1619,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             <posy class="number">182</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">61</sizex>
+                            <sizex class="number">64</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1671,7 +1671,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_COMMENT</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1697,7 +1697,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <alignment class="fullalignment">left</alignment>
                             <htmlcontent class="boolean">true</htmlcontent>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1752,7 +1752,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_START_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1778,7 +1778,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1821,7 +1821,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_DURATION</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1833,7 +1833,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             <posy class="number">106</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">115</sizex>
+                            <sizex class="number">139</sizex>
                             <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1847,7 +1847,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -1912,7 +1912,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_URL</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1938,7 +1938,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -2003,7 +2003,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -2029,7 +2029,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -2094,7 +2094,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTAS_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -2120,7 +2120,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -2173,7 +2173,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">631</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">217</sizey>
+                        <sizey class="number">204</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -2196,26 +2196,26 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                           </fixspace>
                           <verticallayout>
                             <css class="css"></css>
-                            <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+                            <verticallayout_spaceBetweenComponent class="text">0</verticallayout_spaceBetweenComponent>
                             <theme class="theme"></theme>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
-                            <posx class="number">721</posx>
-                            <posy class="number">282</posy>
+                            <posx class="number">729</posx>
+                            <posy class="number">290</posy>
                             <sizextype class="sizetype">EXTANDABLE</sizextype>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">601</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">209</sizey>
+                            <sizey class="number">180</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">addressContainer</name>
-                            <id class="hidden">d11226538144497679</id>
+                            <id class="hidden">o103857786782182</id>
                             <childs>
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2224,12 +2224,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">e11226538156755390</id>
+                                <id class="hidden">j103857787200633</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2237,7 +2237,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2250,12 +2250,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_NAME</name>
-                                    <id class="hidden">s11226538157898991</id>
+                                    <id class="hidden">d103857787453274</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2263,7 +2263,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2275,13 +2275,13 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <posy class="number">277</posy>
                                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                                     <altersizex class="hidden">30</altersizex>
-                                    <sizex class="number">71</sizex>
+                                    <sizex class="number">76</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_NAME</name>
-                                    <id class="hidden">e11322008109428527</id>
+                                    <id class="hidden">t103857787634865</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2303,7 +2303,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2312,12 +2312,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">p11226538160303593</id>
+                                <id class="hidden">l103857787844086</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2325,7 +2325,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_PHONENUMBER</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2338,12 +2338,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_PHONENUMBER</name>
-                                    <id class="hidden">o11226538161476594</id>
+                                    <id class="hidden">c103857788053307</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2351,7 +2351,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2365,11 +2365,11 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_PHONENUMBER</name>
-                                    <id class="hidden">j11325611548899928</id>
+                                    <id class="hidden">z103857788219108</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2391,7 +2391,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2400,12 +2400,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">e11226538163881196</id>
+                                <id class="hidden">p103857788408589</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2413,7 +2413,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2426,12 +2426,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
-                                    <id class="hidden">y11226538165054197</id>
+                                    <id class="hidden">l1038577886099110</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2439,7 +2439,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2453,11 +2453,11 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR1</name>
-                                    <id class="hidden">s11327711040383629</id>
+                                    <id class="hidden">q1038577887836011</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2479,7 +2479,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2488,12 +2488,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">w11226538167458799</id>
+                                <id class="hidden">i1038577889809812</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2501,7 +2501,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR1</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2514,12 +2514,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR1</name>
-                                    <id class="hidden">z1122653816863170</id>
+                                    <id class="hidden">g1038577891902013</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2527,7 +2527,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2541,11 +2541,11 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR2</name>
-                                    <id class="hidden">e11329376096362630</id>
+                                    <id class="hidden">u1038577893599514</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2567,7 +2567,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2576,12 +2576,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">x1122653817132962</id>
+                                <id class="hidden">v1038577895533815</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2589,7 +2589,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ADDR3</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2602,12 +2602,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ADDR3</name>
-                                    <id class="hidden">e1122653817247323</id>
+                                    <id class="hidden">c1038577897586516</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2615,7 +2615,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2629,11 +2629,11 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ADDR3</name>
-                                    <id class="hidden">x11329658496409331</id>
+                                    <id class="hidden">i1038577899244517</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2655,7 +2655,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2664,12 +2664,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">t1122653817484855</id>
+                                <id class="hidden">g1038577901178818</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2677,7 +2677,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_ZIPCODE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2690,12 +2690,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_ZIPCODE</name>
-                                    <id class="hidden">o1122653817599226</id>
+                                    <id class="hidden">m1038577903231619</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2703,7 +2703,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2717,11 +2717,11 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
                                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_ZIPCODE</name>
-                                    <id class="hidden">h11338868198979632</id>
+                                    <id class="hidden">l1038577904889520</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2743,7 +2743,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2752,12 +2752,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">p1122653817836748</id>
+                                <id class="hidden">b1038577906784421</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2765,7 +2765,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_TOWN</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2778,12 +2778,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_TOWN</name>
-                                    <id class="hidden">w1122653817954049</id>
+                                    <id class="hidden">o1038577908797622</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2791,7 +2791,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2804,12 +2804,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_TOWN</name>
-                                    <id class="hidden">e11341219979050533</id>
+                                    <id class="hidden">y1038577910455623</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2831,7 +2831,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2840,12 +2840,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text"></name>
-                                <id class="hidden">g11226538182003711</id>
+                                <id class="hidden">s1038577912350424</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2853,7 +2853,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TAS_STATE</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2866,12 +2866,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTAS_STATE</name>
-                                    <id class="hidden">i11226538183176712</id>
+                                    <id class="hidden">i1038577914442725</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2879,7 +2879,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2892,12 +2892,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TAS_STATE</name>
-                                    <id class="hidden">p11343132772775834</id>
+                                    <id class="hidden">y1038577916061226</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -2919,7 +2919,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                               <horizontallayout>
                                 <verticalalignment class="verticalalignment">top</verticalalignment>
                                 <css class="css"></css>
-                                <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                                <horizontallayout_spaceBetweenComponent class="text">0</horizontallayout_spaceBetweenComponent>
                                 <theme class="theme"></theme>
                                 <separator class="separator"></separator>
                                 <hidden class="boolean">false</hidden>
@@ -2928,12 +2928,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                 <sizextype class="sizetype">EXTANDABLE</sizextype>
                                 <altersizex class="hidden">30</altersizex>
                                 <sizex class="number">593</sizex>
-                                <sizeytype class="sizetype">FIXED</sizeytype>
-                                <sizey class="number">23</sizey>
+                                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                <sizey class="number">20</sizey>
                                 <altersizey class="hidden">30</altersizey>
                                 <alty class="hidden">0</alty>
                                 <name class="text">TCY_ID_display</name>
-                                <id class="hidden">e11226538185551914</id>
+                                <id class="hidden">f1038577917956027</id>
                                 <childs>
                                   <label>
                                     <content class="lingual">
@@ -2941,7 +2941,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css">libelle</css>
+                                    <css class="css">labelTitle</css>
                                     <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2954,12 +2954,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">FIXED</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">165</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">216</alty>
                                     <name class="text">labelTCY_FR_FR_NAME</name>
-                                    <id class="hidden">a11226538186724915</id>
+                                    <id class="hidden">i1038577920008728</id>
                                   </label>
                                   <label>
                                     <content class="lingual">
@@ -2967,7 +2967,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     </content>
                                     <wordwrap class="boolean">false</wordwrap>
                                     <alignment class="alignment">left</alignment>
-                                    <css class="css"></css>
+                                    <css class="css"> labelContent</css>
                                     <linklabelid class="text"></linklabelid>
                                     <tooltip class="lingual">
                                       <fr></fr>
@@ -2980,12 +2980,12 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                                     <sizextype class="sizetype">EXTANDABLE</sizextype>
                                     <altersizex class="hidden">30</altersizex>
                                     <sizex class="number">420</sizex>
-                                    <sizeytype class="sizetype">EXTANDABLE</sizeytype>
-                                    <sizey class="number">15</sizey>
+                                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                                    <sizey class="number">12</sizey>
                                     <altersizey class="hidden">30</altersizey>
                                     <alty class="hidden">0</alty>
                                     <name class="text">TCY_FR_FR_NAME</name>
-                                    <id class="hidden">m11351042274707835</id>
+                                    <id class="hidden">u1038577921666729</id>
                                     <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                                     <components class="components">
                                       <fieldPart class="node" en="" fr="">
@@ -3045,7 +3045,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">title</css>
                         <linklabelid class="text">MISSION_TABLE</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -3057,9 +3057,9 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                         <posy class="number">368</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">164</sizex>
+                        <sizex class="number">223</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">20</sizey>
+                        <sizey class="number">23</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelMISSION_TABLE</name>
@@ -3102,8 +3102,8 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                           <multilist>
                             <content class="text"></content>
                             <tablecss class="css"></tablecss>
-                            <headercss class="css"></headercss>
-                            <evenrowcss class="css"></evenrowcss>
+                            <headercss class="css"> tableTitle</headercss>
+                            <evenrowcss class="css"> tableContent</evenrowcss>
                             <oddrowcss class="css"></oddrowcss>
                             <hoverrowcss class="css"></hoverrowcss>
                             <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -3203,7 +3203,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3229,7 +3229,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3320,7 +3320,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css">libelle</css>
+                    <css class="css">title</css>
                     <linklabelid class="text">HISTORY_TABLE</linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -3379,8 +3379,8 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                   <multilist>
                     <content class="text"></content>
                     <tablecss class="css"></tablecss>
-                    <headercss class="css"></headercss>
-                    <evenrowcss class="css"></evenrowcss>
+                    <headercss class="css"> tableTitle</headercss>
+                    <evenrowcss class="css"> tableContent</evenrowcss>
                     <oddrowcss class="css"></oddrowcss>
                     <hoverrowcss class="css"></hoverrowcss>
                     <hoverrowboolean class="boolean">false</hoverrowboolean>
@@ -3460,7 +3460,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
           <fr>{0}</fr>
         </pattern>
         <alignment class="alignment">left</alignment>
-        <css class="css">libelle</css>
+        <css class="css">labelContent</css>
         <tooltip class="lingual">
           <fr></fr>
         </tooltip>
@@ -3484,7 +3484,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">valeur</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>

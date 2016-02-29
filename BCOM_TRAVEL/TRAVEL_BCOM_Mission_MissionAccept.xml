@@ -867,7 +867,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -881,7 +881,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">518</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -927,7 +927,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">75</sizey>
+            <sizey class="number">73</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -939,7 +939,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -968,7 +968,7 @@
                   <fr>{0} {1} ({2})</fr>
                 </pattern>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1001,7 +1001,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">265</sizey>
+            <sizey class="number">255</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1013,7 +1013,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1045,7 +1045,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">545</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">257</sizey>
+                <sizey class="number">247</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -1073,8 +1073,8 @@
                       <multilist>
                         <content class="text"></content>
                         <tablecss class="css"></tablecss>
-                        <headercss class="css"></headercss>
-                        <evenrowcss class="css"></evenrowcss>
+                        <headercss class="css"> tableTitle</headercss>
+                        <evenrowcss class="css"> tableContent</evenrowcss>
                         <oddrowcss class="css"></oddrowcss>
                         <hoverrowcss class="css"></hoverrowcss>
                         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1157,7 +1157,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1204,7 +1204,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -1259,7 +1259,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">26</sizey>
+            <sizey class="number">24</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1284,7 +1284,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizey class="number">93</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">lastCommentLayout</name>
@@ -1297,7 +1297,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1344,7 +1344,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1417,7 +1417,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">588</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">95</sizey>
+            <sizey class="number">93</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -1430,7 +1430,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1477,7 +1477,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1686,7 +1686,7 @@ meibo.setActiveTab(2);</onclick>
           <fr>{0}</fr>
         </pattern>
         <alignment class="alignment">left</alignment>
-        <css class="css">libelle</css>
+        <css class="css">labelContent</css>
         <tooltip class="lingual">
           <fr></fr>
         </tooltip>
@@ -1710,7 +1710,7 @@ meibo.setActiveTab(2);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">valeur</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>
@@ -1883,7 +1883,7 @@ meibo.setActiveTab(2);</onclick>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
           <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
             <pattern class="lingual">
-              <fr></fr>
+              <fr>{0}</fr>
             </pattern>
             <attrs class="linkattrs"></attrs>
             <clickable class="boolean">false</clickable>

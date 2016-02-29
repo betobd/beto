@@ -5568,7 +5568,7 @@ meibo.setHttpResponse(response);</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">EventName</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -5610,7 +5610,7 @@ meibo.setHttpResponse(response);</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -5683,7 +5683,7 @@ meibo.setHttpResponse(response);</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">EventDate</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -5725,7 +5725,7 @@ meibo.setHttpResponse(response);</onclick>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -5737,7 +5737,7 @@ meibo.setHttpResponse(response);</onclick>
                 <posy class="number">80</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">66</sizex>
+                <sizex class="number">69</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>

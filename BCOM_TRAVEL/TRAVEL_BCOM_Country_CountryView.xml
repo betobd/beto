@@ -964,7 +964,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1006,7 +1006,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1079,7 +1079,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCY_ALPHA2</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1121,7 +1121,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1194,7 +1194,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCY_CODE</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1236,7 +1236,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1309,7 +1309,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCY_EN_GB_NAME</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1351,7 +1351,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1424,7 +1424,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1466,7 +1466,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1539,7 +1539,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCY_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1581,7 +1581,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1654,7 +1654,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">continent</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1696,7 +1696,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1769,7 +1769,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">Mappe1</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1811,7 +1811,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>

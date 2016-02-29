@@ -15,7 +15,7 @@
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">right</alignment>
-        <css class="css">Verdana_bold_12_000000__FFFFFF__000000_1</css>
+        <css class="css">labelTitle</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>
@@ -83,7 +83,7 @@ meibo.setPickerResultSet(&quot;People&quot;,results);</onclick>
           <fr></fr>
         </confirmationdialogtitle>
         <theme class="theme"></theme>
-        <css class="css">Verdana_bold_12_000000__CCCCCC__000000_</css>
+        <css class="css"></css>
         <separator1 class="separator"></separator1>
         <waitbutton class="boolean">false</waitbutton>
         <waitingmode class="waitingmode">prescript</waitingmode>
@@ -126,7 +126,7 @@ meibo.setPickerResultSet(&quot;People&quot;,results);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">Verdana_bold_16_000000__FFFF99__000000_1</css>
+        <css class="css">title</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>
@@ -143,9 +143,9 @@ meibo.setPickerResultSet(&quot;People&quot;,results);</onclick>
         <posy class="number">12</posy>
         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">188</sizex>
+        <sizex class="number">167</sizex>
         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">26</sizey>
+        <sizey class="number">23</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">8</alty>
         <name class="text"></name>
@@ -162,7 +162,7 @@ meibo.setPickerResultSet(&quot;People&quot;,results);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">Verdana_bold_12_000000__FFFF99__000000_1</css>
+        <css class="css">labelTitle</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>
@@ -198,7 +198,7 @@ meibo.setPickerResultSet(&quot;People&quot;,results);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">Verdana_bold_12_000000__FFFF99__000000_1</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>

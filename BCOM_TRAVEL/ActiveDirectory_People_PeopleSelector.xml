@@ -69,7 +69,7 @@
                 <posy class="number">104</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">154</sizex>
+                <sizex class="number">133</sizex>
                 <sizeytype class="sizetype">FIXED</sizeytype>
                 <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -130,7 +130,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">150</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">16</sizey>
+                <sizey class="number">21</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">38</alty>
                 <name class="text">entry</name>
@@ -204,7 +204,7 @@ if (results.getEntryCount() == 0){
                   <fr></fr>
                 </confirmationdialogtitle>
                 <theme class="theme"></theme>
-                <css class="css">Verdana_bold_12_000000__CCCCCC__000000_</css>
+                <css class="css"></css>
                 <separator1 class="separator"></separator1>
                 <waitbutton class="boolean">false</waitbutton>
                 <waitingmode class="waitingmode">prescript</waitingmode>
@@ -283,7 +283,7 @@ if (results.getEntryCount() == 0){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">Verdana_bold_12_000000__FFFF99__000000_1</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -319,7 +319,7 @@ if (results.getEntryCount() == 0){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">Verdana_bold_12_000000__FFFF99__000000_1</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>

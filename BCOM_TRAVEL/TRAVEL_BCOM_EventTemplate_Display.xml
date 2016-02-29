@@ -1053,7 +1053,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -1065,9 +1065,9 @@
             <posy class="number">142</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">134</sizex>
+            <sizex class="number">188</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -1144,7 +1144,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_NAME</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1170,7 +1170,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1185,7 +1185,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_NAME</name>
@@ -1244,7 +1244,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTTY_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1267,7 +1267,7 @@
               <choice>
                 <content class="text"></content>
                 <resourcefed class="simpleresourcefed">EventType/TTY_ID/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1329,7 +1329,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTES_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1352,7 +1352,7 @@
               <choice>
                 <content class="text"></content>
                 <resourcefed class="simpleresourcefed">EventScope/TES_ID/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1414,7 +1414,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1440,7 +1440,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1514,7 +1514,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_DURATION</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1540,7 +1540,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1555,7 +1555,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">30</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TCT_DURATION</name>
@@ -1614,7 +1614,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TCT_URL</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1640,7 +1640,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1655,7 +1655,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TCT_URL</name>
@@ -1714,7 +1714,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1740,7 +1740,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1755,7 +1755,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">100</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_AVERAGE_COST</name>
@@ -1814,7 +1814,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">fkTAS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1840,7 +1840,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <en></en>
@@ -1855,7 +1855,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">fkTAS_ID</name>
@@ -1869,7 +1869,7 @@
                     <clickable class="boolean">false</clickable>
                     <resource class="resource_blank"></resource>
                     <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
-                    <field class="field">TAS_ID</field>
+                    <field class="field">TES_ID</field>
                   </values>
                 </fieldButton>
                 <components class="components">

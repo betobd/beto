@@ -894,7 +894,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -908,7 +908,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">518</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -966,7 +966,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">center</alignment>
-                <css class="css"></css>
+                <css class="css"> labelTitle</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1069,7 +1069,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1183,7 +1183,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr>Vous pouvez ajouter des &#233;venements existants &#224; l&apos;aide du bouton de s&#233;lection &#224; droite, ou r&#233;f&#233;rencer de nouveaux &#233;venements ou rendez-vous en utilisant le bouton d&#233;di&#233; (sous le tableau)</fr>
@@ -1482,7 +1482,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelField</css>
                             <linklabelid class="text">PURPOSE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1505,7 +1505,7 @@ updateEventsTableContent();</param>
                           <choice>
                             <content class="text">-</content>
                             <resourcefed class="simpleresourcefed">Purpose/TPE_ABBREV/</resourcefed>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1563,7 +1563,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">INVOLVEMENT</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1586,7 +1586,7 @@ updateEventsTableContent();</param>
                           <choice>
                             <content class="text"></content>
                             <resourcefed class="simpleresourcefed">InvolvementNature/TIN_ABBREV/</resourcefed>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1644,7 +1644,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelTitle</css>
                             <linklabelid class="text">START_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1694,7 +1694,7 @@ updateEventsTableContent();</param>
                             <LabelType class="boolean">false</LabelType>
                             <separator1 class="separator"></separator1>
                             <theme class="theme"></theme>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <required class="boolean">true</required>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -1746,7 +1746,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelTitle</css>
                             <linklabelid class="text">END_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1796,7 +1796,7 @@ updateEventsTableContent();</param>
                             <LabelType class="boolean">false</LabelType>
                             <separator1 class="separator"></separator1>
                             <theme class="theme"></theme>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <required class="boolean">true</required>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -2054,7 +2054,7 @@ if(selectedRowIndex&gt;=0){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -2101,7 +2101,7 @@ if(selectedRowIndex&gt;=0){
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -2550,7 +2550,7 @@ if(selectedRowIndex&gt;=0){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_WORKFLOW_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -2577,12 +2577,12 @@ if(selectedRowIndex&gt;=0){
                 <content class="text"></content>
                 <limitchar class="number"></limitchar>
                 <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
-                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
                 <autoComplete class="boolean">true</autoComplete>
                 <separator1 class="separator"></separator1>
                 <required class="boolean">false</required>
                 <resourcefed class="resourcefed">
-                  <param>///false/false/0/0</param>
+                  <param>///false/false/0/0/</param>
                   <pickertitle class="lingual">
                     <fr></fr>
                     <en></en>
@@ -2597,7 +2597,7 @@ if(selectedRowIndex&gt;=0){
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -2609,7 +2609,7 @@ if(selectedRowIndex&gt;=0){
                 <tinymceparameter class="text"></tinymceparameter>
                 <tinymcesetup class="text"></tinymcesetup>
                 <format class="text"></format>
-                <kind class="edittype"></kind>
+                <kind class="edittype">regular</kind>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <enable class="boolean">true</enable>

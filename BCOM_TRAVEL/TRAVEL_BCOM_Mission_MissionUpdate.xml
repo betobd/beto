@@ -961,7 +961,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -975,7 +975,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">518</sizex>
             <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">23</sizey>
+            <sizey class="number">40</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -1033,7 +1033,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1080,7 +1080,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr>S&#233;lectionnez les participants</fr>
@@ -1147,7 +1147,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1207,8 +1207,8 @@
                       <multilist>
                         <content class="text"></content>
                         <tablecss class="css"></tablecss>
-                        <headercss class="css"></headercss>
-                        <evenrowcss class="css"></evenrowcss>
+                        <headercss class="css"> tableTitle</headercss>
+                        <evenrowcss class="css"> tableContent</evenrowcss>
                         <oddrowcss class="css"></oddrowcss>
                         <hoverrowcss class="css"></hoverrowcss>
                         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1400,7 +1400,7 @@ updateEventsTableContent();</param>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">labelField</css>
+                        <css class="css">labelTitle</css>
                         <linklabelid class="text"></linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -1414,7 +1414,7 @@ updateEventsTableContent();</param>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">434</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">21</sizey>
+                        <sizey class="number">20</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">EVENT_NAME</name>
@@ -1445,7 +1445,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">PURPOSE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1468,7 +1468,7 @@ updateEventsTableContent();</param>
                           <choice>
                             <content class="text">-</content>
                             <resourcefed class="simpleresourcefed">Purpose/TPE_ABBREV/</resourcefed>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1526,7 +1526,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">INVOLVEMENT</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1549,7 +1549,7 @@ updateEventsTableContent();</param>
                           <choice>
                             <content class="text"></content>
                             <resourcefed class="simpleresourcefed">InvolvementNature/TIN_ABBREV/</resourcefed>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1607,7 +1607,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelTitle</css>
                             <linklabelid class="text">START_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1657,7 +1657,7 @@ updateEventsTableContent();</param>
                             <LabelType class="boolean">false</LabelType>
                             <separator1 class="separator"></separator1>
                             <theme class="theme"></theme>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <required class="boolean">true</required>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -1709,7 +1709,7 @@ updateEventsTableContent();</param>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelTitle</css>
                             <linklabelid class="text">END_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1759,7 +1759,7 @@ updateEventsTableContent();</param>
                             <LabelType class="boolean">false</LabelType>
                             <separator1 class="separator"></separator1>
                             <theme class="theme"></theme>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <required class="boolean">true</required>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -2015,7 +2015,7 @@ if(selectedRowIndex&gt;=0){
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -2062,7 +2062,7 @@ if(selectedRowIndex&gt;=0){
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>

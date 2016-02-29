@@ -2752,7 +2752,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"> title</css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -3380,7 +3380,7 @@ setScopesForType();</onclick>
                 <LabelType class="boolean">false</LabelType>
                 <separator1 class="separator"></separator1>
                 <theme class="theme"></theme>
-                <css class="css">labelContent</css>
+                <css class="css"> labelContent</css>
                 <required class="boolean">true</required>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>

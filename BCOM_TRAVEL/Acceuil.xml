@@ -203,7 +203,7 @@
                 <posy class="number">44</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">137</sizex>
+                <sizex class="number">131</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">48</sizey>
                 <altersizey class="hidden">30</altersizey>
@@ -391,7 +391,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> title</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -403,9 +403,9 @@
                 <posy class="number">218</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">150</sizex>
+                <sizex class="number">204</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">23</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">titleView</name>
@@ -436,7 +436,7 @@
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css">libelle</css>
+                    <css class="css">labelTitle</css>
                     <linklabelid class="text">displayName</linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -448,7 +448,7 @@
                     <posy class="number">551</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">160</altersizex>
-                    <sizex class="number">37</sizex>
+                    <sizex class="number">39</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">23</altersizey>
@@ -484,7 +484,7 @@
                     <deletable class="boolean">false</deletable>
                     <separator2 class="separator"></separator2>
                     <theme class="theme"></theme>
-                    <css class="css">valeur</css>
+                    <css class="css">labelContent</css>
                     <tooltip class="lingual">
                       <fr></fr>
                     </tooltip>
@@ -518,7 +518,7 @@
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css">libelle</css>
+                    <css class="css">labelTitle</css>
                     <linklabelid class="text">TET_COMMENT</linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -530,7 +530,7 @@
                     <posy class="number">552</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">160</altersizex>
-                    <sizex class="number">73</sizex>
+                    <sizex class="number">84</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">23</altersizey>
@@ -566,7 +566,7 @@
                     <deletable class="boolean">false</deletable>
                     <separator2 class="separator"></separator2>
                     <theme class="theme"></theme>
-                    <css class="css">valeur</css>
+                    <css class="css">labelContent</css>
                     <tooltip class="lingual">
                       <fr></fr>
                     </tooltip>
@@ -621,7 +621,7 @@
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css">libelle</css>
+                    <css class="css">labelTitle</css>
                     <linklabelid class="text">fkTTY_ID</linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -633,7 +633,7 @@
                     <posy class="number">620</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">160</altersizex>
-                    <sizex class="number">32</sizex>
+                    <sizex class="number">39</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">23</altersizey>
@@ -645,7 +645,7 @@
                   <choice>
                     <content class="text"></content>
                     <resourcefed class="simpleresourcefed">EventType/TTY_ID/</resourcefed>
-                    <css class="css"></css>
+                    <css class="css"> labelContent</css>
                     <tooltip class="lingual">
                       <fr></fr>
                     </tooltip>
@@ -683,7 +683,7 @@
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css">libelle</css>
+                    <css class="css">labelTitle</css>
                     <linklabelid class="text">fkTES_ID</linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -695,7 +695,7 @@
                     <posy class="number">615</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">160</altersizex>
-                    <sizex class="number">45</sizex>
+                    <sizex class="number">53</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">20</sizey>
                     <altersizey class="hidden">23</altersizey>
@@ -707,7 +707,7 @@
                   <choice>
                     <content class="text"></content>
                     <resourcefed class="simpleresourcefed">EventScope/TES_ID/</resourcefed>
-                    <css class="css"></css>
+                    <css class="css"> labelContent</css>
                     <tooltip class="lingual">
                       <fr></fr>
                     </tooltip>
@@ -891,7 +891,7 @@ else {
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">label_neutre</css>
+                <css class="css">infoError</css>
                 <linklabelid class="text"></linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -903,9 +903,9 @@ else {
                 <posy class="number">430</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">295</sizex>
+                <sizex class="number">346</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">21</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">error</name>
@@ -932,8 +932,8 @@ else {
                   <multilist>
                     <content class="text">TET_NAME,TCT_CREATE_DATE,TCT_DURATION,TCT_START_DATE,TET_ISPRIVATE,TET_ISTEMPLATE,fkPRS_ID_AUTHOR,fkPRS_ID_LEADER,scope,type,TAS_TOWN</content>
                     <tablecss class="css"></tablecss>
-                    <headercss class="css"></headercss>
-                    <evenrowcss class="css"></evenrowcss>
+                    <headercss class="css"> tableTitle</headercss>
+                    <evenrowcss class="css"> tableContent</evenrowcss>
                     <oddrowcss class="css"></oddrowcss>
                     <hoverrowcss class="css"></hoverrowcss>
                     <hoverrowboolean class="boolean">true</hoverrowboolean>

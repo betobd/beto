@@ -39,8 +39,8 @@
       <multilist>
         <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV</content>
         <tablecss class="css"></tablecss>
-        <headercss class="css"></headercss>
-        <evenrowcss class="css"></evenrowcss>
+        <headercss class="css"> tableTitle</headercss>
+        <evenrowcss class="css"> tableContent</evenrowcss>
         <oddrowcss class="css"></oddrowcss>
         <hoverrowcss class="css"></hoverrowcss>
         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -376,7 +376,7 @@ meibo.showField(&quot;OBJ_descriptionMission&quot;,false);</onclick>
         <LabelType class="boolean">false</LabelType>
         <separator1 class="separator"></separator1>
         <theme class="theme"></theme>
-        <css class="css"></css>
+        <css class="css"> labelContent</css>
         <required class="boolean">false</required>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>

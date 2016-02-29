@@ -867,7 +867,7 @@
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css"></css>
+            <css class="css"> viewTitle</css>
             <linklabelid class="text"></linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -881,7 +881,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">668</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">20</sizey>
+            <sizey class="number">23</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text">titleView</name>
@@ -939,7 +939,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_PRS_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -968,7 +968,7 @@
                   <fr>{0} {1} ({2})</fr>
                 </pattern>
                 <alignment class="alignment">left</alignment>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1013,7 +1013,7 @@
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">ATTENDEES_TCT_ID</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -1073,8 +1073,8 @@
                       <multilist>
                         <content class="text"></content>
                         <tablecss class="css"></tablecss>
-                        <headercss class="css"></headercss>
-                        <evenrowcss class="css"></evenrowcss>
+                        <headercss class="css"> tableTitle</headercss>
+                        <evenrowcss class="css"> tableContent</evenrowcss>
                         <oddrowcss class="css"></oddrowcss>
                         <hoverrowcss class="css"></hoverrowcss>
                         <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -1179,7 +1179,7 @@ showEventDetails();</ondoubleclick>
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css"></css>
+                    <css class="css"> title</css>
                     <linklabelid class="text"></linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -1191,7 +1191,7 @@ showEventDetails();</ondoubleclick>
                     <posy class="number">143</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">131</sizex>
+                    <sizex class="number">181</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1205,7 +1205,7 @@ showEventDetails();</ondoubleclick>
                     </content>
                     <wordwrap class="boolean">false</wordwrap>
                     <alignment class="alignment">left</alignment>
-                    <css class="css"></css>
+                    <css class="css"> title</css>
                     <linklabelid class="text"></linklabelid>
                     <tooltip class="lingual">
                       <fr></fr>
@@ -1217,7 +1217,7 @@ showEventDetails();</ondoubleclick>
                     <posy class="number">170</posy>
                     <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">61</sizex>
+                    <sizex class="number">85</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1258,7 +1258,7 @@ showEventDetails();</ondoubleclick>
                     <posy class="number">33</posy>
                     <sizextype class="hidden">EXTANDABLE</sizextype>
                     <altersizex class="hidden">30</altersizex>
-                    <sizex class="number">444</sizex>
+                    <sizex class="number">370</sizex>
                     <sizeytype class="hidden">EXTANDABLE</sizeytype>
                     <sizey class="number">18</sizey>
                     <altersizey class="hidden">30</altersizey>
@@ -1400,7 +1400,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TET_NAME</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1426,7 +1426,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -1491,7 +1491,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTTY_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1517,7 +1517,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1560,7 +1560,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTES_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1572,7 +1572,7 @@ showEventDetails();</ondoubleclick>
                             <posy class="number">81</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">61</sizex>
+                            <sizex class="number">73</sizex>
                             <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1586,7 +1586,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1598,7 +1598,7 @@ showEventDetails();</ondoubleclick>
                             <posy class="number">182</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">61</sizex>
+                            <sizex class="number">64</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1650,7 +1650,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_COMMENT</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1676,7 +1676,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <alignment class="fullalignment">left</alignment>
                             <htmlcontent class="boolean">true</htmlcontent>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <tooltip class="lingual">
                               <fr></fr>
                             </tooltip>
@@ -1731,7 +1731,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_START_DATE</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1757,7 +1757,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1800,7 +1800,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_DURATION</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1812,7 +1812,7 @@ showEventDetails();</ondoubleclick>
                             <posy class="number">106</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">115</sizex>
+                            <sizex class="number">139</sizex>
                             <sizeytype class="sizetype">EXTANDABLE</sizeytype>
                             <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -1826,7 +1826,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -1891,7 +1891,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TCT_URL</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -1917,7 +1917,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -1982,7 +1982,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -2008,7 +2008,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -2073,7 +2073,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">libelle</css>
+                            <css class="css">labelTitle</css>
                             <linklabelid class="text">fkTAS_ID</linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -2099,7 +2099,7 @@ showEventDetails();</ondoubleclick>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css">valeur</css>
+                            <css class="css">labelContent</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <en></en>
@@ -3004,7 +3004,7 @@ showEventDetails();</ondoubleclick>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">622</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">24</sizey>
+                        <sizey class="number">21</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -3024,7 +3024,7 @@ showEventDetails();</ondoubleclick>
                         </content>
                         <wordwrap class="boolean">false</wordwrap>
                         <alignment class="alignment">left</alignment>
-                        <css class="css">libelle</css>
+                        <css class="css">title</css>
                         <linklabelid class="text">MISSION_TABLE</linklabelid>
                         <tooltip class="lingual">
                           <fr></fr>
@@ -3036,9 +3036,9 @@ showEventDetails();</ondoubleclick>
                         <posy class="number">368</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">164</sizex>
+                        <sizex class="number">223</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">20</sizey>
+                        <sizey class="number">23</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">216</alty>
                         <name class="text">labelMISSION_TABLE</name>
@@ -3081,8 +3081,8 @@ showEventDetails();</ondoubleclick>
                           <multilist>
                             <content class="text"></content>
                             <tablecss class="css"></tablecss>
-                            <headercss class="css"></headercss>
-                            <evenrowcss class="css"></evenrowcss>
+                            <headercss class="css"> tableTitle</headercss>
+                            <evenrowcss class="css"> tableContent</evenrowcss>
                             <oddrowcss class="css"></oddrowcss>
                             <hoverrowcss class="css"></hoverrowcss>
                             <hoverrowboolean class="boolean">true</hoverrowboolean>
@@ -3182,7 +3182,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">TMN_ESTIMATED_COST</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3229,7 +3229,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <en></en>
                   <fr></fr>
@@ -3322,7 +3322,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
-                <css class="css">libelle</css>
+                <css class="css">labelTitle</css>
                 <linklabelid class="text">COMMENT</linklabelid>
                 <tooltip class="lingual">
                   <fr></fr>
@@ -3369,7 +3369,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css">valeur</css>
+                <css class="css">labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -3436,7 +3436,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
             </content>
             <wordwrap class="boolean">false</wordwrap>
             <alignment class="alignment">left</alignment>
-            <css class="css">libelle</css>
+            <css class="css">labelTitle</css>
             <linklabelid class="text">COMMENT</linklabelid>
             <tooltip class="lingual">
               <fr></fr>
@@ -3690,7 +3690,7 @@ meibo.setActiveTab(2);</onclick>
           <fr>{0}</fr>
         </pattern>
         <alignment class="alignment">left</alignment>
-        <css class="css">libelle</css>
+        <css class="css">labelContent</css>
         <tooltip class="lingual">
           <fr></fr>
         </tooltip>
@@ -3714,7 +3714,7 @@ meibo.setActiveTab(2);</onclick>
         </content>
         <wordwrap class="boolean">false</wordwrap>
         <alignment class="alignment">left</alignment>
-        <css class="css">valeur</css>
+        <css class="css">labelContent</css>
         <linklabelid class="text"></linklabelid>
         <tooltip class="lingual">
           <fr></fr>
