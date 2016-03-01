@@ -2173,7 +2173,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">631</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">204</sizey>
+                        <sizey class="number">192</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -3025,7 +3025,7 @@ meibo.switchToDisplayView(&quot;Event&quot;, selectedEventDn,0);
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">631</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">16</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>

@@ -861,6 +861,58 @@ function /*void*/ displaySearch(/*String*/ resource, /*String*/ attrs) {
   }
 }
 
+
+
+//**************************
+
+function /*void*/ displaySearchA(/*String*/ resource, /*String*/ attrs) {
+
+ 
+  var /*String*/ filter = meibo.getFieldValue(&quot;filter&quot;);
+  var table = meibo.getField(&quot;PersonnesACT&quot;);
+  var /*int*/ nEntries = table.fillInWithQuery(resource, filter,100, attrs, meibo.getFieldValue(&apos;sortAttribute&apos;));
+  if (nEntries == 0) {
+    meibo.showField(&quot;error1&quot;, true);
+  }
+  else {
+    // show-hide button
+    meibo.showField(&quot;error1&quot;, false);
+   }
+}
+
+
+
+       function /*void*/ displaySearchB(/*String*/ resource, /*String*/ attrs) {
+
+         
+          var /*String*/ filter = meibo.getFieldValue(&quot;filters&quot;);
+          var tableP = meibo.getField(&quot;PersonnesAVN&quot;);
+          var /*int*/ nEntries = tableP.fillInWithQuery(resource, filter,100, attrs, meibo.getFieldValue(&apos;sortAttribute&apos;));
+          if (nEntries == 0) {
+           meibo.showField(&quot;error&quot;, true);
+         }
+         else {
+            // show-hide button
+            meibo.showField(&quot;error&quot;, false);
+          }
+        }
+
+function /*void*/ displaySearchC(/*String*/ resource, /*String*/ attrs) {
+
+ 
+  var /*String*/ filter = meibo.getFieldValue(&quot;filter&quot;);
+  var table = meibo.getField(&quot;PersonnesACT&quot;);
+  var /*int*/ nEntries = table.fillInWithQuery(resource, filter,100,attrs);
+  if (nEntries == 0) {
+    meibo.showField(&quot;error1&quot;, true);
+  }
+  else {
+    // show-hide button
+    meibo.showField(&quot;error1&quot;, false);
+   }
+}
+//**************************
+
 // select all lines in a table
 function /*void*/ selectAllLines(/*String*/ table) {
   var /*table*/ tab = meibo.getField(table);

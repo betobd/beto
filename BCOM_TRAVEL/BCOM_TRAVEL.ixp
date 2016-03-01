@@ -5191,6 +5191,7 @@ if(dn==null){
               <attribute attrs="TES_ABBREV" pattern_fr="{0}" resourcelink="EventEventScope" type="link">Scope</attribute>
               <attribute attrs="TTY_NAME" pattern_fr="{0}" resourcelink="EventEventType" type="link">TypeName</attribute>
               <attribute attrs="TES_NAME" pattern_fr="{0}" resourcelink="EventEventScope" type="link">ScopeName</attribute>
+              <attribute attrs="" pattern_fr="{0}" resourcelink="Event_mission" type="link">PRS_ID</attribute>
             </logical>
           </return>
           <onRead class="script">var scriptedAttributes = meibo.getParameter(&quot;scripted&quot;);
@@ -5223,7 +5224,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <reverseOrder class="boolean">true</reverseOrder>
           </sortingon>
           <separator class="separator"></separator>
-          <key class="attribute">displayName</key>
+          <key class="attribute"></key>
           <entriesbrowsed class="integer">20</entriesbrowsed>
           <separator class="separator"></separator>
           <searchattribute class="attribute">TET_NAME</searchattribute>
@@ -5338,6 +5339,29 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           </properties>
           <path>TRAVEL_BCOM_Event_Picker.xml</path>
           <class></class>
+        </sequence>
+        <sequence name="Missions" type="4">
+          <properties>
+            <displayname class="lingual">
+              <fr>Missions</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+          </properties>
+          <path>TRAVEL_BCOM_Event_Missions.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
+          </rights>
         </sequence>
       </resource>
       <resource name="EventHeader">
@@ -6848,6 +6872,24 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <type class="linktype">4</type>
         <attribute1 class="text">CTT_ID</attribute1>
         <attribute2 class="text">CTT_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="Event_mission">
+      <properties>
+        <displayname class="lingual">
+          <fr>Event_mission</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">Event</resourcefrom>
+        <resourceto class="resource">MissionList</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">fkPRS_LEADER</attribute1>
+        <attribute2 class="text">PRS_ID</attribute2>
         <separator class="separator"></separator>
         <imageclosed class="file"></imageclosed>
         <imageopened class="file"></imageopened>

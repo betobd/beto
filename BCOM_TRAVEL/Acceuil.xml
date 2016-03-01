@@ -32,7 +32,7 @@
             <posy class="number">-58</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
-            <sizex class="number">712</sizex>
+            <sizex class="number">809</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
             <sizey class="number">89</sizey>
             <altersizey class="hidden">30</altersizey>
@@ -165,6 +165,51 @@
                 <alty class="hidden">0</alty>
                 <name class="text">REPORT_CREATE_BTN</name>
                 <id class="hidden">v27808286480853718</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Events</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Event/Missions">$Event/Missions</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/search.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">598</posx>
+                <posy class="number">61</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">103</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">f3059555818054825</id>
                 <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                 <components class="components">
                   <fieldPart class="node" en="" fr="">

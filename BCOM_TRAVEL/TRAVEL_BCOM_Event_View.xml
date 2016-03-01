@@ -3998,7 +3998,7 @@
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">32</sizey>
+            <sizey class="number">34</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
@@ -4147,7 +4147,7 @@ meibo.switchToDisplayView(&quot;Mission&quot;, selectedMissionDn,0);</ondoublecl
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">607</sizex>
             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-            <sizey class="number">32</sizey>
+            <sizey class="number">34</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
             <name class="text"></name>
