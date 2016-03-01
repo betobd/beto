@@ -5465,7 +5465,8 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <return class="returnallattributes">
             <physical>TES_ID,TET_AVERAGE_COST,TET_COMMENT,TET_DURATION,TET_ID,TET_ISPRIVATE,TET_ISTEMPLATE,TET_NAME,TET_URL,TTY_ID</physical>
             <logical>
-              <attribute attrs="" pattern_fr="{0}" resourcelink="EventHeaderEventType" type="link">Type</attribute>
+              <attribute attrs="TTY_NAME" pattern_fr="{0}" resourcelink="EventTemplateEventType" type="link">Type</attribute>
+              <attribute attrs="TES_NAME" pattern_fr="{0}" resourcelink="EventTemplateEventScope" type="link">Scope</attribute>
             </logical>
           </return>
           <onRead class="script"></onRead>
@@ -5500,6 +5501,56 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <TET_URL class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TET_URL>
           <TTY_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TTY_ID>
         </attributetable>
+        <sequence name="Create" type="2">
+          <properties>
+            <displayname class="lingual">
+              <fr>Create</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_EventTemplate_Create.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Update" type="1">
+          <properties>
+            <displayname class="lingual">
+              <fr>Update</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+            <onoperationok class="extscript"></onoperationok>
+            <onoperationko class="extscript"></onoperationko>
+          </properties>
+          <path>TRAVEL_BCOM_EventTemplate_Update.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
         <sequence name="Display" type="0">
           <properties>
             <displayname class="lingual">
@@ -5515,6 +5566,29 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <rights>
             <AdminMeibo>true</AdminMeibo>
             <DDI>true</DDI>
+            <Utilisateur>true</Utilisateur>
+          </rights>
+        </sequence>
+        <sequence name="Liste" type="4">
+          <properties>
+            <displayname class="lingual">
+              <fr>Liste</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+          </properties>
+          <path>TRAVEL_BCOM_EventTemplate_Liste.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
             <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
@@ -7013,7 +7087,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         </displayname>
         <hiddenlink class="boolean">false</hiddenlink>
         <separator class="separator"></separator>
-        <resourcefrom class="resource">EventHeader</resourcefrom>
+        <resourcefrom class="resource">EventTemplate</resourcefrom>
         <resourceto class="resource">EventScope</resourceto>
         <separator class="separator"></separator>
         <type class="linktype">4</type>
@@ -7031,7 +7105,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         </displayname>
         <hiddenlink class="boolean">false</hiddenlink>
         <separator class="separator"></separator>
-        <resourcefrom class="resource">EventHeader</resourcefrom>
+        <resourcefrom class="resource">EventTemplate</resourcefrom>
         <resourceto class="resource">EventType</resourceto>
         <separator class="separator"></separator>
         <type class="linktype">4</type>
@@ -7145,6 +7219,42 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <separator class="separator"></separator>
         <imageclosed class="file">images/black-time.gif</imageclosed>
         <imageopened class="file">images/green-clock.gif</imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="EventTemplateEventScope">
+      <properties>
+        <displayname class="lingual">
+          <fr>EventTemplateEventScope</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">EventTemplate</resourcefrom>
+        <resourceto class="resource">EventScope</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TES_ID</attribute1>
+        <attribute2 class="text">TES_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
+      </properties>
+    </resourcelink>
+    <resourcelink name="EventTemplateEventType">
+      <properties>
+        <displayname class="lingual">
+          <fr>EventTemplateEventType</fr>
+        </displayname>
+        <hiddenlink class="boolean">false</hiddenlink>
+        <separator class="separator"></separator>
+        <resourcefrom class="resource">EventTemplate</resourcefrom>
+        <resourceto class="resource">EventType</resourceto>
+        <separator class="separator"></separator>
+        <type class="linktype">4</type>
+        <attribute1 class="text">TTY_ID</attribute1>
+        <attribute2 class="text">TTY_ID</attribute2>
+        <separator class="separator"></separator>
+        <imageclosed class="file"></imageclosed>
+        <imageopened class="file"></imageopened>
       </properties>
     </resourcelink>
     <resourcelink name="EventTypeEventScope">

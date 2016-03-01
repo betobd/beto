@@ -1,0 +1,4 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+<globalScriptView class="script"> </globalScriptView><onload class="script"> </onload><onquit class="script">meibo.setReturnValue(true);
+</onquit><onoperationok class="script"></onoperationok><onoperationko class="script"></onoperationko></scripts>
