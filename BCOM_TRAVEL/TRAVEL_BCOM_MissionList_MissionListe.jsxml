@@ -17,28 +17,55 @@ var COL_Status       = 6 // Status</globalScriptView>
   
    
   
-  // Filter
+
   
-    var /*String*/ filter = &quot;&quot;; 
-    filter = filter + &quot;RAS_START_DATE &gt;= &apos;&quot; + format + &quot;&apos;&quot;;
+  // Filters
+  
+  var /*String*/ filter = &quot;&quot;;
+  var /*String*/ filter1 = &quot;&quot;;  
+  var /*String*/ FLT2 = &quot;&quot;;
     
-    meibo.getField(&quot;filter&quot;).setValue(filter);
+  var /*int*/ cont;  
+  var filters= new Array(15);
+  
+  for(cont=0;cont&lt;=15;cont++)
+  {
+    
+        var /*int*/ prochain= jour+cont;
+ 
+       if( (prochain &gt; 0) &amp;&amp; (prochain &lt; 10)  ){
+         filter1 = DebutAV.substring(0,4)+ &quot;-&quot; + DebutAV.substring(4,6) + &quot;-0&quot; +prochain;
+       }
+      
+        else{
+           filter1 = DebutAV.substring(0,4)+ &quot;-&quot; +  DebutAV.substring(4,6) + &quot;-&quot; +prochain;
+        }
+        
+        filter=  filter + &quot; RAS_START_DATE &gt;= &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
+        FLT2= filter.substring(0,filter.length - 3);        
+   
+  }
+  
+    //var /*String*/ filter = &quot;&quot;; 
+    //filter = filter + &quot;RAS_START_DATE &gt;= &apos;&quot; + format + &quot;&apos;&quot;;
+    
+    meibo.getField(&quot;filter&quot;).setValue(FLT2);
          
   //Recherche et afichage table 1
          
   var missionTable = meibo.getField(&quot;PersonnesAVN&quot;);
-  var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, filter, 0);
+  var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, FLT2, 0);
 
   if( nbMissions == 0 ) {
-    meibo.getField(&quot;nmissions2&quot;).setValue(&quot;Aucune mission ne correspond aux crit&#232;res&quot;);
+    meibo.getField(&quot;nmissions2&quot;).setValue(&quot;Aucune mission &#224; venir&quot;);
     meibo.showField(&quot;PersonnesAVN&quot;,false);
   }
   else {
     if( nbMissions == 1 ) {
-      meibo.getField(&quot;nmissions2&quot;).setValue(&quot;1 mission correspond aux crit&#232;res&quot;);
+      meibo.getField(&quot;nmissions2&quot;).setValue(&quot;1 mission &#224; venir&quot;);
     }
     else {
-      meibo.getField(&quot;nmissions2&quot;).setValue(nbMissions + &quot; missions correspondent aux crit&#232;res&quot;);
+      meibo.getField(&quot;nmissions2&quot;).setValue(nbMissions + &quot; missions &#224; venir&quot;);
     }
     meibo.showField(&quot;PersonnesAVN&quot;,true);
   }
