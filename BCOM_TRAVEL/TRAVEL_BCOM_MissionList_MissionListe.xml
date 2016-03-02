@@ -1707,6 +1707,38 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
           </fieldPart>
         </components>
       </image>
+      <textarea>
+        <content class="lingual">
+          <fr></fr>
+        </content>
+        <alignment class="fullalignment">left</alignment>
+        <htmlcontent class="boolean">false</htmlcontent>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">81</posx>
+        <posy class="number">780</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">394</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">109</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">jma</name>
+        <id class="hidden">x282299764670838</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </textarea>
     </page>
   </destination>
 </screen>

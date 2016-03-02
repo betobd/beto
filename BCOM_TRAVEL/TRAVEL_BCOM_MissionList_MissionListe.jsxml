@@ -13,10 +13,13 @@ var COL_Status       = 6 // Status</globalScriptView>
   <onload class="script">var date = new Date();
   var DebutAV = date.toLdapString();
   var /*String*/ format = DebutAV.substring(0,4)+ &quot;-&quot; +DebutAV.substring(4,6)+ &quot;-&quot; +DebutAV.substring(6,8);
-  var /*int*/ jour= parseInt(DebutAV.substring(6,8));
-  
+  var /*int*/ jj= parseInt(DebutAV.substring(6,8));
+  var /*int*/ mm= parseInt(DebutAV.substring(4,6));
+  var /*int*/ aa= parseInt(DebutAV.substring(0,4));
    
-  
+  var /*int*/ prochainjj;
+  var /*int*/ prochainmm=mm;
+  var /*int*/ prochainaa=aa;
 
   
   // Filters
@@ -27,21 +30,40 @@ var COL_Status       = 6 // Status</globalScriptView>
     
   var /*int*/ cont;  
   var filters= new Array(15);
+  var jjmmaa= new Array(15);
   
   for(cont=0;cont&lt;=15;cont++)
   {
     
-        var /*int*/ prochain= jour+cont;
+        prochainjj= jj+cont;
+       
+        
+        if(prochainjj &gt;31){
+        jj=-cont;
+         prochainjj= jj+cont+1;
+         prochainmm=mm+1;
+         
+         if(prochainmm&gt;12){
+         mm=-cont;
+         prochainmm=mm+cont+1;
+         prochainaa=aa+1;
+         }
+        }
+        
+        jjmmaa[cont]=prochainmm;        
+        meibo.getField(&quot;jma&quot;).setValue(&quot;dia:&quot; + jjmmaa[0] + &quot; - &quot; + jjmmaa[1] + &quot; - &quot; +   jjmmaa[2]+ &quot; - &quot; +   jjmmaa[3] + &quot; - &quot; +   jjmmaa[4] + &quot; - &quot; +   jjmmaa[5] + &quot; - &quot; +   jjmmaa[6]);
  
-       if( (prochain &gt; 0) &amp;&amp; (prochain &lt; 10)  ){
-         filter1 = DebutAV.substring(0,4)+ &quot;-&quot; + DebutAV.substring(4,6) + &quot;-0&quot; +prochain;
+       if( (prochainjj &gt; 0) &amp;&amp; (prochainjj &lt; 10)  ){
+         //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; + DebutAV.substring(4,6) + &quot;-0&quot; +prochainjj;
+         filter1 = prochainaa+ &quot;-&quot; + prochainmm + &quot;-0&quot; +prochainjj;
        }
       
         else{
-           filter1 = DebutAV.substring(0,4)+ &quot;-&quot; +  DebutAV.substring(4,6) + &quot;-&quot; +prochain;
+           //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; +  DebutAV.substring(4,6) + &quot;-&quot; +prochainjj;
+              filter1 = prochainaa + &quot;-&quot; +  prochainmm + &quot;-&quot; +prochainjj;
         }
         
-        filter=  filter + &quot; RAS_START_DATE &gt;= &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
+        filter=  filter + &quot; RAS_START_DATE = &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
         FLT2= filter.substring(0,filter.length - 3);        
    
   }
