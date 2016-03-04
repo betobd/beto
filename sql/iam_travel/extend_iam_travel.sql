@@ -466,6 +466,7 @@ CREATE TABLE `T_EVENT_TYPE_TTY` (
   `TTY_ID` int(11) NOT NULL AUTO_INCREMENT,
   `TTY_NAME` varchar(255) DEFAULT NULL,
   `TTY_ABBREV` varchar(25) NOT NULL,
+  `TTY_ISPRIVATEMEETING` tinyint(1) NOT NULL,  
   PRIMARY KEY (`TTY_ID`),
   UNIQUE KEY `TTY_ABBREV` (`TTY_ABBREV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1031,6 +1032,112 @@ AND ((TPE_ID = purposeID) OR (TPE_ID  IS NULL))
 AND ((TIN_ID = involvementID) OR (TIN_ID  IS NULL)) 
 group BY tfl.DIR_ID;
 END;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `modify_address` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modify_address`(in addressID int(11),in addrNature varchar(25),in adrName varchar(255), in addr1 varchar(255), in addr2 varchar(255), in addr3 varchar(255), in zipcode varchar(255), in town varchar(255), in state varchar(255), in countryAlpha3 varchar(3), in phoneNumber varchar(25))
+BEGIN
+DECLARE countryID int(11);
+
+SELECT TCY_ID INTO countryID FROM T_COUNTRY_TCY WHERE TCY_ALPHA3=countryAlpha3;
+
+IF (countryID IS NOT NULL)
+THEN        
+UPDATE T_ADDRESS_TAS SET TAS_NAME = adrName,TAS_STATE = state,TAS_ZIPCODE =zipcode,TAS_PHONENUMBER =phoneNumber,TAS_TOWN =town,TAS_ADDR1 =addr1,TAS_ADDR2=addr2,TAS_ADDR3=addr3,TCY_ID=countryID,TNA_ABBREV=addrNature
+WHERE TAS_ID = addressID;
+SELECT 1;
+ELSE
+SELECT 0;                                                                             
+END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `modify_concrete_event` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modify_concrete_event`(in concreteEventID int(11),in startDate date, in duration smallint(6),in remark text, in url varchar(1048),in cost float,in addressID int(11))
+BEGIN
+DECLARE concreteExistingEvtID int(11);
+
+
+IF (startDate < '2016-01-01') 
+THEN
+-- invalid start date : past date
+SET concreteExistingEvtID = 0;
+END IF;
+
+
+IF (concreteEventID IS NOT NULL AND duration IS NOT NULL AND concreteExistingEvtID IS NULL)
+THEN
+UPDATE T_CONCRETE_EVENT_TCT SET TCT_START_DATE = startDate, TCT_DURATION = duration, TCT_COMMENT = remark, TCT_URL = url, TCT_COST = cost, TAS_ID =addressID WHERE TCT_ID = concreteEventID;
+
+IF (cost <> 0)
+THEN 
+UPDATE T_EVENT_TET SET TET_AVERAGE_COST = cost WHERE TET_ID = eventID; 
+END IF;
+
+SELECT 1  AS 'Result';
+ELSE
+SELECT 0  AS 'Result';
+END IF; 
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `modify_template_event` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modify_template_event`(in eventID int(11),in eventName varchar(255), in url varchar(1048), in remark text, in isPrivate bool, in duration smallint(6), in cost float, in scopeAbbrev varchar(25), in evtTypeAbbrev varchar(25))
+BEGIN
+DECLARE scopeID int(11); 
+DECLARE evtTypeID int(11);
+
+
+SELECT TES_ID INTO scopeID FROM T_EVENT_SCOPE_TES WHERE TES_ABBREV = scopeAbbrev;
+SELECT TTY_ID INTO evtTypeID FROM T_EVENT_TYPE_TTY WHERE TTY_ABBREV = evtTypeAbbrev;
+
+IF (scopeID IS NOT NULL AND evtTypeID IS NOT NULL AND eventName IS NOT NULL AND url IS NOT NULL)
+THEN
+UPDATE T_EVENT_TET SET TET_NAME = eventName,TET_URL = url,TET_COMMENT = remark,TET_ISPRIVATE = isPrivate,TET_ISTEMPLATE = 1,TET_DURATION = duration,TET_AVERAGE_COST = cost,TTY_ID = evtTypeID,TES_ID = scopeID
+WHERE TET_ID = eventID;
+SELECT 1 AS 'Result';
+ELSE 
+SELECT 0  AS 'Result';
+END IF; 
+
+END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
