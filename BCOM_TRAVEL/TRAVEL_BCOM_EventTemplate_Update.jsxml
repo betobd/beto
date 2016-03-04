@@ -1,4 +1,50 @@
 <?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
 <scripts>
-<globalScriptView class="script"> </globalScriptView><onload class="script"> </onload><onquit class="script">meibo.setReturnValue(true);
-</onquit><onoperationok class="script"></onoperationok><onoperationko class="script"></onoperationko></scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script"> </onload>
+  <onquit class="script">///$debug
+// ProcStock : `modify_template_event`
+// 0: in eventID int(11)
+// 1: in eventName varchar(255)
+// 2: in url varchar(1048)
+// 3: in remark text
+// 4: in isPrivate bool
+// 5: in duration smallint(6)
+// 6: in cost float
+// 7: in scopeAbbrev varchar(25)
+// 8: in evtTypeAbbrev varchar(25))
+
+
+var /*String*/ procName = &quot;`modify_template_event`&quot;;
+var /*Array*/  values   = new Array();
+var /*Array*/  types    = new Array();
+
+types[0] = &quot;IN&quot;; values[0] = meibo.getCurrentDn().split(&quot;,&quot;)[2];
+types[1] = &quot;IN&quot;; values[1] = meibo.getFieldValue(&quot;TET_NAME&quot;);
+types[2] = &quot;IN&quot;; values[2] = meibo.getFieldValue(&quot;TET_URL&quot;);
+types[3] = &quot;IN&quot;; values[3] = meibo.getFieldValue(&quot;TET_COMMENT&quot;);
+types[4] = &quot;IN&quot;; values[4] = meibo.getFieldValue(&quot;TET_ISPRIVATE&quot;);
+types[5] = &quot;IN&quot;; values[5] = meibo.getFieldValue(&quot;TET_DURATION&quot;);
+types[6] = &quot;IN&quot;; values[6] = meibo.getFieldValue(&quot;TET_AVERAGE_COST&quot;);
+types[7] = &quot;IN&quot;; values[7] = meibo.getFieldValue(&quot;Scope&quot;);
+types[8] = &quot;IN&quot;; values[8] = meibo.getFieldValue(&quot;Type&quot;);
+
+// Cas particulier des champs qui ne peuvent &#234;tre vide
+if(values[1].trim()==&quot;&quot;){ values[1] = null; }
+if(values[2].trim()==&quot;&quot;){ values[2] = null; }
+if(values[5].trim()==&quot;&quot;){ values[5] = null; }
+if(values[6].trim()==&quot;&quot;){ values[6] = null; }
+
+var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;EventTemplate&quot;,&quot;error&quot;)
+
+if( returnValue != null ) {
+  meibo.switchToDisplayView(&quot;EventTemplate&quot;, meibo.getCurrentDn() ,0);
+}
+else {
+  meibo.showField(&quot;error&quot;, true);
+}
+
+meibo.setReturnValue(false);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

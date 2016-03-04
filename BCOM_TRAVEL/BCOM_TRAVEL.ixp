@@ -5605,7 +5605,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <request class="text"></request>
           <separator class="separator"></separator>
           <return class="returnallattributes">
-            <physical>TTY_ABBREV,TTY_ID,TTY_NAME</physical>
+            <physical>TTY_ABBREV,TTY_ID,TTY_NAME,TTY_ISPRIVATEMEETING</physical>
             <logical></logical>
           </return>
           <onRead class="script"></onRead>
@@ -5631,6 +5631,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
         <attributetable>
           <TTY_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TTY_ABBREV>
           <TTY_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TTY_ID>
+          <TTY_ISPRIVATEMEETING class="label">MAY  - Text - TINYINT - SINGLE-VALUED</TTY_ISPRIVATEMEETING>
           <TTY_NAME class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TTY_NAME>
         </attributetable>
       </resource>
