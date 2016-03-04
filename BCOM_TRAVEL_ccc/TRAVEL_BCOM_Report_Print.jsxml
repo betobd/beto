@@ -1,0 +1,120 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants &#224; l&apos;abbr&#233;viation choiceType
+ * pr&#233;s&#233;lectionne les valeurs enregistr&#233;es
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType,reportId){
+  var /*Table*/ table = meibo.getField(tableName);
+  // recherche des choix possibles 
+  var /*ResultSet*/ choicesRs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_ID,TFC_ID,TCS_NAME&quot;);
+  var /*Entry*/ choiceEntry = choicesRs.getEntry();
+  var filteredChoiceId = choiceEntry.TFC_ID[0];
+  // recherche des valeurs enregistr&#233;es
+  var /*ResultSet*/ selectedChoicesRs = meibo.executeResource(&quot;R_ReportChoice&quot;, &quot;TRT_ID=&quot; + reportId + &quot; AND TFC_ID=&quot; + filteredChoiceId, 0);
+  var /*Array*/ selectedChoicesArray = resultSetToArray(selectedChoicesRs,&quot;TCS_ID&quot;);
+  table.fillInWithResultSet(choicesRs,0,0,&quot;TCS_NAME&quot;);
+  // positionne l&apos;entr&#233;e en row object pour pouvoir r&#233;cup&#233;rer les valeurs au moment de la soumission du formulaire 
+  var choiceId = null;
+  for(var i=0;i&lt;choicesRs.getEntryCount();i++){
+    choiceEntry = choicesRs.getEntry(i);
+    table.addRowObject(i,choiceEntry);
+    choiceId = choiceEntry.TCS_ID[0];
+    // pr&#233;s&#233;lectionne la valeur si elle &#233;tait enregistr&#233;e
+    if(choiceId in selectedChoicesArray){
+      table.checkRow(i,true);
+    }
+  }
+}
+
+function /*void*/ fillChoiceValues(listName, choiceType){
+  var /*Label*/choice = meibo.getField(listName);
+  var value= choice.getContent();
+  var /*ResultSet*/ choicesRs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos; AND TCS_VALUE=&quot; + value, 1, &quot;TCS_NAME&quot;);
+  choice.setContent(choicesRs.getEntry().TCS_NAME[0]);
+}
+
+
+var reportId= meibo.getFieldValue(&quot;TRT_ID&quot;)
+var eventID = meibo.getCurrentEntry().TCT_ID[0];
+
+// Remplit les valeurs possibles des tableaux et listes utilis&#233;s
+fillTableWithChoices(&quot;R_CONTENTS_TYPE&quot;,&quot;CNT&quot;,reportId);
+fillTableWithChoices(&quot;R_MEDIA_TYPE&quot;,&quot;MED&quot;,reportId);
+
+fillChoiceValues(&quot;TRT_QUALITY_NOTE&quot;,&quot;GQ&quot;);
+fillChoiceValues(&quot;TRT_RENOWN_COMMENT&quot;,&quot;RN&quot;);
+fillChoiceValues(&quot;TRT_DYN_PREVIOUS_SESSION_NOTE&quot;,&quot;DPS&quot;);
+fillChoiceValues(&quot;TRT_STRATEGIC_COVER_NOTE&quot;,&quot;SNC&quot;);
+fillChoiceValues(&quot;TRT_LOBBY_CONTACT_QUAL_NOTE&quot;,&quot;LCQ&quot;);
+fillChoiceValues(&quot;TRT_BUSINESS_CONTACT_QUAL_NOTE&quot;,&quot;BCQ&quot;);
+fillChoiceValues(&quot;TRT_BCOM_SPREAD_VALUE_COMMENT&quot;,&quot;BSC&quot;);
+fillChoiceValues(&quot;TRT_BENCHMARK_QUALITY_NOTE&quot;,&quot;BQ&quot;);
+fillChoiceValues(&quot;TRT_QUAL_PRICE_RATIO_NOTE&quot;,&quot;PQR&quot;);
+fillChoiceValues(&quot;TRT_NEXTEDITION_NOTE&quot;,&quot;NEN&quot;);
+
+
+// traitement sp&#233;cifique des contacts
+// les valeurs ne sont pas port&#233;es dans la table REPORT, mais dans la table T_NETWORKING_CONTACT_TNC (ressource ReportNetworkingContacts)
+
+// recherche des valeurs enregistr&#233;es
+var /*ResultSet*/ contactRs = meibo.executeResource(&quot;ReportNetworkingContacts&quot;, &quot;TRT_ID=&quot; + reportId, 0);
+var contactIndex = 1;
+for each(var /*Entry*/ networkingContactEntry in contactRs){
+  meibo.setFieldValue(&quot;CONTACT_NAME_&quot; + contactIndex, networkingContactEntry.TNC_NAME[0]);
+  meibo.setFieldValue(&quot;CONTACT_TITLE_&quot; + contactIndex, networkingContactEntry.TNC_TITLE[0]);
+  meibo.setFieldValue(&quot;CONTACT_STRUCTURE_&quot; + contactIndex, networkingContactEntry.TNC_STRUCTURE[0]);
+  meibo.setFieldValue(&quot;CONTACT_DISCUSSION_&quot; + contactIndex, networkingContactEntry.TNC_DISCUSSION[0]);
+  meibo.setFieldValue(&quot;CONTACT_FOLLOWUP_&quot; + contactIndex, networkingContactEntry.TNC_FOLLOWUP[0]);
+  
+  meibo.showField(&quot;CONTACT_CONTAINER_&quot; + contactIndex, true);
+  contactIndex++;
+}
+
+// contournement du fonctionnement meibo qui ne prend en compte que la premi&#232;re valeur des champs multivalu&#233;s dans le cas d&apos;une ressource de type base de donn&#233;es
+fixMultiValueFieldsOnLoad(&quot;TRT_PARTNER_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_NEWSPAPER_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_JOURNALIST_LIST&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_KEYWORDS&quot;);
+fixMultiValueFieldsOnLoad(&quot;TRT_DIFFUSION_EMAIL_LIST&quot;);
+
+// formatage date
+var /*java.util.Date*/ startDate= SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;EventDate&quot;));
+var /*String*/ eventDuration = meibo.getFieldValue(&quot;EventDate&quot;);
+var /*java.util.Date*/ endDate= addDays(startDate, NUMBERFORMAT_INSTANCE.parse(eventDuration).intValue()-1);
+
+meibo.setFieldValue(&quot;EventDate&quot;, &quot;du &quot; + DATE_FORMAT.format(startDate) +  &quot; au &quot; + DATE_FORMAT.format(endDate));
+
+// Tableau des participants
+var /*Table*/attendeesTable = meibo.getField(&quot;ATTENDEES_TABLE&quot;);
+var /*ResultSet*/ eventAttendeesRs = meibo.executeResource(&quot;R_Attendees&quot;, &quot;TCT_ID=&quot; + eventID, 0,&quot;RAS_START_DATE,RAS_END_DATE,TIN_NAME,TPE_NAME,personDisplayName&quot;);
+var /*Date*/ startDate = null;
+var /*Date*/ endDate = null;
+
+var line=0;
+for each(var attendeesEntry in eventAttendeesRs){
+  startDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_START_DATE[0]);
+  endDate = SQL_DATE_FORMAT.parse(attendeesEntry.RAS_END_DATE[0]);
+      
+  attendeesTable.addCell(line,0,attendeesEntry.personDisplayName[0]);
+  attendeesTable.addCell(line,1,DATE_FORMAT.format(startDate));
+  attendeesTable.addCell(line,2,DATE_FORMAT.format(endDate));
+  attendeesTable.addCell(line,3,attendeesEntry.TIN_NAME[0]);
+  attendeesTable.addCell(line,4,attendeesEntry.TPE_NAME[0]);
+  line++;
+}
+
+// Tableau des contacts
+var /*Table*/contactsTable = meibo.getField(&quot;CONTACTS_TABLE&quot;);
+var /*ResultSet*/ contactRs = meibo.executeResource(&quot;ReportNetworkingContacts&quot;, &quot;TRT_ID=&quot; + reportId, 0);
+line=0;
+for each(var contactEntry in contactRs){
+  contactsTable.addCell(line,0,contactEntry.TNC_NAME[0]);
+  contactsTable.addCell(line,1,contactEntry.TNC_TITLE[0]);
+  contactsTable.addCell(line,2,contactEntry.TNC_STRUCTURE[0]);
+  contactsTable.addCell(line,3,contactEntry.TNC_DISCUSSION[0]);
+  contactsTable.addCell(line,4,contactEntry.TNC_FOLLOWUP[0]);
+  line++;
+}</onload>
+</scripts>

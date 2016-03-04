@@ -1,0 +1,8 @@
+###################################
+# Provisioning  lines of  BCOM_TRAVEL_ABD
+###################################
+
+#include "{$dir}/OA-VAR-BCOM_TRAVEL_ABD.props"
+
+{$VAR_LINE}
+

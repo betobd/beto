@@ -1,0 +1,80 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">var date = new Date();
+var DebutAV = date.toLdapString();
+
+//Format date aaaa-mm-jj
+  
+  var /*String*/ date = DebutAV.substring(0,4)+ &quot;-&quot; +DebutAV.substring(4,6)+ &quot;-&quot; +DebutAV.substring(6,8);
+ 
+  
+  var /*int*/ jj= parseInt(DebutAV.substring(6,8));
+  var /*int*/ mm= parseInt(DebutAV.substring(4,6));
+  var /*int*/ aa= parseInt(DebutAV.substring(0,4));
+   
+  var /*int*/ prochainjj;
+  var /*int*/ prochainmm=mm;
+  var /*int*/ prochainaa=aa;
+ 
+  // Filters
+  
+  var /*String*/ filter = &quot;&quot;;
+  var /*String*/ filter1 = &quot;&quot;;  
+  var /*String*/ FLT2 = &quot;&quot;;
+    
+  var /*int*/ cont;  
+  var filters= new Array(15);
+  
+  for(cont=0;cont&lt;=15;cont++)
+  {
+    
+        prochainjj= jj+cont;
+        
+        if(prochainjj &gt;31){
+           jj=-cont;
+           prochainjj= jj+cont+1;
+           prochainmm=mm+1;
+           
+           if(prochainmm&gt;12){
+             mm=-cont;
+             prochainmm=mm+cont+1;
+             prochainaa=aa+1;
+           }
+        }
+ 
+       if( (prochainjj &gt; 0) &amp;&amp; (prochainjj &lt; 10)  ){
+         //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; + DebutAV.substring(4,6) + &quot;-0&quot; +prochain;
+         filter1 = prochainaa+ &quot;-&quot; + prochainmm + &quot;-0&quot; +prochainjj;
+       }
+      
+        else{
+           //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; +  DebutAV.substring(4,6) + &quot;-&quot; +prochain;
+           filter1 = prochainaa + &quot;-&quot; +  prochainmm + &quot;-&quot; +prochainjj;
+        }
+        
+        filter=  filter + &quot; TCT_START_DATE = &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
+        FLT2= filter.substring(0,filter.length - 3);        
+   
+  }
+    
+  meibo.getField(&quot;filters&quot;).setValue(FLT2);
+  
+  
+  //Recherche et afichage table 1
+  
+  var /*ResultSet*/ resultSet = meibo.executeResource(&apos;Event&apos;, FLT2, 0, &apos;&apos;);
+  var /*int*/ nEntries = resultSet.getEntryCount();
+  if (nEntries != 0) 
+  {   
+      //meibo.showField(&quot;searchContainer&quot;, true);
+      meibo.showField(&quot;error&quot;, false);
+    
+      displaySearchB(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));
+  }
+  
+  else {
+          meibo.showField(&quot;error&quot;, true);
+       }</onload>
+  <onquit class="script"></onquit>
+</scripts>

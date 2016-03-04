@@ -46,8 +46,8 @@
         <separator class="separator"></separator>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">1338</posx>
-        <posy class="number">35</posy>
+        <posx class="number">1110</posx>
+        <posy class="number">223</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">150</sizex>
@@ -91,10 +91,10 @@
         <format class="text"></format>
         <kind class="edittype">regular</kind>
         <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
+        <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">1335</posx>
-        <posy class="number">172</posy>
+        <posx class="number">1111</posx>
+        <posy class="number">352</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">379</sizex>
@@ -156,11 +156,11 @@
         <separator class="separator"></separator>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">1336</posx>
-        <posy class="number">75</posy>
+        <posx class="number">1112</posx>
+        <posy class="number">263</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">534</sizex>
+        <sizex class="number">449</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">68</sizey>
         <altersizey class="hidden">30</altersizey>
@@ -201,10 +201,10 @@
         <format class="text"></format>
         <kind class="edittype">regular</kind>
         <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
+        <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">1333</posx>
-        <posy class="number">352</posy>
+        <posx class="number">1109</posx>
+        <posy class="number">416</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">416</sizex>
@@ -229,8 +229,8 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">11</posx>
-        <posy class="number">132</posy>
+        <posx class="number">7</posx>
+        <posy class="number">92</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">1070</sizex>
@@ -397,7 +397,7 @@
                           </calendar>
                           <button>
                             <content class="lingual">
-                              <fr>Rechercher</fr>
+                              <fr></fr>
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alt class="lingual">
@@ -420,9 +420,7 @@
   // Filters
   
   var /*String*/ filter = &quot;&quot;;
-  var /*String*/ filter1 = &quot;&quot;;  
-  var /*String*/ FLT2 = &quot;&quot;;
-    
+   
   if( Debut != &quot;&quot; ) {
       if( filter != &quot;&quot; ) { 
            filter = filter + &quot; AND &quot;;
@@ -505,7 +503,7 @@
                             </progressbarnboperationdonetext>
                             <prescript class="script"></prescript>
                             <separator2 class="separator"></separator2>
-                            <image class="file"></image>
+                            <image class="file">images/toolbar_search_48.png</image>
                             <image2 class="file"></image2>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
@@ -514,9 +512,9 @@
                             <posy class="number">70</posy>
                             <sizextype class="sizetype">FIXED</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">75</sizex>
+                            <sizex class="number">48</sizex>
                             <sizeytype class="sizetype">FIXED</sizeytype>
-                            <sizey class="number">20</sizey>
+                            <sizey class="number">25</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">Rechercher</name>
@@ -754,7 +752,7 @@
                             <posy class="number">352</posy>
                             <sizextype class="hidden">EXTANDABLE</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">283</sizex>
+                            <sizex class="number">249</sizex>
                             <sizeytype class="hidden">EXTANDABLE</sizeytype>
                             <sizey class="number">38</sizey>
                             <altersizey class="hidden">30</altersizey>
@@ -768,7 +766,7 @@
                             </content>
                             <wordwrap class="boolean">false</wordwrap>
                             <alignment class="alignment">left</alignment>
-                            <css class="css"></css>
+                            <css class="css"> viewTitle</css>
                             <linklabelid class="text"></linklabelid>
                             <tooltip class="lingual">
                               <fr></fr>
@@ -776,13 +774,13 @@
                             <mail class="boolean">false</mail>
                             <separator class="separator"></separator>
                             <hidden class="boolean">false</hidden>
-                            <posx class="number">898</posx>
-                            <posy class="number">350</posy>
+                            <posx class="number">883</posx>
+                            <posy class="number">152</posy>
                             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                             <altersizex class="hidden">30</altersizex>
-                            <sizex class="number">101</sizex>
+                            <sizex class="number">135</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">20</sizey>
+                            <sizey class="number">23</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text"></name>
@@ -900,8 +898,12 @@ var name    = missionTable.getCell(row,COL_OwnerName);
 var surname = missionTable.getCell(row,COL_OwnerSurname);
 var debut   = missionTable.getCell(row,COL_DateDebut);
 var fin     = missionTable.getCell(row,COL_DateFin);
+//meibo.showField(&quot;Participant_box&quot;,true);
+
+meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
+//meibo.showField(&quot;OBJ_participant&quot;,true);
 meibo.getField(&quot;OBJ_participant&quot;).setValue(&quot;Mission de &quot;+name+&quot; &quot;+surname+&quot; du &quot;+debut+&quot; au &quot;+fin);
-meibo.showField(&quot;OBJ_participant&quot;,true);
+meibo.showField(&quot;OBJ_listeEvents&quot;,true);
 
 // On r&#233;cup&#232;re la liste des &#233;v&#232;nements de la mission et on les affiche dans la table des &#233;v&#232;nements
 var /*resultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionDn,&quot;fkTCT_ID,TET_ID,TET_NAME,TCT_START_DATE,TCT_DURATION&quot;);
@@ -917,18 +919,10 @@ for (var row = 0; row &lt; nbEvents; row++) {
     bubbleInfo = bubbleInfo + eventAttendee.personDisplayName[0]+&quot; du &quot;+eventAttendee.RAS_START_DATE[0]+&quot; au &quot; +eventAttendee.RAS_END_DATE[0]+&quot;\n&quot;;
   }
   
-  // L&apos;insertion de l&apos;info bulle est invalid&#233;e car elle pose probl&#232;me dans le script OnClick de la table des events pour afficher le nom de l&apos;&#233;v&#232;nement
+  // L&apos;insertion de l&apos;info bulle est invalid&#233;e car elle pose probl&#232;me 
+  //dans le script OnClick de la table des events pour afficher le nom de l&apos;&#233;v&#232;nement
   //eventTable.addRawCell(row,3,&quot;&lt;span title=\&quot;&quot;+bubbleInfo+&quot;\&quot;&gt;&quot; + eventTable.getCell(row,3) + &quot;&lt;/span&gt;&quot;);
-}
-
-
-
-
-// On valide l&apos;affichage de la description d&apos;une mission
-meibo.showField(&quot;OBJ_descriptionMission&quot;,true);
-
-//On invalide la description des participants
-meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
+}</ondoubleclick>
                 <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
                 <separator1 class="separator"></separator1>
                 <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
@@ -943,8 +937,8 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
                 </headerabbreviations>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <posx class="number">360</posx>
-                <posy class="number">809</posy>
+                <posx class="number">-102</posx>
+                <posy class="number">215</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">528</sizex>
@@ -955,21 +949,6 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
                 <name class="text">PersonnesACT</name>
                 <id class="hidden">i280245843420913</id>
               </multilist>
-              <expandablespace>
-                <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
-                <posx class="number">546</posx>
-                <posy class="number">139</posy>
-                <sizextype class="hidden">EXTANDABLE</sizextype>
-                <altersizex class="hidden">30</altersizex>
-                <sizex class="number">5</sizex>
-                <sizeytype class="hidden">EXTANDABLE</sizeytype>
-                <sizey class="number">266</sizey>
-                <altersizey class="hidden">30</altersizey>
-                <alty class="hidden">0</alty>
-                <name class="text"></name>
-                <id class="hidden">p476743714247921</id>
-              </expandablespace>
               <image>
                 <image class="file">images/geometric-2D-square-10-black-a-16.gif</image>
                 <css class="css"></css>
@@ -981,8 +960,8 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
                 </tooltip>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <posx class="number">545</posx>
-                <posy class="number">173</posy>
+                <posx class="number">549</posx>
+                <posy class="number">247</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">4</sizex>
@@ -1005,7 +984,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
                 <posx class="number">554</posx>
-                <posy class="number">139</posy>
+                <posy class="number">286</posy>
                 <sizextype class="hidden">EXTANDABLE</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">5</sizex>
@@ -1014,7 +993,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,false);</ondoubleclick>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
-                <id class="hidden">n477521629903022</id>
+                <id class="hidden">d73561688421177</id>
               </expandablespace>
               <multilist>
                 <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV</content>
@@ -1054,8 +1033,12 @@ var name    = missionTable.getCell(row,COL_OwnerName);
 var surname = missionTable.getCell(row,COL_OwnerSurname);
 var debut   = missionTable.getCell(row,COL_DateDebut);
 var fin     = missionTable.getCell(row,COL_DateFin);
+
+//meibo.showField(&quot;Participant_box&quot;,true);
+meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
+//meibo.showField(&quot;OBJ_participant1&quot;,true);
 meibo.getField(&quot;OBJ_participant1&quot;).setValue(&quot;Mission de &quot;+name+&quot; &quot;+surname+&quot; du &quot;+debut+&quot; au &quot;+fin);
-meibo.showField(&quot;OBJ_participant1&quot;,true);
+meibo.showField(&quot;OBJ_listeEvents1&quot;,true);
 
 // On r&#233;cup&#232;re la liste des &#233;v&#232;nements de la mission et on les affiche dans la table des &#233;v&#232;nements
 var /*resultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionDn,&quot;fkTCT_ID,TET_ID,TET_NAME,TCT_START_DATE,TCT_DURATION&quot;);
@@ -1071,18 +1054,10 @@ for (var row = 0; row &lt; nbEvents; row++) {
     bubbleInfo = bubbleInfo + eventAttendee.personDisplayName[0]+&quot; du &quot;+eventAttendee.RAS_START_DATE[0]+&quot; au &quot; +eventAttendee.RAS_END_DATE[0]+&quot;\n&quot;;
   }
   
-  // L&apos;insertion de l&apos;info bulle est invalid&#233;e car elle pose probl&#232;me dans le script OnClick de la table des events pour afficher le nom de l&apos;&#233;v&#232;nement
+  // L&apos;insertion de l&apos;info bulle est invalid&#233;e car elle pose probl&#232;me 
+  //dans le script OnClick de la table des events pour afficher le nom de l&apos;&#233;v&#232;nement
   //eventTable.addRawCell(row,3,&quot;&lt;span title=\&quot;&quot;+bubbleInfo+&quot;\&quot;&gt;&quot; + eventTable.getCell(row,3) + &quot;&lt;/span&gt;&quot;);
-}
-
-
-
-
-// On valide l&apos;affichage de la description d&apos;une mission
-meibo.showField(&quot;OBJ_descriptionMission1&quot;,true);
-
-//On invalide la description des participants
-meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
+}</ondoubleclick>
                 <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
                 <separator1 class="separator"></separator1>
                 <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
@@ -1097,8 +1072,8 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
                 </headerabbreviations>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <posx class="number">598</posx>
-                <posy class="number">433</posy>
+                <posx class="number">471</posx>
+                <posy class="number">115</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">526</sizex>
@@ -1118,8 +1093,8 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
             <theme class="theme"></theme>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">6</posx>
-            <posy class="number">730</posy>
+            <posx class="number">19</posx>
+            <posy class="number">630</posy>
             <sizextype class="sizetype">FIXED</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">1068</sizex>
@@ -1127,7 +1102,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
             <sizey class="number">224</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
-            <name class="text"></name>
+            <name class="text">Participant_box</name>
             <id class="hidden">y357675929623514</id>
             <childs class="hidden">
               <verticallayout>
@@ -1153,9 +1128,9 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
                     <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
                     <theme class="theme"></theme>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
-                    <posx class="number">23</posx>
-                    <posy class="number">572</posy>
+                    <hidden class="boolean">true</hidden>
+                    <posx class="number">252</posx>
+                    <posy class="number">535</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">502</sizex>
@@ -1177,7 +1152,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,false);</ondoubleclick>
                           <fr></fr>
                         </tooltip>
                         <separator class="separator"></separator>
-                        <hidden class="boolean">true</hidden>
+                        <hidden class="boolean">false</hidden>
                         <posx class="number">37</posx>
                         <posy class="number">329</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
@@ -1234,8 +1209,6 @@ var /*area*/   eventTable = meibo.getCurrentField();
 var /*int*/    row = eventTable.selectedRow;
 var /*int*/    eventId = eventTable.getCell(row,0);
 
-
-
 var /*resultSet*/ eventAttendeesRS = meibo.executeLink(&quot;EventAttendees&quot;, &quot;travel_event,fkTCT_ID,&quot;+eventId,&quot;personDisplayName,RAS_START_DATE,RAS_END_DATE&quot;);
 var listeAttendees = &quot;&quot;;
 for each(var eventAttendee in eventAttendeesRS){
@@ -1245,6 +1218,7 @@ for each(var eventAttendee in eventAttendeesRS){
 
 
 meibo.getField(&quot;OBJ_AnnonceListeAccompagnateurs&quot;).setValue(&quot;Les participants &#224; l&apos;&#233;v&#232;nement &quot;+eventTable.getCell(row,3)+&quot; sont les suivants&quot;);
+meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs&quot;,true);
 
 //if (false) {
 //var /*resultSet*/ eventAttendeesRS = meibo.executeLink(&quot;EventAttendeesPerson&quot;, &quot;travel_event,fkTCT_ID,&quot;+eventId,&quot;PRS_ID,PRS_NAME,PRS_SIRNAME&quot;);
@@ -1259,10 +1233,7 @@ meibo.getField(&quot;OBJ_listeAccompagnateurs&quot;).setValue(listeAttendees);
 
 //On valide la description des participants
 meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
-
-// On valide l&apos;affichage de la description de l&apos;&#233;v&#232;nement et des participants
-//meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs&quot;,true);
-//meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,true);</ondoubleclick>
+meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,true);</ondoubleclick>
                     <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
                     <separator1 class="separator"></separator1>
                     <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
@@ -1276,7 +1247,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                       <fr></fr>
                     </headerabbreviations>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">47</posx>
                     <posy class="number">664</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1291,7 +1262,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                   </multilist>
                   <textarea>
                     <content class="lingual">
-                      <fr>Description de la mission</fr>
+                      <fr>Les participants sont:</fr>
                     </content>
                     <alignment class="fullalignment">left</alignment>
                     <htmlcontent class="boolean">false</htmlcontent>
@@ -1300,7 +1271,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                       <fr></fr>
                     </tooltip>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">-38</posx>
                     <posy class="number">713</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1332,7 +1303,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                       <fr></fr>
                     </tooltip>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">-111</posx>
                     <posy class="number">735</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1380,7 +1351,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                   <fr></fr>
                 </tooltip>
                 <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
+                <hidden class="boolean">true</hidden>
                 <posx class="number">545</posx>
                 <posy class="number">469</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
@@ -1439,7 +1410,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                     <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
                     <theme class="theme"></theme>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">23</posx>
                     <posy class="number">572</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1463,7 +1434,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
                           <fr></fr>
                         </tooltip>
                         <separator class="separator"></separator>
-                        <hidden class="boolean">true</hidden>
+                        <hidden class="boolean">false</hidden>
                         <posx class="number">565</posx>
                         <posy class="number">603</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
@@ -1520,8 +1491,6 @@ var /*area*/   eventTable = meibo.getCurrentField();
 var /*int*/    row = eventTable.selectedRow;
 var /*int*/    eventId = eventTable.getCell(row,0);
 
-
-
 var /*resultSet*/ eventAttendeesRS = meibo.executeLink(&quot;EventAttendees&quot;, &quot;travel_event,fkTCT_ID,&quot;+eventId,&quot;personDisplayName,RAS_START_DATE,RAS_END_DATE&quot;);
 var listeAttendees = &quot;&quot;;
 for each(var eventAttendee in eventAttendeesRS){
@@ -1531,6 +1500,7 @@ for each(var eventAttendee in eventAttendeesRS){
 
 
 meibo.getField(&quot;OBJ_AnnonceListeAccompagnateurs1&quot;).setValue(&quot;Les participants &#224; l&apos;&#233;v&#232;nement &quot;+eventTable.getCell(row,3)+&quot; sont les suivants&quot;);
+meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs1&quot;,true);
 
 //if (false) {
 //var /*resultSet*/ eventAttendeesRS = meibo.executeLink(&quot;EventAttendeesPerson&quot;, &quot;travel_event,fkTCT_ID,&quot;+eventId,&quot;PRS_ID,PRS_NAME,PRS_SIRNAME&quot;);
@@ -1545,10 +1515,7 @@ meibo.getField(&quot;OBJ_listeAccompagnateurs1&quot;).setValue(listeAttendees);
 
 //On valide la description des participants
 meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
-
-// On valide l&apos;affichage de la description de l&apos;&#233;v&#232;nement et des participants
-//meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs&quot;,true);
-//meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,true);</ondoubleclick>
+meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
                     <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
                     <separator1 class="separator"></separator1>
                     <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
@@ -1562,9 +1529,9 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
                       <fr></fr>
                     </headerabbreviations>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
-                    <posx class="number">535</posx>
-                    <posy class="number">654</posy>
+                    <hidden class="boolean">true</hidden>
+                    <posx class="number">655</posx>
+                    <posy class="number">584</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">500</sizex>
@@ -1577,7 +1544,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
                   </multilist>
                   <textarea>
                     <content class="lingual">
-                      <fr>Description de la mission</fr>
+                      <fr>Les participants sont:</fr>
                     </content>
                     <alignment class="fullalignment">left</alignment>
                     <htmlcontent class="boolean">false</htmlcontent>
@@ -1586,7 +1553,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
                       <fr></fr>
                     </tooltip>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">528</posx>
                     <posy class="number">737</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1618,7 +1585,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
                       <fr></fr>
                     </tooltip>
                     <separator class="separator"></separator>
-                    <hidden class="boolean">false</hidden>
+                    <hidden class="boolean">true</hidden>
                     <posx class="number">526</posx>
                     <posy class="number">746</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
@@ -1646,7 +1613,7 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
         </childs>
       </verticallayout>
       <image>
-        <image class="file">images/bcom.jpg</image>
+        <image class="file">images/bcom.png</image>
         <css class="css"></css>
         <alt class="lingual">
           <fr></fr>
@@ -1656,13 +1623,13 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
         </tooltip>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">663</posx>
-        <posy class="number">66</posy>
+        <posx class="number">655</posx>
+        <posy class="number">50</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">51</sizex>
+        <sizex class="number">47</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">18</sizey>
+        <sizey class="number">19</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>
@@ -1687,13 +1654,13 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
         </tooltip>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">397</posx>
+        <posx class="number">449</posx>
         <posy class="number">17</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">263</sizex>
+        <sizex class="number">199</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">83</sizey>
+        <sizey class="number">64</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>
@@ -1718,12 +1685,12 @@ meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
           <fr></fr>
         </tooltip>
         <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">81</posx>
-        <posy class="number">780</posy>
+        <hidden class="boolean">true</hidden>
+        <posx class="number">1117</posx>
+        <posy class="number">536</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">394</sizex>
+        <sizex class="number">225</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
         <sizey class="number">109</sizey>
         <altersizey class="hidden">30</altersizey>

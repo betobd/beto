@@ -154,8 +154,8 @@
                 <textposition class="position">toright</textposition>
                 <separator class="separator"></separator>
                 <hidden class="boolean">true</hidden>
-                <posx class="number">340</posx>
-                <posy class="number">53</posy>
+                <posx class="number">278</posx>
+                <posy class="number">18</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">254</sizex>
@@ -203,7 +203,7 @@
                 <posy class="number">61</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">103</sizex>
+                <sizex class="number">90</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">48</sizey>
                 <altersizey class="hidden">30</altersizey>

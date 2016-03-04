@@ -1,0 +1,118 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">///$debug</onload>
+  <onquit class="script">var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+
+var /*Edit*/ errorField =  meibo.getField(&quot;error&quot;);
+errorField.show(false);
+
+var /*String*/ eventID = meibo.getFieldValue(&quot;TCT_ID&quot;);
+var /*Array*/ values = new Array();
+var /*Array*/ types = new Array();
+var /*SqlProcResult*/ sqlProcResult = null;
+var resultValue = null;
+var /*String*/ procName = null;
+var /*ResultSet*/ rs = null;
+var /*Entry*/ resultEntry = null;
+var /*boolean*/ recordOK=false;
+var /*String*/ errorMessage = &quot;&quot;;
+
+ meibo.beginTransaction(&quot;TRAVEL_BCOM&quot;);
+
+try{
+  values[0] = eventID; // concreteEvtID
+  types[0] = &quot;IN&quot;;  
+  values[1] = &quot;DUMMY&quot;;  // workflowID
+  types[1] = &quot;IN&quot;;
+  procName = &quot;add_event_report&quot;;
+  resultValue = null;
+  resultEntry = null;
+  
+  // appel proc&#233;dure stock&#233;e pour creation
+  var sqlProcResult = meibo.executeSqlProc(&quot;TRAVEL_BCOM&quot;, procName, types, values);
+
+  // v&#233;rification du r&#233;sultat
+  if(sqlProcResult==null){
+    meibo.logError(&quot;null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+    throw &quot;null en retour de l&apos;appel &#224; &quot;+ procName;
+  }else{  
+  
+    try{
+      rs= sqlProcResult.getResultSet();
+    }catch(exception){
+      // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+      // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+      meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
+      sqlProcResult.close();
+      throw &quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName;
+    }
+    try{        
+      if(rs==null){
+        meibo.logError(&quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        throw &quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName;
+      }else if(rs.getEntryCount()==0){
+        meibo.logError(&quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        throw  &quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName;
+      }else{
+        resultEntry = rs.getEntry();
+        resultValue = resultEntry.getAttribute(0)[0];
+        if(resultValue == &quot;0&quot;){
+          meibo.logError(&quot;valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values);
+          throw  &quot;L&apos;entr&#233;e n&apos;a pas pu &#234;tre cr&#233;&#233;e&quot;;  // pas plus d&apos;explications disponibles ....
+        }
+      }
+      sqlProcResult.close();
+            
+    }catch(exception){
+      sqlProcResult.close();
+      throw exception;
+    }      
+      
+  } // if(sqlProcResult==null)
+
+  var commitResultOK = meibo.commit(&quot;TRAVEL_BCOM&quot;);
+  recordOK = commitResultOK;
+  if(commitResultOK){
+    meibo.logDebug(&quot;Entr&#233;e cr&#233;&#233;e :&quot; + resultValue + &quot; avec les valeurs &quot; + values);      
+  }else{
+    meibo.logError(&quot;retour KO sur le commit de la transaction pour l&apos;entr&#233;e  :&quot; + resultValue + &quot; avec les valeurs &quot; + values);
+    errorMessage =  &quot;Echec de la transaction&quot;;
+  }
+      
+}catch(exception){
+  // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+  // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+  meibo.logError(&quot;Erreur sur l&apos;enregistrement des donn&#233;es suite &#224; l&apos;appel &#224; &quot; + procName + &quot; pour les valeurs : &quot; + values + &quot; : &quot; exception);
+  recordOK = false;
+  errorMessage = exception;
+  try{
+    var rollBackResultOK = meibo.rollBack(&quot;TRAVEL_BCOM&quot;);
+    if(rollBackResultOK){
+      meibo.logInfo(&quot;Transaction annul&#233;e&quot;);
+    }else{
+      throw &quot;Le rollback de la transaction renvoi false&quot;;
+    }
+  }catch(exception2){
+    meibo.logError(&quot;Erreur sur le rollback de la transaction&quot;, exception);
+    errorMessage = errorMessage + &quot;; Echec d&apos;annulation de la transation&quot;;
+  }
+}
+
+if(recordOK){
+  var /*String*/ reportDn = &quot;T_REPORT_TRT,TRT_ID,&quot; + resultValue;
+  meibo.switchToModifyView(&quot;Report&quot;, reportDn, 0) 
+  
+}else{    
+  errorField.setContent(errorMessage);
+  errorField.show(true);      
+}
+
+} //if(checkOK)
+
+// contournement du fonctionnement nominal meibo :
+// on retourne false pour ne pas que meibo tente ensuite lui m&#234;me la cr&#233;ation automatique de l&apos;entr&#233;e comme il le ferait normalement si on ne passait pas par une proc&#233;dure stock&#233;e
+meibo.setReturnValue(false);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

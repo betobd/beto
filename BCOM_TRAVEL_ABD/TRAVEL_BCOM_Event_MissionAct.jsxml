@@ -1,0 +1,59 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">var date = new Date();
+var Debut = date.toLdapString();
+meibo.getField(&quot;filters&quot;).setValue(Debut);
+
+//Format date xxxx-xx-xx
+  
+  var /*String*/ date = Debut.substring(0,4)+ &quot;-&quot; +Debut.substring(4,6)+ &quot;-&quot; +Debut.substring(6,8);
+  var /*int*/ jour= parseInt(Debut.substring(6,8));
+ 
+  // Filters
+  
+  var /*String*/ filter = &quot;&quot;;
+  var /*String*/ filter1 = &quot;&quot;;  
+  var /*String*/ FLT2 = &quot;&quot;;
+    
+  var /*int*/ cont;  
+  var filters= new Array(15);
+  
+  for(cont=0;cont&lt;=15;cont++)
+  {
+    
+        var /*int*/ prochain= jour+cont;
+ 
+       if( (prochain &gt; 0) &amp;&amp; (prochain &lt; 10)  ){
+         filter1 = Debut.substring(0,4)+ &quot;-&quot; + Debut.substring(4,6) + &quot;-0&quot; +prochain;
+       }
+      
+        else{
+           filter1 = Debut.substring(0,4)+ &quot;-&quot; +  Debut.substring(4,6) + &quot;-&quot; +prochain;
+        }
+        
+        filter=  filter + &quot; TCT_START_DATE = &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
+        FLT2= filter.substring(0,filter.length - 3);        
+   
+  }
+    
+  meibo.getField(&quot;filters&quot;).setValue(FLT2);
+  
+  
+  //Recherche et afichage table 1
+  
+  var /*ResultSet*/ resultSet = meibo.executeResource(&apos;Event&apos;, FLT2, 0, &apos;&apos;);
+  var /*int*/ nEntries = resultSet.getEntryCount();
+  if (nEntries != 0) 
+  {   
+      //meibo.showField(&quot;searchContainer&quot;, true);
+      meibo.showField(&quot;error&quot;, false);
+    
+      displaySearchB(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));
+  }
+  
+  else {
+          meibo.showField(&quot;error&quot;, true);
+       }</onload>
+  <onquit class="script"></onquit>
+</scripts>

@@ -5296,6 +5296,26 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <OrganisateurVoyage>true</OrganisateurVoyage>
           </rights>
         </sequence>
+        <sequence name="View_m" type="0">
+          <properties>
+            <displayname class="lingual">
+              <fr>View</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+          </properties>
+          <path>TRAVEL_BCOM_Event_View_m.xml</path>
+          <class></class>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+          </rights>
+        </sequence>
         <sequence name="Search" type="4">
           <properties>
             <displayname class="lingual">

@@ -1,0 +1,127 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script">//// display search result in a table.
+//// This function uses input parameters from fields in view and fills a table
+//// named &quot;results&quot;.
+//function /*void*/ displaySearch(/*String*/ resource, /*String*/ attrs) {
+//  var parameters = getProvisioningParameters_General();
+//  //var nbCol = parameters.get(&quot;BCOM_TROMBINOSCOPE_NB_COLONNE&quot;);
+//  
+//  // compute current page
+//  var /*int*/ pageSize = parseInt(meibo.getFieldValue(&quot;pageSize&quot;));
+//  var /*int*/ page = parseInt(meibo.getFieldValue(&quot;page&quot;));
+//  var /*int*/ pages = parseInt(meibo.getFieldValue(&quot;pages&quot;));
+//
+//  // populate table
+//  var /*int*/ start = (page - 1) * pageSize;
+//  var /*String*/ filter = meibo.getFieldValue(&quot;filter&quot;);
+//  var resultat = meibo.executeResource(&quot;People&quot;,filter,0);
+//  resultat.sort(&quot;sn,givenName&quot;,true,false);
+//  //var /*int*/ nEntries = meibo.fillInWithQuery(&quot;results&quot;, resource, filter, start, pageSize, attrs, getFieldValue(&apos;sortAttribute&apos;));
+//  var nEntries = resultat.getEntryCount();
+//  if (nEntries == 0) {
+//    //meibo.showField(&quot;error&quot;, true);
+//    meibo.showField(&quot;searchContainer&quot;,false);
+//  }
+//  else {
+//    // show-hide button
+//    meibo.showField(&quot;searchContainer&quot;,true);
+//    meibo.showField(&quot;next&quot;, page &lt; pages);
+//    meibo.showField(&quot;last&quot;, page &lt; pages);
+//    meibo.showField(&quot;previous&quot;, page &gt; 1);
+//    meibo.showField(&quot;first&quot;, page &gt; 1);
+//    meibo.setFieldValue(&quot;range&quot;, &quot;Page &quot; + page+ &quot;/&quot; + pages);
+//    
+//    var nbligne = ( (parseInt(parameters.get(&quot;BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE&quot;)) - 1 ) / 4 ) + 1;   
+//
+//    var BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE = parseInt(parameters.get(&quot;BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE&quot;))
+//    var testNbResPage = page * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+//    var nbResPage = 0;
+//    if ( testNbResPage &lt; nEntries ){
+//      nbResPage = BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE;
+//    }
+//    else{
+//      nbResPage = nEntries - ( ( page - 1 ) * BCOM_TROMBINOSCOPE_NB_RESULTAT_PAR_PAGE );
+//    }
+//    
+//    
+////    var url = parameters.get(&quot;BCOM_AD_URL_CONNEXION&quot;);
+////    var baseRecherche = parameters.get(&quot;BCOM_AD_OU_PEOPLE&quot;);
+////    var urlRecherche = url + &quot;/&quot; + baseRecherche + &quot;?jpegPhoto?scope=sub?&quot;;
+//    
+//    var j = 1; //-- incr&#233;ment ligne
+//    var incRes = 1; //-- incr&#233;ment du r&#233;sultset
+//    var incPage = 1; //-- incr&#233;ment sur le page
+//    while ( j &lt; nbligne + 1 ){ //-- boucle sur les lignes
+//      var i = 1; //-- incr&#233;ment colonne
+//      while ( i &lt; 5 ){//-- boucle sur les colonnes
+//        
+//        var photo = returnEmpty(resultat.getEntry(incRes - 1).getAttributeValue(&quot;jpegPhoto&quot;));
+//        var sn = returnEmpty(resultat.getEntry(incRes - 1).getAttributeValue(&quot;sn&quot;));
+//        var givenName = returnEmpty(resultat.getEntry(incRes - 1).getAttributeValue(&quot;givenName&quot;));
+//        var dn = returnEmpty(resultat.getEntry(incRes - 1).getAttributeValue(&quot;dn&quot;));
+////        urlRecherche = urlRecherche + &quot;(cn=&quot;+cn+&quot;)&quot;;
+////        if ( photo != &quot;&quot; ){
+////          meibo.setFieldValue(&quot;test&quot;,photo);
+////        }
+//        //meibo.getField(&quot;results&quot;).addCell(j-1,i-1,&quot;&lt;div id=fondTrombinoscope&gt;&lt;div id=photoTrombinoscope&gt;&quot;+photo+&quot;&lt;/div&gt;&lt;div id=nomTrombinoscope&gt;&quot; + givenName + &quot; &quot; + sn + &quot;&lt;/div&gt;&lt;/div&gt;&quot;);
+//        meibo.getField(&quot;results&quot;).addRawCell(j-1,i-1,&quot;&lt;div id=fondTrombinoscope&gt;&lt;div id=photoTrombinoscope&gt;&lt;img src=&gt;&lt;/img&gt;&lt;/div&gt;&lt;div id=nomTrombinoscope&gt;&quot; + givenName + &quot; &quot; + sn + &quot;&lt;/div&gt;&lt;/div&gt;&quot;);
+//        meibo.getField(&quot;results&quot;).addCellObject(j-1,i-1,dn);
+//        if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+//          break; //-- STOPPE AFFICHAGE
+//        }
+//        else{
+//         incPage++;//-- incr&#233;mentation des resultat sur une page
+//        }
+//        incRes++;//-- incr&#233;mentation du r&#233;sultset
+//        i++;//-- incr&#233;mentation colonne
+//      }
+//      if ( incPage == nbResPage ){ //-- SI NOMBRE DE RESULTAT AFFICHE ATTEINT
+//          break; //-- STOPPE AFFICHAGE
+//      } //-- FIN boucle sur les colonnes  
+//      j++;//-- incr&#233;mentation ligne
+//    }//-- FIN boucle sur les ligne
+//      
+//    
+//      
+//  }
+//}
+//
+//// select all lines in a table
+//function /*void*/ selectAllLines(/*String*/ table) {
+//  var /*int*/ nbLines = meibo.getTableLength(table);
+//  for (var /*int*/ line = 0; line &lt; nbLines; line++) {
+//    meibo.checkTableRow(table, line, true);
+//  }
+//}
+//
+//// unselect all lines in a table
+//function /*void*/ unselectAllLines(/*String*/ table) {
+//  var /*int*/ nbLines = meibo.getTableLength(table);
+//  for (var /*int*/ line = 0; line &lt; nbLines; line++) {
+//    meibo.checkTableRow(table, line, false);
+//  }
+//}</globalScriptView>
+  <onload class="script">///$debug
+/////////////////////////////////////////////////////////////////////
+//    R&#233;cup&#233;ration des num&#233;ros de pages si retour aux r&#233;sultats
+/////////////////////////////////////////////////////////////////////
+var BCOM_PROVENANCE_TROMBINOSCOPE = meibo.getGlobalVar(&quot;BCOM_PROVENANCE_TROMBINOSCOPE&quot;);
+if ( BCOM_PROVENANCE_TROMBINOSCOPE == &quot;1&quot; ){
+  var RECHERCHE_PAGESIZE_TROMBINOSCOPE = meibo.getGlobalVar(&quot;RECHERCHE_PAGESIZE_TROMBINOSCOPE&quot;); 
+  meibo.setFieldValue(&quot;pageSize&quot;,&quot;&quot;+RECHERCHE_PAGESIZE_TROMBINOSCOPE);
+  var RECHERCHE_PAGES_TROMBINOSCOPE = meibo.getGlobalVar(&quot;RECHERCHE_PAGES_TROMBINOSCOPE&quot;); 
+  meibo.setFieldValue(&quot;pages&quot;,&quot;&quot;+RECHERCHE_PAGES_TROMBINOSCOPE);
+  var RECHERCHE_PAGE_TROMBINOSCOPE = meibo.getGlobalVar(&quot;RECHERCHE_PAGE_TROMBINOSCOPE&quot;);
+   meibo.setFieldValue(&quot;page&quot;,&quot;&quot;+RECHERCHE_PAGE_TROMBINOSCOPE);
+}
+var BCOM_PROVENANCE_TROMBINOSCOPE = meibo.setGlobalVar(&quot;BCOM_PROVENANCE_TROMBINOSCOPE&quot;,&quot;0&quot;);
+/////////////////////////////////////////////////////////////////////
+//    EXECUTION DU SCRIPLET TROMBINOSCOPE
+/////////////////////////////////////////////////////////////////////
+var scriplet = meibo.loadScriptlet(&quot;trombinoscope&quot;);
+var trombinoscope = scriplet.execute(); 
+meibo.getField(&quot;results&quot;).addRawCell(0,0,trombinoscope);
+meibo.setFieldValue(&quot;test&quot;,trombinoscope)</onload>
+  <onquit class="script"></onquit>
+</scripts>

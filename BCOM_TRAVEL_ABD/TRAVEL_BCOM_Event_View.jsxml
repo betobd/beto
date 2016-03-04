@@ -1,0 +1,7 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">// formatage date
+meibo.setFieldValue(&quot;TCT_START_DATE&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;)))); 
+meibo.setFieldValue(&quot;TCT_CREATE_DATE&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_CREATE_DATE&quot;))));</onload>
+</scripts>

@@ -1,0 +1,2106 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source>
+    <page name="">
+      <label>
+        <content class="lingual">
+          <fr>PRS_ID_AUTHOR :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">PRS_ID_AUTHOR</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">137</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">j18153600310079199</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">PRS_ID_AUTHOR</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">-3</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">-3</alty>
+        <name class="text">PRS_ID_AUTHOR</name>
+        <id class="hidden">a1815360032834840</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">PRS_ID_AUTHOR</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>PRS_ID_LEADER :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">PRS_ID_LEADER</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">24</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">132</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">24</alty>
+        <name class="text"></name>
+        <id class="hidden">w1815360034356791</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">PRS_ID_LEADER</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">21</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">21</alty>
+        <name class="text">PRS_ID_LEADER</name>
+        <id class="hidden">u1815360035409552</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">PRS_ID_LEADER</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TAS_ID :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TAS_ID</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">48</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">70</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">48</alty>
+        <name class="text"></name>
+        <id class="hidden">c1815360036910973</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TAS_ID</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">45</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">45</alty>
+        <name class="text">TAS_ID</name>
+        <id class="hidden">c1815360037963724</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TAS_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_COMMENT :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_COMMENT</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">72</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">121</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">72</alty>
+        <name class="text"></name>
+        <id class="hidden">b1815360039532605</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_COMMENT</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">69</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">69</alty>
+        <name class="text">TCT_COMMENT</name>
+        <id class="hidden">a1815360040561896</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_COMMENT</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_COST :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_COST</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">96</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">90</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">96</alty>
+        <name class="text"></name>
+        <id class="hidden">n1815360042488527</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_COST</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">93</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">93</alty>
+        <name class="text">TCT_COST</name>
+        <id class="hidden">b1815360043646858</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_COST</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_CREATE_DATE :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_CREATE_DATE</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">120</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">148</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">120</alty>
+        <name class="text"></name>
+        <id class="hidden">h1815360045154149</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_CREATE_DATE</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">117</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">117</alty>
+        <name class="text">TCT_CREATE_DATE</name>
+        <id class="hidden">y18153600477259110</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_CREATE_DATE</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_DURATION :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_DURATION</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">144</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">126</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">144</alty>
+        <name class="text"></name>
+        <id class="hidden">r18153600499428611</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_DURATION</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">141</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">141</alty>
+        <name class="text">TCT_DURATION</name>
+        <id class="hidden">g18153600517873812</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_DURATION</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_ID :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_ID</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">168</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">69</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">168</alty>
+        <name class="text"></name>
+        <id class="hidden">n18153600541978713</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_ID</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">165</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">165</alty>
+        <name class="text">TCT_ID</name>
+        <id class="hidden">p18153600561333014</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_START_DATE :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_START_DATE</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">192</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">140</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">192</alty>
+        <name class="text"></name>
+        <id class="hidden">a18153600581039115</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_START_DATE</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">189</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">189</alty>
+        <name class="text">TCT_START_DATE</name>
+        <id class="hidden">w18153600599103116</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_START_DATE</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TCT_URL :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCT_URL</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">216</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">80</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">216</alty>
+        <name class="text"></name>
+        <id class="hidden">d18153600618662717</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TCT_URL</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">213</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">213</alty>
+        <name class="text">TCT_URL</name>
+        <id class="hidden">a18153600632973118</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TCT_URL</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+      <label>
+        <content class="lingual">
+          <fr>TET_ID :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TET_ID</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">240</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">68</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">240</alty>
+        <name class="text"></name>
+        <id class="hidden">f18153600655846419</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TET_ID</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="false"></multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr=""></resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0</param>
+        </resourcefed>
+        <deletable class="boolean">true</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype"></kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">339</posx>
+        <posy class="number">237</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">224</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">237</alty>
+        <name class="text">TET_ID</name>
+        <id class="hidden">o18153600671623120</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <field class="field">TET_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </edit>
+    </page>
+  </source>
+  <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Udpate (ConcreteEvent)" zh="">
+      <verticallayout>
+        <css class="css"></css>
+        <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+        <theme class="theme"></theme>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">4</posx>
+        <posy class="number">4</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">590</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">550</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">viewContainer</name>
+        <id class="hidden">s18154032817131022</id>
+        <childs>
+          <label>
+            <content class="lingual">
+              <fr>Modifier un &#233;v&#232;nement</fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css"></css>
+            <linklabelid class="text"></linklabelid>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <mail class="boolean">false</mail>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">52</posx>
+            <posy class="number">142</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">134</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">titleView</name>
+            <id class="hidden">z18154032818714523</id>
+          </label>
+          <label>
+            <content class="lingual">
+              <en></en>
+              <fr></fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css"> errorMessage</css>
+            <linklabelid class="text"></linklabelid>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <mail class="boolean">false</mail>
+            <separator class="separator"></separator>
+            <hidden class="boolean">true</hidden>
+            <posx class="number">25</posx>
+            <posy class="number">28</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">11</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">21</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">error</name>
+            <id class="hidden">e18154032819711524</id>
+          </label>
+          <frame>
+            <css class="css"></css>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">100</posx>
+            <posy class="number">81</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">5</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">m18154032823905028</id>
+          </frame>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">143</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">150</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCT_COMMENT_display</name>
+            <id class="hidden">f18154032835370938</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Description</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCT_COMMENT</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">143</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">142</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCT_COMMENT</name>
+                <id class="hidden">w18154032836573239</id>
+              </label>
+              <edit type="Text">
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <limitchar class="number"></limitchar>
+                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                <autoComplete class="boolean">true</autoComplete>
+                <separator1 class="separator"></separator1>
+                <required class="boolean">false</required>
+                <resourcefed class="resourcefed">
+                  <param>///false/false/0/0/</param>
+                  <pickertitle class="lingual">
+                    <fr></fr>
+                    <en></en>
+                    <es></es>
+                    <de></de>
+                    <it></it>
+                    <pt></pt>
+                    <zh></zh>
+                    <ar></ar>
+                  </pickertitle>
+                </resourcefed>
+                <deletable class="boolean">true</deletable>
+                <separator2 class="separator"></separator2>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <noecho class="boolean">false</noecho>
+                <multiline class="boolean">true</multiline>
+                <tinymce class="tinymce">true</tinymce>
+                <tinymceparameter class="text">toolbar: &apos;bold italic underline strikethrough | forecolor backcolor | link unlink&apos;,</tinymceparameter>
+                <tinymcesetup class="text"></tinymcesetup>
+                <format class="text"></format>
+                <kind class="edittype">regular</kind>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">140</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">415</sizex>
+                <sizeytype class="sizetype">FIXED</sizeytype>
+                <sizey class="number">120</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCT_COMMENT</name>
+                <id class="hidden">p18154032837892840</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TCT_COMMENT</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </edit>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">191</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCT_START_DATE_display</name>
+            <id class="hidden">q18154032839007241</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Date de d&#233;but</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCT_START_DATE</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">191</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCT_START_DATE</name>
+                <id class="hidden">w18154032840180242</id>
+              </label>
+              <calendar type="Text">
+                <calendarformat class="messages">calendarDisplayPattern</calendarformat>
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <LDAPValue class="boolean">false</LDAPValue>
+                <EditMode class="boolean">false</EditMode>
+                <LabelType class="boolean">false</LabelType>
+                <separator1 class="separator"></separator1>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <required class="boolean">true</required>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">188</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">80</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCT_START_DATE</name>
+                <id class="hidden">y18154032841265243</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TCT_START_DATE</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </calendar>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">167</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCT_DURATION_display</name>
+            <id class="hidden">r18154032842379544</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Dur&#233;e (en jours)</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCT_DURATION</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">167</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCT_DURATION</name>
+                <id class="hidden">q18154032843552545</id>
+              </label>
+              <edit type="Text">
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <limitchar class="number">2</limitchar>
+                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                <autoComplete class="boolean">true</autoComplete>
+                <separator1 class="separator"></separator1>
+                <required class="boolean">true</required>
+                <resourcefed class="resourcefed">
+                  <param>///false/false/0/0/</param>
+                  <pickertitle class="lingual">
+                    <fr></fr>
+                    <en></en>
+                    <es></es>
+                    <de></de>
+                    <it></it>
+                    <pt></pt>
+                    <zh></zh>
+                    <ar></ar>
+                  </pickertitle>
+                </resourcefed>
+                <deletable class="boolean">true</deletable>
+                <separator2 class="separator"></separator2>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr>Indiquez la dur&#233;e de l&apos;&#233;venement en nombre de jours</fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <noecho class="boolean">false</noecho>
+                <multiline class="boolean">false</multiline>
+                <tinymce class="tinymce">false</tinymce>
+                <tinymceparameter class="text"></tinymceparameter>
+                <tinymcesetup class="text"></tinymcesetup>
+                <format class="text"></format>
+                <kind class="edittype">numeric</kind>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">164</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">30</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCT_DURATION</name>
+                <id class="hidden">j18154032844872146</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TCT_DURATION</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </edit>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">215</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCT_URL_display</name>
+            <id class="hidden">y18154032845986447</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>URL du site web</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCT_URL</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">215</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCT_URL</name>
+                <id class="hidden">u18154032847188848</id>
+              </label>
+              <edit type="Text">
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <limitchar class="number"></limitchar>
+                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                <autoComplete class="boolean">true</autoComplete>
+                <separator1 class="separator"></separator1>
+                <required class="boolean">false</required>
+                <resourcefed class="resourcefed">
+                  <param>///false/false/0/0/</param>
+                  <pickertitle class="lingual">
+                    <fr></fr>
+                    <en></en>
+                    <es></es>
+                    <de></de>
+                    <it></it>
+                    <pt></pt>
+                    <zh></zh>
+                    <ar></ar>
+                  </pickertitle>
+                </resourcefed>
+                <deletable class="boolean">true</deletable>
+                <separator2 class="separator"></separator2>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <noecho class="boolean">false</noecho>
+                <multiline class="boolean">false</multiline>
+                <tinymce class="tinymce">false</tinymce>
+                <tinymceparameter class="text"></tinymceparameter>
+                <tinymcesetup class="text"></tinymcesetup>
+                <format class="text"></format>
+                <kind class="edittype">webURL</kind>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">212</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">415</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCT_URL</name>
+                <id class="hidden">k18154032848508449</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TCT_URL</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </edit>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">239</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TET_AVERAGE_COST_display</name>
+            <id class="hidden">d18154032849622750</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Cout moyen</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TET_AVERAGE_COST</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">239</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTET_AVERAGE_COST</name>
+                <id class="hidden">t18154032850795751</id>
+              </label>
+              <edit type="Text">
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <limitchar class="number"></limitchar>
+                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                <autoComplete class="boolean">true</autoComplete>
+                <separator1 class="separator"></separator1>
+                <required class="boolean">false</required>
+                <resourcefed class="resourcefed">
+                  <param>///false/false/0/0/</param>
+                  <pickertitle class="lingual">
+                    <fr></fr>
+                    <en></en>
+                    <es></es>
+                    <de></de>
+                    <it></it>
+                    <pt></pt>
+                    <zh></zh>
+                    <ar></ar>
+                  </pickertitle>
+                </resourcefed>
+                <deletable class="boolean">true</deletable>
+                <separator2 class="separator"></separator2>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr>Indiquez le co&#251;t moyen estim&#233; pour une participation &#224; cet &#233;v&#232;nement</fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <noecho class="boolean">false</noecho>
+                <multiline class="boolean">false</multiline>
+                <tinymce class="tinymce">false</tinymce>
+                <tinymceparameter class="text"></tinymceparameter>
+                <tinymcesetup class="text"></tinymcesetup>
+                <format class="text"></format>
+                <kind class="edittype">numeric</kind>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">236</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">100</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TET_AVERAGE_COST</name>
+                <id class="hidden">s18154032852115352</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TCT_COST</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </edit>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">bottom</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">30</posx>
+            <posy class="number">479</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">23</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">fkTAS_ID_display</name>
+            <id class="hidden">k18154032859681160</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Adresse</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">fkTAS_ID</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">30</posx>
+                <posy class="number">479</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelfkTAS_ID</name>
+                <id class="hidden">v18154032860883461</id>
+              </label>
+              <edit type="Text">
+                <placeholder class="lingual">
+                  <fr></fr>
+                </placeholder>
+                <content class="text"></content>
+                <limitchar class="number"></limitchar>
+                <multivalue class="multivaluehandle" multivalueorderable="false">false</multivalue>
+                <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                <autoComplete class="boolean">true</autoComplete>
+                <separator1 class="separator"></separator1>
+                <required class="boolean">true</required>
+                <resourcefed class="resourcefed">
+                  <param>Address/TAS_ID/Picker/false/false/0/0/</param>
+                  <pickertitle class="lingual">
+                    <fr>Addresse de l&apos;&#233;v&#232;nement</fr>
+                    <en></en>
+                    <es></es>
+                    <de></de>
+                    <it></it>
+                    <pt></pt>
+                    <zh></zh>
+                    <ar></ar>
+                  </pickertitle>
+                </resourcefed>
+                <deletable class="boolean">true</deletable>
+                <separator2 class="separator"></separator2>
+                <theme class="theme"></theme>
+                <css class="css">valeur</css>
+                <tooltip class="lingual">
+                  <en></en>
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <noecho class="boolean">false</noecho>
+                <multiline class="boolean">false</multiline>
+                <tinymce class="tinymce">false</tinymce>
+                <tinymceparameter class="text"></tinymceparameter>
+                <tinymcesetup class="text"></tinymcesetup>
+                <format class="text"></format>
+                <kind class="edittype">regular</kind>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">212</posx>
+                <posy class="number">476</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">415</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">15</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">fkTAS_ID</name>
+                <id class="hidden">m18154032862203062</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <field class="field">TAS_ID</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </edit>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">137</posx>
+            <posy class="number">425</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">381</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">k18154032863288063</id>
+            <childs class="hidden">
+              <fixspace>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">678</posx>
+                <posy class="number">201</posy>
+                <sizextype class="hidden">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="hidden">FIXED</sizeytype>
+                <sizey class="number">10</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">n18154032864285064</id>
+              </fixspace>
+              <button>
+                <content class="lingual">
+                  <fr>Cr&#233;er une nouvelle adresse</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">///$debug
+backupView(&quot;ConcreteEvent&quot;);
+
+meibo.switchToCreateView(&quot;Address&quot;,null,0);</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">true</waitbutton>
+                <waitingmode class="waitingmode">none</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">840</posx>
+                <posy class="number">213</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">163</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">q18154032865634065</id>
+              </button>
+            </childs>
+          </horizontallayout>
+          <image>
+            <image class="file">images/eframe02.gif</image>
+            <css class="css"></css>
+            <alt class="lingual">
+              <fr></fr>
+            </alt>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">209</posx>
+            <posy class="number">392</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">34</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">f18154032866455166</id>
+            <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+            <components class="components">
+              <fieldPart class="node" en="" fr="">
+                <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                  <field class="field"></field>
+                </values>
+              </fieldPart>
+            </components>
+          </image>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">bottom</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">158</posx>
+            <posy class="number">602</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">588</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">47</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">h18154032867569467</id>
+            <childs class="hidden">
+              <expandablespace>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">408</posx>
+                <posy class="number">461</posy>
+                <sizextype class="hidden">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">480</sizex>
+                <sizeytype class="hidden">EXTANDABLE</sizeytype>
+                <sizey class="number">39</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">z18154032868566468</id>
+              </expandablespace>
+              <button>
+                <content class="lingual">
+                  <fr>Annuler</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script">if(hasSourceView()){
+  backToSourceView();
+}</onclick>
+                <submit class="boolean">false</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">true</waitbutton>
+                <waitingmode class="waitingmode">none</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">true</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">465</posx>
+                <posy class="number">514</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">52</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">BTN_CANCEL</name>
+                <id class="hidden">c18154032870150069</id>
+              </button>
+              <button>
+                <content class="lingual">
+                  <fr>Valider</fr>
+                  <en>Validate</en>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <tabindex class="number"></tabindex>
+                <onclick class="script"></onclick>
+                <submit class="boolean">true</submit>
+                <separator0 class="separator"></separator0>
+                <confirmation class="boolean">false</confirmation>
+                <confirmationdialogmessage class="lingual">
+                  <fr></fr>
+                </confirmationdialogmessage>
+                <confirmationdialogtitle class="lingual">
+                  <fr></fr>
+                </confirmationdialogtitle>
+                <theme class="theme"></theme>
+                <css class="css"></css>
+                <separator1 class="separator"></separator1>
+                <waitbutton class="boolean">false</waitbutton>
+                <waitingmode class="waitingmode">prescript</waitingmode>
+                <progressbartitle class="lingual">
+                  <fr></fr>
+                </progressbartitle>
+                <progressbarnboperationtext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationtext>
+                <progressbarnboperationdonetext class="lingual">
+                  <fr></fr>
+                </progressbarnboperationdonetext>
+                <prescript class="script"></prescript>
+                <separator2 class="separator"></separator2>
+                <image class="file"></image>
+                <image2 class="file"></image2>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <enable class="boolean">true</enable>
+                <posx class="number">857</posx>
+                <posy class="number">523</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">48</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">34</alty>
+                <name class="text">validate</name>
+                <id class="hidden">x18154032871498970</id>
+              </button>
+            </childs>
+          </horizontallayout>
+        </childs>
+      </verticallayout>
+    </page>
+  </destination>
+</screen>

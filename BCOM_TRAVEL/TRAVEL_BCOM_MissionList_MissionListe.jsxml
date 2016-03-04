@@ -11,8 +11,12 @@ var COL_DateFin      = 4 // TMN_END_DATE
 var COL_FirstEvent   = 5 // EventsDN        =&gt; sera remplac&#233; par le nom du premier &#233;v&#232;nement
 var COL_Status       = 6 // Status</globalScriptView>
   <onload class="script">var date = new Date();
-  var DebutAV = date.toLdapString();
-  var /*String*/ format = DebutAV.substring(0,4)+ &quot;-&quot; +DebutAV.substring(4,6)+ &quot;-&quot; +DebutAV.substring(6,8);
+ var DebutAV = date.toLdapString();
+  
+  //Format date aaaa-mm-jj
+  
+    var /*String*/ format = DebutAV.substring(0,4)+ &quot;-&quot; +DebutAV.substring(4,6)+ &quot;-&quot; +DebutAV.substring(6,8);
+      
   var /*int*/ jj= parseInt(DebutAV.substring(6,8));
   var /*int*/ mm= parseInt(DebutAV.substring(4,6));
   var /*int*/ aa= parseInt(DebutAV.substring(0,4));
@@ -39,15 +43,15 @@ var COL_Status       = 6 // Status</globalScriptView>
        
         
         if(prochainjj &gt;31){
-        jj=-cont;
-         prochainjj= jj+cont+1;
-         prochainmm=mm+1;
-         
-         if(prochainmm&gt;12){
-         mm=-cont;
-         prochainmm=mm+cont+1;
-         prochainaa=aa+1;
-         }
+           jj=-cont;
+           prochainjj= jj+cont+1;
+           prochainmm=mm+1;
+           
+           if(prochainmm&gt;12){
+             mm=-cont;
+             prochainmm=mm+cont+1;
+             prochainaa=aa+1;
+           }
         }
         
         jjmmaa[cont]=prochainmm;        
@@ -111,7 +115,9 @@ var COL_Status       = 6 // Status</globalScriptView>
     //missionTable.addRawCell(row,COL_MissionId,&quot;&lt;span title=\&quot;blabla\&quot;&gt;&quot; + missionTable.getCell(row,COL_MissionId) + &quot;&lt;/span&gt;&quot;);
     missionTable.addCell(row,COL_FirstEvent,missionEventRS.getEntry().TET_NAME[0]);
   }
-
+  
+  
+ meibo.showField(&quot;Participant_box&quot;,true);
   // La description d&apos;une mission ne doit pas &#234;tre affich&#233; par d&#233;faut
  // meibo.showField(&quot;OBJ_descriptionMission&quot;,false);</onload>
   <onquit class="script"></onquit>

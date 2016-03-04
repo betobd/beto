@@ -1,0 +1,1866 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source>
+    <page name="">
+      <label>
+        <content class="lingual">
+          <fr>TCY_ALPHA2 :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_ALPHA2</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">109</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">i34789445494336393</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_ALPHA2</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">0</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">85</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">TCY_ALPHA2</name>
+        <id class="hidden">z34789445503749694</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_ALPHA2</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_ALPHA3 :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_ALPHA3</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">24</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">109</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">24</alty>
+        <name class="text"></name>
+        <id class="hidden">g34789445512165795</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_ALPHA3</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">24</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">85</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">24</alty>
+        <name class="text">TCY_ALPHA3</name>
+        <id class="hidden">a34789445519702296</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_ALPHA3</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_CODE :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_CODE</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">48</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">93</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">48</alty>
+        <name class="text"></name>
+        <id class="hidden">n34789445527883897</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_CODE</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">48</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">75</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">48</alty>
+        <name class="text">TCY_CODE</name>
+        <id class="hidden">z34789445535420298</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_CODE</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_EN_GB_NAME :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_EN_GB_NAME</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">72</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">148</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">72</alty>
+        <name class="text"></name>
+        <id class="hidden">x34789445544481599</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_EN_GB_NAME</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">72</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">121</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">72</alty>
+        <name class="text">TCY_EN_GB_NAME</name>
+        <id class="hidden">z3478944554937880</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_EN_GB_NAME</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_FR_FR_NAME :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">96</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">145</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">96</alty>
+        <name class="text"></name>
+        <id class="hidden">u3478944555471581</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_FR_FR_NAME</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">96</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">119</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">96</alty>
+        <name class="text">TCY_FR_FR_NAME</name>
+        <id class="hidden">m3478944555955442</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_FR_FR_NAME</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_ID :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">TCY_ID</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">120</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">71</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">120</alty>
+        <name class="text"></name>
+        <id class="hidden">c3478944556489153</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>TCY_ID</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">120</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">52</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">120</alty>
+        <name class="text">TCY_ID</name>
+        <id class="hidden">f3478944556973014</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>CTT_ID :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">CTT_ID</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">144</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">69</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">144</alty>
+        <name class="text"></name>
+        <id class="hidden">c877516210203968</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>CTT_ID</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">144</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">52</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">144</alty>
+        <name class="text">CTT_ID</name>
+        <id class="hidden">n877516212385719</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">CTT_ID</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>continent :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">continent</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">168</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">80</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">168</alty>
+        <name class="text"></name>
+        <id class="hidden">g3478944557500855</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label currentResource="Country" logical="true">
+        <content class="lingual">
+          <fr>continent</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">168</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">60</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">168</alty>
+        <name class="text">continent</name>
+        <id class="hidden">s3478944557978846</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">continent</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label>
+        <content class="lingual">
+          <fr>NAME :</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">right</alignment>
+        <css class="css">labelField</css>
+        <linklabelid class="text">NAME</linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">80</posx>
+        <posy class="number">192</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">57</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">21</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">192</alty>
+        <name class="text"></name>
+        <id class="hidden">o8775162165410010</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <label currentResource="Country" logical="true">
+        <content class="lingual">
+          <fr>NAME</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">341</posx>
+        <posy class="number">192</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">43</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">192</alty>
+        <name class="text">NAME</name>
+        <id class="hidden">m8775162179045911</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr>{0}</fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">NAME</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+    </page>
+  </source>
+  <destination>
+    <page fr="1" technicalName="1" titleTab="CountryView (Country)">
+      <label>
+        <content class="lingual">
+          <fr>Pays</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">20</posx>
+        <posy class="number">14</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">575</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">23</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">titleView</name>
+        <id class="hidden">m34789443187715762</id>
+      </label>
+      <label type="Text">
+        <content class="lingual">
+          <fr>TCY_ALPHA3</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"></css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">20</posx>
+        <posy class="number">57</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">85</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">120</alty>
+        <name class="text">TCY_ALPHA3</name>
+        <id class="hidden">x34789443223462563</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+            <pattern class="lingual">
+              <fr></fr>
+            </pattern>
+            <attrs class="linkattrs"></attrs>
+            <clickable class="boolean">false</clickable>
+            <resource class="resource_blank"></resource>
+            <multivalue class="boolean">false</multivalue>
+            <field class="field">TCY_ALPHA3</field>
+          </values>
+        </fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
+      <verticallayout>
+        <css class="css"></css>
+        <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+        <theme class="theme"></theme>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">18</posx>
+        <posy class="number">92</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">396</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">463</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">contentDisplay</name>
+        <id class="hidden">n34789443284018066</id>
+        <childs>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCT_ID</name>
+            <id class="hidden">d34789443285308367</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>CCT_ID</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCT_ID</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">143</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCT_ID</name>
+                <id class="hidden">q34789443286334668</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCT_ID
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCT_ID</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>CCT_ID</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">143</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCT_ID</name>
+                <id class="hidden">j34789443310087669</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">CTT_ID</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCT_ID</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCY_ALPHA2</name>
+            <id class="hidden">t34789443354045370</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_ALPHA2</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCY_ALPHA2</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">167</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCY_ALPHA2</name>
+                <id class="hidden">k34789443355218371</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCY_ALPHA2
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_ALPHA2</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_ALPHA2</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">167</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCY_ALPHA2</name>
+                <id class="hidden">x34789443376977272</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">TCY_ALPHA2</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_ALPHA2</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCY_CODE</name>
+            <id class="hidden">i34789443415451273</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_CODE</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCY_CODE</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">191</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCY_CODE</name>
+                <id class="hidden">z34789443416565574</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCY_CODE
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_CODE</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_CODE</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">191</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCY_CODE</name>
+                <id class="hidden">y34789443437825975</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">TCY_CODE</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_CODE</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCY_EN_GB_NAME</name>
+            <id class="hidden">a34789443474951076</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_EN_GB_NAME</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCY_EN_GB_NAME</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">215</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCY_EN_GB_NAME</name>
+                <id class="hidden">g34789443475977377</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCY_EN_GB_NAME
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_EN_GB_NAME</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_EN_GB_NAME</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">215</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCY_EN_GB_NAME</name>
+                <id class="hidden">z34789443497179178</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">TCY_EN_GB_NAME</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_EN_GB_NAME</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCY_FR_FR_NAME</name>
+            <id class="hidden">x34789443534802679</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_FR_FR_NAME</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCY_FR_FR_NAME</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">239</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCY_FR_FR_NAME</name>
+                <id class="hidden">e34789443535858380</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCY_FR_FR_NAME
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_FR_FR_NAME</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_FR_FR_NAME</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">239</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCY_FR_FR_NAME</name>
+                <id class="hidden">h34789443557089481</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">TCY_FR_FR_NAME</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_FR_FR_NAME</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">TCY_ID</name>
+            <id class="hidden">n34789443594009282</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_ID</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">TCY_ID</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">263</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelTCY_ID</name>
+                <id class="hidden">f34789443595094283</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">TCY_ID
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_ID</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>TCY_ID</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">263</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">TCY_ID</name>
+                <id class="hidden">w34789443616882484</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">TCY_ID</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">TCY_ID</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">continent</name>
+            <id class="hidden">e34789443656939985</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>continent</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">continent</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">287</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelcontinent</name>
+                <id class="hidden">m34789443658054386</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">continent
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">continent</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>continent</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">287</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">continent</name>
+                <id class="hidden">b34789443679402687</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">continent</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">continent</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">90</posx>
+            <posy class="number">267</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">394</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">Mappe1</name>
+            <id class="hidden">c34789443752127888</id>
+            <childs>
+              <label>
+                <content class="lingual">
+                  <fr>Mappe1</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">libelle</css>
+                <linklabelid class="text">Mappe1</linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">11</posx>
+                <posy class="number">311</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">161</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">labelMappe1</name>
+                <id class="hidden">w34789443753359589</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">Mappe1
+          </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">Mappe1</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+              <label>
+                <content class="lingual">
+                  <fr>Mappe1</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">valeur</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">193</posx>
+                <posy class="number">311</posy>
+                <sizextype class="sizetype">FIXED</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">226</sizex>
+                <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">216</alty>
+                <name class="text">Mappe1</name>
+                <id class="hidden">t34789443776144790</id>
+                <fieldButton class="node" component_en="Link to a field" component_fr="Lier &#224; un champ annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
+                  <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                    <pattern class="lingual">
+                      <fr>{0}</fr>
+                    </pattern>
+                    <attrs class="linkattrs"></attrs>
+                    <clickable class="boolean">false</clickable>
+                    <resource class="resource_blank"></resource>
+                    <multivalue class="boolean">false</multivalue>
+                    <field class="field">NAME</field>
+                  </values>
+                </fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <pattern class="lingual">
+                        <fr>{0}</fr>
+                      </pattern>
+                      <attrs class="linkattrs"></attrs>
+                      <clickable class="boolean">false</clickable>
+                      <resource class="resource_blank"></resource>
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field">Mappe1</field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </label>
+            </childs>
+          </horizontallayout>
+        </childs>
+      </verticallayout>
+    </page>
+  </destination>
+</screen>

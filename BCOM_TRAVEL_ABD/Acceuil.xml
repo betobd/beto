@@ -1,0 +1,1643 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source></source>
+  <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Acceuil" zh="">
+      <verticallayout>
+        <css class="css"></css>
+        <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
+        <theme class="theme"></theme>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">3</posx>
+        <posy class="number">1</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">831</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">940</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">e28174660906771827</id>
+        <childs class="hidden">
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">126</posx>
+            <posy class="number">-58</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">712</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">89</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">n27808286476718915</id>
+            <childs class="hidden">
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Cr&#233;er un &#233;venement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr>Cr&#233;er un &#233;venement</fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Event/Cr&#233;ation/0">$Event/2/0</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/toolbar_calendar_48.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">true</hidden>
+                <posx class="number">563</posx>
+                <posy class="number">131</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">165</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">EVENT_CREATE_BTN</name>
+                <id class="hidden">j27808286478478416</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Cr&#233;er une mission</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr>Cr&#233;er une mission</fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Mission/MissionCreate">$Mission/MissionCreate</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/DOC_filetype.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">888</posx>
+                <posy class="number">113</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">156</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">d27808286479710117</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Cr&#233;er un compte-rendu d&apos;&#233;v&#232;nement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr>Cr&#233;er un compte-rendu d&apos;&#233;v&#232;nement</fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Report/Create">$Report/Create</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/toolbar_edit_48.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">true</hidden>
+                <posx class="number">340</posx>
+                <posy class="number">53</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">254</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">REPORT_CREATE_BTN</name>
+                <id class="hidden">v27808286480853718</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Missions</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Event/MissionAct">$Event/MissionAct</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/search.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">518</posx>
+                <posy class="number">33</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">103</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">b17870433126812</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">122</posx>
+            <posy class="number">503</posy>
+            <sizextype class="sizetype">EXTANDABLE</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">829</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">30</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">l3578104322811578</id>
+            <childs class="hidden">
+              <image>
+                <image class="file">images/eframe02.gif</image>
+                <css class="css"></css>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">749</posx>
+                <posy class="number">164</posy>
+                <sizextype class="sizetype">EXTANDABLE</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">821</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">22</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">s3578104322958199</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </image>
+            </childs>
+          </horizontallayout>
+          <verticallayout>
+            <css class="css"></css>
+            <verticallayout_spaceBetweenComponent class="text">5</verticallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">true</hidden>
+            <posx class="number">387</posx>
+            <posy class="number">140</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">829</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">477</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">EVENT_PANEL</name>
+            <id class="hidden">g35709506880048082</id>
+            <childs class="hidden">
+              <label>
+                <content class="lingual">
+                  <fr>Recherche d&apos;&#233;v&#232;nements</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">612</posx>
+                <posy class="number">218</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">150</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">titleView</name>
+                <id class="hidden">r35709506881983483</id>
+              </label>
+              <horizontallayout>
+                <verticalalignment class="verticalalignment">top</verticalalignment>
+                <css class="css"></css>
+                <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">8</posx>
+                <posy class="number">18</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">588</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">30</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">g35709506884300185</id>
+                <childs class="hidden">
+                  <label>
+                    <content class="lingual">
+                      <fr>Nom</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">displayName</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">394</posx>
+                    <posy class="number">551</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">160</altersizex>
+                    <sizex class="number">37</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">23</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text"></name>
+                    <id class="hidden">k35709506885531786</id>
+                    <component_index class="hidden">0</component_index>
+                  </label>
+                  <edit>
+                    <placeholder class="lingual">
+                      <fr></fr>
+                    </placeholder>
+                    <content class="text"></content>
+                    <limitchar class="number"></limitchar>
+                    <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+                    <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                    <autoComplete class="boolean">true</autoComplete>
+                    <separator1 class="separator"></separator1>
+                    <required class="boolean">false</required>
+                    <resourcefed class="resourcefed">
+                      <param>///false/false/0/0/</param>
+                      <pickertitle class="lingual">
+                        <fr></fr>
+                        <en></en>
+                        <es></es>
+                        <de></de>
+                        <it></it>
+                        <pt></pt>
+                        <zh></zh>
+                        <ar></ar>
+                      </pickertitle>
+                    </resourcefed>
+                    <deletable class="boolean">false</deletable>
+                    <separator2 class="separator"></separator2>
+                    <theme class="theme"></theme>
+                    <css class="css">valeur</css>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <tabindex class="number">20</tabindex>
+                    <noecho class="boolean">false</noecho>
+                    <multiline class="boolean">false</multiline>
+                    <tinymce class="tinymce">false</tinymce>
+                    <tinymceparameter class="text"></tinymceparameter>
+                    <tinymcesetup class="text"></tinymcesetup>
+                    <format class="text"></format>
+                    <kind class="edittype">regular</kind>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <enable class="boolean">true</enable>
+                    <posx class="number">432</posx>
+                    <posy class="number">544</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">220</altersizex>
+                    <sizex class="number">220</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">21</sizey>
+                    <altersizey class="hidden">22</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text">TET_NAME</name>
+                    <id class="hidden">e35709506886910087</id>
+                    <component_index class="hidden">1</component_index>
+                  </edit>
+                  <label>
+                    <content class="lingual">
+                      <fr>Description</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">TET_COMMENT</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">662</posx>
+                    <posy class="number">552</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">160</altersizex>
+                    <sizex class="number">73</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">23</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text"></name>
+                    <id class="hidden">e35709506887789788</id>
+                    <component_index class="hidden">6</component_index>
+                  </label>
+                  <edit>
+                    <placeholder class="lingual">
+                      <fr></fr>
+                    </placeholder>
+                    <content class="text"></content>
+                    <limitchar class="number"></limitchar>
+                    <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+                    <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+                    <autoComplete class="boolean">true</autoComplete>
+                    <separator1 class="separator"></separator1>
+                    <required class="boolean">false</required>
+                    <resourcefed class="resourcefed">
+                      <param>///false/false/0/0/</param>
+                      <pickertitle class="lingual">
+                        <fr></fr>
+                        <en></en>
+                        <es></es>
+                        <de></de>
+                        <it></it>
+                        <pt></pt>
+                        <zh></zh>
+                        <ar></ar>
+                      </pickertitle>
+                    </resourcefed>
+                    <deletable class="boolean">false</deletable>
+                    <separator2 class="separator"></separator2>
+                    <theme class="theme"></theme>
+                    <css class="css">valeur</css>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <tabindex class="number">5</tabindex>
+                    <noecho class="boolean">false</noecho>
+                    <multiline class="boolean">false</multiline>
+                    <tinymce class="tinymce">false</tinymce>
+                    <tinymceparameter class="text"></tinymceparameter>
+                    <tinymcesetup class="text"></tinymcesetup>
+                    <format class="text"></format>
+                    <kind class="edittype">regular</kind>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <enable class="boolean">true</enable>
+                    <posx class="number">735</posx>
+                    <posy class="number">544</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">220</altersizex>
+                    <sizex class="number">220</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">21</sizey>
+                    <altersizey class="hidden">22</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text">TET_COMMENT</name>
+                    <id class="hidden">x35709506889080089</id>
+                    <component_index class="hidden">7</component_index>
+                  </edit>
+                </childs>
+              </horizontallayout>
+              <horizontallayout>
+                <verticalalignment class="verticalalignment">top</verticalalignment>
+                <css class="css"></css>
+                <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">57</posx>
+                <posy class="number">45</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">595</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">49</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">e35709506890194390</id>
+                <childs class="hidden">
+                  <label>
+                    <content class="lingual">
+                      <fr>type</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">fkTTY_ID</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">419</posx>
+                    <posy class="number">620</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">160</altersizex>
+                    <sizex class="number">32</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">23</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text"></name>
+                    <id class="hidden">m35709506891367391</id>
+                    <component_index class="hidden">2</component_index>
+                  </label>
+                  <choice>
+                    <content class="text"></content>
+                    <resourcefed class="simpleresourcefed">EventType/TTY_ID/</resourcefed>
+                    <css class="css"></css>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <tabindex class="number"></tabindex>
+                    <text class="list"></text>
+                    <parameters class="list"></parameters>
+                    <onclick class="script"></onclick>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <enable class="boolean">true</enable>
+                    <posx class="number">484</posx>
+                    <posy class="number">619</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">30</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">28</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text">fkTTY_ID</name>
+                    <id class="hidden">m35709506892335092</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                    <component_index class="hidden">3</component_index>
+                  </choice>
+                  <label>
+                    <content class="lingual">
+                      <fr>port&#233;e</fr>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alignment class="alignment">left</alignment>
+                    <css class="css">libelle</css>
+                    <linklabelid class="text">fkTES_ID</linklabelid>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <mail class="boolean">false</mail>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">574</posx>
+                    <posy class="number">615</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">160</altersizex>
+                    <sizex class="number">45</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">20</sizey>
+                    <altersizey class="hidden">23</altersizey>
+                    <alty class="hidden">30</alty>
+                    <name class="text"></name>
+                    <id class="hidden">u35709506893214793</id>
+                    <component_index class="hidden">4</component_index>
+                  </label>
+                  <choice>
+                    <content class="text"></content>
+                    <resourcefed class="simpleresourcefed">EventScope/TES_ID/</resourcefed>
+                    <css class="css"></css>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <tabindex class="number"></tabindex>
+                    <text class="list"></text>
+                    <parameters class="list"></parameters>
+                    <onclick class="script"></onclick>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <enable class="boolean">true</enable>
+                    <posx class="number">585</posx>
+                    <posy class="number">613</posy>
+                    <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">30</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">30</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text">fkTES_ID</name>
+                    <id class="hidden">j35709506894153194</id>
+                    <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                    <components class="components">
+                      <fieldPart class="node" en="" fr="">
+                        <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                          <field class="field"></field>
+                        </values>
+                      </fieldPart>
+                    </components>
+                    <component_index class="hidden">5</component_index>
+                  </choice>
+                  <button>
+                    <content class="lingual">
+                      <fr>Rechercher</fr>
+                      <en>Search</en>
+                    </content>
+                    <wordwrap class="boolean">false</wordwrap>
+                    <alt class="lingual">
+                      <fr></fr>
+                    </alt>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <tabindex class="number">22</tabindex>
+                    <onclick class="script">// build filter to launch the search
+var /*String*/ filter = &quot;&quot;;
+var /*int*/ terms = 0;
+
+// read TET_NAME field
+var /*String*/ TET_NAME = meibo.getFieldValue(&apos;TET_NAME&apos;);
+if (TET_NAME.length != 0) {
+  terms++;
+  filter = filter + &quot; AND TET_NAME LIKE \&apos;%&quot; + TET_NAME + &quot;%\&apos;&quot;;
+}
+  
+// read TET_COMMENT field
+var /*String*/ TET_COMMENT = meibo.getFieldValue(&apos;TET_COMMENT&apos;);
+if (TET_COMMENT.length != 0) {
+  terms++;
+  filter = filter + &quot; AND (TET_COMMENT LIKE \&apos;%&quot; + TET_COMMENT + &quot;%\&apos; OR TCT_COMMENT LIKE \&apos;%&quot; + TET_COMMENT + &quot;%\&apos;)&quot;;
+}
+  
+// read fkTES_ID field
+var /*String*/ fkTES_ID = meibo.getFieldValue(&apos;fkTES_ID&apos;);
+if (fkTES_ID.trim().length != 0) {
+  terms++;
+  filter = filter + &quot; AND fkTES_ID = &quot; + fkTES_ID;
+} 
+  
+// read fkTTY_ID field
+var /*String*/ fkTTY_ID = meibo.getFieldValue(&apos;fkTTY_ID&apos;);
+if (fkTTY_ID.trim().length != 0) {
+  terms++;
+  filter = filter + &quot; AND fkTTY_ID=&quot; + fkTTY_ID;
+}
+  
+// check if there is at least one criteria
+/*
+if (terms == 0) {
+  meibo.showField(&quot;errorcriteria&quot;, true);
+  meibo.showField(&quot;error&quot;, false);
+}
+else {
+*/
+  meibo.showField(&quot;errorcriteria&quot;, false);
+
+
+  // delete the first AND operator
+  if ((filter != &quot;&quot;) &amp;&amp;(filter.startsWith(&quot; AND&quot;))) {
+    filter = filter.substring(5);
+  }
+  
+
+  // launch a first search to know the number of results
+  meibo.getField(&quot;filter&quot;).setValue(filter);
+  var /*ResultSet*/ resultSet = meibo.executeResource(&apos;Event&apos;, filter, 0, &apos;&apos;);
+  var /*int*/ nEntries = resultSet.getEntryCount();
+  if (nEntries != 0) {
+
+    // display table and prepare page number information
+    meibo.showField(&quot;searchContainer&quot;, true);
+    meibo.showField(&quot;error&quot;, false);
+    var /*int*/ pageSize = parseInt(meibo.getFieldValue(&quot;pageSize&quot;));
+    var /*int*/ pages = ((nEntries - 1) / pageSize) + 1;
+    meibo.getField(&quot;pages&quot;).setValue(&quot;&quot; + pages);
+    meibo.getField(&quot;page&quot;).setValue(&quot;1&quot;);
+
+    // launch the search and display results on the same page
+    displaySearch(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));
+  }
+  else {
+
+    // no result found
+    meibo.showField(&quot;searchContainer&quot;, false);
+    var /*String*/ msg = null;
+    try {
+      msg = meibo.getMessage(&quot;noResultFound&quot;);
+    }
+    catch (ex) {
+    }
+    if (msg == null) {
+      if (meibo.getUserLanguage() == &quot;fr&quot;) {
+        msg = &quot;Aucun r&#233;sultat trouv&#233;. Essayez avec d&apos;autres crit&#232;res&quot;;
+      }
+      else {
+        msg = &quot;No result found. Change search criterias&quot;;
+      }
+    }
+    meibo.getField(&quot;error&quot;).setValue(msg);
+    meibo.showField(&quot;error&quot;, true);
+  }
+//}</onclick>
+                    <submit class="boolean">true</submit>
+                    <separator0 class="separator"></separator0>
+                    <confirmation class="boolean">false</confirmation>
+                    <confirmationdialogmessage class="lingual">
+                      <fr></fr>
+                    </confirmationdialogmessage>
+                    <confirmationdialogtitle class="lingual">
+                      <fr></fr>
+                    </confirmationdialogtitle>
+                    <theme class="theme"></theme>
+                    <css class="css"></css>
+                    <separator1 class="separator"></separator1>
+                    <waitbutton class="boolean">false</waitbutton>
+                    <waitingmode class="waitingmode">prescript</waitingmode>
+                    <progressbartitle class="lingual">
+                      <fr></fr>
+                    </progressbartitle>
+                    <progressbarnboperationtext class="lingual">
+                      <fr></fr>
+                    </progressbarnboperationtext>
+                    <progressbarnboperationdonetext class="lingual">
+                      <fr></fr>
+                    </progressbarnboperationdonetext>
+                    <prescript class="script"></prescript>
+                    <separator2 class="separator"></separator2>
+                    <image class="file"></image>
+                    <image2 class="file"></image2>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <enable class="boolean">true</enable>
+                    <posx class="number">780</posx>
+                    <posy class="number">630</posy>
+                    <sizextype class="sizetype">FIXED</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">88</sizex>
+                    <sizeytype class="sizetype">FIXED</sizeytype>
+                    <sizey class="number">30</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">34</alty>
+                    <name class="text"></name>
+                    <id class="hidden">a35709506895472795</id>
+                  </button>
+                </childs>
+              </horizontallayout>
+              <label>
+                <content class="lingual">
+                  <en>No result found. Change search criterias</en>
+                  <fr>Aucun r&#233;sultat trouv&#233;. Essayez avec d&apos;autres crit&#232;res</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css">label_neutre</css>
+                <linklabelid class="text"></linklabelid>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <mail class="boolean">false</mail>
+                <separator class="separator"></separator>
+                <hidden class="boolean">true</hidden>
+                <posx class="number">688</posx>
+                <posy class="number">430</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">295</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">20</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">error</name>
+                <id class="hidden">t35709506896352596</id>
+              </label>
+              <verticallayout>
+                <css class="css">table</css>
+                <verticallayout_spaceBetweenComponent class="text">2</verticallayout_spaceBetweenComponent>
+                <theme class="theme"></theme>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">39</posx>
+                <posy class="number">256</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">821</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">244</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">searchContainer</name>
+                <id class="hidden">r35709506897408297</id>
+                <childs>
+                  <multilist>
+                    <content class="text">TET_NAME,TCT_CREATE_DATE,TCT_DURATION,TCT_START_DATE,TET_ISPRIVATE,TET_ISTEMPLATE,fkPRS_ID_AUTHOR,fkPRS_ID_LEADER,scope,type,TAS_TOWN</content>
+                    <tablecss class="css"></tablecss>
+                    <headercss class="css"></headercss>
+                    <evenrowcss class="css"></evenrowcss>
+                    <oddrowcss class="css"></oddrowcss>
+                    <hoverrowcss class="css"></hoverrowcss>
+                    <hoverrowboolean class="boolean">true</hoverrowboolean>
+                    <tooltip class="lingual">
+                      <fr></fr>
+                    </tooltip>
+                    <headertitles class="linguallist">
+                      <fr>
+                        <item0>Nom</item0>
+                        <item1>Date de cr&#233;ation</item1>
+                        <item2>Dur&#233;e</item2>
+                        <item3>Date de d&#233;but</item3>
+                        <item4>priv&#233;</item4>
+                        <item5>template</item5>
+                        <item6>ID de l&apos;auteur</item6>
+                        <item7>ID du leader</item7>
+                        <item8>port&#233;e</item8>
+                        <item9>type</item9>
+                        <item10>Ville</item10>
+                      </fr>
+                    </headertitles>
+                    <headerpercents class="list">
+                      <item0>30</item0>
+                      <item1>25</item1>
+                      <item2>4</item2>
+                      <item3>25</item3>
+                      <item4>4</item4>
+                      <item5>4</item5>
+                      <item6>4</item6>
+                      <item7>4</item7>
+                      <item8>4</item8>
+                      <item9>4</item9>
+                      <item10>30</item10>
+                    </headerpercents>
+                    <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
+                    <onheaderclick class="script"></onheaderclick>
+                    <ondoubleclick class="script">var table = meibo.getField(&quot;results&quot;);
+var /*int*/ row = table.getSelectedRow();
+var /*String*/ dn = table.getRowObject(row);
+meibo.switchToDisplayView(&quot;Event&quot;, dn, 0);</ondoubleclick>
+                    <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
+                    <separator1 class="separator"></separator1>
+                    <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
+                    <caption class="lingual">
+                      <fr></fr>
+                    </caption>
+                    <summary class="lingual">
+                      <fr></fr>
+                    </summary>
+                    <headerabbreviations class="linguallist">
+                      <fr></fr>
+                    </headerabbreviations>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">20</posx>
+                    <posy class="number">98</posy>
+                    <sizextype class="sizetype">EXTANDABLE</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">813</sizex>
+                    <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                    <sizey class="number">205</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">118</alty>
+                    <name class="text">results</name>
+                    <id class="hidden">e35709506898845198</id>
+                  </multilist>
+                  <horizontallayout>
+                    <verticalalignment class="verticalalignment">top</verticalalignment>
+                    <css class="css"></css>
+                    <horizontallayout_spaceBetweenComponent class="text">2</horizontallayout_spaceBetweenComponent>
+                    <theme class="theme"></theme>
+                    <separator class="separator"></separator>
+                    <hidden class="boolean">false</hidden>
+                    <posx class="number">141</posx>
+                    <posy class="number">640</posy>
+                    <sizextype class="sizetype">EXTANDABLE</sizextype>
+                    <altersizex class="hidden">30</altersizex>
+                    <sizex class="number">813</sizex>
+                    <sizeytype class="sizetype">FIXED</sizeytype>
+                    <sizey class="number">31</sizey>
+                    <altersizey class="hidden">30</altersizey>
+                    <alty class="hidden">0</alty>
+                    <name class="text"></name>
+                    <id class="hidden">b35709506899930199</id>
+                    <childs>
+                      <expandablespace>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">false</hidden>
+                        <posx class="number">-5</posx>
+                        <posy class="number">5</posy>
+                        <sizextype class="hidden">EXTANDABLE</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">504</sizex>
+                        <sizeytype class="hidden">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">0</alty>
+                        <name class="text"></name>
+                        <id class="hidden">w3570950690095640</id>
+                      </expandablespace>
+                      <button>
+                        <content class="lingual">
+                          <fr>&lt;&lt;</fr>
+                          <en>&lt;&lt;</en>
+                        </content>
+                        <wordwrap class="boolean">false</wordwrap>
+                        <alt class="lingual">
+                          <fr></fr>
+                        </alt>
+                        <tooltip class="lingual">
+                          <fr></fr>
+                        </tooltip>
+                        <tabindex class="number"></tabindex>
+                        <onclick class="script">meibo.getField(&quot;page&quot;).setValue(&quot;1&quot;);
+displaySearch(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));</onclick>
+                        <submit class="boolean">false</submit>
+                        <separator0 class="separator"></separator0>
+                        <confirmation class="boolean">false</confirmation>
+                        <confirmationdialogmessage class="lingual">
+                          <fr></fr>
+                        </confirmationdialogmessage>
+                        <confirmationdialogtitle class="lingual">
+                          <fr></fr>
+                        </confirmationdialogtitle>
+                        <theme class="theme"></theme>
+                        <css class="css"></css>
+                        <separator1 class="separator"></separator1>
+                        <waitbutton class="boolean">false</waitbutton>
+                        <waitingmode class="waitingmode">prescript</waitingmode>
+                        <progressbartitle class="lingual">
+                          <fr></fr>
+                        </progressbartitle>
+                        <progressbarnboperationtext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationtext>
+                        <progressbarnboperationdonetext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationdonetext>
+                        <prescript class="script"></prescript>
+                        <separator2 class="separator"></separator2>
+                        <image class="file"></image>
+                        <image2 class="file"></image2>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">true</hidden>
+                        <enable class="boolean">true</enable>
+                        <posx class="number">361</posx>
+                        <posy class="number">728</posy>
+                        <sizextype class="sizetype">FIXED</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">44</sizex>
+                        <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">428</alty>
+                        <name class="text">first</name>
+                        <id class="hidden">l3570950690233471</id>
+                      </button>
+                      <button>
+                        <content class="lingual">
+                          <fr>&lt;</fr>
+                          <en>&lt;</en>
+                        </content>
+                        <wordwrap class="boolean">false</wordwrap>
+                        <alt class="lingual">
+                          <fr></fr>
+                        </alt>
+                        <tooltip class="lingual">
+                          <fr></fr>
+                        </tooltip>
+                        <tabindex class="number"></tabindex>
+                        <onclick class="script">var /*int*/ page = parseInt(meibo.getFieldValue(&quot;page&quot;));
+var /*int*/ pages = parseInt(meibo.getFieldValue(&quot;pages&quot;));
+if (page &gt; 1) {
+  page--;
+  meibo.getField(&quot;page&quot;).setValue(&quot;&quot; + page);
+  displaySearch(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));
+}</onclick>
+                        <submit class="boolean">false</submit>
+                        <separator0 class="separator"></separator0>
+                        <confirmation class="boolean">false</confirmation>
+                        <confirmationdialogmessage class="lingual">
+                          <fr></fr>
+                        </confirmationdialogmessage>
+                        <confirmationdialogtitle class="lingual">
+                          <fr></fr>
+                        </confirmationdialogtitle>
+                        <theme class="theme"></theme>
+                        <css class="css"></css>
+                        <separator1 class="separator"></separator1>
+                        <waitbutton class="boolean">false</waitbutton>
+                        <waitingmode class="waitingmode">prescript</waitingmode>
+                        <progressbartitle class="lingual">
+                          <fr></fr>
+                        </progressbartitle>
+                        <progressbarnboperationtext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationtext>
+                        <progressbarnboperationdonetext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationdonetext>
+                        <prescript class="script"></prescript>
+                        <separator2 class="separator"></separator2>
+                        <image class="file"></image>
+                        <image2 class="file"></image2>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">true</hidden>
+                        <enable class="boolean">true</enable>
+                        <posx class="number">413</posx>
+                        <posy class="number">728</posy>
+                        <sizextype class="sizetype">FIXED</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">44</sizex>
+                        <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">428</alty>
+                        <name class="text">previous</name>
+                        <id class="hidden">s3570950690365432</id>
+                      </button>
+                      <label>
+                        <content class="lingual">
+                          <fr></fr>
+                        </content>
+                        <wordwrap class="boolean">false</wordwrap>
+                        <alignment class="alignment">center</alignment>
+                        <css class="css"></css>
+                        <linklabelid class="text"></linklabelid>
+                        <tooltip class="lingual">
+                          <fr></fr>
+                        </tooltip>
+                        <mail class="boolean">false</mail>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">false</hidden>
+                        <posx class="number">467</posx>
+                        <posy class="number">738</posy>
+                        <sizextype class="sizetype">FIXED</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">125</sizex>
+                        <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">428</alty>
+                        <name class="text">range</name>
+                        <id class="hidden">x3570950690450473</id>
+                      </label>
+                      <button>
+                        <content class="lingual">
+                          <fr>&gt;</fr>
+                          <en>&gt;</en>
+                        </content>
+                        <wordwrap class="boolean">false</wordwrap>
+                        <alt class="lingual">
+                          <fr></fr>
+                        </alt>
+                        <tooltip class="lingual">
+                          <fr></fr>
+                        </tooltip>
+                        <tabindex class="number"></tabindex>
+                        <onclick class="script">var /*int*/ page = parseInt(meibo.getFieldValue(&quot;page&quot;));
+var /*int*/ pages = parseInt(meibo.getFieldValue(&quot;pages&quot;));
+if (page &lt; pages) {
+  page++;
+  meibo.getField(&quot;page&quot;).setValue(&quot;&quot; + page);
+  displaySearch(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));
+}</onclick>
+                        <submit class="boolean">false</submit>
+                        <separator0 class="separator"></separator0>
+                        <confirmation class="boolean">false</confirmation>
+                        <confirmationdialogmessage class="lingual">
+                          <fr></fr>
+                        </confirmationdialogmessage>
+                        <confirmationdialogtitle class="lingual">
+                          <fr></fr>
+                        </confirmationdialogtitle>
+                        <theme class="theme"></theme>
+                        <css class="css"></css>
+                        <separator1 class="separator"></separator1>
+                        <waitbutton class="boolean">false</waitbutton>
+                        <waitingmode class="waitingmode">prescript</waitingmode>
+                        <progressbartitle class="lingual">
+                          <fr></fr>
+                        </progressbartitle>
+                        <progressbarnboperationtext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationtext>
+                        <progressbarnboperationdonetext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationdonetext>
+                        <prescript class="script"></prescript>
+                        <separator2 class="separator"></separator2>
+                        <image class="file"></image>
+                        <image2 class="file"></image2>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">true</hidden>
+                        <enable class="boolean">true</enable>
+                        <posx class="number">602</posx>
+                        <posy class="number">728</posy>
+                        <sizextype class="sizetype">FIXED</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">44</sizex>
+                        <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">428</alty>
+                        <name class="text">next</name>
+                        <id class="hidden">o3570950690579504</id>
+                      </button>
+                      <button>
+                        <content class="lingual">
+                          <fr>&gt;&gt;</fr>
+                          <en>&gt;&gt;</en>
+                        </content>
+                        <wordwrap class="boolean">false</wordwrap>
+                        <alt class="lingual">
+                          <fr></fr>
+                        </alt>
+                        <tooltip class="lingual">
+                          <fr></fr>
+                        </tooltip>
+                        <tabindex class="number"></tabindex>
+                        <onclick class="script">var /*int*/ pages = parseInt(meibo.getFieldValue(&quot;pages&quot;));
+meibo.getField(&quot;page&quot;).setValue(&quot;&quot; + pages);
+displaySearch(&apos;Event&apos;, meibo.getFieldValue(&quot;attributeList&quot;));</onclick>
+                        <submit class="boolean">false</submit>
+                        <separator0 class="separator"></separator0>
+                        <confirmation class="boolean">false</confirmation>
+                        <confirmationdialogmessage class="lingual">
+                          <fr></fr>
+                        </confirmationdialogmessage>
+                        <confirmationdialogtitle class="lingual">
+                          <fr></fr>
+                        </confirmationdialogtitle>
+                        <theme class="theme"></theme>
+                        <css class="css"></css>
+                        <separator1 class="separator"></separator1>
+                        <waitbutton class="boolean">false</waitbutton>
+                        <waitingmode class="waitingmode">prescript</waitingmode>
+                        <progressbartitle class="lingual">
+                          <fr></fr>
+                        </progressbartitle>
+                        <progressbarnboperationtext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationtext>
+                        <progressbarnboperationdonetext class="lingual">
+                          <fr></fr>
+                        </progressbarnboperationdonetext>
+                        <prescript class="script"></prescript>
+                        <separator2 class="separator"></separator2>
+                        <image class="file"></image>
+                        <image2 class="file"></image2>
+                        <separator class="separator"></separator>
+                        <hidden class="boolean">true</hidden>
+                        <enable class="boolean">true</enable>
+                        <posx class="number">654</posx>
+                        <posy class="number">728</posy>
+                        <sizextype class="sizetype">FIXED</sizextype>
+                        <altersizex class="hidden">30</altersizex>
+                        <sizex class="number">44</sizex>
+                        <sizeytype class="sizetype">EXTANDABLE</sizeytype>
+                        <sizey class="number">23</sizey>
+                        <altersizey class="hidden">30</altersizey>
+                        <alty class="hidden">428</alty>
+                        <name class="text">last</name>
+                        <id class="hidden">r3570950690708535</id>
+                      </button>
+                    </childs>
+                  </horizontallayout>
+                </childs>
+              </verticallayout>
+            </childs>
+          </verticallayout>
+          <link>
+            <content auto="false" class="autocontent">
+              <fr>Site web d&apos;ILEX</fr>
+            </content>
+            <wordwrap class="boolean">false</wordwrap>
+            <alignment class="alignment">left</alignment>
+            <css class="css"></css>
+            <jquery class="JQuery" theme="">false</jquery>
+            <alt class="lingual">
+              <fr></fr>
+            </alt>
+            <tabindex class="number"></tabindex>
+            <tooltip class="lingual">
+              <fr></fr>
+            </tooltip>
+            <parameters class="viewchooser" valueToPrint="Event/Search">$Event/Search</parameters>
+            <framehyp class="frame">_self</framehyp>
+            <separatorImg class="separator"></separatorImg>
+            <image class="file">images/bullet_arrow_v48.png</image>
+            <imageorcontent class="boolean">false</imageorcontent>
+            <imagealignment class="alignment">left</imagealignment>
+            <textposition class="position">top</textposition>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">743</posx>
+            <posy class="number">40</posy>
+            <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">48</sizex>
+            <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+            <sizey class="number">48</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text"></name>
+            <id class="hidden">w96214731088544</id>
+            <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+            <components class="components">
+              <fieldPart class="node" en="" fr="">
+                <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                  <multivalue class="boolean">false</multivalue>
+                  <field class="field"></field>
+                </values>
+              </fieldPart>
+            </components>
+          </link>
+        </childs>
+      </verticallayout>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">1</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">143</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">51</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">page</name>
+        <id class="hidden">y35709505563315174</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">1</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">171</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">51</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">pages</name>
+        <id class="hidden">f35709505794011775</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">1</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">199</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">51</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">entries</name>
+        <id class="hidden">r35709505965296676</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TET_NAME</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">227</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">150</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">sortAttribute</name>
+        <id class="hidden">s35709506139074277</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text"></content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">255</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">51</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">filter</name>
+        <id class="hidden">i35709506325373378</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">15</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">283</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">51</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">pageSize</name>
+        <id class="hidden">g35709506494048479</id>
+      </edit>
+      <edit>
+        <placeholder class="lingual">
+          <fr></fr>
+        </placeholder>
+        <content class="text">TET_NAME,TCT_CREATE_DATE,TCT_DURATION,TCT_START_DATE,TET_ISPRIVATE,TET_ISTEMPLATE,fkPRS_ID_AUTHOR,fkPRS_ID_LEADER,fkTAS_ID,fkTCT_ID,fkTES_ID,fkTTY_ID,scope,type,TAS_TOWN</content>
+        <limitchar class="number"></limitchar>
+        <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
+        <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
+        <autoComplete class="boolean">true</autoComplete>
+        <separator1 class="separator"></separator1>
+        <required class="boolean">false</required>
+        <resourcefed class="resourcefed">
+          <param>///false/false/0/0/</param>
+          <pickertitle class="lingual">
+            <fr></fr>
+            <en></en>
+            <es></es>
+            <de></de>
+            <it></it>
+            <pt></pt>
+            <zh></zh>
+            <ar></ar>
+          </pickertitle>
+        </resourcefed>
+        <deletable class="boolean">false</deletable>
+        <separator2 class="separator"></separator2>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <tooltip class="lingual">
+          <en></en>
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <noecho class="boolean">false</noecho>
+        <multiline class="boolean">false</multiline>
+        <tinymce class="tinymce">false</tinymce>
+        <tinymceparameter class="text"></tinymceparameter>
+        <tinymcesetup class="text"></tinymcesetup>
+        <format class="text"></format>
+        <kind class="edittype">regular</kind>
+        <separator class="separator"></separator>
+        <hidden class="boolean">true</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">914</posx>
+        <posy class="number">311</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">277</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">509</alty>
+        <name class="text">attributeList</name>
+        <id class="hidden">e35709506667825980</id>
+      </edit>
+    </page>
+  </destination>
+</screen>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package Id="null" Name="BCOM_TRAVEL"  xmlns="http://www.wfmc.org/2002/XPDL1.0" xmlns:xpdl="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wfmc.org/2002/XPDL1.0 http://wfmc.org/standards/docs/TC-1025_schema_10_xpdl.xsd">
+ <PackageHeader>
+  <XPDLVersion>1.0</XPDLVersion>
+  <Vendor>Ilex Meibo</Vendor>
+ </PackageHeader>
+ <RedefinableHeader PublicationStatus="RELEASED">
+  <Author>Meibo</Author>
+  <Version>3</Version>
+ </RedefinableHeader>
+ <ConformanceClass GraphConformance="NON_BLOCKED"/>
+ <WorkflowProcesses>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1397224855079" Name="Processus_ARRIVEE_PERSONNE">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1397224855079" Name="Processus_ARRIVEE_PERSONNE">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063509239" Name="OrganisationDeplacement">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1448472291649" Name="Mission">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+  </WorkflowProcess>
+  <WorkflowProcess AccessLevel="PUBLIC" Id="1449063341651" Name="CompteRendu">
+  </WorkflowProcess>
+ </WorkflowProcesses>
+ <ExtendedAttributes>
+  <ExtendedAttribute Name="activityStateColorInactive"  Value="-4144960_-16777216_-65536"/>
+  <ExtendedAttribute Name="activityStateColorError"  Value="-65536_-1_-16776961"/>
+  <ExtendedAttribute Name="activityStateColorEligible"  Value="-14336_-16777216_-65536"/>
+  <ExtendedAttribute Name="activityStateColorExecuting"  Value="-16711936_-16777216_-65536"/>
+  <ExtendedAttribute Name="activityStateColorCompleted"  Value="-16776961_-16777216_-65536"/>
+  <ExtendedAttribute Name="activityStateColorAborted"  Value="-65281_-1_-256"/>
+ </ExtendedAttributes>
+</Package>

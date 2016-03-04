@@ -1,0 +1,8 @@
+*.xpdl
+*-.xml
+*-.ixp
+*.bak
+*/*.bak
+*.css
+scriptlets/work
+

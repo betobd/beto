@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">///$debug
+/**
+ * Remplit le tableau tableName avec les ReportChoices correspondants &#224; l&apos;abbr&#233;viation choiceType
+ */
+function /*void*/ fillTableWithChoices(tableName, choiceType){
+  var /*Table*/ table = meibo.getField(tableName);
+  table.fillInWithQuery(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_NAME&quot;);
+}
+
+/**
+ * Remplit la liste d&#233;roulante listName avec les ReportChoices correspondants &#224; l&apos;abbr&#233;viation choiceType
+ */
+function /*void*/ fillListWithChoices(listName, choiceType){
+  var /*List*/choice = meibo.getField(listName);
+  var /*ResultSet*/ rs = meibo.executeResource(&quot;ReportChoices&quot;, &quot;TFC_ABBREV=&apos;&quot; + choiceType + &quot;&apos;&quot;, 0, &quot;TCS_NAME&quot;);
+  var /*Array*/ array = resultSetToArray(rs, &quot;TCS_NAME&quot;);
+  choice.setValues(array);
+  choice.setDisplayedTexts(array);
+}
+
+// Remplit les valeurs possibles des tableaux et listes utilis&#233;s
+fillTableWithChoices(&quot;R_CONTENTS_TYPE&quot;,&quot;CNT&quot;);
+fillTableWithChoices(&quot;R_MEDIA_TYPE&quot;,&quot;MED&quot;);
+fillListWithChoices(&quot;TRT_QUALITY_NOTE&quot;,&quot;GQ&quot;);
+fillListWithChoices(&quot;TRT_RENOWN_COMMENT&quot;,&quot;RN&quot;);
+fillListWithChoices(&quot;TRT_DYN_PREVIOUS_SESSION_NOTE&quot;,&quot;DPS&quot;);
+fillListWithChoices(&quot;TRT_STRATEGIC_COVER_NOTE&quot;,&quot;SNC&quot;);
+fillListWithChoices(&quot;TRT_LOBBY_CONTACT_QUAL_NOTE&quot;,&quot;LCQ&quot;);
+fillListWithChoices(&quot;TRT_BUSINESS_CONTACT_QUAL_NOTE&quot;,&quot;BCQ&quot;);
+fillListWithChoices(&quot;TRT_BCOM_SPREAD_VALUE_COMMENT&quot;,&quot;BSC&quot;);
+fillListWithChoices(&quot;TRT_BENCHMARK_QUALITY_NOTE&quot;,&quot;BQ&quot;);
+fillListWithChoices(&quot;TRT_QUAL_PRICE_RATIO_NOTE&quot;,&quot;PQR&quot;);
+fillListWithChoices(&quot;TRT_NEXTEDITION_NOTE&quot;,&quot;NEN&quot;);</onload>
+  <onquit class="script">meibo.setReturnValue(true);
+</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>

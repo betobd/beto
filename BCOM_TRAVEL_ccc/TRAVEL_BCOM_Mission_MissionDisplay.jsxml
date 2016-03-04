@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"></globalScriptView>
+  <onload class="script">///$debug
+// Met &#224; jour le contenu du tableau d&apos;evenements
+var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+var /*String*/ownerID = meibo.getFieldValue(&quot;PRS_ID&quot;);
+var /*String*/ currentDN=meibo.getCurrentDn();
+
+var /*ResultSet*/ missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, currentDN,&quot;fkTCT_ID,TET_NAME&quot;);
+var /*ResultSet*/ eventAttendeesRS = null;
+var /*Entry*/ eventAttendeesEntry = null;
+var /*int*/ line=0;
+var eventId=null;
+
+for each(var missionEvent in missionEventRS){
+
+  eventId = missionEvent.fkTCT_ID[0]
+  table.addRowObject(line, missionEvent.dn[0]);
+  table.addCell(line,0,missionEvent.TET_NAME[0]);
+  
+  eventAttendeesRS = meibo.executeResource(&quot;R_Attendees&quot;,&quot;PRS_ID=&quot;+ ownerID + &quot; AND TCT_ID=&quot;+eventId ,1,&quot;TPE_NAME,TIN_NAME,RAS_START_DATE,RAS_END_DATE&quot;);
+  eventAttendeesEntry = eventAttendeesRS.getEntry();
+  if(eventAttendeesEntry!=null){
+    // il est possible qu&apos;il n&apos;y ait pas d&apos;entr&#233;e correspondante si la mission a &#233;t&#233; annul&#233;e        
+    table.addCell(line,1,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_START_DATE[0])));
+    table.addCell(line,2,DATE_FORMAT.format(SQL_DATE_FORMAT.parse(eventAttendeesEntry.RAS_END_DATE[0])));
+    table.addCell(line,3,eventAttendeesEntry.TPE_NAME[0]);
+    table.addCell(line,4,eventAttendeesEntry.TIN_NAME[0]);       
+  } else{
+    table.addCell(line,1,&quot;annul&#233;&quot;);
+  }
+  line++;
+}
+
+// Met &#224; jour le contenu du tableau d&apos;historique
+table = meibo.getField(&quot;HISTORY_TABLE&quot;);
+
+var /*ResultSet*/ missionHistoryRS = meibo.executeLink(&quot;MissionRStatus&quot;, currentDN,&quot;TST_TMN_DATE,TST_TMN_COMMENT,peopleName,TST_NAME&quot;);
+line = 0;
+
+for each(var statusEntry in missionHistoryRS){
+
+  //table.addRowObject(line, statusEntry.fkTCT_ID[0]);
+  table.addCell(line,0,statusEntry.peopleName[0]);
+  table.addCell(line,1,DATETIME_FORMAT.format(SQL_DATETIME_FORMAT.parse(statusEntry.TST_TMN_DATE[0])));
+  table.addCell(line,2,statusEntry.TST_NAME[0]);
+  table.addCell(line,3,statusEntry.TST_TMN_COMMENT[0]);
+  
+  line++ 
+}</onload>
+</scripts>
