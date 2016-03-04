@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script">///$debug
+// On construit la table des tem^lates &#224; afficher avec les informations suivantes :
+var /*Table*/templateTable = meibo.getField(&quot;OBJ_listeTemplate&quot;);
+var /*Int*/  nbTemplate = templateTable.fillInWithQuery(&apos;EventTemplate&apos;,&quot;&quot;, 0)</onload>
+  <onquit class="script"></onquit>
+</scripts>

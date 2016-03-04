@@ -268,6 +268,72 @@
             </childs>
           </horizontallayout>
           <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">716</posx>
+            <posy class="number">72</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">162</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">68</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">OBJ_menuDDI</name>
+            <id class="hidden">u2577787475283232</id>
+            <childs class="hidden">
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>G&#233;rer les templates</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr></fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="EventTemplate/Liste">$EventTemplate/Liste</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/book_48.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">6</posx>
+                <posy class="number">122</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">162</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text"></name>
+                <id class="hidden">p2582581394434433</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
             <verticalalignment class="verticalalignment">middle</verticalalignment>
             <css class="css"></css>
             <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
@@ -396,7 +462,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">821</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">22</sizey>
+                <sizey class="number">34</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -550,7 +616,7 @@
                     <altersizex class="hidden">220</altersizex>
                     <sizex class="number">220</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">21</sizey>
+                    <sizey class="number">15</sizey>
                     <altersizey class="hidden">22</altersizey>
                     <alty class="hidden">30</alty>
                     <name class="text">TET_NAME</name>
@@ -632,7 +698,7 @@
                     <altersizex class="hidden">220</altersizex>
                     <sizex class="number">220</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">21</sizey>
+                    <sizey class="number">15</sizey>
                     <altersizey class="hidden">22</altersizey>
                     <alty class="hidden">30</alty>
                     <name class="text">TET_COMMENT</name>

@@ -1,0 +1,124 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<screen>
+  <source>
+  </source>
+  <destination>
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="Liste (EventTemplate)" zh="">
+      <multilist>
+        <content class="text">TET_ID,TET_NAME,Type,Scope,TET_DURATION</content>
+        <tablecss class="css"></tablecss>
+        <headercss class="css"> tableTitle</headercss>
+        <evenrowcss class="css"> tableContent</evenrowcss>
+        <oddrowcss class="css"></oddrowcss>
+        <hoverrowcss class="css"></hoverrowcss>
+        <hoverrowboolean class="boolean">true</hoverrowboolean>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <headertitles class="linguallist">
+          <fr>
+            <item0>id</item0>
+            <item1>Nom</item1>
+            <item2>Type</item2>
+            <item3>Port&#233;e</item3>
+            <item4>Dur&#233;e</item4>
+          </fr>
+        </headertitles>
+        <headerpercents class="list">
+          <item0>5</item0>
+          <item1>35</item1>
+          <item2>30</item2>
+          <item3>20</item3>
+          <item4>10</item4>
+        </headerpercents>
+        <headervisible class="multilistsetheaders" headerfix="true">true</headervisible>
+        <onheaderclick class="script"></onheaderclick>
+        <ondoubleclick class="script">///$debug
+var /*Table*/templateTable = meibo.getField(&quot;OBJ_listeTemplate&quot;);
+var /*Int*/  selectedRow = templateTable.getSelectedRow();
+var /*Int*/  selectedTemplateDn =  templateTable.getRowObject(selectedRow);
+meibo.switchToDisplayView(&quot;EventTemplate&quot;,selectedTemplateDn,0);</ondoubleclick>
+        <selection class="selectionMode" wantTitle="false">NoneSelection</selection>
+        <separator1 class="separator"></separator1>
+        <captioncss class="css">_000000__FFFFFF__000000_0</captioncss>
+        <caption class="lingual">
+          <fr></fr>
+        </caption>
+        <summary class="lingual">
+          <fr></fr>
+        </summary>
+        <headerabbreviations class="linguallist">
+          <fr></fr>
+        </headerabbreviations>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">44</posx>
+        <posy class="number">56</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">600</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">500</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text">OBJ_listeTemplate</name>
+        <id class="hidden">x2552090952033327</id>
+      </multilist>
+      <button>
+        <content class="lingual">
+          <fr>Ajouter un &#233;v&#232;nement</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alt class="lingual">
+          <fr></fr>
+        </alt>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <onclick class="script">meibo.switchToCreateView(&quot;EventTemplate&quot;,meibo.getCurrentDn(),0);</onclick>
+        <submit class="boolean">false</submit>
+        <separator0 class="separator"></separator0>
+        <confirmation class="boolean">false</confirmation>
+        <confirmationdialogmessage class="lingual">
+          <fr></fr>
+        </confirmationdialogmessage>
+        <confirmationdialogtitle class="lingual">
+          <fr></fr>
+        </confirmationdialogtitle>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <separator1 class="separator"></separator1>
+        <waitbutton class="boolean">true</waitbutton>
+        <waitingmode class="waitingmode">none</waitingmode>
+        <progressbartitle class="lingual">
+          <fr></fr>
+        </progressbartitle>
+        <progressbarnboperationtext class="lingual">
+          <fr></fr>
+        </progressbarnboperationtext>
+        <progressbarnboperationdonetext class="lingual">
+          <fr></fr>
+        </progressbarnboperationdonetext>
+        <prescript class="script"></prescript>
+        <separator2 class="separator"></separator2>
+        <image class="file"></image>
+        <image2 class="file"></image2>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">655</posx>
+        <posy class="number">63</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">129</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">20</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">z2621261237273536</id>
+      </button>
+    </page>
+  </destination>
+</screen>

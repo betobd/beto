@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script"> </globalScriptView>
+  <onload class="script"> </onload>
+  <onquit class="script">//$debug
+// ProcStock : add_template_event
+// 0: in eventName varchar(255)
+// 1: in url varchar(1048)
+// 2: in remark text
+// 3: in isPrivate bool
+// 4: in duration smallint(6)
+// 5: in cost float
+// 6: in scopeAbbrev varchar(25)
+// 7: in evtTypeAbbrev varchar(25))
+var /*String*/ procName = &quot;add_template_event&quot;;
+var /*Array*/  values   = new Array();
+var /*Array*/  types    = new Array();
+
+types[0] = &quot;IN&quot;; values[0] = meibo.getFieldValue(&quot;TET_NAME&quot;);
+types[1] = &quot;IN&quot;; values[1] = meibo.getFieldValue(&quot;TET_URL&quot;);
+types[2] = &quot;IN&quot;; values[2] = meibo.getFieldValue(&quot;TET_COMMENT&quot;);
+types[3] = &quot;IN&quot;; values[3] = meibo.getFieldValue(&quot;TET_ISPRIVATE&quot;);
+types[4] = &quot;IN&quot;; values[4] = meibo.getFieldValue(&quot;TET_DURATION&quot;);
+types[5] = &quot;IN&quot;; values[5] = meibo.getFieldValue(&quot;TET_AVERAGE_COST&quot;);
+types[6] = &quot;IN&quot;; values[6] = meibo.getFieldValue(&quot;Scope&quot;);
+types[7] = &quot;IN&quot;; values[7] = meibo.getFieldValue(&quot;Type&quot;);
+
+// Cas particulier des champs qui ne peuvent &#234;tre vide
+if(values[0].trim()==&quot;&quot;){ values[0] = null; }
+if(values[1].trim()==&quot;&quot;){ values[1] = null; }
+if(values[4].trim()==&quot;&quot;){ values[4] = null; }
+if(values[5].trim()==&quot;&quot;){ values[5] = null; }
+
+var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;EventTemplate&quot;,&quot;error&quot;)
+
+if( returnValue != null ) {
+  meibo.switchToDisplayView(&quot;EventTemplate&quot;, &quot;T_EVENT_TET,TET_ID,&quot;+returnValue ,0);
+}
+else {
+  meibo.showField(&quot;error&quot;, true);
+}
+
+meibo.setReturnValue(false);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>
