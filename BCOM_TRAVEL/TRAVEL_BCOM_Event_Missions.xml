@@ -777,8 +777,8 @@ switchToResourceView(&quot;Event&quot;, dn, &quot;View_m&quot;)</ondoubleclick>
         <separator class="separator"></separator>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">754</posx>
-        <posy class="number">67</posy>
+        <posx class="number">758</posx>
+        <posy class="number">135</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">150</sizex>
@@ -824,8 +824,8 @@ switchToResourceView(&quot;Event&quot;, dn, &quot;View_m&quot;)</ondoubleclick>
         <separator class="separator"></separator>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">751</posx>
-        <posy class="number">244</posy>
+        <posx class="number">747</posx>
+        <posy class="number">340</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">379</sizex>
@@ -887,8 +887,8 @@ switchToResourceView(&quot;Event&quot;, dn, &quot;View_m&quot;)</ondoubleclick>
         <separator class="separator"></separator>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
-        <posx class="number">756</posx>
-        <posy class="number">155</posy>
+        <posx class="number">752</posx>
+        <posy class="number">243</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">534</sizex>
@@ -935,7 +935,7 @@ switchToResourceView(&quot;Event&quot;, dn, &quot;View_m&quot;)</ondoubleclick>
         <hidden class="boolean">true</hidden>
         <enable class="boolean">true</enable>
         <posx class="number">754</posx>
-        <posy class="number">114</posy>
+        <posy class="number">186</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">416</sizex>
