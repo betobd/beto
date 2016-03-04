@@ -2,7 +2,7 @@
 <scripts>
   <globalScriptView class="script"> </globalScriptView>
   <onload class="script"> </onload>
-  <onquit class="script">//$debug
+  <onquit class="script">///$debug
 // ProcStock : add_template_event
 // 0: in eventName varchar(255)
 // 1: in url varchar(1048)
@@ -31,7 +31,7 @@ if(values[1].trim()==&quot;&quot;){ values[1] = null; }
 if(values[4].trim()==&quot;&quot;){ values[4] = null; }
 if(values[5].trim()==&quot;&quot;){ values[5] = null; }
 
-var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;EventTemplate&quot;,&quot;error&quot;)
+var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;cr&#233;er un EventTemplate&quot;,&quot;error&quot;)
 
 if( returnValue != null ) {
   meibo.switchToDisplayView(&quot;EventTemplate&quot;, &quot;T_EVENT_TET,TET_ID,&quot;+returnValue ,0);

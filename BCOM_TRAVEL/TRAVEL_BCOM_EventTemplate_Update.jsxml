@@ -35,7 +35,7 @@ if(values[2].trim()==&quot;&quot;){ values[2] = null; }
 if(values[5].trim()==&quot;&quot;){ values[5] = null; }
 if(values[6].trim()==&quot;&quot;){ values[6] = null; }
 
-var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;EventTemplate&quot;,&quot;error&quot;)
+var /*String*/ returnValue = executeSqlProc( procName, types , values, &quot;modifier un EventTemplate&quot;,&quot;error&quot;)
 
 if( returnValue != null ) {
   meibo.switchToDisplayView(&quot;EventTemplate&quot;, meibo.getCurrentDn() ,0);
