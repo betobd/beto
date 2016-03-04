@@ -1,6 +1,0 @@
-<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
-<scripts>
-  <globalScriptView class="script"> </globalScriptView>
-  <onload class="script">// formatage date
-meibo.setFieldValue(&quot;EventDate&quot;, DATE_FORMAT.format(SQL_DATE_FORMAT.parse(meibo.getFieldValue(&quot;EventDate&quot;))));</onload>
-</scripts>
