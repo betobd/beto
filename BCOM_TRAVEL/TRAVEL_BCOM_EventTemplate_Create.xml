@@ -1325,7 +1325,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1414,7 +1414,7 @@
               <choice>
                 <content class="text"></content>
                 <resourcefed class="simpleresourcefed">EventType/TTY_ABBREV/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1490,7 +1490,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">LabelPort&#233;e</name>
@@ -1499,7 +1499,7 @@
               <choice>
                 <content class="text"></content>
                 <resourcefed class="simpleresourcefed">EventScope/TES_ABBREV/</resourcefed>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1601,7 +1601,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1707,7 +1707,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1813,7 +1813,7 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
@@ -1919,14 +1919,14 @@
                 <deletable class="boolean">true</deletable>
                 <separator2 class="separator"></separator2>
                 <theme class="theme"></theme>
-                <css class="css"></css>
+                <css class="css"> labelContent</css>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
                 <tabindex class="number"></tabindex>
                 <noecho class="boolean">false</noecho>
                 <multiline class="boolean">true</multiline>
-                <tinymce class="tinymce">true</tinymce>
+                <tinymce class="tinymce">false</tinymce>
                 <tinymceparameter class="text">toolbar: &apos;bold italic underline strikethrough | forecolor backcolor | link unlink&apos;,</tinymceparameter>
                 <tinymcesetup class="text"></tinymcesetup>
                 <format class="text"></format>
