@@ -190,7 +190,7 @@
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
-                <parameters class="viewchooser" valueToPrint="Event/Missions">$Event/Missions</parameters>
+                <parameters class="viewchooser" valueToPrint="Event/e_Missions">$Event/e_Missions</parameters>
                 <framehyp class="frame">_self</framehyp>
                 <separatorImg class="separator"></separatorImg>
                 <image class="file">images/search.png</image>

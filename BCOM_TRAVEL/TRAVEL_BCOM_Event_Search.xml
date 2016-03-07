@@ -521,7 +521,7 @@
                 <altersizex class="hidden">220</altersizex>
                 <sizex class="number">220</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">21</sizey>
                 <altersizey class="hidden">22</altersizey>
                 <alty class="hidden">30</alty>
                 <name class="text">TET_NAME</name>
@@ -603,7 +603,7 @@
                 <altersizex class="hidden">220</altersizex>
                 <sizex class="number">220</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">21</sizey>
                 <altersizey class="hidden">22</altersizey>
                 <alty class="hidden">30</alty>
                 <name class="text">TET_COMMENT</name>

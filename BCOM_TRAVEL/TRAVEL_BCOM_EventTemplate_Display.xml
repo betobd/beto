@@ -1025,99 +1025,6 @@
           </fieldPart>
         </components>
       </label>
-      <label>
-        <content class="lingual">
-          <fr>Scope :</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alignment class="alignment">right</alignment>
-        <css class="css">labelField</css>
-        <linklabelid class="text">Scope</linklabelid>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <mail class="boolean">false</mail>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">80</posx>
-        <posy class="number">264</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">59</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">21</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">264</alty>
-        <name class="text"></name>
-        <id class="hidden">f305417591377544</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <pattern class="lingual">
-                <fr>{0}</fr>
-              </pattern>
-              <attrs class="linkattrs"></attrs>
-              <clickable class="boolean">false</clickable>
-              <resource class="resource_blank"></resource>
-              <multivalue class="boolean">false</multivalue>
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </label>
-      <label currentResource="EventTemplate" logical="true">
-        <content class="lingual">
-          <fr>Scope</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alignment class="alignment">left</alignment>
-        <css class="css"></css>
-        <linklabelid class="text"></linklabelid>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <mail class="boolean">false</mail>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">341</posx>
-        <posy class="number">264</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">45</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">20</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">264</alty>
-        <name class="text">Scope</name>
-        <id class="hidden">n305417592178905</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1">
-          <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-            <pattern class="lingual">
-              <fr>{0}</fr>
-            </pattern>
-            <attrs class="linkattrs"></attrs>
-            <clickable class="boolean">false</clickable>
-            <resource class="resource_blank"></resource>
-            <multivalue class="boolean">false</multivalue>
-            <field class="field">Scope</field>
-          </values>
-        </fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <pattern class="lingual">
-                <fr>{0}</fr>
-              </pattern>
-              <attrs class="linkattrs"></attrs>
-              <clickable class="boolean">false</clickable>
-              <resource class="resource_blank"></resource>
-              <multivalue class="boolean">false</multivalue>
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </label>
     </page>
   </source>
   <destination>
@@ -1278,7 +1185,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_NAME</name>
@@ -1450,7 +1357,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">LabelPort&#233;e</name>
@@ -1476,7 +1383,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text">Port&#233;e</name>
@@ -1576,7 +1483,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">30</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_DURATION</name>
@@ -1676,7 +1583,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">415</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_URL</name>
@@ -1776,7 +1683,7 @@
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">100</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">20</sizey>
+                <sizey class="number">15</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">TET_AVERAGE_COST</name>
