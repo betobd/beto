@@ -3,7 +3,7 @@
   <source>
   </source>
   <destination>
-    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="MissionListe (MissionList)" zh="">
+    <page ar="" de="" en="" es="" fr="" it="" pt="" technicalName="1" titleTab="MissionListe_copie (MissionList)" zh="">
       <edit>
         <placeholder class="lingual">
           <fr></fr>
@@ -56,7 +56,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">509</alty>
         <name class="text">sortAttribute</name>
-        <id class="hidden">k280249872703023</id>
+        <id class="hidden">u238069927447811</id>
       </edit>
       <edit>
         <placeholder class="lingual">
@@ -103,7 +103,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">filters</name>
-        <id class="hidden">c280250080143424</id>
+        <id class="hidden">b238069927811432</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
         <components class="components">
           <fieldPart class="node" en="" fr="">
@@ -117,7 +117,7 @@
         <placeholder class="lingual">
           <fr></fr>
         </placeholder>
-        <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV</content>
+        <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV,STATUS_DATE</content>
         <limitchar class="number"></limitchar>
         <multivalue class="multivaluehandle" multivalueorderable="true">false</multivalue>
         <resourceAutocomplete class="autocomplete" resourceAutoCompleteSearchAttr="">false</resourceAutocomplete>
@@ -166,7 +166,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">509</alty>
         <name class="text">attributeList</name>
-        <id class="hidden">b280250502296626</id>
+        <id class="hidden">t238069927943393</id>
       </edit>
       <edit>
         <placeholder class="lingual">
@@ -213,7 +213,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">filter</name>
-        <id class="hidden">e280250301161025</id>
+        <id class="hidden">n238069928051904</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
         <components class="components">
           <fieldPart class="node" en="" fr="">
@@ -239,7 +239,7 @@
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>
-        <id class="hidden">m432294377055016</id>
+        <id class="hidden">c238069928128145</id>
         <childs class="hidden">
           <horizontallayout>
             <verticalalignment class="verticalalignment">top</verticalalignment>
@@ -441,6 +441,43 @@
          
   var missionTable = meibo.getField(&quot;PersonnesACT&quot;);
   var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, filter, 0);
+  
+  
+var datesp;
+  var datespp;  
+  var d;
+  var d1;
+  var DATE_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+            
+  
+
+ 
+
+for (var row = 1; row &lt;nbMissions-1; row++) {
+  
+      datesp=missionTable.getCell(row,COL_Dates);
+      datespp=missionTable.getCell(row+1,COL_Dates);
+      
+      d=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datesp));
+      d1=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datespp));
+            
+      if(missionTable.getCell(row,COL_MissionId) == missionTable.getCell(row+1,COL_MissionId)){
+          if(d &lt; d1){
+             missionTable.deleteRow(row+1);
+             nbMissions=nbMissions-1;
+             row=row-1;
+           }
+          else{ 
+             missionTable.deleteRow(row);
+             nbMissions=nbMissions-1;
+             row=row-1;
+           }
+       }
+  }
+
+
+  
+  
 
   if( nbMissions == 0 ) {
     meibo.getField(&quot;nmissions&quot;).setValue(&quot;Aucune mission ne correspond aux crit&#232;res&quot;);
@@ -861,7 +898,7 @@
             <id class="hidden">d367311618017715</id>
             <childs class="hidden">
               <multilist>
-                <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV</content>
+                <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV,STATUS_DATE</content>
                 <tablecss class="css"></tablecss>
                 <headercss class="css"></headercss>
                 <evenrowcss class="css"></evenrowcss>
@@ -880,6 +917,7 @@
                     <item4>au</item4>
                     <item5>1er &#233;v&#232;nement</item5>
                     <item6>Status</item6>
+                    <item7>DATE</item7>
                   </fr>
                 </headertitles>
                 <headerpercents class="list">25
@@ -996,7 +1034,7 @@ for (var row = 0; row &lt; nbEvents; row++) {
                 <id class="hidden">d73561688421177</id>
               </expandablespace>
               <multilist>
-                <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV</content>
+                <content class="text">TMN_ID,PRS_ID,PRS_ID,RAS_START_DATE,RAS_END_DATE,Events,TST_ABBREV,STATUS_DATE</content>
                 <tablecss class="css"></tablecss>
                 <headercss class="css"></headercss>
                 <evenrowcss class="css"></evenrowcss>
@@ -1015,6 +1053,7 @@ for (var row = 0; row &lt; nbEvents; row++) {
                     <item4>au</item4>
                     <item5>1er &#233;v&#232;nement</item5>
                     <item6>Status</item6>
+                    <item7>DATE</item7>
                   </fr>
                 </headertitles>
                 <headerpercents class="list">25
@@ -1633,7 +1672,7 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>
-        <id class="hidden">r243047294984301</id>
+        <id class="hidden">e238069928204386</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
         <components class="components">
           <fieldPart class="node" en="" fr="">
@@ -1664,7 +1703,7 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>
-        <id class="hidden">u250055401714957</id>
+        <id class="hidden">z238069928271837</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
         <components class="components">
           <fieldPart class="node" en="" fr="">
@@ -1696,7 +1735,7 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text">jma</name>
-        <id class="hidden">x282299764670838</id>
+        <id class="hidden">x238069928345148</id>
         <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
         <components class="components">
           <fieldPart class="node" en="" fr="">
@@ -1706,6 +1745,61 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
           </fieldPart>
         </components>
       </textarea>
+      <button>
+        <content class="lingual">
+          <fr>Bouton</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alt class="lingual">
+          <fr></fr>
+        </alt>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <tabindex class="number"></tabindex>
+        <onclick class="script"></onclick>
+        <submit class="boolean">false</submit>
+        <separator0 class="separator"></separator0>
+        <confirmation class="boolean">false</confirmation>
+        <confirmationdialogmessage class="lingual">
+          <fr></fr>
+        </confirmationdialogmessage>
+        <confirmationdialogtitle class="lingual">
+          <fr></fr>
+        </confirmationdialogtitle>
+        <theme class="theme"></theme>
+        <css class="css"></css>
+        <separator1 class="separator"></separator1>
+        <waitbutton class="boolean">true</waitbutton>
+        <waitingmode class="waitingmode">none</waitingmode>
+        <progressbartitle class="lingual">
+          <fr></fr>
+        </progressbartitle>
+        <progressbarnboperationtext class="lingual">
+          <fr></fr>
+        </progressbarnboperationtext>
+        <progressbarnboperationdonetext class="lingual">
+          <fr></fr>
+        </progressbarnboperationdonetext>
+        <prescript class="script"></prescript>
+        <separator2 class="separator"></separator2>
+        <image class="file"></image>
+        <image2 class="file"></image2>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <enable class="boolean">true</enable>
+        <posx class="number">664</posx>
+        <posy class="number">783</posy>
+        <sizextype class="sizetype">FIXED</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">73</sizex>
+        <sizeytype class="sizetype">FIXED</sizeytype>
+        <sizey class="number">22</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">o238069928441919</id>
+      </button>
     </page>
   </destination>
 </screen>

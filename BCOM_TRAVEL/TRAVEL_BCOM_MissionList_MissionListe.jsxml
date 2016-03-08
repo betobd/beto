@@ -9,7 +9,8 @@ var COL_OwnerSurname = 2 // PRS_ID =&gt; est remplac&#233; par le nom du partici
 var COL_DateDebut    = 3 // RAS_START_DATE
 var COL_DateFin      = 4 // TMN_END_DATE
 var COL_FirstEvent   = 5 // EventsDN        =&gt; sera remplac&#233; par le nom du premier &#233;v&#232;nement
-var COL_Status       = 6 // Status</globalScriptView>
+var COL_Status       = 6 // Status
+var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
   <onload class="script">var date = new Date();
  var DebutAV = date.toLdapString();
   
@@ -81,8 +82,37 @@ var COL_Status       = 6 // Status</globalScriptView>
          
   var missionTable = meibo.getField(&quot;PersonnesAVN&quot;);
   var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, FLT2, 0);
-
-  if( nbMissions == 0 ) {
+    
+  var datesp;
+  var datespp;  
+  var d;
+  var d1;
+  var DATE_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+            
+  for (var row = 1; row &lt;nbMissions-1; row++) {
+  
+      datesp=missionTable.getCell(row,COL_Dates);
+      datespp=missionTable.getCell(row+1,COL_Dates);
+      
+      d=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datesp));
+      d1=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datespp));
+            
+      if(missionTable.getCell(row,COL_MissionId) == missionTable.getCell(row+1,COL_MissionId)){
+          if(d &lt; d1){
+             missionTable.deleteRow(row+1);
+             nbMissions=nbMissions-1;
+             row=row-1;
+           }
+          else{ 
+             missionTable.deleteRow(row);
+             nbMissions=nbMissions-1;
+             row=row-1;
+           }
+       }
+  }
+  
+  
+ if( nbMissions == 0 ) {
     meibo.getField(&quot;nmissions2&quot;).setValue(&quot;Aucune mission &#224; venir&quot;);
     meibo.showField(&quot;PersonnesAVN&quot;,false);
   }
@@ -100,7 +130,10 @@ var COL_Status       = 6 // Status</globalScriptView>
   var /*String*/ owner = &quot;&quot;;
   var /*String*/    missionDn = null;
   var /*resultSet*/ missionEventRS = null;
+  
+ 
   for (var row = 0; row &lt; nbMissions; row++) {
+  
     // On r&#233;cup&#232;re la description du propri&#233;taire de la mission
     // et on va mettre &#224; jour les colonnes contenant le nom/pr&#233;nom
     ownerId = missionTable.getCell(row,COL_OwnerName)
@@ -115,6 +148,7 @@ var COL_Status       = 6 // Status</globalScriptView>
     //missionTable.addRawCell(row,COL_MissionId,&quot;&lt;span title=\&quot;blabla\&quot;&gt;&quot; + missionTable.getCell(row,COL_MissionId) + &quot;&lt;/span&gt;&quot;);
     missionTable.addCell(row,COL_FirstEvent,missionEventRS.getEntry().TET_NAME[0]);
   }
+ 
   
   
  meibo.showField(&quot;Participant_box&quot;,true);
