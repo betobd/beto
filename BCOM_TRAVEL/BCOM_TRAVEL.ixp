@@ -5995,6 +5995,22 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
+        <sequence name="MissionListeSave" type="4">
+          <properties>
+            <displayname class="lingual">
+              <fr>MissionListe</fr>
+            </displayname>
+            <maskused class="boolean">true</maskused>
+            <separator class="separator"></separator>
+            <globalScriptView class="extscriptnodebug"></globalScriptView>
+            <onload class="extscript"></onload>
+            <onquit class="extscript"></onquit>
+          </properties>
+          <path>TRAVEL_BCOM_MissionList_MissionListeSave.xml</path>
+          <class></class>
+          <rights>true
+          </rights>
+        </sequence>
       </resource>
       <resource name="Purpose">
         <properties>
