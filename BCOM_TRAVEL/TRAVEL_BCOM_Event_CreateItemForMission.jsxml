@@ -1,0 +1,245 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script">/**
+ * Affectation des valeurs possibles de port&#233;es d&apos;&#233;venements en fonction du type
+ * Affecte aussi la case &#224; cocher public/priv&#233;
+ */
+function /*void*/ setScopesForType(){
+  var /*Field2*/ typeField = meibo.getField(&quot;fkTTY_ID&quot;);
+  var /*String*/ typeAbbrev= typeField.getValue();
+
+  if((typeAbbrev!=null) &amp;&amp; (typeAbbrev!=&quot;&quot;)){
+    // r&#233;cup&#233;ration des port&#233;es autoris&#233;es en fonction de type d&apos;&#233;venement
+    var /*ResultSet*/ rs = meibo.executeSqlRequest(&quot;TRAVEL_BCOM&quot;,&quot;call get_scopes_for_event_type(&apos;&quot;+ typeAbbrev + &quot;&apos;)&quot;,0); 
+
+    // affectation des valeurs &#224; la liste des port&#233;es
+    var /*String*/ scopeFieldOptions=&quot;&quot;;
+    var /*String*/ scopeFieldParameters=&quot;&quot;;
+    for each(var entry in rs){
+      if(scopeFieldOptions==&quot;&quot;){
+        scopeFieldOptions=entry.TES_NAME[0];
+        scopeFieldParameters=entry.TES_ABBREV[0];
+      }else{
+        scopeFieldOptions=scopeFieldOptions + &quot;,&quot; + entry.TES_NAME[0];
+        scopeFieldParameters=scopeFieldParameters + &quot;,&quot; + entry.TES_ABBREV[0];
+      }
+    }
+
+    var /*Field2*/ scopeField = meibo.getField(&quot;fkTES_ID&quot;);
+    scopeField.setOptions(scopeFieldOptions);
+    scopeField.setParameters(scopeFieldParameters);
+    
+
+    var /*Field2*/ privateCheckBoxField=meibo.getField(&quot;TET_ISPRIVATE&quot;);
+    // les rendez-vous client, B2B ou Meeting projet Europ&#233;een sont priv&#233;s par d&#233;faut
+    if((typeAbbrev==&quot;CUS&quot;) || (typeAbbrev==&quot;B2B&quot;) || (typeAbbrev==&quot;EUR&quot;)){
+      privateCheckBoxField.check(true);
+    }else{
+      privateCheckBoxField.check(false);
+    }
+    
+  }
+}
+
+/**
+ * Bascule valeurs et &#233;tats des champs en fonction de l&apos;utilisation ou non d&apos;un template d&apos;&#233;v&#232;nement
+ */
+function /*void*/ switchTemplateUse(){
+  var /*Field2*/ field = meibo.getField(&quot;fkTET_ID&quot;);
+  var /*String*/ fieldValue = field.getValue();
+  
+  if((fieldValue!=null) &amp;&amp; (fieldValue.trim()!=&quot;-1&quot;)){
+    // cas d&apos;un &#233;venement nouveau &#224; partir d&apos;un template
+    // charger les donn&#233;es du template
+    meibo.getField(&quot;TET_NAME_display&quot;).show(false);
+    meibo.getField(&quot;TET_ISPRIVATE_Layout&quot;).show(false);
+    //meibo.getField(&quot;TET_AVERAGE_COST&quot;).setEnabled(false);
+    meibo.getField(&quot;fkTTY_ID&quot;).setEnabled(false);
+    meibo.getField(&quot;fkTES_ID&quot;).setEnabled(false);
+    
+    var /*ResultSet*/ eventHeaderRS = meibo.executeResource(&quot;EventHeader&quot;,&quot;TET_ID=&quot; + fieldValue, 1,&quot;TET_NAME,TET_COMMENT,TET_DURATION,TET_ISPRIVATE,TET_URL,TET_AVERAGE_COST,TTY_ABBREV,TES_ABBREV,TAS_ID&quot;);
+    var /*Entry*/ eventHeaderEntry = eventHeaderRS.getEntry();
+    if(eventHeaderEntry!=null){
+    // pr&#233;remplir : dur&#233;e: commentaire, type, port&#233;e, URL, adresse, cout Moyen
+      meibo.getField(&quot;TET_NAME&quot;).setValue(eventHeaderEntry.TET_NAME[0]);
+      meibo.getField(&quot;TET_ISPRIVATE&quot;).setValue(eventHeaderEntry.TET_ISPRIVATE[0]);
+      meibo.getField(&quot;TCT_COMMENT&quot;).setValue(eventHeaderEntry.TET_COMMENT[0]);
+      meibo.getField(&quot;TCT_DURATION&quot;).setValue(eventHeaderEntry.TET_DURATION[0]);
+      meibo.getField(&quot;TCT_URL&quot;).setValue(eventHeaderEntry.TET_URL[0]);
+      meibo.getField(&quot;TET_AVERAGE_COST&quot;).setValue(eventHeaderEntry.TET_AVERAGE_COST[0]);
+      meibo.getField(&quot;fkTTY_ID&quot;).setValue(eventHeaderEntry.TTY_ABBREV[0]);
+      meibo.getField(&quot;fkTES_ID&quot;).setValue(eventHeaderEntry.TES_ABBREV[0]);
+      meibo.getField(&quot;fkTAS_ID&quot;).setValue(eventHeaderEntry.TAS_ID[0]);
+    }
+    
+  }else{
+    // cas d&apos;un &#233;venement nouveau &quot;from scratch&quot;
+    meibo.getField(&quot;TET_NAME_display&quot;).show(true);
+    if((meibo.isUserInRole(&quot;DDI&quot;)) || (meibo.isUserInRole(&quot;AdminMeibo&quot;))){
+      meibo.getField(&quot;TET_ISTEMPLATE&quot;).show(true);
+      meibo.getField(&quot;labelTET_ISTEMPLATE&quot;).show(true);
+    }else{
+      meibo.getField(&quot;TET_ISTEMPLATE&quot;).show(false);
+      meibo.getField(&quot;labelTET_ISTEMPLATE&quot;).show(false);
+    }
+    meibo.getField(&quot;TET_ISPRIVATE_Layout&quot;).show(true);
+    //meibo.getField(&quot;TET_AVERAGE_COST&quot;).setEnabled(true);
+    meibo.getField(&quot;fkTTY_ID&quot;).setEnabled(true);
+    meibo.getField(&quot;fkTES_ID&quot;).setEnabled(true);
+  }
+}</globalScriptView>
+  <onload class="script">///$debug
+
+meibo.setFieldValue(&quot;ADDRESS_MODE&quot;,&quot;existing&quot;);
+
+// Restaure les valeur pr&#233;c&#233;dentes dans le cas on l&apos;on revient sur ce formulaire
+restoreFields(&quot;Event&quot;);
+
+// affecte les les valeurs possibles de port&#233;e en fonction du type
+setScopesForType();
+
+// Bascule valeurs et &#233;tats des champs en fonction de l&apos;utilisation ou non d&apos;un template d&apos;&#233;v&#232;nement
+//switchTemplateUse();
+
+if(hasSourceView()){
+  meibo.showField(&quot;BTN_CANCEL&quot;, true);
+}</onload>
+  <onquit class="script">///$debug
+
+// v&#233;rification des donn&#233;es
+var check = true;
+meibo.showField(&quot;error&quot;, false);
+
+// TODO: VOIR L&apos;ENSEMBLE DES VERIFICATIONS QUI POURRAIENT ETRE FAITES
+
+if( check ) {
+  var addressId = null;
+  var eventId   = null;
+
+  var /*Array*/ values = new Array();
+  var /*Array*/ types  = new Array();
+
+  // Adresse
+  var addressMode= meibo.getFieldValue(&quot;ADDRESS_MODE&quot;);
+  if(addressMode==&quot;existing&quot;){
+  // utilisation d&apos;uneadresse existante
+    addressId= meibo.getFieldValue(&quot;fkTAS_ID&quot;)
+  }else{
+    // nouvelle adresse est &#224; enregistrer
+    var eventTypeAbbrev = meibo.getFieldValue(&quot;fkTTY_ID&quot;);
+    var addressNature = &quot;CUS&quot;;
+    
+    // var adressType = &quot;T_EVENT_ADDRESS_TEA&quot;; // type d&apos;adresse
+       
+    types[0]  = &quot;IN&quot;; values[0]  = &quot;T_EVENT_ADDRESS_TEA&quot;;                  // in: addrType varchar(25)
+    types[1]  = &quot;IN&quot;; values[1]  = addressNature;                          // in: addrNature varchar(25)
+    types[2]  = &quot;IN&quot;; values[2]  = meibo.getFieldValue(&quot;TAS_NAME&quot;);        // in: adrName varchar(255)
+    types[3]  = &quot;IN&quot;; values[3]  = meibo.getFieldValue(&quot;TAS_ADDR1&quot;);       // in: addr1 varchar(255)
+    types[4]  = &quot;IN&quot;; values[4]  = meibo.getFieldValue(&quot;TAS_ADDR2&quot;);       // in: addr2 varchar(255)
+    types[5]  = &quot;IN&quot;; values[5]  = meibo.getFieldValue(&quot;TAS_ADDR3&quot;);       // in: addr3 varchar(255)
+    types[6]  = &quot;IN&quot;; values[6]  = meibo.getFieldValue(&quot;TAS_ZIPCODE&quot;);     // in: zipcode varchar(255)
+    types[7]  = &quot;IN&quot;; values[7]  = meibo.getFieldValue(&quot;TAS_TOWN&quot;);        // in: town varchar(255)
+    types[8]  = &quot;IN&quot;; values[8]  = meibo.getFieldValue(&quot;TAS_STATE&quot;);       // in: state varchar(255)
+    types[9]  = &quot;IN&quot;; values[9]  = meibo.getFieldValue(&quot;TCY_ID&quot;);          // in: countryAlpha3 varchar(3)
+    types[10] = &quot;IN&quot;; values[10] = meibo.getFieldValue(&quot;TAS_PHONENUMBER&quot;); // in: phoneNumber varchar(25)
+    
+    addressId = executeSqlProc( &quot;add_address&quot;, types , values, &quot;cr&#233;er une adresse&quot;,&quot;error&quot;)
+    if( addressId == null ) { meibo.showField(&quot;error&quot;, true); }
+  }
+
+  if(addressId!=null){
+  
+    // enregistrement &quot;manuel&quot; evenement (via proc&#233;dure stock&#233;e) en lieu et place du m&#233;canisme meibo standard/automatique
+    values = new Array();
+    types = new Array();
+    
+    // Recherche de l&apos;auteur de l&apos;&#233;venement : utilisateur courant
+    // TODO: REVOIR POURQUOI LE USERENTRY POURRAIT ETRE NUL
+    var /*Entry*/ userEntry=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ENTRY);
+    var userCn = null;
+    if(userEntry!=null){  
+      userCn = userEntry.cn[0];
+    }
+    
+    // Il faut &#224; minima que le nom soit d&#233;fini
+    if( meibo.getFieldValue(&quot;TET_NAME&quot;).trim()==&quot;&quot;) {
+      meibo.setFieldValue(&quot;TET_NAME&quot;,&quot;Nom &#224; d&#233;finir&quot;);
+    }
+    
+    // TODO : VOIR POURQUOI LE RETOUR PEUT-ETRE null ET NON PAR &quot;&quot;
+    if( meibo.getFieldValue(&quot;TCT_URL&quot;)==null) {
+      meibo.setFieldValue(&quot;TCT_URL&quot;,&quot;&quot;);
+    }
+
+    types[0]  = &quot;IN&quot;; values[0]  = meibo.getFieldValue(&quot;TET_NAME&quot;);         // in: eventName varchar(255)
+    types[1]  = &quot;IN&quot;; values[1]  = meibo.getFieldValue(&quot;TCT_URL&quot;);          // in: url varchar(1048)
+    types[2]  = &quot;IN&quot;; values[2]  = meibo.getFieldValue(&quot;TCT_COMMENT&quot;);      // in: remark text
+    types[3]  = &quot;IN&quot;; values[3]  = meibo.getFieldValue(&quot;TET_ISPRIVATE&quot;);    // in: isPrivate bool
+    types[4]  = &quot;IN&quot;; values[4]  = meibo.getFieldValue(&quot;TET_ISTEMPLATE&quot;);   // in: isTemplate bool
+    types[5]  = &quot;IN&quot;; values[5]  = meibo.getFieldValue(&quot;TCT_DURATION&quot;);     // in: duration smallint(6)
+    types[6]  = &quot;IN&quot;; values[6]  = meibo.getFieldValue(&quot;TET_AVERAGE_COST&quot;); // in: cost float
+    types[7]  = &quot;IN&quot;; values[7]  = meibo.getFieldValue(&quot;fkTES_ID&quot;);         // in: scopeAbbrev varchar(25)
+    types[8]  = &quot;IN&quot;; values[8]  = meibo.getFieldValue(&quot;fkTTY_ID&quot;);         // in: evtTypeAbbrev varchar(25)
+    types[9]  = &quot;IN&quot;; values[9]  = DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;)); // in: startDate date
+    types[10] = &quot;IN&quot;; values[10] = userCn;                                  // in: prsLogin varchar(255)
+    types[11] = &quot;IN&quot;; values[11] = addressId;                               // in: addressID int(11)
+
+    // Cas particulier des champs qui ne peuvent &#234;tre vide
+    if(values[6].trim()==&quot;&quot;){ values[6] = null; }
+    
+    eventId = executeSqlProc( &quot;add_event&quot;, types , values, &quot;cr&#233;er un &#233;v&#232;nement&quot;,&quot;error&quot;)
+    if( eventId == null ) { meibo.showField(&quot;error&quot;, true); }
+  }
+    
+  if( eventId != null ){
+    // On va basculer dans le contexte de la mission
+    // Mais avant on va sauvegarder localement les informations dont on aura besoin
+    var /*string*/ eventName   = values[0];
+    var /*string*/ involvement = meibo.getFieldValue(&quot;OBJ_Involvment&quot;);
+    var /*string*/ purpose     = meibo.getFieldValue(&quot;OBJ_Purpose&quot;);
+    var /*int*/    duration    = INTEGER_CLASS.parseInt(meibo.getFieldValue(&quot;TCT_DURATION&quot;));
+    var /*Date*/   startDate   = DATE_FORMAT.parse(meibo.getFieldValue(&quot;TCT_START_DATE&quot;));
+    var /*Date*/   endDate; 
+ 
+    if(duration&gt;0){
+      // si un evt dure 1 journ&#233;e par exemple, alors la date de fin est en fait la m&#234;me que la date de d&#233;but, donc on retranche 1 &#224; la dur&#233;e
+      duration = duration -1;
+    }
+    endDate = addDays(startDate, duration);
+   
+    // On bascule sur la vue de cr&#233;ation d&apos;une mission
+    // Ce qui suivra dans le script se d&#233;roulera dans le contexte de la mission
+    meibo.switchToResourceView(&quot;Mission&quot;,meibo.getCurrentDn(),&quot;MissionCreate&quot;);
+
+    // On rajoute le meeting dans la liste des item de la mission
+    var /*Edit*/  attendeesIdField = meibo.getField(&quot;ATTENDEES_TCT_ID&quot;);
+    var /*Array*/ attendeesIdFieldContents = attendeesIdField.getContents();
+    if(attendeesIdFieldContents==null){
+      attendeesIdFieldContents = new Array();
+    }
+    attendeesIdFieldContents[attendeesIdFieldContents.length] = eventId;
+    attendeesIdField.setContents(attendeesIdFieldContents);
+
+    var /*Field*/table = meibo.getField(&quot;EVENTS_TABLE&quot;);
+    var line = table.getLength();
+    
+    // On ajoute le nouvel item &#224; la fin de la table
+    table.addRowObject(line, eventId);
+    table.addCell(line,0,eventName);
+    table.addCell(line,1,DATE_FORMAT.format(startDate));
+    table.addCell(line,2,DATE_FORMAT.format(endDate));
+    table.addCell(line,3,purpose);
+    table.addCell(line,4,involvement);
+
+    showEventFieldsForRow(0);
+    meibo.getField(&quot;REMOVE_BTN&quot;).show(true);
+  }
+}
+
+// contournement du fonctionnement nominal meibo :
+// on retourne false pour ne pas que meibo tente ensuite lui m&#234;me la cr&#233;ation automatique de l&apos;entr&#233;e
+// comme il le ferait normalement si on ne passait pas par une proc&#233;dure stock&#233;e
+meibo.setReturnValue(false);</onquit>
+  <onoperationok class="script"></onoperationok>
+  <onoperationko class="script"></onoperationko>
+</scripts>
