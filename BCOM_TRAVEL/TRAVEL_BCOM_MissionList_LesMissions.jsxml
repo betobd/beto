@@ -81,7 +81,9 @@ var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
   //Recherche et afichage table 1
          
   var missionTable = meibo.getField(&quot;PersonnesAVN&quot;);
+  var missionTable1 = meibo.getField(&quot;statusdate&quot;);
   var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, FLT2, 0);
+  var /*int*/ nbMissions1 = missionTable1.fillInWithQuery(&apos;MissionList&apos;, FLT2, 0);
     
   var datesp;
   var datespp;  
@@ -91,8 +93,8 @@ var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
             
   for (var row = 1; row &lt;nbMissions-1; row++) {
   
-      datesp=missionTable.getCell(row,COL_Dates);
-      datespp=missionTable.getCell(row+1,COL_Dates);
+      datesp=missionTable1.getCell(row,0);
+      datespp=missionTable1.getCell(row+1,0);
       
       d=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datesp));
       d1=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datespp));
@@ -100,11 +102,13 @@ var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
       if(missionTable.getCell(row,COL_MissionId) == missionTable.getCell(row+1,COL_MissionId)){
           if(d &lt; d1){
              missionTable.deleteRow(row+1);
+             missionTable1.deleteRow(row+1);
              nbMissions=nbMissions-1;
              row=row-1;
            }
           else{ 
              missionTable.deleteRow(row);
+             missionTable1.deleteRow(row);
              nbMissions=nbMissions-1;
              row=row-1;
            }

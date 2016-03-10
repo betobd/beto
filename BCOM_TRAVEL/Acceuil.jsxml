@@ -4,7 +4,6 @@
   meibo.showField(&quot;EVENT_PANEL&quot;,true);
   meibo.showField(&quot;REPORT_CREATE_BTN&quot;,true);
   meibo.showField(&quot;EVENT_CREATE_BTN&quot;,true);  
-  meibo.showField(&quot;EVENT_TEMPLATE_BTN&quot;,true);  
 }
 
 // Ajout d&apos;une &quot;non valeur&quot; dans la liste pour permettre de ne rien s&#233;lectionner

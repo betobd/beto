@@ -1726,7 +1726,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_PHONENUMBER</fr>
+                  <fr>Phonenumber:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -1841,7 +1841,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_STATE</fr>
+                  <fr>State:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -1956,7 +1956,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_TOWN</fr>
+                  <fr>Town:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -1968,8 +1968,8 @@
                 <mail class="boolean">false</mail>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <posx class="number">11</posx>
-                <posy class="number">215</posy>
+                <posx class="number">3</posx>
+                <posy class="number">204</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">161</sizex>
@@ -2071,7 +2071,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_ZIPCODE</fr>
+                  <fr>Zipcode:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -2301,7 +2301,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_ADDR1</fr>
+                  <fr>Adresse 1:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -2416,7 +2416,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_ADDR2</fr>
+                  <fr>Adresse 2:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -2531,7 +2531,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TAS_ADDR3</fr>
+                  <fr>Adresse 3:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -2646,7 +2646,7 @@
             <childs>
               <label>
                 <content class="lingual">
-                  <fr>TCT_NAME</fr>
+                  <fr>Name:</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
@@ -3045,8 +3045,8 @@
                 <mail class="boolean">false</mail>
                 <separator class="separator"></separator>
                 <hidden class="boolean">false</hidden>
-                <posx class="number">193</posx>
-                <posy class="number">455</posy>
+                <posx class="number">99</posx>
+                <posy class="number">366</posy>
                 <sizextype class="sizetype">FIXED</sizextype>
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">226</sizex>

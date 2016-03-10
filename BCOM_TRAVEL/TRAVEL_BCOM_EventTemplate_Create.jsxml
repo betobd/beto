@@ -1,8 +1,7 @@
 <?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
 <scripts>
   <globalScriptView class="script"> </globalScriptView>
-  <onload class="script">// Cr&#233;ation de la liste des &apos;Type&apos; pour ne pr&#233;senter que ceux correspondant &#224; un &#233;v&#232;nement public
-setTypeOptions(&quot;Type&quot;,&quot;0&quot; )</onload>
+  <onload class="script"> </onload>
   <onquit class="script">///$debug
 // ProcStock : add_template_event
 // 0: in eventName varchar(255)

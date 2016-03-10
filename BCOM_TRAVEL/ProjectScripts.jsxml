@@ -14,74 +14,46 @@
 //// FONCTIONS DE GESTION DE LA BASE DE DONNEES ////
 
 function executeSqlProc( procName, types , values, actionDescription, errorField){
-  var /*String*/ returnValue = null; // Default return value
+      var /*String*/ returnValue = null; // Default return value
 
-  var sqlProcResult = meibo.executeSqlProc(&quot;TRAVEL_BCOM&quot;, procName, types, values);
+      var sqlProcResult = meibo.executeSqlProc(&quot;TRAVEL_BCOM&quot;, procName, types, values);
 
-  // v&#233;rification du r&#233;sultat
-  if(sqlProcResult==null){
-    meibo.logError(&quot;Null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
-    meibo.setFieldValue(errorField,&quot;Impossible de &quot;+actionDescription+&quot; (err:1)&quot;);
-  }else{
-    try{
-      var rs= sqlProcResult.getResultSet();
-      if(rs==null){
-        meibo.logError(&quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
-        meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:2)&quot;);
-      }else if(rs.getEntryCount()==0){
-        meibo.logError(&quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
-        meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:3)&quot;);
+      // v&#233;rification du r&#233;sultat
+      if(sqlProcResult==null){
+        meibo.logError(&quot;Null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+        meibo.setFieldValue(errorField,&quot;Impossible de &quot;+actionDescription+&quot; (err:1)&quot;);
       }else{
-        var resultEntry = rs.getEntry();
-        var resultValue = resultEntry.getAttribute(0)[0];
-        if(resultValue == &quot;0&quot;){
-          meibo.logError(&quot;Valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values); // pas plus d&apos;explications disponibles ....
-          meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:4)&quot;);
-        } else{
-          // ICI : le cas o&#249; c&apos;est cens&#233; fonctionner
-          returnValue = resultValue;
-          meibo.logDebug(&quot;L&apos;action &apos;&quot;+actionDescription+&quot;&apos; a &#233;t&#233; r&#233;alis&#233;e : Id=&quot; + resultValue + &quot; avec les valeurs &quot; + values);
-        }
+          try{
+              var rs= sqlProcResult.getResultSet();
+              if(rs==null){
+                meibo.logError(&quot;ResultSet null en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+                meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:2)&quot;);
+              }else if(rs.getEntryCount()==0){
+                  meibo.logError(&quot;ResultSet vide en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values);
+                  meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:3)&quot;);
+                }else{
+                      var resultEntry = rs.getEntry();
+                      var resultValue = resultEntry.getAttribute(0)[0];
+                      if(resultValue == &quot;0&quot;){
+                        meibo.logError(&quot;Valeur z&#233;ro dans le resultset en retour de &quot;+ procName + &quot; pour les valeurs :&quot; + values); // pas plus d&apos;explications disponibles ....
+                        meibo.setFieldValue(errorField,&quot;Impossible de &apos;&quot;+actionDescription+&quot;&apos; (err:4)&quot;);
+                      } else{
+                          // ICI : le cas o&#249; c&apos;est cens&#233; fonctionner
+                          returnValue = resultValue;
+                          meibo.logDebug(&quot;L&apos;action &apos;&quot;+actionDescription+&quot;&apos; a &#233;t&#233; r&#233;alis&#233;e : Id=&quot; + resultValue + &quot; avec les valeurs &quot; + values);
+                        }
+                  }
+           }
+           catch(exception){
+              // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
+              // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
+              meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
+              meibo.setFieldValue(errorField,&quot;Cmpossible de &apos;&quot;+elementName+&quot;&apos; (err:4)&quot;);
+           }
+        sqlProcResult.close();
       }
-    }catch(exception){
-      // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
-      // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
-      meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
-      meibo.setFieldValue(errorField,&quot;Cmpossible de &apos;&quot;+actionDescription+&quot;&apos; (err:4)&quot;);
-    }
-    sqlProcResult.close();
-  }
-  return returnValue;
+      return returnValue;
 } 
-
-
-
-//// FONCTIONS DE MODIFICATIONS D&apos;OPTIONS DE CHAMPS ////
-
-// Cr&#233;ation de la liste de type d&apos;&#233;v&#232;nement pour ne pr&#233;senter que ceux correspondant
-//   soit a un meeting priv&#233;    : isPrivateMeeting = &apos;1&apos;
-//   soit &#224; un &#233;v&#232;nement public : isPrivateMeeting = &apos;0&apos;
-
-function setTypeOptions( fieldName, isPrivateMeeting ){
-  var /*ResultSet*/ rs = meibo.executeResource(&quot;EventType&quot;,&quot;TTY_ISPRIVATEMEETING = &apos;&quot;+isPrivateMeeting+&quot;&apos;&quot;,0);
-  var /*Field2*/ typeField = meibo.getField( fieldName );
-  var /*String*/ typeFieldOptions=&quot;&quot;;
-  var /*String*/ typeFieldParameters=&quot;&quot;;
-
-  for each(var entry in rs){
-    if( typeFieldOptions!=&quot;&quot; ) {
-      typeFieldOptions    = typeFieldOptions    + &quot;,&quot;;
-      typeFieldParameters = typeFieldParameters + &quot;,&quot;;
-    }
-    typeFieldOptions    = typeFieldOptions    + entry.TTY_NAME[0];
-    typeFieldParameters = typeFieldParameters + entry.TTY_ABBREV[0];
-  }
-
-  typeField.setOptions   (typeFieldOptions);
-  typeField.setParameters(typeFieldParameters);
-}
-
-
 
 
 /////////////////////////////////

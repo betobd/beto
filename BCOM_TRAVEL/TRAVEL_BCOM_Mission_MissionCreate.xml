@@ -1417,7 +1417,7 @@ updateEventsTableContent();</param>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">434</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">34</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -1449,7 +1449,7 @@ updateEventsTableContent();</param>
                         <posy class="number">197</posy>
                         <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                         <altersizex class="hidden">30</altersizex>
-                        <sizex class="number">434</sizex>
+                        <sizex class="number">442</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                         <sizey class="number">21</sizey>
                         <altersizey class="hidden">30</altersizey>
@@ -1496,7 +1496,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">21</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">216</alty>
                             <name class="text">labelPURPOSE</name>
@@ -1658,7 +1658,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">20</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">labelSTART_DATE</name>
@@ -1705,7 +1705,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">80</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">START_DATE</name>
@@ -1760,7 +1760,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">180</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">20</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">labelEND_DATE</name>
@@ -1807,7 +1807,7 @@ updateEventsTableContent();</param>
                             <altersizex class="hidden">30</altersizex>
                             <sizex class="number">80</sizex>
                             <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                            <sizey class="number">18</sizey>
+                            <sizey class="number">15</sizey>
                             <altersizey class="hidden">30</altersizey>
                             <alty class="hidden">0</alty>
                             <name class="text">END_DATE</name>
@@ -1840,7 +1840,7 @@ updateEventsTableContent();</param>
                         <altersizex class="hidden">30</altersizex>
                         <sizex class="number">434</sizex>
                         <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                        <sizey class="number">5</sizey>
+                        <sizey class="number">34</sizey>
                         <altersizey class="hidden">30</altersizey>
                         <alty class="hidden">0</alty>
                         <name class="text"></name>
@@ -2068,7 +2068,7 @@ if(selectedRowIndex&gt;=0){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">115</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">15</sizey>
+                <sizey class="number">20</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">216</alty>
                 <name class="text">labelTMN_ESTIMATED_COST</name>
@@ -2179,7 +2179,7 @@ if(selectedRowIndex&gt;=0){
                 <altersizex class="hidden">30</altersizex>
                 <sizex class="number">663</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">22</sizey>
+                <sizey class="number">34</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
                 <name class="text"></name>
@@ -2344,162 +2344,6 @@ if(selectedRowIndex&gt;=0){
           </fieldPart>
         </components>
       </edit>
-      <button>
-        <content class="lingual">
-          <fr>Participer &#224; un meeting</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr>Affiche le formulaire pour r&#233;f&#233;rencer un nouvel &#233;venement ou rendez-vous (ou une nouvelle instance d&apos;un &#233;venement r&#233;curent)</fr>
-        </tooltip>
-        <tabindex class="number"></tabindex>
-        <onclick class="script">///$debug
-// sauvegarder au pr&#233;alable les valeurs des champs
-pushEventFieldsDataInTable();
-
-backupView(&quot;Mission&quot;);
-
-// branchement sur creation evenement
-meibo.switchToResourceView(&quot;Event&quot;,null,&quot;CreateItemForMission&quot;);
-
-// On est maintenant dans le contexte de la nouvelle vue de la ressource Event
-
-// On cr&#233;&#233; la liste des type d&apos;&#233;v&#232;nement possible
-setTypeOptions(&quot;fkTTY_ID&quot;,&quot;1&quot;);
-
-// On configure l&apos;&#233;cran pour correspondre &#224; un &#233;v&#232;nement public
-meibo.showField(&quot;TET_ID_display&quot;,false);
-meibo.showField(&quot;TCT_URL_display&quot;,false);
-meibo.showField(&quot;TET_ISPRIVATE_Layout&quot;,false);
-
-// On pr&#233;s&#233;lectionne des valeurs pour correspondre &#224; un &#233;v&#232;nement public
-meibo.getField(&quot;TET_ISPRIVATE&quot;).check(true);</onclick>
-        <submit class="boolean">false</submit>
-        <separator0 class="separator"></separator0>
-        <confirmation class="boolean">false</confirmation>
-        <confirmationdialogmessage class="lingual">
-          <fr></fr>
-        </confirmationdialogmessage>
-        <confirmationdialogtitle class="lingual">
-          <fr></fr>
-        </confirmationdialogtitle>
-        <theme class="theme"></theme>
-        <css class="css"></css>
-        <separator1 class="separator"></separator1>
-        <waitbutton class="boolean">true</waitbutton>
-        <waitingmode class="waitingmode">none</waitingmode>
-        <progressbartitle class="lingual">
-          <fr></fr>
-        </progressbartitle>
-        <progressbarnboperationtext class="lingual">
-          <fr></fr>
-        </progressbarnboperationtext>
-        <progressbarnboperationdonetext class="lingual">
-          <fr></fr>
-        </progressbarnboperationdonetext>
-        <prescript class="script"></prescript>
-        <separator2 class="separator"></separator2>
-        <image class="file"></image>
-        <image2 class="file"></image2>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <enable class="boolean">true</enable>
-        <posx class="number">693</posx>
-        <posy class="number">133</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">137</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">20</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">x1348048059624390</id>
-      </button>
-      <button>
-        <content class="lingual">
-          <fr>Participer &#224; un &#233;v&#232;nement</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr>Affiche le formulaire pour r&#233;f&#233;rencer un nouvel &#233;venement ou rendez-vous (ou une nouvelle instance d&apos;un &#233;venement r&#233;curent)</fr>
-        </tooltip>
-        <tabindex class="number"></tabindex>
-        <onclick class="script">///$debug
-// sauvegarder au pr&#233;alable les valeurs des champs
-pushEventFieldsDataInTable();
-
-backupView(&quot;Mission&quot;);
-
-// branchement sur creation evenement
-meibo.switchToResourceView(&quot;Event&quot;,null,&quot;CreateItemForMission&quot;);
-
-// On est maintenant dans le contexte de la nouvelle vue de la ressource Event
-
-// On cr&#233;&#233; la liste des type d&apos;&#233;v&#232;nement possible
-setTypeOptions(&quot;fkTTY_ID&quot;,&quot;0&quot;);
-
-// On configure l&apos;&#233;cran pour correspondre &#224; un &#233;v&#232;nement public
-meibo.showField(&quot;TET_ID_display&quot;,true);
-meibo.showField(&quot;TCT_URL_display&quot;,true);
-meibo.showField(&quot;TET_ISPRIVATE_Layout&quot;,true);
-
-// On pr&#233;s&#233;lectionne des valeurs pour correspondre &#224; un &#233;v&#232;nement public
-meibo.getField(&quot;TET_ISPRIVATE&quot;).check(false);
-
-// Ajout d&apos;une &quot;non valeur&quot; dans la liste des templates d&apos;&#233;venement pour permettre de ne rien s&#233;lectionner
-//var /*Field2*/ headerIdField= meibo.getField(&quot;fkTET_ID&quot;);
-//headerIdField.setOptions(&quot;-,&quot; + headerIdField.getOptions());
-//headerIdField.setParameters(&quot;-1,&quot; + meibo.getFieldParameters(&quot;fkTET_ID&quot;));
-//headerIdField.setValue(&quot;-1&quot;);</onclick>
-        <submit class="boolean">false</submit>
-        <separator0 class="separator"></separator0>
-        <confirmation class="boolean">false</confirmation>
-        <confirmationdialogmessage class="lingual">
-          <fr></fr>
-        </confirmationdialogmessage>
-        <confirmationdialogtitle class="lingual">
-          <fr></fr>
-        </confirmationdialogtitle>
-        <theme class="theme"></theme>
-        <css class="css"></css>
-        <separator1 class="separator"></separator1>
-        <waitbutton class="boolean">true</waitbutton>
-        <waitingmode class="waitingmode">none</waitingmode>
-        <progressbartitle class="lingual">
-          <fr></fr>
-        </progressbartitle>
-        <progressbarnboperationtext class="lingual">
-          <fr></fr>
-        </progressbarnboperationtext>
-        <progressbarnboperationdonetext class="lingual">
-          <fr></fr>
-        </progressbarnboperationdonetext>
-        <prescript class="script"></prescript>
-        <separator2 class="separator"></separator2>
-        <image class="file"></image>
-        <image2 class="file"></image2>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <enable class="boolean">true</enable>
-        <posx class="number">692</posx>
-        <posy class="number">105</posy>
-        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">153</sizex>
-        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-        <sizey class="number">20</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">z1348049039217291</id>
-      </button>
     </page>
     <page fr="2" technicalName="2" titleTab="MissionCreate (Mission)">
       <label>

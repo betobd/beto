@@ -1154,8 +1154,8 @@
             <mail class="boolean">false</mail>
             <separator class="separator"></separator>
             <hidden class="boolean">false</hidden>
-            <posx class="number">52</posx>
-            <posy class="number">142</posy>
+            <posx class="number">-8</posx>
+            <posy class="number">20</posy>
             <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
             <altersizex class="hidden">30</altersizex>
             <sizex class="number">291</sizex>

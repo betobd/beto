@@ -11,77 +11,26 @@ var COL_DateFin      = 4 // TMN_END_DATE
 var COL_FirstEvent   = 5 // EventsDN        =&gt; sera remplac&#233; par le nom du premier &#233;v&#232;nement
 var COL_Status       = 6 // Status
 var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
-  <onload class="script">var date = new Date();
+  <onload class="script">var /*String*/ userId=meibo.getGlobalVar(GLOBALVAR_CURRENT_USER_ID);
+ var date = new Date();
  var DebutAV = date.toLdapString();
   
   //Format date aaaa-mm-jj
   
-    var /*String*/ format = DebutAV.substring(0,4)+ &quot;-&quot; +DebutAV.substring(4,6)+ &quot;-&quot; +DebutAV.substring(6,8);
-      
-  var /*int*/ jj= parseInt(DebutAV.substring(6,8));
-  var /*int*/ mm= parseInt(DebutAV.substring(4,6));
-  var /*int*/ aa= parseInt(DebutAV.substring(0,4));
-   
-  var /*int*/ prochainjj;
-  var /*int*/ prochainmm=mm;
-  var /*int*/ prochainaa=aa;
-
-  
   // Filters
   
   var /*String*/ filter = &quot;&quot;;
-  var /*String*/ filter1 = &quot;&quot;;  
-  var /*String*/ FLT2 = &quot;&quot;;
-    
-  var /*int*/ cont;  
-  var filters= new Array(15);
-  var jjmmaa= new Array(15);
-  
-  for(cont=0;cont&lt;=15;cont++)
-  {
-    
-        prochainjj= jj+cont;
-       
-        
-        if(prochainjj &gt;31){
-           jj=-cont;
-           prochainjj= jj+cont+1;
-           prochainmm=mm+1;
-           
-           if(prochainmm&gt;12){
-             mm=-cont;
-             prochainmm=mm+cont+1;
-             prochainaa=aa+1;
-           }
-        }
-        
-        jjmmaa[cont]=prochainmm;        
-        meibo.getField(&quot;jma&quot;).setValue(&quot;dia:&quot; + jjmmaa[0] + &quot; - &quot; + jjmmaa[1] + &quot; - &quot; +   jjmmaa[2]+ &quot; - &quot; +   jjmmaa[3] + &quot; - &quot; +   jjmmaa[4] + &quot; - &quot; +   jjmmaa[5] + &quot; - &quot; +   jjmmaa[6]);
- 
-       if( (prochainjj &gt; 0) &amp;&amp; (prochainjj &lt; 10)  ){
-         //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; + DebutAV.substring(4,6) + &quot;-0&quot; +prochainjj;
-         filter1 = prochainaa+ &quot;-&quot; + prochainmm + &quot;-0&quot; +prochainjj;
-       }
       
-        else{
-           //filter1 = DebutAV.substring(0,4)+ &quot;-&quot; +  DebutAV.substring(4,6) + &quot;-&quot; +prochainjj;
-              filter1 = prochainaa + &quot;-&quot; +  prochainmm + &quot;-&quot; +prochainjj;
-        }
-        
-        filter=  filter + &quot; RAS_START_DATE = &quot; + &quot;&apos;&quot; + filter1 + &quot;&apos; OR&quot;;
-        FLT2= filter.substring(0,filter.length - 3);        
-   
-  }
-  
-    //var /*String*/ filter = &quot;&quot;; 
-    //filter = filter + &quot;RAS_START_DATE &gt;= &apos;&quot; + format + &quot;&apos;&quot;;
+  filter = filter + &quot;PRS_ID = &apos;&quot; + userId + &quot;&apos;&quot;;
     
-    meibo.getField(&quot;filter&quot;).setValue(FLT2);
+    meibo.getField(&quot;filter&quot;).setValue(filter);
          
   //Recherche et afichage table 1
          
   var missionTable = meibo.getField(&quot;PersonnesAVN&quot;);
-  var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, FLT2, 0);
+  var missionTable1 = meibo.getField(&quot;statusdate&quot;);
+  var /*int*/ nbMissions = missionTable.fillInWithQuery(&apos;MissionList&apos;, filter, 0);
+  var /*int*/ nbMissions1 = missionTable1.fillInWithQuery(&apos;MissionList&apos;, filter, 0);
     
   var datesp;
   var datespp;  
@@ -89,10 +38,10 @@ var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
   var d1;
   var DATE_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
             
-  for (var row = 1; row &lt;nbMissions-1; row++) {
+  for (var row = 0; row &lt;nbMissions-1; row++) {
   
-      datesp=missionTable.getCell(row,COL_Dates);
-      datespp=missionTable.getCell(row+1,COL_Dates);
+      datesp=missionTable1.getCell(row,0);
+      datespp=missionTable1.getCell(row+1,0);
       
       d=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datesp));
       d1=SQL_DATE_FORMAT.format(DATE_FORMAT.parse(datespp));
@@ -100,11 +49,13 @@ var COL_Dates        = 7 // STATUS_DATE</globalScriptView>
       if(missionTable.getCell(row,COL_MissionId) == missionTable.getCell(row+1,COL_MissionId)){
           if(d &lt; d1){
              missionTable.deleteRow(row+1);
+             missionTable1.deleteRow(row+1);
              nbMissions=nbMissions-1;
              row=row-1;
            }
           else{ 
              missionTable.deleteRow(row);
+             missionTable1.deleteRow(row);
              nbMissions=nbMissions-1;
              row=row-1;
            }

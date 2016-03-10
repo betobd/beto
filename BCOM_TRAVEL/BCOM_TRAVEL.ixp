@@ -5275,31 +5275,6 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <InitiateurDeplacement>true</InitiateurDeplacement>
           </rights>
         </sequence>
-        <sequence name="CreateItemForMission" type="2">
-          <properties>
-            <displayname class="lingual">
-              <fr>Create</fr>
-            </displayname>
-            <maskused class="boolean">true</maskused>
-            <separator class="separator"></separator>
-            <globalScriptView class="extscriptnodebug"></globalScriptView>
-            <onload class="extscript"></onload>
-            <onquit class="extscript"></onquit>
-            <onoperationok class="extscript"></onoperationok>
-            <onoperationko class="extscript"></onoperationko>
-          </properties>
-          <path>TRAVEL_BCOM_Event_CreateItemForMission.xml</path>
-          <class></class>
-          <rights>
-            <AdminMeibo>true</AdminMeibo>
-            <AnalyseurDeplacement>true</AnalyseurDeplacement>
-            <DDI>true</DDI>
-            <InitiateurDeplacement>true</InitiateurDeplacement>
-            <OrganisateurVoyage>true</OrganisateurVoyage>
-            <Studio>true</Studio>
-            <Utilisateur>true</Utilisateur>
-          </rights>
-        </sequence>
         <sequence name="View" type="0">
           <properties>
             <displayname class="lingual">
@@ -6018,7 +5993,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
-        <sequence name="MissionListeSave" type="4">
+        <sequence name="LesMissions" type="4">
           <properties>
             <displayname class="lingual">
               <fr>MissionListe</fr>
@@ -6029,9 +6004,16 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <onload class="extscript"></onload>
             <onquit class="extscript"></onquit>
           </properties>
-          <path>TRAVEL_BCOM_MissionList_MissionListeSave.xml</path>
+          <path>TRAVEL_BCOM_MissionList_LesMissions.xml</path>
           <class></class>
-          <rights>true
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
           </rights>
         </sequence>
       </resource>
