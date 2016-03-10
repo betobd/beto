@@ -47,12 +47,39 @@ function executeSqlProc( procName, types , values, actionDescription, errorField
       // cas qui ne devrait pas arriver mais qui arrive car getResultSet() leve une exception &quot;null&quot; au lieu de renvoyer un resultset vide ou null
       // en pratique les donn&#233;es peuvent tr&#232;s bien avoir &#233;t&#233; enregistr&#233;es
       meibo.logError(&quot;Erreur sur la r&#233;cup&#233;ration du ResultSet en retour de l&apos;appel &#224; &quot;+ procName + &quot; pour les valeurs : &quot; + values, exception);
-      meibo.setFieldValue(errorField,&quot;Cmpossible de &apos;&quot;+elementName+&quot;&apos; (err:4)&quot;);
+      meibo.setFieldValue(errorField,&quot;Cmpossible de &apos;&quot;+actionDescription+&quot;&apos; (err:4)&quot;);
     }
     sqlProcResult.close();
   }
   return returnValue;
 } 
+
+
+
+//// FONCTIONS DE MODIFICATIONS D&apos;OPTIONS DE CHAMPS ////
+
+// Cr&#233;ation de la liste de type d&apos;&#233;v&#232;nement pour ne pr&#233;senter que ceux correspondant
+//   soit a un meeting priv&#233;    : isPrivateMeeting = &apos;1&apos;
+//   soit &#224; un &#233;v&#232;nement public : isPrivateMeeting = &apos;0&apos;
+
+function setTypeOptions( fieldName, isPrivateMeeting ){
+  var /*ResultSet*/ rs = meibo.executeResource(&quot;EventType&quot;,&quot;TTY_ISPRIVATEMEETING = &apos;&quot;+isPrivateMeeting+&quot;&apos;&quot;,0);
+  var /*Field2*/ typeField = meibo.getField( fieldName );
+  var /*String*/ typeFieldOptions=&quot;&quot;;
+  var /*String*/ typeFieldParameters=&quot;&quot;;
+
+  for each(var entry in rs){
+    if( typeFieldOptions!=&quot;&quot; ) {
+      typeFieldOptions    = typeFieldOptions    + &quot;,&quot;;
+      typeFieldParameters = typeFieldParameters + &quot;,&quot;;
+    }
+    typeFieldOptions    = typeFieldOptions    + entry.TTY_NAME[0];
+    typeFieldParameters = typeFieldParameters + entry.TTY_ABBREV[0];
+  }
+
+  typeField.setOptions   (typeFieldOptions);
+  typeField.setParameters(typeFieldParameters);
+}
 
 
 

@@ -37,54 +37,9 @@
             <sizey class="number">89</sizey>
             <altersizey class="hidden">30</altersizey>
             <alty class="hidden">0</alty>
-            <name class="text"></name>
+            <name class="text">OBJ_menuUser</name>
             <id class="hidden">n27808286476718915</id>
             <childs class="hidden">
-              <link>
-                <content auto="false" class="autocontent">
-                  <fr>Cr&#233;er un &#233;venement</fr>
-                </content>
-                <wordwrap class="boolean">false</wordwrap>
-                <alignment class="alignment">left</alignment>
-                <css class="css"></css>
-                <jquery class="JQuery" theme="">false</jquery>
-                <alt class="lingual">
-                  <fr>Cr&#233;er un &#233;venement</fr>
-                </alt>
-                <tabindex class="number"></tabindex>
-                <tooltip class="lingual">
-                  <fr></fr>
-                </tooltip>
-                <parameters class="viewchooser" valueToPrint="Event/Cr&#233;ation/0">$Event/2/0</parameters>
-                <framehyp class="frame">_self</framehyp>
-                <separatorImg class="separator"></separatorImg>
-                <image class="file">images/toolbar_calendar_48.png</image>
-                <imageorcontent class="boolean">true</imageorcontent>
-                <imagealignment class="alignment">left</imagealignment>
-                <textposition class="position">toright</textposition>
-                <separator class="separator"></separator>
-                <hidden class="boolean">true</hidden>
-                <posx class="number">563</posx>
-                <posy class="number">131</posy>
-                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
-                <altersizex class="hidden">30</altersizex>
-                <sizex class="number">165</sizex>
-                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                <sizey class="number">48</sizey>
-                <altersizey class="hidden">30</altersizey>
-                <alty class="hidden">0</alty>
-                <name class="text">EVENT_CREATE_BTN</name>
-                <id class="hidden">j27808286478478416</id>
-                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-                <components class="components">
-                  <fieldPart class="node" en="" fr="">
-                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-                      <multivalue class="boolean">false</multivalue>
-                      <field class="field"></field>
-                    </values>
-                  </fieldPart>
-                </components>
-              </link>
               <link>
                 <content auto="false" class="autocontent">
                   <fr>Cr&#233;er une mission</fr>
@@ -132,23 +87,89 @@
               </link>
               <link>
                 <content auto="false" class="autocontent">
-                  <fr>Cr&#233;er un compte-rendu d&apos;&#233;v&#232;nement</fr>
+                  <fr>Mes missions</fr>
                 </content>
                 <wordwrap class="boolean">false</wordwrap>
                 <alignment class="alignment">left</alignment>
                 <css class="css"></css>
                 <jquery class="JQuery" theme="">false</jquery>
                 <alt class="lingual">
-                  <fr>Cr&#233;er un compte-rendu d&apos;&#233;v&#232;nement</fr>
+                  <fr></fr>
                 </alt>
                 <tabindex class="number"></tabindex>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
-                <parameters class="viewchooser" valueToPrint="Report/Create">$Report/Create</parameters>
+                <parameters class="viewchooser" valueToPrint="MissionList/MissionListe">$MissionList/MissionListe</parameters>
                 <framehyp class="frame">_self</framehyp>
                 <separatorImg class="separator"></separatorImg>
-                <image class="file">images/toolbar_edit_48.png</image>
+                <image class="file">images/folder_48.png</image>
+                <imageorcontent class="boolean">true</imageorcontent>
+                <imagealignment class="alignment">left</imagealignment>
+                <textposition class="position">toright</textposition>
+                <separator class="separator"></separator>
+                <hidden class="boolean">false</hidden>
+                <posx class="number">553</posx>
+                <posy class="number">44</posy>
+                <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+                <altersizex class="hidden">30</altersizex>
+                <sizex class="number">131</sizex>
+                <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+                <sizey class="number">48</sizey>
+                <altersizey class="hidden">30</altersizey>
+                <alty class="hidden">0</alty>
+                <name class="text">OBJ_mesMissions</name>
+                <id class="hidden">n62080196901151</id>
+                <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+                <components class="components">
+                  <fieldPart class="node" en="" fr="">
+                    <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+                      <multivalue class="boolean">false</multivalue>
+                      <field class="field"></field>
+                    </values>
+                  </fieldPart>
+                </components>
+              </link>
+            </childs>
+          </horizontallayout>
+          <horizontallayout>
+            <verticalalignment class="verticalalignment">top</verticalalignment>
+            <css class="css"></css>
+            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
+            <theme class="theme"></theme>
+            <separator class="separator"></separator>
+            <hidden class="boolean">false</hidden>
+            <posx class="number">716</posx>
+            <posy class="number">72</posy>
+            <sizextype class="sizetype">FIXED</sizextype>
+            <altersizex class="hidden">30</altersizex>
+            <sizex class="number">581</sizex>
+            <sizeytype class="sizetype">FIXED</sizeytype>
+            <sizey class="number">68</sizey>
+            <altersizey class="hidden">30</altersizey>
+            <alty class="hidden">0</alty>
+            <name class="text">OBJ_menuAdmin</name>
+            <id class="hidden">u2577787475283232</id>
+            <childs class="hidden">
+              <link>
+                <content auto="false" class="autocontent">
+                  <fr>Cr&#233;er un &#233;venement</fr>
+                </content>
+                <wordwrap class="boolean">false</wordwrap>
+                <alignment class="alignment">left</alignment>
+                <css class="css"></css>
+                <jquery class="JQuery" theme="">false</jquery>
+                <alt class="lingual">
+                  <fr>Cr&#233;er un &#233;venement</fr>
+                </alt>
+                <tabindex class="number"></tabindex>
+                <tooltip class="lingual">
+                  <fr></fr>
+                </tooltip>
+                <parameters class="viewchooser" valueToPrint="Event/Cr&#233;ation/0">$Event/2/0</parameters>
+                <framehyp class="frame">_self</framehyp>
+                <separatorImg class="separator"></separatorImg>
+                <image class="file">images/toolbar_calendar_48.png</image>
                 <imageorcontent class="boolean">true</imageorcontent>
                 <imagealignment class="alignment">left</imagealignment>
                 <textposition class="position">toright</textposition>
@@ -158,13 +179,13 @@
                 <posy class="number">18</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">254</sizex>
+                <sizex class="number">165</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">48</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
-                <name class="text">REPORT_CREATE_BTN</name>
-                <id class="hidden">v27808286480853718</id>
+                <name class="text">EVENT_CREATE_BTN</name>
+                <id class="hidden">j27808286478478416</id>
                 <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                 <components class="components">
                   <fieldPart class="node" en="" fr="">
@@ -229,16 +250,16 @@
                 <css class="css"></css>
                 <jquery class="JQuery" theme="">false</jquery>
                 <alt class="lingual">
-                  <fr></fr>
+                  <fr>Cr&#233;er un compte-rendu d&apos;&#233;v&#232;nement</fr>
                 </alt>
                 <tabindex class="number"></tabindex>
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
-                <parameters class="viewchooser" valueToPrint="MissionList/MissionListe">$MissionList/MissionListe</parameters>
+                <parameters class="viewchooser" valueToPrint="Report/Create">$Report/Create</parameters>
                 <framehyp class="frame">_self</framehyp>
                 <separatorImg class="separator"></separatorImg>
-                <image class="file">images/folder_48.png</image>
+                <image class="file">images/toolbar_edit_48.png</image>
                 <imageorcontent class="boolean">true</imageorcontent>
                 <imagealignment class="alignment">left</imagealignment>
                 <textposition class="position">toright</textposition>
@@ -248,13 +269,13 @@
                 <posy class="number">26</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
                 <altersizex class="hidden">30</altersizex>
-                <sizex class="number">131</sizex>
+                <sizex class="number">254</sizex>
                 <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
                 <sizey class="number">48</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
-                <name class="text">OBJ_mesMissions</name>
-                <id class="hidden">n62080196901151</id>
+                <name class="text">REPORT_CREATE_BTN</name>
+                <id class="hidden">v27808286480853718</id>
                 <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                 <components class="components">
                   <fieldPart class="node" en="" fr="">
@@ -265,27 +286,6 @@
                   </fieldPart>
                 </components>
               </link>
-            </childs>
-          </horizontallayout>
-          <horizontallayout>
-            <verticalalignment class="verticalalignment">top</verticalalignment>
-            <css class="css"></css>
-            <horizontallayout_spaceBetweenComponent class="text">5</horizontallayout_spaceBetweenComponent>
-            <theme class="theme"></theme>
-            <separator class="separator"></separator>
-            <hidden class="boolean">false</hidden>
-            <posx class="number">716</posx>
-            <posy class="number">72</posy>
-            <sizextype class="sizetype">FIXED</sizextype>
-            <altersizex class="hidden">30</altersizex>
-            <sizex class="number">162</sizex>
-            <sizeytype class="sizetype">FIXED</sizeytype>
-            <sizey class="number">68</sizey>
-            <altersizey class="hidden">30</altersizey>
-            <alty class="hidden">0</alty>
-            <name class="text">OBJ_menuDDI</name>
-            <id class="hidden">u2577787475283232</id>
-            <childs class="hidden">
               <link>
                 <content auto="false" class="autocontent">
                   <fr>G&#233;rer les templates</fr>
@@ -309,7 +309,7 @@
                 <imagealignment class="alignment">left</imagealignment>
                 <textposition class="position">toright</textposition>
                 <separator class="separator"></separator>
-                <hidden class="boolean">false</hidden>
+                <hidden class="boolean">true</hidden>
                 <posx class="number">6</posx>
                 <posy class="number">122</posy>
                 <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
@@ -319,7 +319,7 @@
                 <sizey class="number">48</sizey>
                 <altersizey class="hidden">30</altersizey>
                 <alty class="hidden">0</alty>
-                <name class="text"></name>
+                <name class="text">EVENT_TEMPLATE_BTN</name>
                 <id class="hidden">p2582581394434433</id>
                 <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
                 <components class="components">

@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding="iso-8859-1" standalone="no"?>
+<scripts>
+  <globalScriptView class="script">// DEFINITION DE CONSTANTES POUR LA VUE
+
+// Identification des colonnes de la table des missions
+var COL_MissionId    = 0 // TMN_ID
+var COL_OwnerName    = 1 // PRS_ID =&gt; est remplac&#233; par le pr&#233;nom du participant
+var COL_OwnerSurname = 2 // PRS_ID =&gt; est remplac&#233; par le nom du participant
+var COL_DateDebut    = 3 // RAS_START_DATE
+var COL_DateFin      = 4 // TMN_END_DATE
+var COL_FirstEvent   = 5 // EventsDN        =&gt; sera remplac&#233; par le nom du premier &#233;v&#232;nement
+var COL_Status       = 6 // Status</globalScriptView>
+  <onload class="script"> </onload>
+  <onquit class="script"></onquit>
+</scripts>
