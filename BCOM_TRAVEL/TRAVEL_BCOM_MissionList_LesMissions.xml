@@ -91,7 +91,7 @@
         <format class="text"></format>
         <kind class="edittype">regular</kind>
         <separator class="separator"></separator>
-        <hidden class="boolean">true</hidden>
+        <hidden class="boolean">false</hidden>
         <enable class="boolean">true</enable>
         <posx class="number">1111</posx>
         <posy class="number">352</posy>
@@ -201,7 +201,7 @@
         <format class="text"></format>
         <kind class="edittype">regular</kind>
         <separator class="separator"></separator>
-        <hidden class="boolean">true</hidden>
+        <hidden class="boolean">false</hidden>
         <enable class="boolean">true</enable>
         <posx class="number">1109</posx>
         <posy class="number">416</posy>
@@ -229,8 +229,8 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">7</posx>
-        <posy class="number">92</posy>
+        <posx class="number">3</posx>
+        <posy class="number">56</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">1070</sizex>
@@ -522,7 +522,10 @@
          filter = filter + &quot;RAS_END_DATE &lt;= &apos;&quot; + SQL_DATE_FORMAT.format(DATE_FORMAT.parse(Fin)) + &quot;&apos;&quot;;
     }
   
-    meibo.getField(&quot;filters&quot;).setValue(filter); 
+  filter = filter + &quot; AND TST_ABBREV = &apos;CRE&apos; ORDER BY TMN_ID &quot;;
+  //filter = filter + &quot; AND TST_ABBREV = &apos;CRE&apos; AND STATUS_DATE = (SELECT  max(TST_TMN_DATE) FROM R_TST_TMN rtst2 WHERE rtst2.TMN_ID = TMN_ID)ORDER BY TMN_ID &quot;;
+
+  meibo.getField(&quot;filters&quot;).setValue(filter); 
 
   //Recherche et afichage table 1
          
@@ -536,10 +539,7 @@ var datesp;
   var d;
   var d1;
   var DATE_FORMAT = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
-            
-  
-
- 
+        
 
 for (var row = 0; row &lt;nbMissions-1; row++) {
   
@@ -564,10 +564,6 @@ for (var row = 0; row &lt;nbMissions-1; row++) {
            }
        }
   }
-
-
-  
-  
 
   if( nbMissions == 0 ) {
     meibo.getField(&quot;nmissions&quot;).setValue(&quot;Aucune mission ne correspond aux crit&#232;res&quot;);
@@ -601,10 +597,7 @@ for (var row = 0; row &lt;nbMissions-1; row++) {
     missionEventRS = meibo.executeLink(&quot;MissionEvent&quot;, missionDn,&quot;TET_NAME,TCT_START_DATE,TCT_DURATION&quot;);
     //missionTable.addRawCell(row,COL_MissionId,&quot;&lt;span title=\&quot;blabla\&quot;&gt;&quot; + missionTable.getCell(row,COL_MissionId) + &quot;&lt;/span&gt;&quot;);
     missionTable.addCell(row,COL_FirstEvent,missionEventRS.getEntry().TET_NAME[0]);
-  }
-
-  // La description d&apos;une mission ne doit pas &#234;tre affich&#233; par d&#233;faut
-  //meibo.showField(&quot;OBJ_descriptionMission&quot;,false);</onclick>
+  }</onclick>
                     <submit class="boolean">false</submit>
                     <separator0 class="separator"></separator0>
                     <confirmation class="boolean">false</confirmation>
@@ -922,6 +915,8 @@ var fin     = missionTable.getCell(row,COL_DateFin);
 //meibo.showField(&quot;Participant_box&quot;,true);
 
 meibo.showField(&quot;OBJ_descriptionParticipants&quot;,true);
+meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs&quot;,false);
+meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,false);
 //meibo.showField(&quot;OBJ_participant&quot;,true);
 meibo.getField(&quot;OBJ_participant&quot;).setValue(&quot;Mission de &quot;+name+&quot; &quot;+surname+&quot; du &quot;+debut+&quot; au &quot;+fin);
 meibo.showField(&quot;OBJ_listeEvents&quot;,true);
@@ -1057,6 +1052,8 @@ var fin     = missionTable.getCell(row,COL_DateFin);
 
 //meibo.showField(&quot;Participant_box&quot;,true);
 meibo.showField(&quot;OBJ_descriptionParticipants1&quot;,true);
+meibo.showField(&quot;OBJ_AnnonceListeAccompagnateurs1&quot;,false);
+meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,false);
 //meibo.showField(&quot;OBJ_participant1&quot;,true);
 meibo.getField(&quot;OBJ_participant1&quot;).setValue(&quot;Mission de &quot;+name+&quot; &quot;+surname+&quot; du &quot;+debut+&quot; au &quot;+fin);
 meibo.showField(&quot;OBJ_listeEvents1&quot;,true);
@@ -1156,7 +1153,7 @@ for (var row = 0; row &lt; nbEvents; row++) {
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">502</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">29</sizey>
+                    <sizey class="number">28</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">OBJ_descriptionParticipants</name>
@@ -1325,13 +1322,13 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,true);</ondoubleclick>
                     </tooltip>
                     <separator class="separator"></separator>
                     <hidden class="boolean">true</hidden>
-                    <posx class="number">-111</posx>
-                    <posy class="number">735</posy>
+                    <posx class="number">23</posx>
+                    <posy class="number">605</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">500</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">33</sizey>
+                    <sizey class="number">57</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">OBJ_listeAccompagnateurs</name>
@@ -1438,7 +1435,7 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs&quot;,true);</ondoubleclick>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">502</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">29</sizey>
+                    <sizey class="number">28</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">OBJ_descriptionParticipants1</name>
@@ -1607,13 +1604,13 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
                     </tooltip>
                     <separator class="separator"></separator>
                     <hidden class="boolean">true</hidden>
-                    <posx class="number">526</posx>
-                    <posy class="number">746</posy>
+                    <posx class="number">556</posx>
+                    <posy class="number">617</posy>
                     <sizextype class="sizetype">FIXED</sizextype>
                     <altersizex class="hidden">30</altersizex>
                     <sizex class="number">500</sizex>
                     <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
-                    <sizey class="number">26</sizey>
+                    <sizey class="number">57</sizey>
                     <altersizey class="hidden">30</altersizey>
                     <alty class="hidden">0</alty>
                     <name class="text">OBJ_listeAccompagnateurs1</name>
@@ -1633,68 +1630,6 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
           </horizontallayout>
         </childs>
       </verticallayout>
-      <image>
-        <image class="file">images/bcom.png</image>
-        <css class="css"></css>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">655</posx>
-        <posy class="number">50</posy>
-        <sizextype class="sizetype">FIXED</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">47</sizex>
-        <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">19</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">e20897300005927</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </image>
-      <image>
-        <image class="file">images/missions.png</image>
-        <css class="css"></css>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">449</posx>
-        <posy class="number">17</posy>
-        <sizextype class="sizetype">FIXED</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">199</sizex>
-        <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">64</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">z20897300061638</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </image>
       <textarea>
         <content class="lingual">
           <fr></fr>
@@ -1727,61 +1662,6 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
           </fieldPart>
         </components>
       </textarea>
-      <button>
-        <content class="lingual">
-          <fr>Bouton</fr>
-        </content>
-        <wordwrap class="boolean">false</wordwrap>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <tabindex class="number"></tabindex>
-        <onclick class="script"></onclick>
-        <submit class="boolean">false</submit>
-        <separator0 class="separator"></separator0>
-        <confirmation class="boolean">false</confirmation>
-        <confirmationdialogmessage class="lingual">
-          <fr></fr>
-        </confirmationdialogmessage>
-        <confirmationdialogtitle class="lingual">
-          <fr></fr>
-        </confirmationdialogtitle>
-        <theme class="theme"></theme>
-        <css class="css"></css>
-        <separator1 class="separator"></separator1>
-        <waitbutton class="boolean">true</waitbutton>
-        <waitingmode class="waitingmode">none</waitingmode>
-        <progressbartitle class="lingual">
-          <fr></fr>
-        </progressbartitle>
-        <progressbarnboperationtext class="lingual">
-          <fr></fr>
-        </progressbarnboperationtext>
-        <progressbarnboperationdonetext class="lingual">
-          <fr></fr>
-        </progressbarnboperationdonetext>
-        <prescript class="script"></prescript>
-        <separator2 class="separator"></separator2>
-        <image class="file"></image>
-        <image2 class="file"></image2>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <enable class="boolean">true</enable>
-        <posx class="number">664</posx>
-        <posy class="number">783</posy>
-        <sizextype class="sizetype">FIXED</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">73</sizex>
-        <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">22</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">w208973001994610</id>
-      </button>
       <multilist>
         <content class="text">STATUS_DATE</content>
         <tablecss class="css"></tablecss>
@@ -1874,6 +1754,47 @@ meibo.showField(&quot;OBJ_listeAccompagnateurs1&quot;,true);</ondoubleclick>
         <name class="text">statusdate1</name>
         <id class="hidden">x250461491665806</id>
       </multilist>
+      <label>
+        <content class="lingual">
+          <fr>Les Missions</fr>
+        </content>
+        <wordwrap class="boolean">false</wordwrap>
+        <alignment class="alignment">left</alignment>
+        <css class="css"> title</css>
+        <linklabelid class="text"></linklabelid>
+        <tooltip class="lingual">
+          <fr></fr>
+        </tooltip>
+        <mail class="boolean">false</mail>
+        <separator class="separator"></separator>
+        <hidden class="boolean">false</hidden>
+        <posx class="number">23</posx>
+        <posy class="number">27</posy>
+        <sizextype class="sizetype">AUTOMATICSIZING</sizextype>
+        <altersizex class="hidden">30</altersizex>
+        <sizex class="number">106</sizex>
+        <sizeytype class="sizetype">AUTOMATICSIZING</sizeytype>
+        <sizey class="number">23</sizey>
+        <altersizey class="hidden">30</altersizey>
+        <alty class="hidden">0</alty>
+        <name class="text"></name>
+        <id class="hidden">b54917770501739</id>
+        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
+        <components class="components">
+          <fieldPart class="node" en="" fr="">
+            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
+              <pattern class="lingual">
+                <fr>{0}</fr>
+              </pattern>
+              <attrs class="linkattrs"></attrs>
+              <clickable class="boolean">false</clickable>
+              <resource class="resource_blank"></resource>
+              <multivalue class="boolean">false</multivalue>
+              <field class="field"></field>
+            </values>
+          </fieldPart>
+        </components>
+      </label>
     </page>
   </destination>
   <styles>

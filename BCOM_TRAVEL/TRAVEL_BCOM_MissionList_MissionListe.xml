@@ -119,8 +119,8 @@
         <theme class="theme"></theme>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">15</posx>
-        <posy class="number">96</posy>
+        <posx class="number">11</posx>
+        <posy class="number">80</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
         <sizex class="number">548</sizex>
@@ -709,37 +709,6 @@ meibo.showField(&quot;Edition&quot;,true);</ondoubleclick>
         </childs>
       </verticallayout>
       <image>
-        <image class="file">images/bcom.png</image>
-        <css class="css"></css>
-        <alt class="lingual">
-          <fr></fr>
-        </alt>
-        <tooltip class="lingual">
-          <fr></fr>
-        </tooltip>
-        <separator class="separator"></separator>
-        <hidden class="boolean">false</hidden>
-        <posx class="number">655</posx>
-        <posy class="number">50</posy>
-        <sizextype class="sizetype">FIXED</sizextype>
-        <altersizex class="hidden">30</altersizex>
-        <sizex class="number">47</sizex>
-        <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">19</sizey>
-        <altersizey class="hidden">30</altersizey>
-        <alty class="hidden">0</alty>
-        <name class="text"></name>
-        <id class="hidden">e238069928204386</id>
-        <fieldButton class="node" component_en="Link to a directory field" component_fr="Lier &#224; un attribut annuaire" components="fieldPart" en="" fr="" indexed="local" maxcomp="1"></fieldButton>
-        <components class="components">
-          <fieldPart class="node" en="" fr="">
-            <values class="node" delete_en="Delete" delete_fr="Supprimer" en="" fr="" indexed="father" position="false">
-              <field class="field"></field>
-            </values>
-          </fieldPart>
-        </components>
-      </image>
-      <image>
         <image class="file">images/missions.png</image>
         <css class="css"></css>
         <alt class="lingual">
@@ -750,13 +719,13 @@ meibo.showField(&quot;Edition&quot;,true);</ondoubleclick>
         </tooltip>
         <separator class="separator"></separator>
         <hidden class="boolean">false</hidden>
-        <posx class="number">449</posx>
+        <posx class="number">13</posx>
         <posy class="number">17</posy>
         <sizextype class="sizetype">FIXED</sizextype>
         <altersizex class="hidden">30</altersizex>
-        <sizex class="number">199</sizex>
+        <sizex class="number">164</sizex>
         <sizeytype class="sizetype">FIXED</sizeytype>
-        <sizey class="number">64</sizey>
+        <sizey class="number">45</sizey>
         <altersizey class="hidden">30</altersizey>
         <alty class="hidden">0</alty>
         <name class="text"></name>

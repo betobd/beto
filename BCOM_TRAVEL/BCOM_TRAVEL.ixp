@@ -5924,7 +5924,15 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           </properties>
           <path>TRAVEL_BCOM_Mission_MissionUpdate.xml</path>
           <class></class>
-          <rights></rights>
+          <rights>
+            <AdminMeibo>true</AdminMeibo>
+            <AnalyseurDeplacement>true</AnalyseurDeplacement>
+            <DDI>true</DDI>
+            <InitiateurDeplacement>true</InitiateurDeplacement>
+            <OrganisateurVoyage>true</OrganisateurVoyage>
+            <Studio>true</Studio>
+            <Utilisateur>true</Utilisateur>
+          </rights>
         </sequence>
       </resource>
       <resource name="MissionList">
@@ -5970,7 +5978,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
           <TMN_ID class="label">MAY  - Long - INT - SINGLE-VALUED</TMN_ID>
           <TST_ABBREV class="label">MAY  - Text - VARCHAR - SINGLE-VALUED</TST_ABBREV>
         </attributetable>
-        <sequence name="MissionListe" type="4">
+        <sequence name="MesMissions" type="4">
           <properties>
             <displayname class="lingual">
               <fr>MissionListe</fr>
@@ -5981,7 +5989,7 @@ if ((scriptedAttributes !=null) &amp;&amp; (&quot;displayName&quot; in scriptedA
             <onload class="extscript"></onload>
             <onquit class="extscript"></onquit>
           </properties>
-          <path>TRAVEL_BCOM_MissionList_MissionListe.xml</path>
+          <path>TRAVEL_BCOM_MissionList_MesMissions.xml</path>
           <class></class>
           <rights>
             <AdminMeibo>true</AdminMeibo>

@@ -235,7 +235,7 @@
                 <tooltip class="lingual">
                   <fr></fr>
                 </tooltip>
-                <parameters class="viewchooser" valueToPrint="MissionList/MissionListe">$MissionList/MissionListe</parameters>
+                <parameters class="viewchooser" valueToPrint="MissionList/MesMissions">$MissionList/MesMissions</parameters>
                 <framehyp class="frame">_self</framehyp>
                 <separatorImg class="separator"></separatorImg>
                 <image class="file">images/folder_48.png</image>
